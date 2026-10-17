@@ -1,8 +1,4 @@
-@import '@fontsource/unbounded/500';
-@import '@fontsource/unbounded/800';
-@import '@fontsource/public-sans/400';
-@import '@fontsource/public-sans/700';
-@import '@fontsource/commit-mono/400';
+@import './fonts.css';
 @import './theme.css';
 @import './base.css';
 @import './demo.css';

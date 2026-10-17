@@ -5,7 +5,7 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
-const font = (pkg, file) => pathToFileURL(join(ROOT, 'node_modules/@fontsource', pkg, 'files', file)).href
+const font = (_pkg, file) => pathToFileURL(join(ROOT, 'public/fonts', file)).href
 const html = `<!doctype html><html><head><style>
 @font-face { font-family: Unbounded; font-weight: 800; src: url(${font('unbounded', 'unbounded-latin-800-normal.woff2')}); }
 @font-face { font-family: 'Public Sans'; font-weight: 400; src: url(${font('public-sans', 'public-sans-latin-400-normal.woff2')}); }
