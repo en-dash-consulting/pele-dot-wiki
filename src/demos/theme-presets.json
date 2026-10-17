@@ -1,0 +1,86 @@
+{
+ "day": {
+  "label": "Day service",
+  "bg": "#ffffff",
+  "fg": "#111111",
+  "line": "#111111",
+  "surface": "#f2f2f2",
+  "border": "#111111",
+  "accent": "#d52b1e",
+  "series": [
+   "#d52b1e",
+   "#00843d",
+   "#f5a800"
+  ]
+ },
+ "night": {
+  "label": "Night service",
+  "bg": "#121417",
+  "fg": "#f2f2ef",
+  "line": "#f2f2ef",
+  "surface": "#272b31",
+  "border": "#a7acb3",
+  "accent": "#ffbd2e",
+  "series": [
+   "#f04a3c",
+   "#1fae5f",
+   "#ffbd2e"
+  ]
+ },
+ "vault": {
+  "label": "Purple vault",
+  "bg": "#1e1e1e",
+  "fg": "#dcddde",
+  "line": "#a68af9",
+  "surface": "#2a2a2a",
+  "border": "#7f6df2",
+  "accent": "#7f6df2",
+  "series": [
+   "#7f6df2",
+   "#a68af9",
+   "#4b3a8f"
+  ]
+ },
+ "blueprint": {
+  "label": "Blueprint",
+  "bg": "#0b3d91",
+  "fg": "#ffffff",
+  "line": "#cfe0ff",
+  "surface": "#174ea6",
+  "border": "#ffffff",
+  "accent": "#ffd400",
+  "series": [
+   "#ffd400",
+   "#cfe0ff",
+   "#7fb2ff"
+  ]
+ },
+ "mint": {
+  "label": "Mint",
+  "bg": "#e9f7f0",
+  "fg": "#0d3b2a",
+  "line": "#0d3b2a",
+  "surface": "#c7ecd9",
+  "border": "#127a52",
+  "accent": "#127a52",
+  "series": [
+   "#127a52",
+   "#3fb37f",
+   "#9bdcbc"
+  ]
+ },
+ "contrast": {
+  "label": "High contrast",
+  "bg": "#000000",
+  "fg": "#ffffff",
+  "line": "#ffffff",
+  "surface": "#000000",
+  "border": "#ffff00",
+  "accent": "#ffff00",
+  "series": [
+   "#ffff00",
+   "#00ffff",
+   "#ff66ff"
+  ]
+ }
+}

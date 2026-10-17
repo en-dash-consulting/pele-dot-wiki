@@ -2,6 +2,7 @@ import { mount, ensure, type Mounted } from '../lib/pele-lite'
 import { mermaidSvg } from '../lib/mermaid'
 import { visible } from '../lib/when'
 import { $ } from '../lib/dom'
+import presets from './theme-presets.json'
 
 const SOURCES: Record<string, string> = {
   flow: `flowchart LR
@@ -21,14 +22,7 @@ const SOURCES: Record<string, string> = {
 }
 
 type Theme = { bg: string; fg: string; line: string; surface: string; border: string; accent: string; series: string[] }
-const PRESETS: Record<string, Theme & { label: string }> = {
-  day: { label: 'Day service', bg: '#ffffff', fg: '#111111', line: '#111111', surface: '#f2f2f2', border: '#111111', accent: '#d52b1e', series: ['#d52b1e', '#00843d', '#f5a800'] },
-  night: { label: 'Night service', bg: '#121417', fg: '#f2f2ef', line: '#f2f2ef', surface: '#272b31', border: '#a7acb3', accent: '#ffbd2e', series: ['#f04a3c', '#1fae5f', '#ffbd2e'] },
-  vault: { label: 'Purple vault', bg: '#1e1e1e', fg: '#dcddde', line: '#a68af9', surface: '#2a2a2a', border: '#7f6df2', accent: '#7f6df2', series: ['#7f6df2', '#a68af9', '#4b3a8f'] },
-  blueprint: { label: 'Blueprint', bg: '#0b3d91', fg: '#ffffff', line: '#cfe0ff', surface: '#174ea6', border: '#ffffff', accent: '#ffd400', series: ['#ffd400', '#cfe0ff', '#7fb2ff'] },
-  mint: { label: 'Mint', bg: '#e9f7f0', fg: '#0d3b2a', line: '#0d3b2a', surface: '#c7ecd9', border: '#127a52', accent: '#127a52', series: ['#127a52', '#3fb37f', '#9bdcbc'] },
-  contrast: { label: 'High contrast', bg: '#000000', fg: '#ffffff', line: '#ffffff', surface: '#000000', border: '#ffff00', accent: '#ffff00', series: ['#ffff00', '#00ffff', '#ff66ff'] },
-}
+const PRESETS = presets as Record<string, Theme & { label: string }>
 
 export async function mountThemeLab(root: HTMLElement) {
   await ensure('pie', 'sequence')
@@ -93,17 +87,16 @@ export async function mountThemeLab(root: HTMLElement) {
   const touch = () => { if (!touched) { touched = true; baseline = peleRenders } }
   const showPele = () => { peleN.textContent = String(Math.max(0, base())); peleNote.textContent = peleRelayouts ? 'only for the font change: new letters need new measurements' : 'colours only change CSS' }
 
-  for (const [key, p] of Object.entries(PRESETS)) {
-    const b = document.createElement('button')
-    b.type = 'button'; b.className = 'chip'; b.dataset.preset = key; b.setAttribute('aria-pressed', String(key === 'day'))
-    b.innerHTML = `<span class="dot" style="--c:${p.accent}" aria-hidden="true"></span>${p.label}`
+  // The preset buttons are in the page markup (scripts/demo-ui.mjs); this wires them up.
+  for (const b of presetsEl.querySelectorAll<HTMLButtonElement>('.chip')) {
+    const p = PRESETS[b.dataset.preset ?? '']
+    if (!p) continue
     b.addEventListener('click', () => {
       touch()
       theme = { ...p }
       presetsEl.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === b)))
       apply(); showPele()
     })
-    presetsEl.append(b)
   }
   for (const i of inputs) i.addEventListener('input', () => {
     touch();

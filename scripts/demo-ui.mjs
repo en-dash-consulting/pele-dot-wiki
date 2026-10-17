@@ -2,6 +2,10 @@
 import { readFileSync } from 'node:fs'
 
 const EXAMPLES = JSON.parse(readFileSync(new URL('../src/demos/examples.json', import.meta.url), 'utf8'))
+const PRESETS = JSON.parse(readFileSync(new URL('../src/demos/theme-presets.json', import.meta.url), 'utf8'))
+const D = PRESETS.day
+const BOARD_STYLE = [`--pele-bg: ${D.bg};`, `--pele-fg: ${D.fg};`, `--pele-line: ${D.line};`, `--pele-surface: ${D.surface};`, `--pele-surface-alt: ${D.surface};`, `--pele-border: ${D.border};`, `--pele-accent: ${D.accent};`, `--pele-muted: ${D.fg};`,
+  ...D.series.map((c, i) => `--pele-series-${i + 1}: ${c};`), `--pele-font: 'Montserrat', system-ui, sans-serif;`, `--pele-radius: 4px;`].join(' ')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 export const HERO_ART = `<svg class="hero-art" viewBox="0 0 620 420" role="img" aria-label="Transit map of how Pele works: Mermaid text runs through parse and layout to SVG, with branch lines to theme and phone">
@@ -64,10 +68,10 @@ export const THEME_LAB = () => `<section class="demo lab" aria-labelledby="lab-t
   <h2 id="lab-title" class="visually-hidden">Live demo: restyle diagrams with CSS variables</h2>
   <div class="lab-grid">
     <div class="lab-controls">
-      <fieldset class="lab-presets"><legend>Pick a look</legend><div id="lab-presets" class="chip-row"></div></fieldset>
+      <fieldset class="lab-presets"><legend>Pick a look</legend><div id="lab-presets" class="chip-row">${Object.entries(PRESETS).map(([k, p]) => `<button type="button" class="chip" data-preset="${k}" aria-pressed="${k === 'day'}"><span class="dot" style="--c:${p.accent}" aria-hidden="true"></span>${p.label}</button>`).join('')}</div></fieldset>
       <fieldset><legend>Or fine-tune it</legend>
         <div class="lab-colors">
-          ${[['bg', 'Background'], ['fg', 'Text'], ['line', 'Lines'], ['surface', 'Box fill'], ['border', 'Box border'], ['accent', 'Accent']].map(([k, l]) => `<label class="swatch"><input type="color" id="lab-${k}" data-var="--pele-${k}" /><span>${l}</span></label>`).join('')}
+          ${[['bg', 'Background'], ['fg', 'Text'], ['line', 'Lines'], ['surface', 'Box fill'], ['border', 'Box border'], ['accent', 'Accent']].map(([k, l]) => `<label class="swatch"><input type="color" id="lab-${k}" data-var="--pele-${k}" value="${PRESETS.day[k]}" /><span>${l}</span></label>`).join('')}
         </div>
         <label class="lab-field" for="lab-font">Font</label>
         <select id="lab-font"><option value="'Montserrat', system-ui, sans-serif">Montserrat</option><option value="'Merriweather', Georgia, serif">Merriweather</option><option value="'Commit Mono', monospace">Commit Mono</option><option value="Georgia, serif">Georgia</option></select>
@@ -76,7 +80,7 @@ export const THEME_LAB = () => `<section class="demo lab" aria-labelledby="lab-t
       </fieldset>
     </div>
     <div class="lab-stage">
-      <div id="lab-board" class="lab-board">
+      <div id="lab-board" class="lab-board" style="${BOARD_STYLE}">
         <div class="lab-dia" data-src="flow" role="img" aria-label="Flowchart drawn by Pele: idea, draft, review, ship"></div>
         <div class="lab-dia" data-src="pie" role="img" aria-label="Pie chart drawn by Pele: where the time goes"></div>
         <div class="lab-dia lab-wide" data-src="seq" role="img" aria-label="Sequence diagram drawn by Pele: changing a colour variable updates every diagram"></div>

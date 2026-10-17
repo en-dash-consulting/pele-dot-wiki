@@ -14,7 +14,7 @@ export const TARGETS = [
 ]
 export function prerenderKey() {
   const files = [
-    'node_modules/pele/package.json', 'src/demos/examples.json', 'src/demos/type-race.ts', 'src/demos/theme-lab.ts', 'src/demos/phone.ts',
+    'node_modules/pele/package.json', 'src/demos/examples.json', 'src/demos/theme-presets.json', 'src/demos/type-race.ts', 'src/demos/theme-lab.ts', 'src/demos/phone.ts',
     'src/lib/pele-lite.ts', ...readdirSync(join(ROOT, 'src/styles')).sort().map(f => `src/styles/${f}`),
   ]
   const h = createHash('sha256')

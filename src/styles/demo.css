@@ -158,3 +158,5 @@ legend { padding: 0; margin-bottom: var(--s-3); font: 800 1rem var(--font-displa
 /* Controls use the UI face, even where a rule above resets font to inherit. */
 .chip, .button, .bar-label, .gl-actions button, .sf-presets button { font-family: var(--font-ui); }
 .chip { font-weight: 700; font-size: .92rem; letter-spacing: -.005em; }
+/* Readouts start as "–"; reserve their width so filling them in never nudges the layout. */
+.tr-ms-wrap .tr-ms, .ph-read .tr-ms { display: inline-block; min-width: 7ch; text-align: end; }
