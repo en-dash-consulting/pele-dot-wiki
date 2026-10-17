@@ -2,12 +2,13 @@
 id: "8b17cbbc-7203-482c-861b-a8a549afb7d6"
 level: "feature"
 title: "Site scaffold mirrored from handwired.wiki"
-status: "pending"
+status: "completed"
 priority: "critical"
 startedAt: "2026-10-17T17:06:31.329Z"
-endedAt: "2026-10-17T17:06:34.471Z"
+completedAt: "2026-10-17T18:17:26.359Z"
+endedAt: "2026-10-17T18:17:26.359Z"
 acceptanceCriteria: []
-lastModified: "2026-10-17T17:06:34.797Z"
+lastModified: "2026-10-17T18:17:26.384Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
 
