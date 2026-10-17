@@ -2,10 +2,10 @@
 id: "dcf35ed2-b590-4111-b4dc-fb9b72abd60d"
 level: "task"
 title: "Enforce HTTPS once cert issues; verify apex + www live"
-status: "pending"
+status: "blocked"
 acceptanceCriteria:
   - "https://pele.wiki returns 200"
   - "http and www redirect"
-lastModified: "2026-10-17T17:06:36.262Z"
+lastModified: "2026-10-17T17:08:47.907Z"
 lastModifiedBy: "Nick Daniel <nick@endash.us>"
 ---
