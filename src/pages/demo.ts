@@ -1,4 +1,5 @@
 import '../lib/site'
+import { whenNeeded } from '../lib/when'
 
 const el = document.querySelector<HTMLElement>('[data-demo]')
 const status = document.getElementById('demo-status')
@@ -10,10 +11,11 @@ const loaders: Record<string, () => Promise<(root: HTMLElement) => unknown>> = {
   gallery: () => import('../demos/gallery').then(m => m.mountGallery),
   safety: () => import('../demos/safety').then(m => m.mountSafety),
 }
-if (el) {
-  const load = loaders[el.dataset.demo ?? '']
-  if (load) load().then(mountFn => {
-    (window as unknown as { demo: unknown }).demo = mountFn(el)
+// Each demo is drawn at build time where possible; its code loads when the reader reaches or touches it.
+const load = el ? loaders[el.dataset.demo ?? ''] : undefined
+if (el && load) whenNeeded(el, () => {
+  load().then(async mountFn => {
+    (window as unknown as { demo: unknown }).demo = await mountFn(el)
     if (status) { status.textContent = '✓ Live: running pele 1.6.0 in your browser'; status.classList.add('ok') }
   }).catch(err => { if (status) status.textContent = `This demo could not start: ${String(err)}`; throw err })
-}
+}, '100px 0px')

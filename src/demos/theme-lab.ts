@@ -1,5 +1,6 @@
-import { mount, type Mounted } from '../lib/pele-lite'
+import { mount, ensure, type Mounted } from '../lib/pele-lite'
 import { mermaidSvg } from '../lib/mermaid'
+import { visible } from '../lib/when'
 import { $ } from '../lib/dom'
 
 const SOURCES: Record<string, string> = {
@@ -29,7 +30,8 @@ const PRESETS: Record<string, Theme & { label: string }> = {
   contrast: { label: 'High contrast', bg: '#000000', fg: '#ffffff', line: '#ffffff', surface: '#000000', border: '#ffff00', accent: '#ffff00', series: ['#ffff00', '#00ffff', '#ff66ff'] },
 }
 
-export function mountThemeLab(root: HTMLElement) {
+export async function mountThemeLab(root: HTMLElement) {
+  await ensure('pie', 'sequence')
   const board = $<HTMLElement>(root, '#lab-board')
   const code = $<HTMLElement>(root, '#lab-code')
   const peleN = $<HTMLOutputElement>(root, '#lab-pele-n')
@@ -62,8 +64,11 @@ export function mountThemeLab(root: HTMLElement) {
     queueMermaid()
   }
 
-  let mmTimer = 0, mmBusy = false
+  let mmTimer = 0, mmBusy = false, mmSeen = false
+  // Mermaid.js is about 1.6 MB: fetch it only when its panel is about to be seen.
+  visible(mmBox, () => { mmSeen = true; queueMermaid() })
   function queueMermaid() {
+    if (!mmSeen) return
     window.clearTimeout(mmTimer)
     mmTimer = window.setTimeout(async () => {
       if (mmBusy) return queueMermaid()

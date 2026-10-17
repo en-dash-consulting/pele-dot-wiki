@@ -1,4 +1,8 @@
 // Static markup for demos and the hero art. Behaviour lives in src/demos/*.ts.
+import { readFileSync } from 'node:fs'
+
+const EXAMPLES = JSON.parse(readFileSync(new URL('../src/demos/examples.json', import.meta.url), 'utf8'))
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 export const HERO_ART = `<svg class="hero-art" viewBox="0 0 620 420" role="img" aria-label="Transit map of how Pele works: Mermaid text runs through parse and layout to SVG, with branch lines to theme and phone">
   <path class="line l1" d="M30 70 H250 L320 140 V300 L380 360 H590"/>
@@ -21,7 +25,7 @@ export const TYPE_RACE = () => `<section class="demo type-race" aria-labelledby=
   <div class="tr-grid">
     <div class="tr-editor">
       <label for="tr-src" class="tr-label">Mermaid text <span class="hint">· edit me</span></label>
-      <textarea id="tr-src" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" rows="11"></textarea>
+      <textarea id="tr-src" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" rows="11">${esc(EXAMPLES.flow)}</textarea>
     </div>
     <figure class="tr-pane tr-pele">
       <figcaption><span class="tr-name">Pele</span><span class="tr-ms-wrap">each redraw <output id="tr-pele-ms" class="tr-ms">–</output></span></figcaption>

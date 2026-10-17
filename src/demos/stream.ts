@@ -1,6 +1,7 @@
 import { render } from '../lib/pele-lite'
 import { loadMermaid, mermaidSvg } from '../lib/mermaid'
 import { $ } from '../lib/dom'
+import { visible } from '../lib/when'
 
 // A scripted assistant reply: prose, a mermaid block, more prose. Streamed in small chunks like a real model.
 const BEFORE = 'Sure. A shopper goes from cart to payment, signs in if needed, and we only ship what is in stock:\n'
@@ -89,5 +90,6 @@ export function mountStream(root: HTMLElement) {
     const parts = chunks(FULL)
     step(parts, 0, Math.round(1000 / Number(speed.value)))
   })
-  void loadMermaid()
+  // Mermaid.js is about 1.6 MB: fetch it early only once its side is about to be seen (Ask also waits for it).
+  visible(M.dia, () => void loadMermaid())
 }
