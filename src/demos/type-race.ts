@@ -96,9 +96,11 @@ export function mountTypeRace(root: HTMLElement) {
     ready = true; behind = 1
     await drawMermaid()
   }
-  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); void start() } }, { rootMargin: '600px 0px' })
-  io.observe(root)
-  window.setTimeout(() => void start(), 2500)
+  // Fetch Mermaid.js (the big download) only once its pane is close to the screen, and after the page has
+  // painted, so it never competes with the first view. Focusing the editor also starts it.
+  const later = () => { if (typeof requestIdleCallback === 'function') requestIdleCallback(() => void start(), { timeout: 1200 }); else setTimeout(() => void start(), 300) }
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true }) } }, { rootMargin: '200px 0px' })
+  io.observe(mmOut)
   src.addEventListener('focus', () => void start(), { once: true })
 
   return { stats, setText(text: string) { src.value = text; onEdit() } }

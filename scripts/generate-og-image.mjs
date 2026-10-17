@@ -7,8 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const font = (_pkg, file) => pathToFileURL(join(ROOT, 'public/fonts', file)).href
 const html = `<!doctype html><html><head><style>
-@font-face { font-family: Montserrat; font-weight: 800; src: url(${font('', 'montserrat-latin-800-normal.woff2')}); }
-@font-face { font-family: Montserrat; font-weight: 700; src: url(${font('', 'montserrat-latin-700-normal.woff2')}); }
+@font-face { font-family: Montserrat; font-weight: 100 900; src: url(${font('', 'montserrat-latin-wght-normal.woff2')}); }
 @font-face { font-family: Merriweather; font-weight: 400; src: url(${font('', 'merriweather-latin-400-normal.woff2')}); }
 @font-face { font-family: Merriweather; font-weight: 700; src: url(${font('', 'merriweather-latin-700-normal.woff2')}); }
 body { margin: 0; width: 1200px; height: 630px; background: #fff; color: #111; font-family: Merriweather; overflow: hidden; position: relative; }

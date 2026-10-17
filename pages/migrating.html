@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/migrating.html" />
   <link rel="alternate" type="text/markdown" href="/md/migrating.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -184,16 +181,16 @@
 <td>Nothing to set up</td>
 </tr>
 <tr>
-<td><code>await mermaid.render(id, text)</code></td>
-<td><code>render(text)</code>, synchronous</td>
+<td><code class="nw">await mermaid.render(id, text)</code></td>
+<td><code class="nw">render(text)</code>, synchronous</td>
 </tr>
 <tr>
-<td><code>mermaid.run({ nodes })</code></td>
-<td><code>mount(el, el.textContent)</code> for each element</td>
+<td><code class="nw">mermaid.run({ nodes })</code></td>
+<td><code class="nw">mount(el, el.textContent)</code> for each element</td>
 </tr>
 <tr>
-<td><code>mermaid.parse(text)</code></td>
-<td><code>parse(text)</code> or <code>supports(text)</code></td>
+<td><code class="nw">mermaid.parse(text)</code></td>
+<td><code class="nw">parse(text)</code> or <code class="nw">supports(text)</code></td>
 </tr>
 </tbody></table></div>
 <pre tabindex="0"><code class="language-js">// before
@@ -203,11 +200,11 @@ import { render } from &#39;pele&#39;
 const { svg } = render(text)
 </code></pre>
 <h2 id="2-move-your-theme-into-css">2. Move your theme into CSS</h2>
-<p>Mermaid&#39;s <code>theme</code> and <code>themeVariables</code> don&#39;t apply. Map them to <a href="/pages/theming.html">Pele&#39;s CSS variables</a> once; dark mode then comes free with a media query.</p>
+<p>Mermaid&#39;s <code class="nw">theme</code> and <code class="nw">themeVariables</code> don&#39;t apply. Map them to <a href="/pages/theming.html">Pele&#39;s CSS variables</a> once; dark mode then comes free with a media query.</p>
 <h2 id="what-looks-different">What looks different</h2>
 <p>Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. Most diagrams look cleaner; a few may need a nudge. Specifics:</p>
 <ul>
-<li>A subgraph keeps its own <code>direction</code> even when it links to nodes outside it.</li>
+<li>A subgraph keeps its own <code class="nw">direction</code> even when it links to nodes outside it.</li>
 <li>Labels support line breaks, bold and italic, but not arbitrary HTML.</li>
 <li>On narrow screens diagrams change layout instead of shrinking (see <a href="/pages/responsive.html">responsive layouts</a>).</li>
 </ul>
@@ -215,10 +212,10 @@ const { svg } = render(text)
 <ul>
 <li><strong>JavaScript click callbacks</strong> (link clicks work).</li>
 <li><strong>ZenUML and other external Mermaid plugins.</strong></li>
-<li><strong>Font Awesome icons by name</strong> unless you pass an <code>icons</code> resolver.</li>
+<li><strong>Font Awesome icons by name</strong> unless you pass an <code class="nw">icons</code> resolver.</li>
 </ul>
 <h2 id="a-safe-rollout">A safe rollout</h2>
-<p>Use <code>supports(text)</code> to check each diagram, draw with Pele when it says yes, and keep Mermaid.js as a lazy-loaded fallback until you&#39;ve checked your real diagrams in the <a href="/pages/gallery.html">gallery</a> or the <a href="https://pele.run/playground" rel="noopener">official playground</a>. If Pele misreads valid Mermaid 12.1.0 text, <a href="https://github.com/obsidianmd/pele/issues" rel="noopener">report the difference</a>.</p>
+<p>Use <code class="nw">supports(text)</code> to check each diagram, draw with Pele when it says yes, and keep Mermaid.js as a lazy-loaded fallback until you&#39;ve checked your real diagrams in the <a href="/pages/gallery.html">gallery</a> or the <a href="https://pele.run/playground" rel="noopener">official playground</a>. If Pele misreads valid Mermaid 12.1.0 text, <a href="https://github.com/obsidianmd/pele/issues" rel="noopener">report the difference</a>.</p>
 
     </article>
     

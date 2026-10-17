@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/responsive.html" />
   <link rel="alternate" type="text/markdown" href="/md/responsive.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -176,7 +173,7 @@
 <h2 id="what-pele-does-instead">What Pele does instead</h2>
 <pre tabindex="0"><code class="language-js">render(text, { maxWidth: container.clientWidth })
 </code></pre>
-<p>With <code>maxWidth</code>, Pele may wrap labels, tighten spacing, or turn the diagram to run downward. You can tune or switch off the turning:</p>
+<p>With <code class="nw">maxWidth</code>, Pele may wrap labels, tighten spacing, or turn the diagram to run downward. You can tune or switch off the turning:</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Table 1: Option, Default, What it does"><table>
 <thead>
 <tr>
@@ -186,27 +183,27 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>maxWidth</code></td>
+<td><code class="nw">maxWidth</code></td>
 <td>none</td>
 <td>The width you have, in pixels</td>
 </tr>
 <tr>
-<td><code>autoDirection</code></td>
-<td><code>true</code></td>
+<td><code class="nw">autoDirection</code></td>
+<td><code class="nw">true</code></td>
 <td>Let left-to-right layouts run top-to-bottom when narrow</td>
 </tr>
 <tr>
-<td><code>directionBreakpoint</code></td>
-<td><code>640</code></td>
+<td><code class="nw">directionBreakpoint</code></td>
+<td><code class="nw">640</code></td>
 <td>The width below which that happens</td>
 </tr>
 <tr>
-<td><code>responsive</code></td>
-<td><code>true</code></td>
-<td>Set <code>false</code> for a fixed pixel size</td>
+<td><code class="nw">responsive</code></td>
+<td><code class="nw">true</code></td>
+<td>Set <code class="nw">false</code> for a fixed pixel size</td>
 </tr>
 </tbody></table></div>
-<p>Some layouts still need more room than they get; those are scaled down as a last resort, and <code>mount()</code> then adds zoom buttons so readers can look closer.</p>
+<p>Some layouts still need more room than they get; those are scaled down as a last resort, and <code class="nw">mount()</code> then adds zoom buttons so readers can look closer.</p>
 <h2 id="let-mount-handle-it">Let mount() handle it</h2>
 <pre tabindex="0"><code class="language-js">import { mount } from &#39;pele&#39;
 mount(el, text) // watches el&#39;s width and redraws when it changes

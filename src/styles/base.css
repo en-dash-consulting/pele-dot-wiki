@@ -162,3 +162,5 @@ textarea { font: 400 .9rem/1.6 var(--font-mono); color: var(--code-fg); backgrou
 label, legend, select, input, button, summary, figcaption, th, .hint, .site-footer, .kicker + * .hint { font-family: var(--font-ui); }
 td { font-size: .95em; }
 h1 em, h2 em { letter-spacing: inherit; }
+
+code.nw { white-space: nowrap; }
