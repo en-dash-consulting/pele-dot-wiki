@@ -66,7 +66,7 @@ export const THEME_LAB = () => `<section class="demo lab" aria-labelledby="lab-t
           ${[['bg', 'Background'], ['fg', 'Text'], ['line', 'Lines'], ['surface', 'Box fill'], ['border', 'Box border'], ['accent', 'Accent']].map(([k, l]) => `<label class="swatch"><input type="color" id="lab-${k}" data-var="--pele-${k}" /><span>${l}</span></label>`).join('')}
         </div>
         <label class="lab-field" for="lab-font">Font</label>
-        <select id="lab-font"><option value="'Public Sans', system-ui, sans-serif">Public Sans</option><option value="'Unbounded', sans-serif">Unbounded</option><option value="'Commit Mono', monospace">Commit Mono</option><option value="Georgia, serif">Georgia</option></select>
+        <select id="lab-font"><option value="'Montserrat', system-ui, sans-serif">Montserrat</option><option value="'Merriweather', Georgia, serif">Merriweather</option><option value="'Commit Mono', monospace">Commit Mono</option><option value="Georgia, serif">Georgia</option></select>
         <label class="lab-field" for="lab-radius">Corner radius <output id="lab-radius-out">4px</output></label>
         <input id="lab-radius" type="range" min="0" max="24" step="1" value="4" />
       </fieldset>

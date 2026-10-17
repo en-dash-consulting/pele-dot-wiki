@@ -10,7 +10,8 @@ pele.wiki is an independent learning site and live demo gallery for Pele, the Me
 
 - **Pele** is © 2026 kepano, MIT license. Source: [github.com/obsidianmd/pele](https://github.com/obsidianmd/pele). Official docs, playground and examples: [pele.run](https://pele.run). Announced by kepano [on X](https://x.com/kepano/status/2111472054293913749) on 17 October 2026, and built for [Obsidian](https://obsidian.md) ([obsidianmd on GitHub](https://github.com/obsidianmd)).
 - **Mermaid** syntax and **Mermaid.js** are by the Mermaid team, MIT license: [mermaid.js.org](https://mermaid.js.org).
-- Fonts: [Unbounded](https://github.com/googlefonts/unbounded), [Public Sans](https://public-sans.digital.gov) and [Commit Mono](https://commitmono.com), all under the SIL Open Font License ([licences](/fonts/LICENSES.txt)).
+- The Pele logo is kepano's, from the [Pele repository](https://github.com/obsidianmd/pele/blob/main/website/public/pele.svg), used here only to name the project.
+- Fonts: [Montserrat](https://github.com/JulietaUla/Montserrat), [Merriweather](https://github.com/SorkinType/Merriweather) and [Commit Mono](https://commitmono.com), all under the SIL Open Font License ([licences](/fonts/LICENSES.txt)).
 - Some gallery examples come from Mermaid's documentation (MIT), through Pele's test suite.
 
 ## Who we are

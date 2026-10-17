@@ -102,7 +102,7 @@ function jsonLd(p) {
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1).replace(/</g, '\\u003c')
 }
 
-const brandMark = `<svg class="brand-mark" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M2 21 L9 7 L12 11 L15 7 L22 21 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path class="brand-lava" d="M9.5 3.6 Q12 1 14.5 3.6" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg>`
+const brandMark = `<img class="brand-mark" src="/brand/pele.svg" alt="Pele" width="32" height="24" />`
 
 function header(p) {
   const active = sectionOf(p)?.[0] ?? p.slug
@@ -204,9 +204,10 @@ function render(p) {
   <meta name="color-scheme" content="light dark" />
   ${p.slug === '404' ? '' : `<link rel="canonical" href="${url(p.slug)}" />
   <link rel="alternate" type="text/markdown" href="/md/${p.slug}.md" title="Markdown version" />`}
-  <link rel="preload" href="/fonts/unbounded-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/public-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
