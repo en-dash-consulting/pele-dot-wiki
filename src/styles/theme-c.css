@@ -1,0 +1,30 @@
+/* C · Risograph zine: two misregistered inks (fluoro pink + blue) on white, halftone dots, expanded type. */
+[data-theme="c"] {
+  --paper: #ffffff; --ink: #1b2a6b; --muted: #47508a; --surface: #eef0fb; --surface-2: #dde1f6;
+  --rule: #c9cdea; --rule-strong: #1b2a6b; --accent: #ff48b0; --link: #c4006f; --focus: #0078bf;
+  --pink: #ff48b0; --blue: #0078bf; --fast: #c4006f; --slow: #47508a;
+  --font-display: 'Anybody', 'Arial Black', sans-serif; --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif; --font-mono: 'DM Mono', ui-monospace, monospace;
+  --radius: 0px; --border-w: 2.5px;
+  --banner-bg: #0078bf; --banner-fg: #fff; --header-bg: transparent; --header-fg: #1b2a6b; --brand-tld: #c4006f;
+  --btn-bg: #ff48b0; --btn-fg: #0b0f2e; --btn-border: #1b2a6b;
+  --code-bg: #eef0fb; --code-fg: #1b2a6b; --pane-bg: #fff; --footer-bg: #1b2a6b; --footer-fg: #fff;
+}
+[data-theme="c"] h1, [data-theme="c"] h2 { font-weight: 800; font-stretch: 150%; font-variation-settings: 'wdth' 150; text-transform: uppercase; letter-spacing: -.01em; }
+[data-theme="c"] h1 { font-size: clamp(2.3rem, 5.8vw, 4.8rem); line-height: .95; text-shadow: 4px 3px 0 #ff48b080; }
+[data-theme="c"] .hero h1 em { color: var(--link); text-shadow: 4px 3px 0 #0078bf66; }
+[data-theme="c"] .art-c .ink { fill: none; stroke-width: 14; mix-blend-mode: multiply; }
+[data-theme="c"] .art-c .ink-blue { stroke: #0078bf; opacity: .85; }
+[data-theme="c"] .art-c .ink-pink { stroke: #ff48b0; opacity: .9; }
+[data-theme="c"] .art-c .ink rect, [data-theme="c"] .art-c .ink path { stroke: inherit; }
+[data-theme="c"] .art-c .dot { fill: #ff48b0; opacity: .8; }
+[data-theme="c"] .button { box-shadow: 4px 4px 0 var(--blue); text-transform: uppercase; letter-spacing: .04em; font-size: .9rem; }
+[data-theme="c"] .button:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--blue); }
+[data-theme="c"] .tr-pane { box-shadow: 6px 6px 0 var(--pink); }
+[data-theme="c"] .tr-mermaid { box-shadow: 6px 6px 0 #0078bf55; }
+[data-theme="c"] .tr-name { font-stretch: 150%; font-variation-settings: 'wdth' 150; text-transform: uppercase; font-weight: 800; }
+[data-theme="c"] .tr-canvas { background-image: radial-gradient(circle, #0078bf26 1.4px, transparent 1.6px); background-size: 10px 10px; }
+[data-theme="c"] .tr-canvas .pele { --pele-accent: #ff48b0; --pele-surface: #ffe1f1; --pele-surface-alt: #d9ecf8; }
+[data-theme="c"] .kicker { color: var(--blue); font-weight: 400; }
+@media (max-width: 760px) { [data-theme="c"] .art-c { opacity: .35; } }
+[data-theme="c"] .art-c { left: 58%; width: 42%; top: 12%; height: 76%; }
+@media (max-width: 760px) { [data-theme="c"] .art-c { left: 30%; width: 70%; top: 0; height: 40%; } }

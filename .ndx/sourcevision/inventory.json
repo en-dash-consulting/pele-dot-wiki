@@ -1,0 +1,15 @@
+{
+  "files": [],
+  "summary": {
+    "totalFiles": 0,
+    "totalLines": 0,
+    "byLanguage": {},
+    "byRole": {},
+    "byCategory": {},
+    "skippedExtensions": {
+      ".json": 1,
+      ".md": 1
+    },
+    "analysedLanguages": []
+  }
+}

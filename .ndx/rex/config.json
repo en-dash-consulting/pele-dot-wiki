@@ -1,0 +1,6 @@
+{
+  "schema": "rex/v1",
+  "project": "pele.wiki",
+  "adapter": "file",
+  "sourcevision": "auto"
+}

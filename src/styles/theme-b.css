@@ -1,0 +1,36 @@
+/* B · Transit map: a diagram's journey as metro lines. White ground, black signage bar, three route colours, wide geometric type. */
+[data-theme="b"] {
+  --paper: #ffffff; --ink: #111111; --muted: #545454; --surface: #f1f1f1; --surface-2: #e2e2e2;
+  --rule: #d4d4d4; --rule-strong: #111111; --accent: #d52b1e; --link: #b0170c; --focus: #0050c8;
+  --l1: #d52b1e; --l2: #00843d; --l3: #f5a800; --fast: #00843d; --slow: #b0170c;
+  --font-display: 'Unbounded', 'Arial Black', sans-serif; --font-body: 'Public Sans', system-ui, sans-serif; --font-mono: 'Commit Mono', ui-monospace, monospace;
+  --radius: 999px; --border-w: 3px;
+  --banner-bg: #f5a800; --banner-fg: #111; --header-bg: #111; --header-fg: #fff; --brand-tld: #f5a800;
+  --btn-bg: #d52b1e; --btn-fg: #fff; --btn-border: #d52b1e;
+  --code-bg: #111; --code-fg: #f4f4f4; --pane-bg: #fff; --footer-bg: #111; --footer-fg: #fff;
+}
+[data-theme="b"] h1 { font-weight: 800; letter-spacing: -.035em; font-size: clamp(2.5rem, 6.2vw, 5rem); line-height: .98; }
+[data-theme="b"] h2 { font-weight: 800; letter-spacing: -.02em; }
+[data-theme="b"] .hero h1 em { background: linear-gradient(transparent 62%, #f5a800 62%, #f5a800 92%, transparent 92%); }
+[data-theme="b"] .brand-lava { stroke: #f5a800; }
+[data-theme="b"] .art-b .line { fill: none; stroke-width: 22; stroke-linecap: round; stroke-linejoin: round; }
+[data-theme="b"] .art-b .l1 { stroke: var(--l1); } [data-theme="b"] .art-b .l2 { stroke: var(--l2); } [data-theme="b"] .art-b .l3 { stroke: var(--l3); }
+[data-theme="b"] .art-b .stop { fill: #fff; stroke: #111; stroke-width: 5; }
+[data-theme="b"] .art-b .interchange { stroke-width: 7; }
+[data-theme="b"] .art-b text { font: 800 20px 'Unbounded', sans-serif; fill: #111; }
+[data-theme="b"] .kicker { display: inline-flex; gap: var(--s-2); align-items: center; color: #111; font-weight: 400; }
+[data-theme="b"] .kicker::before { content: ''; width: 28px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--l1) 33%, var(--l2) 33% 66%, var(--l3) 66%); }
+[data-theme="b"] .tr-pane, [data-theme="b"] #tr-src { border-radius: 22px; }
+[data-theme="b"] .tr-pane figcaption { border-bottom-width: 3px; }
+[data-theme="b"] .tr-pele figcaption { background: var(--l2); color: #fff; border-color: var(--l2); }
+[data-theme="b"] .tr-pele .tr-ms, [data-theme="b"] .tr-pele .tr-ver { color: #fff; }
+[data-theme="b"] .tr-mermaid figcaption { background: #111; color: #fff; }
+[data-theme="b"] .tr-mermaid .tr-ms, [data-theme="b"] .tr-mermaid .tr-ver { color: #fff; }
+[data-theme="b"] .tr-name { font-weight: 800; }
+[data-theme="b"] .button.secondary, [data-theme="b"] select { border-radius: 999px; }
+[data-theme="b"] select { border-radius: 999px; padding: 0 var(--s-4); }
+[data-theme="b"] .tr-canvas .pele { --pele-accent: #d52b1e; --pele-radius: 10px; }
+@media (max-width: 760px) { [data-theme="b"] .art-b { opacity: .3; } }
+[data-theme="b"] .art-b { left: 44%; width: 56%; }
+@media (max-width: 760px) { [data-theme="b"] .art-b { left: 10%; width: 90%; } }
+@media (max-width: 760px) { [data-theme="b"] .art-b { display: none !important; } [data-theme="b"] .hero { border-bottom: 10px solid; border-image: linear-gradient(90deg, var(--l1) 33%, var(--l2) 33% 66%, var(--l3) 66%) 1; margin-bottom: var(--s-6); } }

@@ -1,0 +1,9 @@
+{
+  "llm": {
+    "vendor": "claude"
+  },
+  "_initVersion": "0.9.0",
+  "cli": {
+    "name": "n-dx"
+  }
+}

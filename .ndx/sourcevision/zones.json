@@ -1,0 +1,23 @@
+{
+  "zones": [],
+  "crossings": [],
+  "unzoned": [],
+  "structureHash": "e3b0c44298fc1c14",
+  "inputFingerprint": "61da42e8ad3bed7e",
+  "zoneContentHashes": {},
+  "partitionReview": {
+    "fingerprint": "61da42e8ad3bed7e",
+    "health": {
+      "zones": 0,
+      "smallZones": 0,
+      "smallShare": 0,
+      "numericIds": 0,
+      "largestShare": 0,
+      "verdict": "healthy"
+    },
+    "initial": true,
+    "rejected": false
+  },
+  "algorithmVersion": 6,
+  "insights": []
+}

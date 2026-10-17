@@ -1,0 +1,28 @@
+/* A · Basalt & lava: field-geology survey sheet. Cool ash ground, basalt ink, one lava accent, topo contours. */
+[data-theme="a"] {
+  --paper: #e3e4e0; --ink: #1c1d1f; --muted: #4c4f52; --surface: #d4d6d1; --surface-2: #c6c9c3;
+  --rule: #b3b6b0; --rule-strong: #1c1d1f; --accent: #e0400f; --link: #a52a05; --focus: #e0400f;
+  --fast: #a52a05; --slow: #4c4f52;
+  --font-display: 'Big Shoulders Display', 'Arial Narrow', sans-serif; --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif; --font-mono: 'Martian Mono', ui-monospace, monospace;
+  --radius: 2px; --border-w: 1.5px;
+  --banner-bg: #1c1d1f; --banner-fg: #e3e4e0; --header-bg: transparent; --header-fg: #1c1d1f; --brand-tld: #a52a05;
+  --btn-bg: #1c1d1f; --btn-fg: #e3e4e0; --btn-border: #1c1d1f;
+  --code-bg: #1c1d1f; --code-fg: #e3e4e0; --pane-bg: #ecedea; --footer-bg: #1c1d1f; --footer-fg: #e3e4e0;
+}
+[data-theme="a"] h1, [data-theme="a"] h2 { font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; }
+[data-theme="a"] h1 { font-size: clamp(3rem, 8.4vw, 6.4rem); line-height: .9; }
+[data-theme="a"] .hero h1 em { color: var(--accent); }
+[data-theme="a"] .art-a .contour { fill: none; stroke: #1c1d1f; stroke-width: 1; opacity: .28; }
+[data-theme="a"] .art-a .contour.index { stroke-width: 2; opacity: .45; }
+[data-theme="a"] .art-a .contour.lava { stroke: var(--accent); stroke-width: 3; opacity: 1; }
+[data-theme="a"] .art-a .survey { font: 400 11px 'Martian Mono', monospace; letter-spacing: .08em; fill: #1c1d1f; }
+[data-theme="a"] .art-a .survey circle:first-child { fill: var(--accent); }
+[data-theme="a"] .hero::after { content: 'SHEET 01 · PELE / MERMAID · CONTOUR INTERVAL 1 ms'; position: absolute; right: 0; top: var(--s-5); font: 400 .68rem var(--font-mono); letter-spacing: .1em; color: var(--muted); }
+[data-theme="a"] .tr-pane figcaption, [data-theme="a"] .tr-label { font-family: var(--font-mono); }
+[data-theme="a"] .tr-name { text-transform: uppercase; letter-spacing: .04em; font-size: 1.3rem; }
+[data-theme="a"] .tr-pele { border-top: 4px solid var(--accent); }
+[data-theme="a"] .tr-canvas { background-image: radial-gradient(circle, #1c1d1f22 1px, transparent 1.2px); background-size: 16px 16px; }
+[data-theme="a"] .tr-canvas .pele { --pele-accent: #e0400f; }
+[data-theme="a"] .button:not(.secondary):hover { background: var(--accent); border-color: var(--accent); color: #1c1d1f; }
+@media (max-width: 700px) { [data-theme="a"] .art-a { opacity: .55; } }
+@media (max-width: 760px) { [data-theme="a"] .hero::after { display: none; } }

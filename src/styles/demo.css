@@ -1,0 +1,25 @@
+.demo { margin: 0 0 var(--s-8); }
+.tr-head h2 { margin-top: 0; }
+.tr-lede { max-width: 62ch; color: var(--muted); }
+.tr-bar { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; margin: var(--s-5) 0; }
+.tr-grid { display: grid; gap: var(--s-4); grid-template-columns: minmax(0, .85fr) minmax(0, 1fr) minmax(0, 1fr); }
+@media (max-width: 1100px) { .tr-grid { grid-template-columns: 1fr 1fr; } .tr-editor { grid-column: 1 / -1; } }
+@media (max-width: 700px) { .tr-grid { grid-template-columns: 1fr; } }
+.tr-editor { display: flex; flex-direction: column; }
+.tr-label { font: 400 .78rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .1em; margin-bottom: var(--s-2); }
+.tr-label .hint { text-transform: none; letter-spacing: 0; }
+#tr-src { flex: 1; min-height: 280px; width: 100%; resize: vertical; padding: var(--s-4); font: 400 .9rem/1.6 var(--font-mono); color: var(--code-fg); background: var(--code-bg); border: var(--border-w) solid var(--rule-strong); border-radius: var(--radius); tab-size: 2; }
+.tr-pane { margin: 0; display: flex; flex-direction: column; border: var(--border-w) solid var(--rule-strong); border-radius: var(--radius); background: var(--pane-bg); overflow: hidden; }
+.tr-pane figcaption { display: flex; align-items: baseline; gap: var(--s-2); padding: var(--s-3) var(--s-4); border-bottom: var(--border-w) solid var(--rule); }
+.tr-name { font: 700 1.05rem/1 var(--font-display); }
+.tr-ver { font: 400 .75rem/1 var(--font-mono); color: var(--muted); }
+.tr-ms { margin-left: auto; font: 400 1.05rem/1 var(--font-mono); font-variant-numeric: tabular-nums; }
+.tr-pele .tr-ms { color: var(--fast); font-weight: 700; }
+.tr-mermaid .tr-ms { color: var(--slow); }
+.tr-canvas { flex: 1; min-height: 280px; display: grid; place-items: center; padding: var(--s-4); transition: opacity .15s; }
+.tr-canvas svg { max-width: 100%; height: auto; }
+.tr-canvas.stale { opacity: .45; }
+.tr-lag { margin: 0; padding: var(--s-2) var(--s-4); font: 400 .8rem/1.4 var(--font-mono); background: var(--slow); color: var(--paper); }
+.tr-verdict { margin-top: var(--s-4); font-size: 1.1rem; font-weight: 700; max-width: 80ch; min-height: 1.6em; }
+.tr-canvas .pele { --pele-bg: transparent; --pele-fg: var(--ink); --pele-muted: var(--muted); --pele-line: var(--ink); --pele-surface: var(--surface); --pele-surface-alt: var(--surface-2); --pele-border: var(--ink); --pele-accent: var(--accent); --pele-font: var(--font-body); --pele-radius: var(--radius); }
+@media (max-width: 700px) { #tr-src { min-height: 190px; } .tr-canvas { min-height: 220px; } }

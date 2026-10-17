@@ -1,0 +1,109 @@
+{
+  "overall": 0,
+  "dimensions": {
+    "testing": {
+      "score": 0,
+      "weight": 0.2,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No test command, framework or test file was detected.",
+          "wouldRaiseScore": "A `test` script in a manifest, a test framework dependency, or any file matching the project's test naming convention."
+        }
+      ]
+    },
+    "ci": {
+      "score": 0,
+      "weight": 0.15,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No CI pipeline was detected.",
+          "wouldRaiseScore": "A workflow file for a supported provider — GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines or a Jenkinsfile."
+        }
+      ]
+    },
+    "cd": {
+      "score": 0,
+      "weight": 0.15,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No deployment path was detected.",
+          "wouldRaiseScore": "A CI job with a deploy step — `kubectl apply`, `helm upgrade`, `terraform apply`, or a deploy script."
+        }
+      ]
+    },
+    "rollback": {
+      "score": 0,
+      "weight": 0.1,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No way to undo a deployment was detected.",
+          "wouldRaiseScore": "A rollback job that redeploys the previous version, a blue-green or canary deployment, or a documented down-migration path."
+        }
+      ]
+    },
+    "migrations": {
+      "score": 0,
+      "weight": 0.1,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No data migrations were detected.",
+          "wouldRaiseScore": "A migrations directory for a recognised tool — Prisma, Alembic, Rails, Flyway. A repository with no database legitimately scores zero here."
+        }
+      ]
+    },
+    "featureFlags": {
+      "score": 0,
+      "weight": 0.05,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No feature-flag system was detected.",
+          "wouldRaiseScore": "A dependency on a flag provider — LaunchDarkly, Unleash, Split, Flagsmith — or an in-house toggle module, so a change can ship dark."
+        }
+      ]
+    },
+    "qualityGates": {
+      "score": 0,
+      "weight": 0.1,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No merge-blocking gate was detected.",
+          "wouldRaiseScore": "A CODEOWNERS file, a pre-commit hook config, or branch protection requiring review and status checks. Branch protection is only visible through the host's API, which this analysis does not call."
+        }
+      ]
+    },
+    "observability": {
+      "score": 0,
+      "weight": 0.05,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No instrumentation was detected, so a failed change would be invisible.",
+          "wouldRaiseScore": "A logging, metrics, tracing or error-reporting dependency — OpenTelemetry, Sentry, Prometheus, pino — in a manifest."
+        }
+      ]
+    },
+    "agentSafety": {
+      "score": 0,
+      "weight": 0.1,
+      "evidence": [],
+      "gaps": [
+        {
+          "summary": "No agent execution config was found, so nothing records that the checkout was reviewed.",
+          "wouldRaiseScore": "An explicit guard in the project's hench config — `n-dx config` writes one — which both narrows what an agent may run and gives `n-dx trust` something to review."
+        }
+      ]
+    }
+  },
+  "suggestions": [
+    "Testing: No test command, framework or test file was detected. A `test` script in a manifest, a test framework dependency, or any file matching the project's test naming convention.",
+    "CI: No CI pipeline was detected. A workflow file for a supported provider — GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines or a Jenkinsfile.",
+    "CD: No deployment path was detected. A CI job with a deploy step — `kubectl apply`, `helm upgrade`, `terraform apply`, or a deploy script."
+  ]
+}

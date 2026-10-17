@@ -1,0 +1,24 @@
+# pele.wiki
+
+> Independent learning resource and live demo gallery for Pele, the open-source Mermaid renderer by kepano (Steph Ango) built for Obsidian. Pele turns Mermaid diagram syntax into themeable SVG with zero dependencies. Official docs: https://pele.run · source: https://github.com/obsidianmd/pele (MIT).
+
+Key facts:
+- Install: `npm install pele`. Use: `import { render } from 'pele'; const { svg } = render(mermaidText)`. In a browser, `mount(element, text)` renders, reads fonts from CSS and adapts the layout to the container width.
+- Pele reads Mermaid syntax (targets Mermaid 12.1.0) and supports every diagram type built into Mermaid 12.1.0; layout and visual style are Pele's own, so output does not look identical to Mermaid.js.
+- Official numbers (pele.run): about 230 kB gzip vs 1.6 MB for Mermaid.js; 0.05–0.3 ms per render vs 6–82 ms; 0 direct dependencies vs 23.
+- Theming is CSS variables (--pele-bg, --pele-fg, --pele-accent, --pele-font, --pele-series-1..8 and more); colour changes apply without re-rendering.
+- Rendering is synchronous; `pele/core` + `register()` and `pele/lazy` + `renderAsync()` reduce bundle size.
+- pele.wiki is not affiliated with Obsidian or kepano; it is run by En Dash Consulting (https://endash.us). Demos use pele@1.6.0.
+
+## Guides
+- [Pele draws Mermaid diagrams as fast as you can type](https://pele.wiki/): Pele by kepano renders Mermaid diagrams to themeable SVG: zero dependencies, about 6× smaller and up to 500× faster than Mermaid.js. Live demos, guides and FAQ. (markdown: https://pele.wiki/md/index.md)
+- [What is Pele?](https://pele.wiki/pages/what-is-pele.html): Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid syntax in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip. (markdown: https://pele.wiki/md/what-is-pele.md)
+- [Getting started with Pele](https://pele.wiki/pages/getting-started.html): Install Pele from npm, render a Mermaid diagram to SVG with render(), mount a responsive diagram with mount(), and theme it with CSS variables. (markdown: https://pele.wiki/md/getting-started.md)
+- [About pele.wiki](https://pele.wiki/pages/about.html): pele.wiki is an independent learning site and demo gallery for Pele, kepano's Mermaid renderer, made by En Dash Consulting. (markdown: https://pele.wiki/md/about.md)
+
+## FAQ
+- [Pele FAQ](https://pele.wiki/pages/faq.html): Answers about Pele, kepano's Mermaid renderer: what it is, Mermaid compatibility, speed, bundle size, theming, security, licence and when to use Mermaid.js instead. (markdown: https://pele.wiki/md/faq.md)
+
+## Optional
+- [llms-full.txt](https://pele.wiki/llms-full.txt): every page's full text in one file
+- [Official Pele docs](https://pele.run)

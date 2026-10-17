@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0.0",
+  "toolVersion": "0.1.0",
+  "analyzedAt": "2026-10-17T16:54:20.334Z",
+  "targetPath": "/Users/nick/development/endash/pele.wiki",
+  "modules": {
+    "inventory": {
+      "status": "complete",
+      "startedAt": "2026-10-17T16:54:20.040Z",
+      "completedAt": "2026-10-17T16:54:20.091Z"
+    },
+    "imports": {
+      "status": "complete",
+      "startedAt": "2026-10-17T16:54:20.092Z",
+      "completedAt": "2026-10-17T16:54:20.138Z"
+    },
+    "classifications": {
+      "status": "complete",
+      "startedAt": "2026-10-17T16:54:20.139Z",
+      "completedAt": "2026-10-17T16:54:20.184Z"
+    },
+    "zones": {
+      "status": "complete",
+      "startedAt": "2026-10-17T16:54:20.185Z",
+      "completedAt": "2026-10-17T16:54:20.242Z"
+    },
+    "components": {
+      "status": "complete",
+      "startedAt": "2026-10-17T16:54:20.243Z",
+      "completedAt": "2026-10-17T16:54:20.289Z"
+    },
+    "callgraph": {
+      "status": "complete",
+      "startedAt": "2026-10-17T16:54:20.290Z",
+      "completedAt": "2026-10-17T16:54:20.334Z"
+    }
+  },
+  "repo": {
+    "name": "pele.wiki",
+    "remoteUrl": null,
+    "remoteHost": null,
+    "remotePath": null,
+    "defaultBranch": null
+  },
+  "language": "typescript",
+  "languages": [
+    "typescript"
+  ],
+  "analysisFingerprint": "3445f8f2245e2e69",
+  "lastAnalysis": {
+    "at": "2026-10-17T16:54:20.038Z",
+    "mode": "fast",
+    "durationMs": 564,
+    "phases": {
+      "inventory": 52,
+      "imports": 47,
+      "classifications": 46,
+      "zones": 58,
+      "components": 47,
+      "callgraph": 45
+    },
+    "llm": {
+      "byTaskClass": {}
+    },
+    "partition": {
+      "fingerprint": "61da42e8ad3bed7e",
+      "health": {
+        "zones": 0,
+        "smallZones": 0,
+        "smallShare": 0,
+        "numericIds": 0,
+        "largestShare": 0,
+        "verdict": "healthy"
+      },
+      "initial": true,
+      "rejected": false,
+      "reused": false
+    },
+    "outcome": {
+      "files": 0,
+      "importEdges": 0,
+      "zoneIds": [],
+      "findings": {}
+    }
+  }
+}

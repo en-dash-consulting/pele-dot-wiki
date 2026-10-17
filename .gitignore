@@ -1,0 +1,60 @@
+# Dependencies & build
+node_modules/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.local
+
+# Claude / Codex local-only
+.claude/settings.local.json
+.claude/worktrees/
+.codex/
+
+# n-dx local / runtime (keep .ndx/rex/prd_tree and configs tracked)
+.ndx/config.local.json
+.ndx/web.port
+.ndx/graview/
+.ndx/rex/n-dx_workflow.md
+.ndx/rex/execution-log*.jsonl
+.ndx/rex/.cache/
+.ndx/rex/.backups/
+.ndx/hench/runs/
+.ndx/hench/locks/
+.ndx/hench/usage-cursors/
+.ndx/hench/reviews/
+.ndx/hench/recovery/
+.ndx/hench/mcp/
+.ndx/hench/session-cache.json
+.ndx/sourcevision/.cache/
+.n-dx-web.pid
+.n-dx-web.port
+.n-dx.local.json
+.hench-commit-msg.txt
+.ndx-commit-msg.txt
+ndx-export/
+.run-logs/
+
+# Legacy root-layout leftovers (if migrate-layout not used)
+.hench/
+.sourcevision/
+.rex/n-dx_workflow.md
+.rex/execution-log*.jsonl
+
+# Test / Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Noise from assistant tooling
+claude_commands.log
+claude_commands.log.*
+README.proposed.md
+screenshots-review/
+test-results/
+playwright-report/
