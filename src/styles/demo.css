@@ -1,14 +1,14 @@
 /* ---------- shared demo pieces ---------- */
 .demo { margin: 0 0 var(--s-7); }
 .demo-bar { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; margin: 0 0 var(--s-5); }
-.bar-label { font-weight: 700; font-size: .95rem; }
-.tr-name { font: 800 1rem/1.2 var(--font-display); letter-spacing: -.01em; }
+.bar-label { font: 700 .95rem var(--font-ui); }
+.tr-name { font: 800 1rem/1.2 var(--font-display); letter-spacing: -.02em; }
 .tr-ms { font: 400 1rem/1 var(--font-mono); font-variant-numeric: tabular-nums; }
 .tr-label { display: block; font: 400 .78rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .1em; margin-bottom: var(--s-2); }
 .tr-label .hint { text-transform: none; letter-spacing: 0; }
 .tr-verdict { margin: var(--s-4) 0 0; font-size: 1.05rem; font-weight: 700; max-width: 80ch; min-height: 1.6em; }
 .chip-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-.chip { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; padding: 0 var(--s-4); border: var(--border-w) solid var(--ink); border-radius: 999px; background: var(--paper); color: var(--ink); font: 700 .92rem var(--font-body); cursor: pointer; }
+.chip { font: 700 .92rem var(--font-ui); display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; padding: 0 var(--s-4); border: var(--border-w) solid var(--ink); border-radius: 999px; background: var(--paper); color: var(--ink); font: 700 .92rem var(--font-body); cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 .chip .dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; background: var(--c, transparent); }
 fieldset { border: 0; padding: 0; margin: 0 0 var(--s-5); min-width: 0; }
@@ -16,7 +16,7 @@ legend { padding: 0; margin-bottom: var(--s-3); font: 800 1rem var(--font-displa
 .stale { opacity: .45; transition: opacity .15s; }
 .pane-canvas .pele, .tr-canvas .pele, .chat-dia .pele, .phone-screen .pele, .dp-grid .pele, .gl-card .pele, .sf-result .pele {
   --pele-bg: transparent; --pele-fg: var(--ink); --pele-muted: var(--muted); --pele-line: var(--ink); --pele-surface: var(--surface); --pele-surface-alt: var(--surface-2);
-  --pele-border: var(--ink); --pele-accent: var(--l1); --pele-font: var(--font-body); --pele-font-mono: var(--font-mono); --pele-radius: 10px;
+  --pele-border: var(--ink); --pele-accent: var(--l1); --pele-font: var(--font-ui); --pele-font-mono: var(--font-mono); --pele-radius: 10px;
   --pele-series-1: var(--l1); --pele-series-2: var(--l2); --pele-series-3: var(--l3); --pele-series-4: var(--l4); --pele-series-5: var(--l5);
 }
 
@@ -75,7 +75,7 @@ legend { padding: 0; margin-bottom: var(--s-3); font: 800 1rem var(--font-displa
 .lab-dia svg { max-width: 100%; height: auto; }
 .lab-scores { display: grid; gap: var(--s-1); margin: var(--s-4) 0; }
 .lab-scores p { margin: 0; display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: baseline; }
-.lab-mm summary { cursor: pointer; font-weight: 700; min-height: 44px; display: flex; align-items: center; }
+.lab-mm summary { cursor: pointer; font: 700 .95rem var(--font-ui); min-height: 44px; display: flex; align-items: center; }
 .lab-mm .lab-dia { padding: var(--s-4); border: var(--border-w) solid var(--rule-strong); border-radius: var(--radius); }
 .lab-css { margin-top: var(--s-6); }
 .lab-css-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); margin-bottom: var(--s-3); }
@@ -140,7 +140,7 @@ legend { padding: 0; margin-bottom: var(--s-3); font: 800 1rem var(--font-displa
 .sf-result { min-height: 200px; display: grid; place-items: center; padding: var(--s-4); border: var(--border-w) solid var(--rule-strong); border-radius: var(--radius); background: var(--pane-bg); overflow: auto; }
 .sf-result svg { max-width: 100%; height: auto; }
 .sf-error { font: 400 .88rem/1.5 var(--font-mono); white-space: pre-wrap; color: var(--ink); margin: 0; justify-self: stretch; }
-.sf-error strong { font-family: var(--font-body); display: block; margin-bottom: var(--s-2); color: var(--bad); }
+.sf-error strong { font-family: var(--font-ui); display: block; margin-bottom: var(--s-2); color: var(--bad); }
 .sf-checks { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s-2); }
 .sf-checks li { display: flex; gap: var(--s-3); align-items: baseline; margin: 0; }
 .sf-checks .mark { flex: none; display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--l2); color: var(--on-l2); font-weight: 800; font-size: .85rem; }
@@ -154,3 +154,7 @@ legend { padding: 0; margin-bottom: var(--s-3); font: 800 1rem var(--font-displa
 .gl-index a:hover { border-color: var(--l1); }
 .gl-index code { font-size: .8rem; color: var(--muted); }
 .gl-card { scroll-margin-top: var(--s-6); }
+
+/* Controls use the UI face, even where a rule above resets font to inherit. */
+.chip, .button, .bar-label, .gl-actions button, .sf-presets button { font-family: var(--font-ui); }
+.chip { font-weight: 700; font-size: .92rem; letter-spacing: -.005em; }

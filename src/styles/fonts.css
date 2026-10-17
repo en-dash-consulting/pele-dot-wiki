@@ -1,9 +1,12 @@
-/* Self-hosted Latin subsets (OFL), served from /fonts so the two first-paint fonts can be preloaded.
+/* Self-hosted Latin subsets (SIL OFL), served from /fonts so first-paint faces can be preloaded.
+   Montserrat: headings, navigation, labels and diagrams. Merriweather: reading text. Commit Mono: code.
    The "Fallback" faces are size-matched local fonts, so text barely moves when the web fonts arrive. */
-@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/unbounded-latin-500-normal.woff2) format('woff2'); }
-@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 800; font-display: swap; src: url(/fonts/unbounded-latin-800-normal.woff2) format('woff2'); }
-@font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/public-sans-latin-400-normal.woff2) format('woff2'); }
-@font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/public-sans-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/montserrat-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/montserrat-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 800; font-display: swap; src: url(/fonts/montserrat-latin-800-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/merriweather-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: italic; font-weight: 400; font-display: swap; src: url(/fonts/merriweather-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Merriweather'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/merriweather-latin-700-normal.woff2) format('woff2'); }
 @font-face { font-family: 'Commit Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/commit-mono-latin-400-normal.woff2) format('woff2'); }
-@font-face { font-family: 'Unbounded Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Helvetica Neue Bold'); font-weight: 800; size-adjust: 113%; ascent-override: 88%; descent-override: 22%; }
-@font-face { font-family: 'Public Sans Fallback'; src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Helvetica Neue'); size-adjust: 90%; ascent-override: 106%; descent-override: 25%; }
+@font-face { font-family: 'Montserrat Fallback'; src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Helvetica Neue'); size-adjust: 94.5%; ascent-override: 102.4%; descent-override: 26.6%; line-gap-override: 0%; }
+@font-face { font-family: 'Merriweather Fallback'; src: local('Georgia'), local('Times New Roman'), local('Liberation Serif'); size-adjust: 109%; ascent-override: 90.3%; descent-override: 25%; line-gap-override: 0%; }

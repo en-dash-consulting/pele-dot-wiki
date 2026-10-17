@@ -6,7 +6,7 @@
   --l1: #d52b1e; --l2: #00843d; --l3: #f5a800; --l4: #0050c8; --l5: #7b2d8e; --l6: #111111;
   --on-l1: #ffffff; --on-l2: #ffffff; --on-l3: #111111; --on-l4: #ffffff; --on-l5: #ffffff; --on-l6: #ffffff;
   --fast: #00742f; --slow: #b0170c; --ok: #00742f; --bad: #b0170c;
-  --font-display: 'Unbounded', 'Unbounded Fallback', sans-serif; --font-body: 'Public Sans', 'Public Sans Fallback', system-ui, sans-serif; --font-mono: 'Commit Mono', ui-monospace, monospace;
+  --font-display: 'Montserrat', 'Montserrat Fallback', system-ui, sans-serif; --font-ui: var(--font-display); --font-body: 'Merriweather', 'Merriweather Fallback', Georgia, serif; --font-mono: 'Commit Mono', ui-monospace, monospace;
   --radius: 18px; --radius-sm: 10px; --border-w: 3px;
   --banner-bg: #f5a800; --banner-fg: #111111; --header-bg: #111111; --header-fg: #ffffff; --brand-tld: #f5a800;
   --btn-bg: #d52b1e; --btn-fg: #ffffff; --btn-border: #d52b1e;
