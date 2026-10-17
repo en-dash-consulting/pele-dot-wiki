@@ -8,8 +8,9 @@ pele.wiki is an independent learning site and live demo gallery for Pele, the Me
 
 ## Credits
 
-- **Pele** is © 2026 kepano, MIT license. Source: [github.com/obsidianmd/pele](https://github.com/obsidianmd/pele). Official docs, playground and examples: [pele.run](https://pele.run).
+- **Pele** is © 2026 kepano, MIT license. Source: [github.com/obsidianmd/pele](https://github.com/obsidianmd/pele). Official docs, playground and examples: [pele.run](https://pele.run). Announced by kepano [on X](https://x.com/kepano/status/2111472054293913749) on 17 October 2026, and built for [Obsidian](https://obsidian.md) ([obsidianmd on GitHub](https://github.com/obsidianmd)).
 - **Mermaid** syntax and **Mermaid.js** are by the Mermaid team, MIT license: [mermaid.js.org](https://mermaid.js.org).
+- Fonts: [Unbounded](https://github.com/googlefonts/unbounded), [Public Sans](https://public-sans.digital.gov) and [Commit Mono](https://commitmono.com), all under the SIL Open Font License ([licences](/fonts/LICENSES.txt)).
 - Some gallery examples come from Mermaid's documentation (MIT), through Pele's test suite.
 
 ## Who we are
@@ -18,7 +19,7 @@ pele.wiki is made by [En Dash Consulting](https://endash.us), who also make [han
 
 ## How the demos work
 
-Every demo runs a pinned version of the real `pele` package from npm, currently 1.6.0, and, where compared, the real Mermaid.js 12.1.0 with its default settings and `securityLevel: 'strict'`. Times are measured in your browser, so they depend on your device.
+Every demo runs a pinned version of the real `pele` package from npm, currently 1.6.0, and, where compared, the real Mermaid.js 12.1.0 with `securityLevel: 'strict'` and its `base` theme coloured to match this site. Times are measured in your browser, so they depend on your device.
 
 ## Corrections
 
