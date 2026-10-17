@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/safety.html" />
   <link rel="alternate" type="text/markdown" href="/md/safety.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -185,8 +182,8 @@
   </div>
 </section>
 <h2 id="what-you-just-saw">What you just saw</h2>
-<p>Pele never turns diagram text into HTML. Labels become SVG text: HTML tags such as <code>&lt;script&gt;</code> are dropped and only the words between them are kept, so nothing can run. JavaScript click callbacks are ignored, <code>javascript:</code>, <code>data:</code> and <code>vbscript:</code> links are always removed, and styles are filtered. Diagrams that are too big (over 50,000 characters, or more than 5,000 arrows in a flowchart) are refused before any work starts, so a one-line diagram can&#39;t freeze the tab.</p>
-<p>To be fair to Mermaid.js: in its default <code>strict</code> mode it also cleans its output and has its own size and edge limits. The difference is that Pele&#39;s output contains no HTML in the first place, so there is less to clean.</p>
+<p>Pele never turns diagram text into HTML. Labels become SVG text: HTML tags such as <code class="nw">&lt;script&gt;</code> are dropped and only the words between them are kept, so nothing can run. JavaScript click callbacks are ignored, <code class="nw">javascript:</code>, <code class="nw">data:</code> and <code class="nw">vbscript:</code> links are always removed, and styles are filtered. Diagrams that are too big (over 50,000 characters, or more than 5,000 arrows in a flowchart) are refused before any work starts, so a one-line diagram can&#39;t freeze the tab.</p>
+<p>To be fair to Mermaid.js: in its default <code class="nw">strict</code> mode it also cleans its output and has its own size and edge limits. The difference is that Pele&#39;s output contains no HTML in the first place, so there is less to clean.</p>
 <div class="takeaway"><p>You can show diagrams written by anyone, as long as you show Pele's error messages as text.</p></div>
 
 <h2 id="your-part">Your part</h2>

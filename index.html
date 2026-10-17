@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/" />
   <link rel="alternate" type="text/markdown" href="/md/index.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -185,7 +182,7 @@
   <p id="tr-verdict" class="tr-verdict" role="status" aria-live="polite">Press <strong>Auto-type</strong>, or type in the box. Both redraw on every keystroke.</p>
 </section>
       <h2 id="ride-the-pele-line">Ride the Pele line</h2>
-<p>Six live demos, one idea each. Every one runs the real <code>pele</code> package in your browser, most of them next to the real Mermaid.js.</p>
+<p>Six live demos, one idea each. Every one runs the real <code class="nw">pele</code> package in your browser, most of them next to the real Mermaid.js.</p>
 <ol class="line-map " aria-label="The Pele line: six live demos"><li style="--line:var(--l1);--on-line:var(--on-l1)"><a href="/#tr-title"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Stop 1</span><span class="stop-name">Type a diagram</span><span class="stop-desc">Pele redraws on every keystroke. Mermaid.js falls behind.</span></a></li><li style="--line:var(--l2);--on-line:var(--on-l2)"><a href="/pages/stream.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Stop 2</span><span class="stop-name">Stream an AI answer</span><span class="stop-desc">Watch the diagram grow while the chatbot is still typing.</span></a></li><li style="--line:var(--l3);--on-line:var(--on-l3)"><a href="/pages/theme-lab.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Stop 3</span><span class="stop-name">Theme lab</span><span class="stop-desc">Recolour every diagram with CSS. Zero redraws.</span></a></li><li style="--line:var(--l4);--on-line:var(--on-l4)"><a href="/pages/phone.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Stop 4</span><span class="stop-name">Phone in your pocket</span><span class="stop-desc">Drag a phone narrower. Pele re-flows; Mermaid shrinks.</span></a></li><li style="--line:var(--l5);--on-line:var(--on-l5)"><a href="/pages/docs-page.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Stop 5</span><span class="stop-name">A page with 200 diagrams</span><span class="stop-desc">Race to the last diagram on a long docs page.</span></a></li><li style="--line:var(--l6);--on-line:var(--on-l6)"><a href="/pages/safety.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Stop 6</span><span class="stop-name">Paste anything</span><span class="stop-desc">Throw hostile diagrams at it. Nothing runs.</span></a></li></ol>
 <h2 id="what-is-pele">What is Pele?</h2>
 <p class="lede"><strong>Pele is a JavaScript library that turns Mermaid diagram text into SVG.</strong> It was written by <a href="https://github.com/kepano" rel="noopener">kepano</a> (Steph Ango, CEO of Obsidian) so that diagrams in Obsidian draw instantly and match the user's theme. It is open source under the MIT license.</p>

@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/streaming-ai.html" />
   <link rel="alternate" type="text/markdown" href="/md/streaming-ai.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -183,13 +180,13 @@ for await (const chunk of stream) {
 </code></pre>
 <ol>
 <li><strong>Redraw on every chunk.</strong> At 0.05–0.3 ms a render, there&#39;s no need to throttle.</li>
-<li><strong>Keep the last good drawing.</strong> Mid-stream, the last line is often half-written and won&#39;t parse; Pele throws a <code>PeleError</code> quickly and you keep showing what you had.</li>
+<li><strong>Keep the last good drawing.</strong> Mid-stream, the last line is often half-written and won&#39;t parse; Pele throws a <code class="nw">PeleError</code> quickly and you keep showing what you had.</li>
 <li><strong>Pass the bubble&#39;s width</strong> so the diagram fits the chat column, including on phones.</li>
 </ol>
 <h2 id="why-not-just-wait-for-the-end">Why not just wait for the end?</h2>
 <p>You can, and many apps do. But a 20-line diagram can take several seconds to stream, and an empty box for that long looks broken. With Pele the reader sees the diagram build up line by line. Compare the two in the <a href="/pages/stream.html">streaming demo</a>.</p>
 <h2 id="model-output-is-untrusted-text">Model output is untrusted text</h2>
-<p>Treat it like any user input. Pele&#39;s SVG has no scripts, event handlers or HTML labels, and it blocks <code>javascript:</code> links, but show its error messages with <code>textContent</code>, keep render options under your control, and consider <code>links: false, images: false</code> if diagrams shouldn&#39;t reach the network. See the <a href="/pages/security.html">security guide</a>.</p>
+<p>Treat it like any user input. Pele&#39;s SVG has no scripts, event handlers or HTML labels, and it blocks <code class="nw">javascript:</code> links, but show its error messages with <code class="nw">textContent</code>, keep render options under your control, and consider <code class="nw">links: false, images: false</code> if diagrams shouldn&#39;t reach the network. See the <a href="/pages/security.html">security guide</a>.</p>
 
     </article>
     

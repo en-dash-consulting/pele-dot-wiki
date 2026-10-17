@@ -183,6 +183,8 @@ function render(p) {
   })
   html = html.replace(/<a href="(https?:\/\/[^"]+)"/g, '<a href="$1" rel="noopener"')
   html = html.replace(/<pre>/g, '<pre tabindex="0">')
+  // Short inline code (CSS variables, option names) should never split at its hyphens on a narrow screen.
+  html = html.replace(/<code>([^<]{1,30})<\/code>/g, '<code class="nw">$1</code>')
   html = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => `<h2 id="${strip(t).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}">${t}</h2>`)
   if (p.type === 'faq') p.qa = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>\s*<p>([\s\S]*?)<\/p>/g)].map(m => [strip(m[1]), strip(m[2])])
   const crumbs = p.slug === 'index' || p.slug === '404' ? '' : `<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>${crumbsOf(p).map((c, i, a) => i === a.length - 1 ? `<li aria-current="page">${esc(c.name)}</li>` : `<li><a href="${c.path}">${esc(c.name)}</a></li>`).join('')}</ol></nav>`
@@ -204,11 +206,8 @@ function render(p) {
   <meta name="color-scheme" content="light dark" />
   ${p.slug === '404' ? '' : `<link rel="canonical" href="${url(p.slug)}" />
   <link rel="alternate" type="text/markdown" href="/md/${p.slug}.md" title="Markdown version" />`}
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />

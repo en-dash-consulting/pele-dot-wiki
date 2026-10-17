@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/security.html" />
   <link rel="alternate" type="text/markdown" href="/md/security.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -173,8 +170,8 @@
       <h1>Rendering untrusted diagrams safely</h1><p class="lede"><strong>Yes, Pele is designed to draw diagrams written by anyone.</strong> Its SVG contains no scripts, event handlers or HTML labels, dangerous links are removed, and oversized diagrams are refused. Your app still has a few jobs, listed below.</p>
       <h2 id="what-pele-guarantees">What Pele guarantees</h2>
 <ul>
-<li><strong>No code from the diagram ever runs.</strong> Labels are SVG text. HTML tags in a label are dropped and only their words are kept; bold and italic turn into text styles. JavaScript <code>click</code> callbacks are ignored.</li>
-<li><strong>Links are filtered.</strong> Allowed by default: relative links and <code>http</code>, <code>https</code>, <code>mailto</code>, <code>tel</code> (and <code>http</code>, <code>https</code> for images). <code>javascript:</code>, <code>data:</code> and <code>vbscript:</code> are always blocked.</li>
+<li><strong>No code from the diagram ever runs.</strong> Labels are SVG text. HTML tags in a label are dropped and only their words are kept; bold and italic turn into text styles. JavaScript <code class="nw">click</code> callbacks are ignored.</li>
+<li><strong>Links are filtered.</strong> Allowed by default: relative links and <code class="nw">http</code>, <code class="nw">https</code>, <code class="nw">mailto</code>, <code class="nw">tel</code> (and <code class="nw">http</code>, <code class="nw">https</code> for images). <code class="nw">javascript:</code>, <code class="nw">data:</code> and <code class="nw">vbscript:</code> are always blocked.</li>
 <li><strong>Styles are filtered</strong> before they reach the SVG.</li>
 <li><strong>Size limits:</strong></li>
 </ul>
@@ -189,28 +186,28 @@
 <tbody><tr>
 <td>Diagram text</td>
 <td>50,000 characters</td>
-<td><code>limit</code></td>
+<td><code class="nw">limit</code></td>
 </tr>
 <tr>
 <td>SVG output</td>
 <td>4,000,000 characters</td>
-<td><code>outputLimit</code></td>
+<td><code class="nw">outputLimit</code></td>
 </tr>
 <tr>
 <td>Arrows in a flowchart or agent flow</td>
 <td>5,000</td>
-<td><code>maxEdges</code></td>
+<td><code class="nw">maxEdges</code></td>
 </tr>
 </tbody></table></div>
 <p>There&#39;s no time limit; if you need one, render in a Web Worker you can stop.</p>
 <h2 id="what-your-app-must-do">What your app must do</h2>
 <ol>
-<li><strong>Show errors as text.</strong> Use <code>textContent</code>, never <code>innerHTML</code>: error messages can quote the diagram.</li>
-<li><strong>Only supply trusted icons.</strong> Markup returned by your <code>icons</code> function is inserted as-is.</li>
-<li><strong>Treat internal links as note names.</strong> For links with <code>internal: true</code>, apply your own navigation rules.</li>
-<li><strong>Keep the options to yourself.</strong> Don&#39;t let diagram authors pass render options or <code>config</code>.</li>
+<li><strong>Show errors as text.</strong> Use <code class="nw">textContent</code>, never <code class="nw">innerHTML</code>: error messages can quote the diagram.</li>
+<li><strong>Only supply trusted icons.</strong> Markup returned by your <code class="nw">icons</code> function is inserted as-is.</li>
+<li><strong>Treat internal links as note names.</strong> For links with <code class="nw">internal: true</code>, apply your own navigation rules.</li>
+<li><strong>Keep the options to yourself.</strong> Don&#39;t let diagram authors pass render options or <code class="nw">config</code>.</li>
 </ol>
-<p>Want your own sanitizer too? Pass <code>sanitize</code> to <code>mount()</code>; it runs before each SVG goes in.</p>
+<p>Want your own sanitizer too? Pass <code class="nw">sanitize</code> to <code class="nw">mount()</code>; it runs before each SVG goes in.</p>
 <p>Try to break it in the <a href="/pages/safety.html">paste-anything demo</a>. Found a real problem? Report it privately through <a href="https://github.com/obsidianmd/pele/security/advisories/new" rel="noopener">Pele&#39;s security advisories</a>.</p>
 
     </article>

@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/phone.html" />
   <link rel="alternate" type="text/markdown" href="/md/phone.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -198,12 +195,12 @@
 <div class="takeaway"><p>On a narrow screen, Pele turns a sideways flowchart into a top-to-bottom one so its text stays full size.</p></div>
 
 <h2 id="how-to-get-this-in-your-app">How to get this in your app</h2>
-<p><code>mount()</code> does it for you: it watches the element&#39;s width and redraws when it changes. With <code>render()</code>, pass the width yourself:</p>
+<p><code class="nw">mount()</code> does it for you: it watches the element&#39;s width and redraws when it changes. With <code class="nw">render()</code>, pass the width yourself:</p>
 <pre tabindex="0"><code class="language-js">render(text, { maxWidth: el.clientWidth })       // turn below 640 px (the default)
 render(text, { maxWidth: el.clientWidth, directionBreakpoint: 360 }) // turn only below 360 px
 render(text, { autoDirection: false })           // never turn
 </code></pre>
-<p>By default Pele turns the flow below 640 pixels. This demo sets <code>directionBreakpoint: 360</code> so you can see both layouts with two phones side by side. Details in the <a href="/pages/responsive.html">responsive layouts guide</a>.</p>
+<p>By default Pele turns the flow below 640 pixels. This demo sets <code class="nw">directionBreakpoint: 360</code> so you can see both layouts with two phones side by side. Details in the <a href="/pages/responsive.html">responsive layouts guide</a>.</p>
 
     </article>
     <p id="demo-status" class="hint demo-status" role="status">Loading the live demo…</p>

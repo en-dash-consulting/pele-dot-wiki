@@ -14,11 +14,8 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/theming.html" />
   <link rel="alternate" type="text/markdown" href="/md/theming.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/montserrat-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
@@ -181,77 +178,77 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><code>--pele-bg</code></td>
-<td><code>#ffffff</code></td>
+<td><code class="nw">--pele-bg</code></td>
+<td><code class="nw">#ffffff</code></td>
 <td>Background</td>
 </tr>
 <tr>
-<td><code>--pele-fg</code></td>
-<td><code>#1f1f1f</code></td>
+<td><code class="nw">--pele-fg</code></td>
+<td><code class="nw">#1f1f1f</code></td>
 <td>Text</td>
 </tr>
 <tr>
-<td><code>--pele-muted</code></td>
-<td><code>#6e6e6e</code></td>
+<td><code class="nw">--pele-muted</code></td>
+<td><code class="nw">#6e6e6e</code></td>
 <td>Secondary text</td>
 </tr>
 <tr>
-<td><code>--pele-line</code></td>
-<td><code>#1f1f1f</code></td>
+<td><code class="nw">--pele-line</code></td>
+<td><code class="nw">#1f1f1f</code></td>
 <td>Lines and arrowheads</td>
 </tr>
 <tr>
-<td><code>--pele-surface</code></td>
-<td><code>#f3f3f3</code></td>
+<td><code class="nw">--pele-surface</code></td>
+<td><code class="nw">#f3f3f3</code></td>
 <td>Box fill</td>
 </tr>
 <tr>
-<td><code>--pele-surface-alt</code></td>
-<td><code>#e6e6e6</code></td>
+<td><code class="nw">--pele-surface-alt</code></td>
+<td><code class="nw">#e6e6e6</code></td>
 <td>Group (subgraph) fill</td>
 </tr>
 <tr>
-<td><code>--pele-border</code></td>
-<td><code>#8a8a8a</code></td>
+<td><code class="nw">--pele-border</code></td>
+<td><code class="nw">#8a8a8a</code></td>
 <td>Box and group borders</td>
 </tr>
 <tr>
-<td><code>--pele-accent</code></td>
-<td><code>#5b7bd5</code></td>
+<td><code class="nw">--pele-accent</code></td>
+<td><code class="nw">#5b7bd5</code></td>
 <td>Highlights</td>
 </tr>
 <tr>
-<td><code>--pele-critical</code></td>
-<td><code>#e45756</code></td>
+<td><code class="nw">--pele-critical</code></td>
+<td><code class="nw">#e45756</code></td>
 <td>Critical Gantt tasks, high-priority kanban cards</td>
 </tr>
 <tr>
-<td><code>--pele-error</code></td>
-<td><code>#e45756</code></td>
-<td>Errors shown by <code>mount()</code></td>
+<td><code class="nw">--pele-error</code></td>
+<td><code class="nw">#e45756</code></td>
+<td>Errors shown by <code class="nw">mount()</code></td>
 </tr>
 <tr>
-<td><code>--pele-font</code></td>
+<td><code class="nw">--pele-font</code></td>
 <td>measured</td>
 <td>Label font</td>
 </tr>
 <tr>
-<td><code>--pele-font-mono</code></td>
+<td><code class="nw">--pele-font-mono</code></td>
 <td>measured</td>
 <td>Monospace labels</td>
 </tr>
 <tr>
-<td><code>--pele-radius</code></td>
-<td><code>4px</code></td>
+<td><code class="nw">--pele-radius</code></td>
+<td><code class="nw">4px</code></td>
 <td>Corner radius of rounded shapes</td>
 </tr>
 <tr>
-<td><code>--pele-series-1</code> … <code>-8</code></td>
+<td><code class="nw">--pele-series-1</code> … <code class="nw">-8</code></td>
 <td>a palette</td>
 <td>Pie slices, chart series, git branches</td>
 </tr>
 </tbody></table></div>
-<p>There are also <code>--pele-title-weight</code>, <code>--pele-heading-weight</code> and <code>--pele-bold-weight</code>. The full reference is in the <a href="https://pele.run/theming" rel="noopener">official theming docs</a>.</p>
+<p>There are also <code class="nw">--pele-title-weight</code>, <code class="nw">--pele-heading-weight</code> and <code class="nw">--pele-bold-weight</code>. The full reference is in the <a href="https://pele.run/theming" rel="noopener">official theming docs</a>.</p>
 <h2 id="light-and-dark-mode">Light and dark mode</h2>
 <pre tabindex="0"><code class="language-css">.pele {
   --pele-bg: #ffffff; --pele-fg: #111111; --pele-line: #111111; --pele-accent: #d52b1e;
@@ -262,9 +259,9 @@
 </code></pre>
 <p>Because the drawing only points at the variables, switching modes is instant and needs no JavaScript. This site does exactly this: switch your system to dark mode and every diagram follows.</p>
 <h2 id="fonts-are-the-exception">Fonts are the exception</h2>
-<p>Pele measures label text to lay a diagram out, so a new font means new widths. With <code>mount()</code>, call <code>diagram.refresh()</code> after changing fonts. With <code>render()</code>, pass <code>fontFamily</code> and render again.</p>
+<p>Pele measures label text to lay a diagram out, so a new font means new widths. With <code class="nw">mount()</code>, call <code class="nw">diagram.refresh()</code> after changing fonts. With <code class="nw">render()</code>, pass <code class="nw">fontFamily</code> and render again.</p>
 <h2 id="coming-from-mermaid-themes">Coming from Mermaid themes</h2>
-<p>Mermaid&#39;s <code>theme</code> and <code>themeVariables</code> settings don&#39;t apply in Pele. Map the colours you used onto the variables above once, in CSS, and you&#39;re done. Play with it in the <a href="/pages/theme-lab.html">theme lab</a>.</p>
+<p>Mermaid&#39;s <code class="nw">theme</code> and <code class="nw">themeVariables</code> settings don&#39;t apply in Pele. Map the colours you used onto the variables above once, in CSS, and you&#39;re done. Play with it in the <a href="/pages/theme-lab.html">theme lab</a>.</p>
 
     </article>
     
