@@ -1,13 +1,27 @@
 ---
 slug: about
-title: "About pele.wiki | pele.wiki"
+order: 60
+title: "About pele.wiki: An Independent Guide to Pele | pele.wiki"
 nav: About
 h1: "About pele.wiki"
-description: "pele.wiki is an independent learning site and demo gallery for Pele, kepano's Mermaid renderer, made by En Dash Consulting."
+intro: "pele.wiki is an independent learning site and live demo gallery for <a href=\"https://pele.run\">Pele</a>, the Mermaid renderer by <a href=\"https://github.com/kepano\">kepano</a>."
+description: "pele.wiki is an independent learning site for Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and how to get in touch."
 type: article
 ---
-pele.wiki is an independent learning site and live demo gallery for [Pele](https://pele.run), the Mermaid renderer by [kepano](https://github.com/kepano). It is made by [En Dash Consulting](https://endash.us), the people behind [handwired.wiki](https://handwired.wiki).
+## Credits
 
-It is not affiliated with or endorsed by Obsidian or kepano. Pele is © 2026 kepano under the MIT license; the source is at [github.com/obsidianmd/pele](https://github.com/obsidianmd/pele).
+- **Pele** is © 2026 kepano, MIT license. Source: [github.com/obsidianmd/pele](https://github.com/obsidianmd/pele). Official docs, playground and examples: [pele.run](https://pele.run).
+- **Mermaid** syntax and **Mermaid.js** are by the Mermaid team, MIT license: [mermaid.js.org](https://mermaid.js.org).
+- Some gallery examples come from Mermaid's documentation (MIT), through Pele's test suite.
 
-Every demo runs a pinned version of the real `pele` package from npm and, where compared, the real Mermaid.js.
+## Who we are
+
+pele.wiki is made by [En Dash Consulting](https://endash.us), who also make [handwired.wiki](https://handwired.wiki). It is not affiliated with or endorsed by Obsidian or kepano.
+
+## How the demos work
+
+Every demo runs a pinned version of the real `pele` package from npm, currently 1.6.0, and, where compared, the real Mermaid.js 12.1.0 with its default settings and `securityLevel: 'strict'`. Times are measured in your browser, so they depend on your device.
+
+## Corrections
+
+Spotted something wrong or out of date? Open an issue on the [site's source](https://github.com/en-dash-consulting/pele-dot-wiki/issues).

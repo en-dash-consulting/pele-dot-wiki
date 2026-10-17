@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  
+  <script>try{if(localStorage.getItem('pw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stream a Mermaid Diagram From an AI Answer | pele.wiki</title>
+  <meta name="description" content="Live demo: an AI answer streams a Mermaid diagram. Pele draws it line by line as it arrives; Mermaid.js catches up in jumps. Same text, same speed." />
+  <meta name="author" content="En Dash Consulting" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="canonical" href="https://pele.wiki/pages/stream.html" />
+  <link rel="alternate" type="text/markdown" href="/md/stream.md" title="Markdown version" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Stream a Mermaid Diagram From an AI Answer | pele.wiki" />
+  <meta property="og:description" content="Live demo: an AI answer streams a Mermaid diagram. Pele draws it line by line as it arrives; Mermaid.js catches up in jumps. Same text, same speed." />
+  <meta property="og:url" content="https://pele.wiki/pages/stream.html" />
+  <meta property="og:site_name" content="pele.wiki" />
+  <meta property="og:image" content="https://pele.wiki/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer, drawn as a transit map" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:modified_time" content="2026-10-17" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Stream a Mermaid Diagram From an AI Answer | pele.wiki" />
+  <meta name="twitter:description" content="Live demo: an AI answer streams a Mermaid diagram. Pele draws it line by line as it arrives; Mermaid.js catches up in jumps. Same text, same speed." />
+  <meta name="twitter:image" content="https://pele.wiki/og-image.png" />
+  <meta name="twitter:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer" />
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://pele.wiki/#website",
+   "name": "pele.wiki",
+   "url": "https://pele.wiki/",
+   "publisher": {
+    "@id": "https://pele.wiki/#org"
+   },
+   "inLanguage": "en",
+   "description": "Pele by kepano renders Mermaid diagrams to themeable SVG with zero dependencies: about 6× smaller and up to 500× faster than Mermaid.js. Live demos and guides."
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://pele.wiki/#org",
+   "name": "En Dash Consulting",
+   "url": "https://endash.us"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://pele.wiki/#kepano",
+   "name": "Steph Ango",
+   "alternateName": "kepano",
+   "url": "https://stephango.com",
+   "jobTitle": "CEO",
+   "worksFor": {
+    "@type": "Organization",
+    "name": "Obsidian",
+    "url": "https://obsidian.md"
+   },
+   "sameAs": [
+    "https://github.com/kepano",
+    "https://x.com/kepano"
+   ]
+  },
+  {
+   "@type": "SoftwareSourceCode",
+   "@id": "https://pele.wiki/#pele",
+   "name": "Pele",
+   "alternateName": [
+    "pele.run",
+    "obsidianmd/pele",
+    "Pele Mermaid renderer",
+    "pele npm"
+   ],
+   "description": "A fast, lightweight Mermaid renderer that outputs themeable SVG. Zero dependencies, synchronous, themed with CSS variables.",
+   "codeRepository": "https://github.com/obsidianmd/pele",
+   "url": "https://pele.run",
+   "sameAs": [
+    "https://www.npmjs.com/package/pele"
+   ],
+   "author": {
+    "@id": "https://pele.wiki/#kepano"
+   },
+   "license": "https://opensource.org/licenses/MIT",
+   "programmingLanguage": [
+    "TypeScript",
+    "JavaScript"
+   ],
+   "runtimePlatform": "Web browsers, Node.js",
+   "version": "1.6.0",
+   "keywords": "mermaid, diagrams, svg, flowchart, renderer, obsidian"
+  },
+  {
+   "@type": "TechArticle",
+   "@id": "https://pele.wiki/pages/stream.html#page",
+   "url": "https://pele.wiki/pages/stream.html",
+   "name": "Stream a Mermaid Diagram From an AI Answer | pele.wiki",
+   "headline": "Stream an AI answer",
+   "description": "Live demo: an AI answer streams a Mermaid diagram. Pele draws it line by line as it arrives; Mermaid.js catches up in jumps. Same text, same speed.",
+   "inLanguage": "en",
+   "isPartOf": {
+    "@id": "https://pele.wiki/#website"
+   },
+   "about": {
+    "@id": "https://pele.wiki/#pele"
+   },
+   "publisher": {
+    "@id": "https://pele.wiki/#org"
+   },
+   "dateModified": "2026-10-17",
+   "image": "https://pele.wiki/og-image.png",
+   "breadcrumb": {
+    "@id": "https://pele.wiki/pages/stream.html#breadcrumb"
+   },
+   "author": {
+    "@id": "https://pele.wiki/#org"
+   },
+   "proficiencyLevel": "Beginner",
+   "learningResourceType": "Interactive demo",
+   "isAccessibleForFree": true
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://pele.wiki/pages/stream.html#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://pele.wiki/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Demos",
+     "item": "https://pele.wiki/pages/demos.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Stream an AI answer",
+     "item": "https://pele.wiki/pages/stream.html"
+    }
+   ]
+  }
+ ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
+  <header class="site-header">
+    <a class="brand" href="/"><svg class="brand-mark" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M2 21 L9 7 L12 11 L15 7 L22 21 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path class="brand-lava" d="M9.5 3.6 Q12 1 14.5 3.6" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg><span>pele<span class="brand-tld">.wiki</span></span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/demos.html" aria-current="page">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/guides.html">Guides</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li></ul></nav>
+  </header>
+  <main id="main" class="page demo-page" tabindex="-1">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/demos.html">Demos</a></li><li aria-current="page">Stream an AI answer</li></ol></nav>
+    <article>
+      <div class="demo-head"><span class="roundel" style="--line:var(--l2);--on-line:var(--on-l2)" aria-hidden="true">2</span><div><p class="kicker">Stop 2 on the Pele line</p><h1>Stream an AI answer</h1></div></div><p class="demo-intro">Pele can redraw a diagram on every chunk of a streaming AI answer. Press <strong>Ask</strong> and watch both chat apps receive the same answer at the same speed.</p>
+      <section class="demo stream" aria-labelledby="st-title" data-demo="stream">
+  <h2 id="st-title" class="visually-hidden">Live demo: a diagram streaming in a chat answer</h2>
+  <div class="demo-bar">
+    <button id="st-ask" type="button" class="button"><span aria-hidden="true">▶</span> Ask the assistant</button>
+    <span class="bar-field"><label for="st-speed" class="bar-label">Model speed</label>
+    <select id="st-speed"><option value="90">Fast (about 90 tokens a second)</option><option value="45" selected>Typical (about 45 a second)</option><option value="15">Slow (about 15 a second)</option></select></span>
+  </div>
+  <div class="chat-grid">
+    <figure class="chat chat-pele">
+      <figcaption><span class="tr-name">Chat app drawing with Pele</span></figcaption>
+      <div class="chat-body">
+        <p class="bubble you">How does our checkout work? Draw it.</p>
+        <div class="bubble bot"><p id="st-pele-text" class="bot-text"></p><div id="st-pele-dia" class="chat-dia" role="img" aria-label="Diagram in the answer, drawn by Pele"></div><p id="st-pele-after" class="bot-text"></p></div>
+      </div>
+      <p class="chat-foot"><output id="st-pele-count">Not started</output></p>
+    </figure><figure class="chat chat-mm">
+      <figcaption><span class="tr-name">Chat app drawing with Mermaid.js</span></figcaption>
+      <div class="chat-body">
+        <p class="bubble you">How does our checkout work? Draw it.</p>
+        <div class="bubble bot"><p id="st-mm-text" class="bot-text"></p><div id="st-mm-dia" class="chat-dia" role="img" aria-label="Diagram in the answer, drawn by Mermaid.js"></div><p id="st-mm-after" class="bot-text"></p></div>
+      </div>
+      <p class="chat-foot"><output id="st-mm-count">Not started</output></p>
+    </figure>
+  </div>
+  <p id="st-verdict" class="tr-verdict" role="status" aria-live="polite"></p>
+</section>
+<h2 id="what-you-just-saw">What you just saw</h2>
+<p>Both chat apps try to redraw the diagram every time a new chunk of the answer arrives. Pele finishes each redraw in a fraction of a millisecond, so the diagram grows in step with the text. Mermaid.js takes tens of milliseconds per redraw and works asynchronously, so by the time it finishes one, several chunks have already arrived; it skips ahead and the diagram appears in jumps.</p>
+<p>Half-written lines are normal while streaming. Pele throws a quick error on text it can&#39;t parse yet, and the demo simply keeps the last good drawing until the next chunk arrives.</p>
+<div class="takeaway"><p>If your app shows diagrams from an AI model, Pele lets the diagram appear while the answer is still arriving, instead of after.</p></div>
+
+<h2 id="how-to-build-this">How to build this</h2>
+<pre tabindex="0"><code class="language-js">import { render } from &#39;pele&#39;
+
+let lastGood = &#39;&#39;
+function onChunk(mermaidSoFar) {
+  try { lastGood = render(mermaidSoFar, { maxWidth: box.clientWidth }).svg } catch {}
+  box.innerHTML = lastGood
+}
+</code></pre>
+<p>More in the <a href="/pages/streaming-ai.html">streaming and AI apps guide</a>.</p>
+
+    </article>
+    <p id="demo-status" class="hint demo-status" role="status">Loading the live demo…</p>
+    <nav class="next-stop" aria-label="Demo line"><a href="/#tr-title"><span class="roundel" style="--line:var(--l1);--on-line:var(--on-l1)" aria-hidden="true">1</span><span>Previous stop: Type a diagram</span></a><a href="/pages/theme-lab.html"><span class="roundel" style="--line:var(--l3);--on-line:var(--on-l3)" aria-hidden="true">3</span><span>Next stop: Theme lab</span></a></nav>
+  </main>
+  <footer class="site-footer"><div class="foot-inner">
+    <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
+    <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="https://github.com/obsidianmd/pele">github.com/obsidianmd/pele</a> · official docs at <a href="https://pele.run">pele.run</a>. Demos run pele 1.6.0 and Mermaid.js 12.1.0.</p>
+    <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
+  </div></footer>
+  <script type="module" src="/src/pages/demo.ts"></script>
+</body>
+</html>

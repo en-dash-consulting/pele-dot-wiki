@@ -9,5 +9,8 @@ const pages = existsSync(dir)
 
 export default defineConfig({
   base: '/',
-  build: { rollupOptions: { input: { main: resolve(__dirname, 'index.html'), ...pages } } },
+  build: {
+    chunkSizeWarningLimit: 1600, // Mermaid.js (comparison only, lazy-loaded) is big on purpose
+    rollupOptions: { input: { main: resolve(__dirname, 'index.html'), notfound: resolve(__dirname, '404.html'), ...pages } },
+  },
 })

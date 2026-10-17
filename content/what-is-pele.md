@@ -1,26 +1,42 @@
 ---
 slug: what-is-pele
-title: "What is Pele? kepano's Mermaid Renderer Explained | pele.wiki"
+order: 31
+section: guide
+title: "What Is Pele? kepano's Mermaid Renderer Explained | pele.wiki"
 nav: What is Pele?
 h1: "What is Pele?"
-description: "Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid syntax in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip."
+intro: "<strong>Pele is an open-source JavaScript library that draws Mermaid diagrams as SVG.</strong> kepano (Steph Ango, CEO of Obsidian) wrote it so diagrams in Obsidian draw instantly and match your theme. You give it Mermaid text; it gives back an SVG, synchronously, with no dependencies."
+description: "Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip."
 type: article
 ---
-**Pele is a JavaScript library that turns Mermaid diagram text into SVG.** It was written by kepano (Steph Ango) to make diagrams in Obsidian fast and on-theme, and it is open source under the MIT license at [github.com/obsidianmd/pele](https://github.com/obsidianmd/pele). Official docs live at [pele.run](https://pele.run).
-
 ## The short version
 
-| | Pele | Mermaid.js |
+| Question | Pele | Mermaid.js |
 | --- | --- | --- |
-| Input | Mermaid syntax (targets 12.1.0) | Mermaid syntax |
-| Bundle, gzip | about 230 kB | about 1.6 MB |
-| Render time | 0.05–0.3 ms | 6–82 ms |
+| Reads | Mermaid text (targets 12.1.0) | Mermaid text |
+| Download size (gzip) | about 230 kB | about 1.6 MB |
+| Time to draw a diagram | 0.05–0.3 ms | 6–82 ms |
 | Direct dependencies | 0 | 23 |
-| Small screens | adapts the layout | scales the diagram |
-| Theming | CSS variables | theme configuration |
+| On a narrow screen | changes the layout | shrinks the drawing |
+| Colours | CSS variables | theme settings, then redraw |
+| Works without a browser | yes, in Node | needs a browser or a headless one |
 
-Figures are from [pele.run](https://pele.run); this site's demos measure them live in your browser.
+Figures are from the official site, [pele.run](https://pele.run). The [demos on this site](/pages/demos.html) measure them live in your own browser.
+
+## Who made it, and why
+
+Pele is by [kepano](https://github.com/kepano), and lives in Obsidian's GitHub organisation at [obsidianmd/pele](https://github.com/obsidianmd/pele). It was announced on 17 October 2026 as part of “making Obsidian insanely fast”. It is named after Pele, the Hawaiian goddess of volcanoes and fire.
 
 ## What it is not
 
-Pele is not a new diagram language and not a drawing tool. It reads Mermaid's syntax, so existing diagrams and the Mermaid that AI models already write keep working. Its layout and visual style are its own, so a diagram will look different from Mermaid.js's version.
+- **Not a new diagram language.** It reads Mermaid, so your existing diagrams, and the Mermaid that AI models already write, keep working.
+- **Not a drawing tool.** There's no canvas to drag boxes around; for that, see [Pele vs Excalidraw](/pages/pele-vs-excalidraw.html).
+- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look cleaner but different. See [migrating from Mermaid.js](/pages/migrating.html).
+
+## How it works, in one paragraph
+
+Pele has its own parser for each diagram type, tested against Mermaid's own parser tests and fuzzed against Mermaid's parser. It measures label text, lays the diagram out, and writes an SVG string whose colours point at CSS variables. Because each step is plain synchronous JavaScript, a diagram is ready by the time `render()` returns.
+
+## Is it ready to use?
+
+It's young: version 1.0.1 shipped on 6 October 2026 and new versions arrive every few days. It was built for Obsidian. Pin an exact version in production and read the [changelog on GitHub](https://github.com/obsidianmd/pele) before upgrading. This site uses pele 1.6.0.

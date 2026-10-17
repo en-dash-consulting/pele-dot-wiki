@@ -1,0 +1,28 @@
+/* Transit map: white ground, black signage, route colours. Night service keeps the same map, no glow. */
+:root {
+  color-scheme: light dark;
+  --paper: #ffffff; --ink: #111111; --muted: #545454; --surface: #f2f2f2; --surface-2: #e4e4e4;
+  --rule: #d4d4d4; --rule-strong: #111111; --link: #b0170c; --focus: #0050c8; --accent: #d52b1e;
+  --l1: #d52b1e; --l2: #00843d; --l3: #f5a800; --l4: #0050c8; --l5: #7b2d8e; --l6: #111111;
+  --on-l1: #ffffff; --on-l2: #ffffff; --on-l3: #111111; --on-l4: #ffffff; --on-l5: #ffffff; --on-l6: #ffffff;
+  --fast: #00742f; --slow: #b0170c; --ok: #00742f; --bad: #b0170c;
+  --font-display: 'Unbounded', 'Arial Black', sans-serif; --font-body: 'Public Sans', system-ui, sans-serif; --font-mono: 'Commit Mono', ui-monospace, monospace;
+  --radius: 18px; --radius-sm: 10px; --border-w: 3px;
+  --banner-bg: #f5a800; --banner-fg: #111111; --header-bg: #111111; --header-fg: #ffffff; --brand-tld: #f5a800;
+  --btn-bg: #d52b1e; --btn-fg: #ffffff; --btn-border: #d52b1e;
+  --code-bg: #111111; --code-fg: #f4f4f4; --pane-bg: #ffffff; --footer-bg: #111111; --footer-fg: #ffffff;
+  --stop-fill: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121417; --ink: #f2f2ef; --muted: #a7acb3; --surface: #1c1f24; --surface-2: #272b31;
+    --rule: #353a42; --rule-strong: #f2f2ef; --link: #ff8f80; --focus: #6aa3ff; --accent: #f04a3c;
+    --l1: #f04a3c; --l2: #1fae5f; --l3: #ffbd2e; --l4: #4d8dff; --l5: #b56ac9; --l6: #f2f2ef;
+    --on-l1: #111111; --on-l2: #0b0b0b; --on-l3: #111111; --on-l4: #0b0b0b; --on-l5: #0b0b0b; --on-l6: #111111;
+    --fast: #3ccf7b; --slow: #ff8f80; --ok: #3ccf7b; --bad: #ff8f80;
+    --banner-bg: #ffbd2e; --banner-fg: #111111; --header-bg: #000000; --header-fg: #f2f2ef; --brand-tld: #ffbd2e;
+    --btn-bg: #f04a3c; --btn-fg: #111111; --btn-border: #f04a3c;
+    --code-bg: #0a0b0d; --code-fg: #f2f2ef; --pane-bg: #16181c; --footer-bg: #000000; --footer-fg: #f2f2ef;
+    --stop-fill: #121417;
+  }
+}
