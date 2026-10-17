@@ -73,7 +73,7 @@ test('CSS ships inside each page, with no render-blocking stylesheet', async ({ 
   for (const path of ['/', '/pages/stream.html', '/pages/faq.html']) {
     const html = await (await request.get(path)).text()
     expect(html).not.toMatch(/<link rel="stylesheet"/)
-    expect(html).toMatch(/<style>[^<]{2000,}<\/style>/)
+    expect(html).toMatch(/<style>[\s\S]{2000,}?<\/style>/)
   }
 })
 

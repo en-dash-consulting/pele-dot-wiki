@@ -58,6 +58,7 @@ test('theme lab: colour change restyles without a Pele redraw', async ({ page })
 test('phone: keyboard handle resizes and Pele flips the flow', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 })
   await page.goto('/pages/phone.html')
+  await page.locator('[data-demo][data-live]').waitFor() // dragging needs the live demo (keys and taps made earlier are replayed)
   const h = page.getByRole('slider').first()
   await h.focus(); await page.keyboard.press('End')
   const wide = Number(await h.getAttribute('aria-valuenow'))
@@ -72,11 +73,22 @@ test('phone: keyboard handle resizes and Pele flips the flow', async ({ page }) 
 test('phone: drag the handle with a pointer', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 900 })
   await page.goto('/pages/phone.html')
+  await page.locator('[data-demo][data-live]').waitFor() // dragging needs the live demo (keys and taps made earlier are replayed)
   const h = page.getByRole('slider').first()
   const b = (await h.boundingBox())!
   await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2); await page.mouse.down()
   await page.mouse.move(b.x + 200, b.y + b.height / 2, { steps: 8 }); await page.mouse.up()
   expect(Number(await h.getAttribute('aria-valuenow'))).toBeGreaterThan(480)
+})
+
+test('taps made before a demo finishes loading still count', async ({ page }) => {
+  await page.route(/assets\/phone-.*\.js$/, async r => { await new Promise(res => setTimeout(res, 800)); await r.continue() })
+  await page.setViewportSize({ width: 1280, height: 900 })
+  await page.goto('/pages/phone.html')
+  const h = page.getByRole('slider').first()
+  await h.focus(); await page.keyboard.press('End')
+  await page.locator('[data-demo][data-live]').waitFor()
+  await expect.poll(async () => Number(await h.getAttribute('aria-valuenow'))).toBeGreaterThan(500)
 })
 
 test('docs page: Pele draws 200, Mermaid makes progress and can be stopped', async ({ page }) => {

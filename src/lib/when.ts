@@ -23,7 +23,7 @@ export function whenNeeded(el: HTMLElement, fn: () => Promise<unknown> | void, m
   const triggers = ['pointerdown', 'keydown', 'focusin'] as const
   const buffered = ['click', 'keydown', 'input', 'change'] as const
   const queue: Event[] = []
-  const hold = (e: Event) => { if (e.isTrusted && queue.length < 20) queue.push(e) }
+  const hold = (e: Event) => { if (queue.length < 20) queue.push(e) }
   for (const t of buffered) el.addEventListener(t, hold, true)
   const go = () => {
     if (started) return
