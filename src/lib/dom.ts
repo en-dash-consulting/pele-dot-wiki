@@ -8,6 +8,7 @@ export const fmt = (ms: number) => (ms < 1 ? ms.toFixed(2) : ms < 10 ? ms.toFixe
 export class Median {
   private xs: number[] = []
   constructor(private size = 9) {}
+  reset() { this.xs = [] }
   add(x: number) { this.xs.push(x); if (this.xs.length > this.size) this.xs.shift(); const s = [...this.xs].sort((a, b) => a - b); return s[s.length >> 1] ?? x }
 }
 export const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches

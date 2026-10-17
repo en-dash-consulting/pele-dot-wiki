@@ -1,0 +1,5 @@
+{
+ "flow": "flowchart LR\n  Cart[Cart] --> Signed{Signed in?}\n  Signed -- yes --> Pay[Payment]\n  Signed -- no --> Login[Log in]\n  Login --> Pay\n  Pay --> Stock{In stock?}\n  Stock -- yes --> Ship([Ship it])\n  Stock -- no --> Notify[Email me later]",
+ "seq": "sequenceDiagram\n  participant U as You\n  participant A as App\n  participant S as Server\n  U->>A: Tap \"Log in\"\n  A->>S: POST /session\n  S-->>A: 200 + token\n  A-->>U: Welcome back\n  Note over A,S: token kept for 30 days",
+ "state": "stateDiagram-v2\n  [*] --> Red\n  Red --> Green: timer 30s\n  Green --> Yellow: timer 25s\n  Yellow --> Red: timer 5s\n  Red --> Flashing: power fault\n  Flashing --> Red: reset"
+}

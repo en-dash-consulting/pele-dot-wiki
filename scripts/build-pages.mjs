@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Generates every HTML page (index.html, 404.html, pages/*.html), markdown copies (public/md),
 // llms.txt, llms-full.txt and sitemap.xml from content/*.md. Run: npm run pages
-import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync } from 'node:fs'
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync } from 'node:fs'
+import { SNAPSHOT, prerenderKey } from './prerender-key.mjs'
 import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -17,8 +18,11 @@ const MERMAID_VERSION = PKG.dependencies.mermaid
 // Google Analytics: set "gaId" in site.config.json (e.g. "G-XXXXXXX"). Empty means no tag is emitted.
 const GA_ID = (process.env.GA_ID ?? JSON.parse(readFileSync(join(ROOT, 'site.config.json'), 'utf8')).gaId ?? '').trim()
 if (GA_ID && !/^G-[A-Z0-9]+$/.test(GA_ID)) throw new Error(`site.config.json gaId looks wrong: ${GA_ID}`)
-export const GA = GA_ID ? `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', '${GA_ID}');</script>` : ''
+// GA: calls are queued at once (so the page view keeps its real start time), but gtag.js itself is only
+// fetched on the first interaction or once the page is loaded and idle, so it never delays first paint.
+export const GA = GA_ID ? `<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', '${GA_ID}');
+  (function(){var done=0,evs=['pointerdown','keydown','scroll','touchstart'];function go(){if(done)return;done=1;evs.forEach(function(e){removeEventListener(e,go,true)});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${GA_ID}';document.head.appendChild(s)}
+  evs.forEach(function(e){addEventListener(e,go,{capture:true,passive:true})});addEventListener('load',function(){if(window.requestIdleCallback)requestIdleCallback(go,{timeout:3500});else setTimeout(go,2000)})})();</script>` : ''
 const PELE_REPO = 'https://github.com/obsidianmd/pele'
 const PELE_SITE = 'https://pele.run'
 const NAV = ['demos', 'gallery', 'guides', 'compare', 'faq']
@@ -254,8 +258,23 @@ mkdirSync(join(ROOT, 'pages'), { recursive: true })
 rmSync(join(ROOT, 'public/md'), { recursive: true, force: true })
 mkdirSync(join(ROOT, 'public/md'), { recursive: true })
 const md = p => `# ${strip(p.h1)}\n\n> ${p.description}\n\nSource: ${url(p.slug)} · Last updated ${p.lastmod}\n\n${p.intro ? strip(p.intro) + '\n\n' : ''}${p.body.replace('<!-- demo -->', `*(Interactive demo: open ${url(p.slug)})*`).replace('<!-- line -->', LINE.map(s => `- Stop ${s.n}: [${s.name}](${s.slug === 'index' ? SITE + '/' : url(s.slug)}): ${s.desc}`).join('\n')).replace('<!-- hub -->', '')}`
+
+// Build-time Pele drawings (scripts/prerender.mjs), so the first paint shows the finished diagram.
+const SNAP = existsSync(SNAPSHOT) ? JSON.parse(readFileSync(SNAPSHOT, 'utf8')) : null
+const SNAP_OK = SNAP?.key === prerenderKey()
+if (!SNAP_OK) console.warn('build-pages: src/prerender.json is missing or stale; run `npm run prerender`. Shipping without build-time drawings.')
+function prerendered(slug, html) {
+  if (!SNAP_OK) return html
+  for (const it of SNAP.items.filter(i => i.page === slug)) {
+    const re = new RegExp('(<div[^>]*' + it.attr.replace(/[.*+?^$()|[\]\\{}]/g, '\\$&') + '[^>]*>)(</div>)')
+    if (!re.test(html)) throw new Error(`prerender: no empty ${it.attr} on ${slug}`)
+    html = html.replace(re, (_, a, b) => `${a.replace('<div', '<div data-prerendered')}${it.html}${b}`)
+  }
+  return html
+}
+
 for (const p of pages) {
-  writeFileSync(join(ROOT, p.slug === 'index' ? 'index.html' : p.slug === '404' ? '404.html' : `pages/${p.slug}.html`), render(p))
+  writeFileSync(join(ROOT, p.slug === 'index' ? 'index.html' : p.slug === '404' ? '404.html' : `pages/${p.slug}.html`), prerendered(p.slug, render(p)))
   if (p.slug !== '404') writeFileSync(join(ROOT, `public/md/${p.slug}.md`), md(p))
 }
 const indexable = pages.filter(p => p.slug !== '404')

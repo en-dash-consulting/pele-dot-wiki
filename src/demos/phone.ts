@@ -1,5 +1,6 @@
 import { mount } from '../lib/pele-lite'
 import { mermaidSvg } from '../lib/mermaid'
+import { visible } from '../lib/when'
 import { $, reduceMotion } from '../lib/dom'
 
 const SRC = `flowchart LR
@@ -45,7 +46,8 @@ export function mountPhone(root: HTMLElement) {
   const maxW = () => Math.max(MIN, Math.min(900, (phones.querySelector('.phone-col')?.clientWidth ?? 900) - 48))
   const m = mount(pele, SRC, { zoom: false, directionBreakpoint: 360, onRender: r => { mode.textContent = r.width < r.height ? '· Pele turned the flow to run top-to-bottom' : '· Pele keeps it left-to-right'; queueRead() } })
   void m
-  void mermaidSvg(SRC).then(svg => { if (svg) { mm.innerHTML = svg; queueRead() } })
+  // Mermaid.js is about 1.6 MB: fetch it only when its phone is about to be seen.
+  visible(mm, () => void mermaidSvg(SRC).then(svg => { if (svg) { mm.innerHTML = svg; queueRead() } }))
 
   function queueRead() {
     cancelAnimationFrame(raf)

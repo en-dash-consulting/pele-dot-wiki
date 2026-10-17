@@ -1,7 +1,10 @@
-import { render } from '../lib/pele-lite'
+import { render, ensure, needs, isLoaded } from '../lib/pele-lite'
 import { loadMermaid, mermaidSvg } from '../lib/mermaid'
-import { EXAMPLES } from './examples'
+import examples from './examples.json'
+
+const EXAMPLES: Record<string, string> = examples
 import { $, fmt, Median } from '../lib/dom'
+import { idle as whenIdle } from '../lib/when'
 
 export function mountTypeRace(root: HTMLElement) {
   const src = $<HTMLTextAreaElement>(root, '#tr-src')
@@ -44,7 +47,9 @@ export function mountTypeRace(root: HTMLElement) {
 
   function onEdit() {
     stats.edits++
-    drawPele(src.value)
+    const extra = needs(src.value)
+    if (extra && !isLoaded(extra)) void ensure(extra).then(() => drawPele(src.value)) // first sequence/state diagram: fetch that type once
+    else drawPele(src.value)
     behind++
     if (busy) { lag.hidden = false; root.classList.add('lagging'); lag.textContent = `Mermaid.js is ${behind} keystroke${behind === 1 ? '' : 's'} behind` }
     void drawMermaid()
@@ -81,10 +86,10 @@ export function mountTypeRace(root: HTMLElement) {
   auto.addEventListener('click', autoType)
   example.addEventListener('change', () => { stop(); src.value = EXAMPLES[example.value] ?? ''; Object.assign(stats, { edits: 0, pele: 0, mermaid: 0 }); onEdit() })
 
-  src.value = EXAMPLES.flow ?? ''
-  // Warm up, as any editor would be after a few keystrokes, so the first number isn't a cold start.
-  for (let i = 0; i < 6; i++) { try { render(src.value, { maxWidth: peleOut.clientWidth || 600 }) } catch { /* ignore */ } }
-  drawPele(src.value)
+  if (!src.value.trim()) src.value = EXAMPLES.flow ?? ''
+  drawPele(src.value) // replaces the build-time drawing with a live one
+  // Warm up while idle, as any editor would be after a few keystrokes, so the timings aren't a cold start.
+  whenIdle(() => { for (let i = 0; i < 6; i++) { try { render(src.value, { maxWidth: peleOut.clientWidth || 600 }) } catch { /* ignore */ } } pm.reset() })
 
   let started = false
   async function start() {
@@ -98,8 +103,7 @@ export function mountTypeRace(root: HTMLElement) {
   }
   // Fetch Mermaid.js (the big download) only once its pane is close to the screen, and after the page has
   // painted, so it never competes with the first view. Focusing the editor also starts it.
-  const later = () => { if (typeof requestIdleCallback === 'function') requestIdleCallback(() => void start(), { timeout: 1200 }); else setTimeout(() => void start(), 300) }
-  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true }) } }, { rootMargin: '200px 0px' })
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); whenIdle(() => void start(), 1200) } }, { rootMargin: '200px 0px' })
   io.observe(mmOut)
   src.addEventListener('focus', () => void start(), { once: true })
 

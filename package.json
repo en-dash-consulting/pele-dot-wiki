@@ -11,7 +11,8 @@
     "test": "playwright test",
     "shots": "SHOTS=1 playwright test tests/screenshots.spec.ts",
     "preview": "vite preview --port 4174 --strictPort",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "prerender": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "mermaid": "12.1.0",
