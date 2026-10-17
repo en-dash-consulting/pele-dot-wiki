@@ -1,4 +1,8 @@
 import { test, expect } from '@playwright/test'
+
+// Never send test traffic to the real GA4 property.
+test.beforeEach(async ({ page }) => { await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.fulfill({ status: 204, body: '' })) })
+
 test('banner: shows, dismisses by keyboard, stays dismissed', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 }); await page.goto('/')
   const banner = page.getByRole('complementary', { name: 'Announcement' })

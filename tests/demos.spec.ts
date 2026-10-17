@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test'
 
+// Never send test traffic to the real GA4 property.
+test.beforeEach(async ({ page }) => { await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.fulfill({ status: 204, body: '' })) })
+
+
 test('home race: Pele draws on every keystroke, Mermaid catches up', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('#tr-pele svg')).toBeVisible()

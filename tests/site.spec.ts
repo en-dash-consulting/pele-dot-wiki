@@ -2,6 +2,10 @@ import { test, expect, type Page } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 import { readdirSync } from 'node:fs'
 
+// Never send test traffic to the real GA4 property.
+test.beforeEach(async ({ page }) => { await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.fulfill({ status: 204, body: '' })) })
+
+
 const pages = ['/', '/404.html', ...readdirSync('pages').filter(f => f.endsWith('.html')).map(f => `/pages/${f}`)]
 const settle = async (page: Page) => { await page.waitForLoadState('networkidle'); await page.evaluate(() => document.fonts.ready); await page.waitForTimeout(300) }
 
@@ -48,10 +52,12 @@ for (const width of [320, 375, 768]) {
   })
 }
 
-test('no analytics tag while gaId is unset', async ({ page }) => {
-  for (const path of ['/', '/pages/faq.html']) {
+test('GA4 tag (G-F3D7B604E2) is on every page, exactly once', async ({ page }) => {
+  await page.route(/googletagmanager\.com|google-analytics\.com/, r => r.fulfill({ status: 204, body: '' }))
+  for (const path of pages) {
     await page.goto(path)
-    expect(await page.locator('script[src*="googletagmanager"]').count()).toBe(0)
+    await expect(page.locator('script[src="https://www.googletagmanager.com/gtag/js?id=G-F3D7B604E2"]')).toHaveCount(1)
+    expect(await page.locator('script:not([src])').evaluateAll(els => els.filter(e => e.textContent?.includes("gtag('config', 'G-F3D7B604E2'")).length)).toBe(1)
   }
 })
 
