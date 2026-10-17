@@ -1,33 +1,59 @@
 # Pele FAQ
 
-> Answers about Pele, kepano's Mermaid renderer: what it is, Mermaid compatibility, speed, bundle size, theming, security, licence and when to use Mermaid.js instead.
+> Answers about Pele: what it is, who made it, Mermaid compatibility, speed, size, theming, phones, safety, Node, licence, and when to keep Mermaid.js.
 
-Source: https://pele.wiki/pages/faq.html
+Source: https://pele.wiki/pages/faq.html · Last updated 2026-10-17
+
+Short answers to the questions people ask about Pele, kepano's Mermaid renderer.
 
 ## What is Pele?
 
-Pele is an open-source JavaScript library by kepano (Steph Ango) that renders Mermaid diagram syntax to themeable SVG, synchronously and with zero dependencies. It was built for Obsidian and is MIT licensed.
+Pele is an open-source JavaScript library that draws Mermaid diagram text as SVG. It is synchronous, has no dependencies, takes its colours from CSS variables and changes layout to fit small screens. It was built for Obsidian and is MIT licensed.
 
-## Is Pele compatible with Mermaid?
+## Who made Pele?
 
-Pele reads Mermaid syntax and supports every diagram type built into Mermaid 12.1.0. Its parsers run Mermaid's own parser specs and are fuzzed against Mermaid's parser. Layout and visual style are Pele's own, so diagrams look different from Mermaid.js.
+Pele was made by kepano (Steph Ango), the CEO of Obsidian. Its source is at github.com/obsidianmd/pele and its official docs are at pele.run. It was announced on 17 October 2026.
 
-## How much faster is Pele than Mermaid.js?
+## Is Pele a replacement for Mermaid.js?
 
-The official site reports 0.05–0.3 ms per render for Pele versus 6–82 ms for Mermaid.js, and about 230 kB gzip versus 1.6 MB. The live typing demo on the pele.wiki home page measures both in your own browser.
+For drawing, mostly yes: it reads the same Mermaid text and supports every diagram type built into Mermaid 12.1.0. Diagrams look different because Pele uses its own layout, and it doesn't support JavaScript click callbacks or plugins such as ZenUML.
 
-## How do I theme Pele diagrams?
+## How much faster than Mermaid.js is Pele?
 
-Set CSS variables such as --pele-bg, --pele-fg, --pele-accent and --pele-font on the .pele element or a parent. Colour changes apply without re-rendering the diagram.
+The official site reports 0.05–0.3 ms per diagram for Pele against 6–82 ms for Mermaid.js, roughly 100 to 500 times faster. The typing race on the pele.wiki home page measures both in your own browser.
 
-## Is it safe to render diagrams from users?
+## How big is Pele?
 
-Pele's SVG output contains no scripts, event handlers or HTML, Pele never runs code from a diagram, links and images are limited to web addresses by default, and source and output sizes are limited.
+About 230 kB gzipped with every diagram type, against about 1.6 MB for Mermaid.js. Using pele/core and registering only the types you need makes it smaller.
+
+## How do I change Pele's colours?
+
+Set CSS variables such as --pele-bg, --pele-fg, --pele-line and --pele-accent on the diagram or a parent element. Colours change without a redraw, so dark mode is just a media query.
+
+## Does Pele work on phones?
+
+Yes. Given the available width, Pele changes the layout instead of shrinking it: below 640 pixels a left-to-right flowchart can run top to bottom, so the text stays readable. mount() does this automatically.
+
+## Is Pele safe for diagrams written by users or AI?
+
+It is designed for that. Its SVG has no scripts, event handlers or HTML labels, javascript: and data: links are blocked, and oversized diagrams are refused. Show its error messages with textContent and keep render options under your control.
+
+## Can I use Pele in Node or at build time?
+
+Yes. render() is plain synchronous JavaScript and works in Node, so you can turn Mermaid into SVG at build time and ship static images.
+
+## Can I stream diagrams from an AI model with Pele?
+
+Yes. Redraw on every chunk and keep the last good drawing when a half-written line doesn't parse yet. Each redraw takes well under a millisecond.
+
+## What licence is Pele under?
+
+MIT. The test specs and grammar files that come from Mermaid are also MIT licensed.
 
 ## When should I keep using Mermaid.js?
 
-Keep Mermaid.js if you need its exact visual output, its click callbacks and interactivity, or plugins built on it.
+When you need Mermaid's exact look, JavaScript click callbacks, plugins such as ZenUML, or a feature Pele does not support yet. supports() tells you per diagram.
 
 ## Who makes pele.wiki?
 
-pele.wiki is an independent learning site by En Dash Consulting. It is not affiliated with Obsidian or kepano. Pele itself is at pele.run and github.com/obsidianmd/pele.
+pele.wiki is an independent learning site by En Dash Consulting. It is not affiliated with or endorsed by Obsidian or kepano.

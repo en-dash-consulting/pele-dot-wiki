@@ -16,4 +16,4 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 | Title | Status |
 |-------|--------|
 | [GitHub repo + Pages deploy](./github-repo-pages-deploy/index.md) | pending |
-| [Site scaffold mirrored from handwired.wiki](./site-scaffold-mirrored-from-handwired/index.md) | pending |
+| [Site scaffold mirrored from handwired.wiki](./site-scaffold-mirrored-from-handwired/index.md) | completed |

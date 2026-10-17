@@ -1,0 +1,9 @@
+/* Self-hosted Latin subsets (OFL), served from /fonts so the two first-paint fonts can be preloaded.
+   The "Fallback" faces are size-matched local fonts, so text barely moves when the web fonts arrive. */
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/unbounded-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Unbounded'; font-style: normal; font-weight: 800; font-display: swap; src: url(/fonts/unbounded-latin-800-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/public-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 700; font-display: swap; src: url(/fonts/public-sans-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Commit Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(/fonts/commit-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Unbounded Fallback'; src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Helvetica Neue Bold'); font-weight: 800; size-adjust: 113%; ascent-override: 88%; descent-override: 22%; }
+@font-face { font-family: 'Public Sans Fallback'; src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Helvetica Neue'); size-adjust: 90%; ascent-override: 106%; descent-override: 25%; }

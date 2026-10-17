@@ -2,32 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  
-  <script>try{var t=new URLSearchParams(location.search).get('theme');if(t)sessionStorage.setItem('pw-theme',t);t=t||sessionStorage.getItem('pw-theme');document.documentElement.dataset.theme=/^[abc]$/.test(t)?t:'a';if(localStorage.getItem('pw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){document.documentElement.dataset.theme='a'}</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3D7B604E2"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-F3D7B604E2');</script>
+  <script>try{if(localStorage.getItem('pw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What is Pele? kepano's Mermaid Renderer Explained | pele.wiki</title>
-  <meta name="description" content="Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid syntax in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip." />
+  <title>What Is Pele? kepano's Mermaid Renderer Explained | pele.wiki</title>
+  <meta name="description" content="Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip." />
   <meta name="author" content="En Dash Consulting" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#111111" />
+  <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/what-is-pele.html" />
   <link rel="alternate" type="text/markdown" href="/md/what-is-pele.md" title="Markdown version" />
+  <link rel="preload" href="/fonts/unbounded-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/public-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/commit-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="What is Pele? kepano's Mermaid Renderer Explained | pele.wiki" />
-  <meta property="og:description" content="Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid syntax in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip." />
+  <meta property="og:title" content="What Is Pele? kepano's Mermaid Renderer Explained | pele.wiki" />
+  <meta property="og:description" content="Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip." />
   <meta property="og:url" content="https://pele.wiki/pages/what-is-pele.html" />
   <meta property="og:site_name" content="pele.wiki" />
   <meta property="og:image" content="https://pele.wiki/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer" />
+  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer, drawn as a transit map" />
   <meta property="og:locale" content="en_US" />
+  <meta property="article:modified_time" content="2026-10-17" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="What is Pele? kepano's Mermaid Renderer Explained | pele.wiki" />
-  <meta name="twitter:description" content="Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid syntax in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip." />
+  <meta name="twitter:title" content="What Is Pele? kepano's Mermaid Renderer Explained | pele.wiki" />
+  <meta name="twitter:description" content="Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip." />
   <meta name="twitter:image" content="https://pele.wiki/og-image.png" />
+  <meta name="twitter:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer" />
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -41,7 +50,7 @@
     "@id": "https://pele.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Pele by kepano renders Mermaid diagrams to themeable SVG: zero dependencies, about 6× smaller and up to 500× faster than Mermaid.js. Live demos, guides and FAQ."
+   "description": "Pele by kepano renders Mermaid diagrams to themeable SVG with zero dependencies: about 6× smaller and up to 500× faster than Mermaid.js. Live demos and guides."
   },
   {
    "@type": "Organization",
@@ -52,9 +61,15 @@
   {
    "@type": "Person",
    "@id": "https://pele.wiki/#kepano",
-   "name": "Steph Ango (kepano)",
+   "name": "Steph Ango",
    "alternateName": "kepano",
    "url": "https://stephango.com",
+   "jobTitle": "CEO",
+   "worksFor": {
+    "@type": "Organization",
+    "name": "Obsidian",
+    "url": "https://obsidian.md"
+   },
    "sameAs": [
     "https://github.com/kepano",
     "https://x.com/kepano"
@@ -67,11 +82,15 @@
    "alternateName": [
     "pele.run",
     "obsidianmd/pele",
-    "Pele Mermaid renderer"
+    "Pele Mermaid renderer",
+    "pele npm"
    ],
-   "description": "A fast, lightweight Mermaid renderer that outputs themeable SVG.",
+   "description": "A fast, lightweight Mermaid renderer that outputs themeable SVG. Zero dependencies, synchronous, themed with CSS variables.",
    "codeRepository": "https://github.com/obsidianmd/pele",
    "url": "https://pele.run",
+   "sameAs": [
+    "https://www.npmjs.com/package/pele"
+   ],
    "author": {
     "@id": "https://pele.wiki/#kepano"
    },
@@ -81,15 +100,16 @@
     "JavaScript"
    ],
    "runtimePlatform": "Web browsers, Node.js",
-   "version": "1.6.0"
+   "version": "1.6.0",
+   "keywords": "mermaid, diagrams, svg, flowchart, renderer, obsidian"
   },
   {
    "@type": "TechArticle",
    "@id": "https://pele.wiki/pages/what-is-pele.html#page",
    "url": "https://pele.wiki/pages/what-is-pele.html",
-   "name": "What is Pele? kepano's Mermaid Renderer Explained | pele.wiki",
+   "name": "What Is Pele? kepano's Mermaid Renderer Explained | pele.wiki",
    "headline": "What is Pele?",
-   "description": "Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid syntax in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip.",
+   "description": "Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip.",
    "inLanguage": "en",
    "isPartOf": {
     "@id": "https://pele.wiki/#website"
@@ -102,6 +122,9 @@
    },
    "dateModified": "2026-10-17",
    "image": "https://pele.wiki/og-image.png",
+   "breadcrumb": {
+    "@id": "https://pele.wiki/pages/what-is-pele.html#breadcrumb"
+   },
    "author": {
     "@id": "https://pele.wiki/#org"
    },
@@ -109,6 +132,7 @@
   },
   {
    "@type": "BreadcrumbList",
+   "@id": "https://pele.wiki/pages/what-is-pele.html#breadcrumb",
    "itemListElement": [
     {
      "@type": "ListItem",
@@ -119,6 +143,12 @@
     {
      "@type": "ListItem",
      "position": 2,
+     "name": "Guides",
+     "item": "https://pele.wiki/pages/guides.html"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
      "name": "What is Pele?",
      "item": "https://pele.wiki/pages/what-is-pele.html"
     }
@@ -132,36 +162,35 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
-    <a class="brand" href="/" aria-label="pele.wiki home"><svg class="brand-mark" aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M2 19 L8.5 6 L11 9.5 L13.5 6 L20 19 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path class="brand-lava" d="M9 3.5 Q11 1 13 3.5" fill="none" stroke-width="2" stroke-linecap="round"/></svg><span>pele<span class="brand-tld">.wiki</span></span></a>
+    <a class="brand" href="/"><svg class="brand-mark" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24"><path d="M2 21 L9 7 L12 11 L15 7 L22 21 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path class="brand-lava" d="M9.5 3.6 Q12 1 14.5 3.6" fill="none" stroke-width="2.4" stroke-linecap="round"/></svg><span>pele<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/what-is-pele.html" aria-current="page">What is Pele?</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/guides.html" aria-current="page">Guides</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li></ul></nav>
   </header>
   <main id="main" class="page" tabindex="-1">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">What is Pele?</li></ol></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/guides.html">Guides</a></li><li aria-current="page">What is Pele?</li></ol></nav>
     <article>
-      <h1>What is Pele?</h1>
-      <p><strong>Pele is a JavaScript library that turns Mermaid diagram text into SVG.</strong> It was written by kepano (Steph Ango) to make diagrams in Obsidian fast and on-theme, and it is open source under the MIT license at <a href="https://github.com/obsidianmd/pele" rel="noopener">github.com/obsidianmd/pele</a>. Official docs live at <a href="https://pele.run" rel="noopener">pele.run</a>.</p>
-<h2>The short version</h2>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Table"><table>
+      <h1>What is Pele?</h1><p class="lede"><strong>Pele is an open-source JavaScript library that draws Mermaid diagrams as SVG.</strong> kepano (Steph Ango, CEO of Obsidian) wrote it so diagrams in Obsidian draw instantly and match your theme. You give it Mermaid text; it gives back an SVG, synchronously, with no dependencies.</p>
+      <h2 id="the-short-version">The short version</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Table 1: Question, Pele, Mermaid.js"><table>
 <thead>
 <tr>
-<th></th>
+<th>Question</th>
 <th>Pele</th>
 <th>Mermaid.js</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Input</td>
-<td>Mermaid syntax (targets 12.1.0)</td>
-<td>Mermaid syntax</td>
+<td>Reads</td>
+<td>Mermaid text (targets 12.1.0)</td>
+<td>Mermaid text</td>
 </tr>
 <tr>
-<td>Bundle, gzip</td>
+<td>Download size (gzip)</td>
 <td>about 230 kB</td>
 <td>about 1.6 MB</td>
 </tr>
 <tr>
-<td>Render time</td>
+<td>Time to draw a diagram</td>
 <td>0.05–0.3 ms</td>
 <td>6–82 ms</td>
 </tr>
@@ -171,27 +200,45 @@
 <td>23</td>
 </tr>
 <tr>
-<td>Small screens</td>
-<td>adapts the layout</td>
-<td>scales the diagram</td>
+<td>On a narrow screen</td>
+<td>changes the layout</td>
+<td>shrinks the drawing</td>
 </tr>
 <tr>
-<td>Theming</td>
+<td>Colours</td>
 <td>CSS variables</td>
-<td>theme configuration</td>
+<td>theme settings, then redraw</td>
+</tr>
+<tr>
+<td>Works without a browser</td>
+<td>yes, in Node</td>
+<td>needs a browser or a headless one</td>
 </tr>
 </tbody></table></div>
-<p>Figures are from <a href="https://pele.run" rel="noopener">pele.run</a>; this site&#39;s demos measure them live in your browser.</p>
-<h2>What it is not</h2>
-<p>Pele is not a new diagram language and not a drawing tool. It reads Mermaid&#39;s syntax, so existing diagrams and the Mermaid that AI models already write keep working. Its layout and visual style are its own, so a diagram will look different from Mermaid.js&#39;s version.</p>
+<p>Figures are from the official site, <a href="https://pele.run" rel="noopener">pele.run</a>. The <a href="/pages/demos.html">demos on this site</a> measure them live in your own browser.</p>
+<h2 id="who-made-it-and-why">Who made it, and why</h2>
+<p>Pele is by <a href="https://github.com/kepano" rel="noopener">kepano</a>, and lives in Obsidian&#39;s GitHub organisation at <a href="https://github.com/obsidianmd/pele" rel="noopener">obsidianmd/pele</a>. It was announced on 17 October 2026 as part of “making Obsidian insanely fast”. It is named after Pele, the Hawaiian goddess of volcanoes and fire.</p>
+<h2 id="what-it-is-not">What it is not</h2>
+<ul>
+<li><strong>Not a new diagram language.</strong> It reads Mermaid, so your existing diagrams, and the Mermaid that AI models already write, keep working.</li>
+<li><strong>Not a drawing tool.</strong> There&#39;s no canvas to drag boxes around; for that, see <a href="/pages/pele-vs-excalidraw.html">Pele vs Excalidraw</a>.</li>
+<li><strong>Not a pixel-perfect Mermaid clone.</strong> It lays diagrams out its own way, so they look cleaner but different. See <a href="/pages/migrating.html">migrating from Mermaid.js</a>.</li>
+</ul>
+<h2 id="how-it-works-in-one-paragraph">How it works, in one paragraph</h2>
+<p>Pele has its own parser for each diagram type, tested against Mermaid&#39;s own parser tests and fuzzed against Mermaid&#39;s parser. It measures label text, lays the diagram out, and writes an SVG string whose colours point at CSS variables. Because each step is plain synchronous JavaScript, a diagram is ready by the time <code>render()</code> returns.</p>
+<h2 id="is-it-ready-to-use">Is it ready to use?</h2>
+<p>It&#39;s young: version 1.0.1 shipped on 6 October 2026 and new versions arrive every few days. It was built for Obsidian. Pin an exact version in production and read the <a href="https://github.com/obsidianmd/pele" rel="noopener">changelog on GitHub</a> before upgrading. This site uses pele 1.6.0.</p>
 
     </article>
+    
+    <nav class="related" aria-labelledby="related-title"><h2 id="related-title">Keep reading</h2><ul><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/responsive.html">Responsive layouts</a></li><li><a href="/pages/streaming-ai.html">Streaming &amp; AI apps</a></li><li><a href="/pages/pele-vs-mermaid.html">Pele vs Mermaid.js</a></li><li><a href="/#tr-title">Live demo: the typing race</a></li></ul></nav>
   </main>
-  <footer class="site-footer">
-    <p><strong>pele.wiki</strong> is an independent community resource by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
-    <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · <a href="https://github.com/obsidianmd/pele">github.com/obsidianmd/pele</a> · <a href="https://pele.run">official docs at pele.run</a>. Demos run pele@1.6.0.</p>
+  <footer class="site-footer"><div class="foot-inner">
+    <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
+    <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="https://github.com/obsidianmd/pele">github.com/obsidianmd/pele</a> · official docs at <a href="https://pele.run">pele.run</a>. Demos run pele 1.6.0 and Mermaid.js 12.1.0.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
-  </footer>
+  </div></footer>
   <script type="module" src="/src/pages/content.ts"></script>
 </body>
 </html>

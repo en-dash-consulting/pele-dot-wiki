@@ -13,10 +13,10 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 
 | Title | Status |
 |-------|--------|
-| [Comparison pages as answer targets (vs Mermaid/D2/Excalidraw)](./comparison-pages-as-answer-targets-vs.md) | pending |
-| [Google Search Console + Bing verification, submit sitemap](./google-search-console-bing.md) | pending |
+| [Comparison pages as answer targets (vs Mermaid/D2/Excalidraw)](./comparison-pages-as-answer-targets-vs.md) | completed |
+| [Google Search Console + Bing verification, submit sitemap](./google-search-console-bing.md) | blocked |
 | [JSON-LD: WebSite, Organization, Person (kepano), SoftwareSourceCode, FAQPage, HowTo, BreadcrumbList](./json-ld-website-organization-person.md) | completed |
 | [Lighthouse 100 for SEO and accessibility on every page](./lighthouse-100-for-seo-and.md) | pending |
 | [llms.txt, llms-full.txt, /md copies, sitemap, robots welcoming AI crawlers](./llms-txt-llms-full-txt-md-copies.md) | completed |
-| [Titles/descriptions/H1 per target query; answer-first opening paragraphs](./titles-descriptions-h1-per-target.md) | pending |
+| [Titles/descriptions/H1 per target query; answer-first opening paragraphs](./titles-descriptions-h1-per-target.md) | completed |
 | [Version note + monitor pele releases (daily cadence) and bump pin deliberately](./version-note-monitor-pele-releases.md) | pending |

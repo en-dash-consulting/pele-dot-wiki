@@ -19,3 +19,10 @@ document.querySelector<HTMLButtonElement>('.banner-close')?.addEventListener('cl
   document.documentElement.classList.add('banner-dismissed')
   document.getElementById('main')?.focus({ preventScroll: true })
 })
+
+// "npm install pele" chip: copy on click.
+document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+  const label = b.querySelector<HTMLElement>('.copy-label')
+  try { await navigator.clipboard.writeText(b.dataset.copy ?? ''); if (label) label.textContent = 'Copied' } catch { if (label) label.textContent = 'Select it' }
+  window.setTimeout(() => { if (label) label.textContent = 'Copy' }, 1500)
+}))
