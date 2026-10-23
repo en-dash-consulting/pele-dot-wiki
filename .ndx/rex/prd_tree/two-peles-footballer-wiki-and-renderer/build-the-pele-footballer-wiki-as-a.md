@@ -1,0 +1,19 @@
+---
+id: "dff4820c-f896-43d5-a370-ca7727bd708d"
+level: "task"
+title: "Build the Pelé footballer wiki as a Graview app at /footballer/ with full SEO/AEO/GEO"
+status: "pending"
+priority: "high"
+source: "ndx-capture"
+acceptanceCriteria:
+  - "graview check passes on the document; the seed covers his clubs, Brazil, all four World Cups, key matches and goals, people, places, honours and the story's chapters, each record with a source"
+  - "/footballer/ has an editorial home and per-kind record pages in the site's own design, light and dark, phone width"
+  - "Every record has a prerendered HTML page at its own URL with title, description, canonical, Open Graph and JSON-LD (Person, SportsEvent, FAQPage where fitting)"
+  - "AEO/GEO: an answer-first FAQ, footballer entries in llms.txt / llms-full.txt and /md copies, and the sitemap lists every wiki URL"
+  - "Graview code loads only on /footballer/ pages; renderer pages ship no Graview or React"
+  - "Images are PD/CC with on-page attribution; the site says it is unofficial"
+  - "Playwright + axe tests cover the home, a record page, deep links and a prerendered page without JS"
+description: "A static, client-side Graview app: a JSON graview-document (kinds such as person, club, team, tournament, match, goal, honour, place, chapter, work) plus a hand-researched seed with a source on every record and disputed facts shown as disputed (e.g. career goal count). A custom face (React 19 + pinned @graview/* 0.1.47, PagesApp + createPageRegistry like bee-bot) with an editorial home, per-kind record pages and lenses (timeline/calendar, coverage). Loaded only on /footballer/ so the renderer pages keep their perf. A build step prerenders one real HTML page per record so GitHub Pages serves every URL and crawlers/answer engines read real content. Photos only from public-domain/CC Wikimedia Commons with credits; an unofficial / not-affiliated note."
+lastModified: "2026-10-23T02:03:37.976Z"
+lastModifiedBy: "Nick Daniel <nick@endash.us>"
+---
