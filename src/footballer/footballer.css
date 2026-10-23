@@ -30,10 +30,15 @@
 }
 
 html { background: var(--fw-paper); }
-#app.fw-fill > section { height: 100vh !important; height: 100dvh !important; }
-html:not(.dock-min) #app.fw-fill > section { height: calc(100vh - 48px) !important; height: calc(100dvh - 48px) !important; }
-/* The scene ships at a fixed 480px when the embed sizes to content; here it takes what the bar leaves. */
-#app.fw-fill > section > div[style*='flex: 0 0'] { flex: 1 1 auto !important; }
+/* While the scene is drawn (its ground is on the page) it fills the window above the dock; the wiki's pages,
+   lens pages included, grow with their content. The scene ships at a fixed 480px when the embed sizes to content. */
+#app > section:has(> div > .graview-ground) { height: 100vh !important; height: 100dvh !important; }
+html:not(.dock-min) #app > section:has(> div > .graview-ground) { height: calc(100vh - 48px) !important; height: calc(100dvh - 48px) !important; }
+#app > section > div[style*='flex: 0 0']:has(> .graview-ground) { flex: 1 1 auto !important; }
+/* A lens on the wiki's own page (/places/<lens>) is framed at 72vh with a scroll inside it; in a wiki the page
+   should scroll, so the frame grows to hold the whole picture. */
+.fw-main div[style*='72vh'] div { height: auto !important; max-height: none !important; overflow: visible !important; }
+.fw-main div[style*='72vh'] { height: auto !important; max-height: none !important; overflow: visible !important; }
 #main { display: block; outline: none; }
 body { margin: 0; background: var(--fw-paper); color: var(--fw-ink); font: 400 1.0625rem/1.7 var(--fw-body); -webkit-font-smoothing: antialiased; }
 .fw { min-height: 100vh; display: flex; flex-direction: column; }

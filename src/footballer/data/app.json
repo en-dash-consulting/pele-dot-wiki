@@ -649,26 +649,6 @@
   "lenses": [
     {
       "name": "calendar",
-      "title": "His life, chapter by chapter",
-      "bindings": {
-        "chapter": {
-          "start": "began",
-          "end": "ended"
-        }
-      },
-      "options": {
-        "range": "years",
-        "today": "1940-10-23",
-        "horizon": {
-          "title": "His life",
-          "from": 1940,
-          "to": 2023,
-          "years": 84
-        }
-      }
-    },
-    {
-      "name": "calendar",
       "title": "The matches, year by year",
       "bindings": {
         "match": {
@@ -688,16 +668,22 @@
     },
     {
       "name": "coverage",
-      "title": "Who appears in which chapter",
+      "title": "Which teams appear in which chapter",
       "bindings": {
         "rows": {
-          "kind": "chapter"
+          "kind": "club"
         },
         "columns": {
-          "kind": "club"
+          "kind": "chapter"
         },
         "link": {
           "edge": "covers"
+        }
+      },
+      "options": {
+        "columnSort": {
+          "by": "order",
+          "direction": "asc"
         }
       }
     }
