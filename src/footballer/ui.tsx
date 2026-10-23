@@ -241,6 +241,24 @@ function Answer({ q, level = 3 }: { q: Rec; level?: 2 | 3 }) {
 
 // ——— Lists ———
 
+// The people page, in the circles of his life: the same grouping the scene and Graview's list open in.
+const CIRCLES: [string, string][] = [['himself', 'Pelé himself'], ['family', 'Family'], ['teammate', 'Teammates'], ['coach', 'Coaches'], ['opponent', 'Opponents']]
+function Circles({ people, wiki }: { people: readonly Rec[]; wiki: Wiki }) {
+  return (
+    <>
+      {CIRCLES.map(([circle, title]) => {
+        const group = people.filter(p => p.circle === circle)
+        return group.length ? (
+          <section key={circle} className="fw-shelf" aria-label={title}>
+            <h2>{title}</h2>
+            <ul className="fw-rows fw-rows-wide fw-rows-3">{group.map(p => <Row key={p.id} r={p} wiki={wiki} />)}</ul>
+          </section>
+        ) : null
+      })}
+    </>
+  )
+}
+
 const SHELVES: [string, string][] = [['world cup', 'World Cups'], ['club trophy', 'Club trophies'], ['individual award', 'Individual awards'], ['recognition', 'Recognition']]
 function Cabinet({ honours, shelves, limit }: { honours: readonly Rec[]; shelves?: string[]; limit?: number }) {
   return (
@@ -268,6 +286,8 @@ export function KindList({ wiki, kind }: { wiki: Wiki; kind: Kind }) {
       <header className="fw-head"><p className="fw-kicker">{records.length} {records.length === 1 ? KINDS[kind].noun : KINDS[kind].plural}</p><h1>{NAV_WORDS[kind] && kind !== 'question' ? `${NAV_WORDS[kind]}: ${Plural(kind)}` : Plural(kind)}</h1><p className="fw-lede">{KINDS[kind].description}</p></header>
       {kind === 'honour'
         ? <Cabinet honours={records} />
+        : kind === 'person'
+        ? <Circles people={records} wiki={wiki} />
         : kind === 'question'
         ? <div className="fw-faq">{records.map(q => <Answer key={q.id} q={q} level={2} />)}</div>
         : kind === 'chapter' || kind === 'tournament' || kind === 'match' || kind === 'goal'

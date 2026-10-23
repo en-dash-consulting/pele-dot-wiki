@@ -382,6 +382,18 @@
           "type": "string",
           "description": "Who they were to him: father, teammate, coach, rival…"
         },
+        "circle": {
+          "type": "enum",
+          "label": "In his story",
+          "options": [
+            "himself",
+            "family",
+            "teammate",
+            "coach",
+            "opponent"
+          ],
+          "description": "Who they were to him, for grouping: family, a teammate, a coach or an opponent."
+        },
         "born": {
           "type": "date"
         },
@@ -428,6 +440,7 @@
       },
       "glance": [
         "name",
+        "circle",
         "role"
       ]
     },
@@ -648,7 +661,9 @@
         "today": "1940-10-23",
         "horizon": {
           "title": "His life",
-          "years": 83
+          "from": 1940,
+          "to": 2023,
+          "years": 84
         }
       }
     },
@@ -665,6 +680,8 @@
         "today": "1970-06-21",
         "horizon": {
           "title": "The career",
+          "from": 1956,
+          "to": 1977,
           "years": 22
         }
       }
@@ -716,6 +733,18 @@
         "sort": {
           "by": "year",
           "direction": "asc"
+        }
+      },
+      "person": {
+        "group": {
+          "by": "circle",
+          "order": [
+            "himself",
+            "family",
+            "teammate",
+            "coach",
+            "opponent"
+          ]
         }
       }
     },
