@@ -42,6 +42,12 @@ Key facts:
 ## FAQ
 - [Pele FAQ](https://pele.wiki/pages/faq.html): Answers about Pele: what it is, who made it, Mermaid compatibility, speed, size, theming, phones, safety, Node, licence, and when to keep Mermaid.js. (markdown: https://pele.wiki/md/faq.md)
 
+## Pelé the footballer (a separate wiki on this site)
+- [Pelé, the wiki](https://pele.wiki/footballer/): Edson Arantes do Nascimento (1940–2022), the Brazilian footballer: his life in chapters, his four World Cups, his clubs, matches, goals and honours, every record sourced
+- [His life, in chapters](https://pele.wiki/footballer/chapters/)
+- [Pelé FAQ](https://pele.wiki/footballer/questions/): his real name, how many goals and World Cups, his clubs, his number, how he died
+- [llms.txt for the footballer wiki](https://pele.wiki/footballer/llms.txt) · [its full text](https://pele.wiki/footballer/llms-full.txt)
+
 ## Optional
 - [llms-full.txt](https://pele.wiki/llms-full.txt): every page's full text in one file
 - [About pele.wiki](https://pele.wiki/pages/about.html)

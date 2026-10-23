@@ -7,7 +7,7 @@
   color-scheme: light dark;
   --fw-paper: #fbfaf4; --fw-panel: #ffffff; --fw-ink: #0e1f17; --fw-muted: #4b5a52; --fw-rule: #dcdccf;
   --fw-green: #006b33; --fw-green-deep: #053d22; --fw-gold: #ffd21f; --fw-blue: #1d3f9a; --fw-red: #b0170c;
-  --fw-link: #00612e; --fw-focus: #1d3f9a; --fw-on-green: #ffffff; --fw-on-gold: #0e1f17;
+  --fw-link: #00612e; --fw-focus: #1d3f9a; --fw-on-green: #ffffff;
   --fw-hero-bg: #053d22; --fw-hero-ink: #ffffff; --fw-hero-accent: #ffd21f;
   --fw-ticket: #fffbea; --fw-ticket-edge: #e4dcb8;
   --fw-display: 'Montserrat', 'Montserrat Fallback', system-ui, sans-serif;
@@ -23,7 +23,7 @@
   :root {
     --fw-paper: #0b1510; --fw-panel: #122019; --fw-ink: #eef3ec; --fw-muted: #a9b8ae; --fw-rule: #2a3a31;
     --fw-green: #2fbf6c; --fw-green-deep: #04130b; --fw-gold: #ffd84a; --fw-blue: #8fb0ff; --fw-red: #ff8f80;
-    --fw-link: #6fe0a0; --fw-focus: #8fb0ff; --fw-on-green: #04130b; --fw-on-gold: #0e1f17;
+    --fw-link: #6fe0a0; --fw-focus: #8fb0ff; --fw-on-green: #04130b;
     --fw-hero-bg: #04130b; --fw-hero-ink: #ffffff; --fw-hero-accent: #ffd84a;
     --fw-ticket: #1d2a20; --fw-ticket-edge: #3a4a3e;
   }
@@ -118,12 +118,10 @@ body { margin: 0; background: var(--fw-paper); color: var(--fw-ink); font: 400 1
 .fw-cup-goals { font: 500 .9rem/1.4 var(--fw-display); opacity: .85; }
 
 .fw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
-.fw-grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
 .fw-card { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px; border-radius: var(--fw-radius); background: var(--fw-panel); border: 1px solid var(--fw-rule); color: var(--fw-ink) !important; text-decoration: none !important; transition: transform .15s, box-shadow .15s; }
 .fw-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px -16px rgba(0,0,0,.35); }
 .fw-card-kicker { font: 700 .74rem/1.3 var(--fw-display); letter-spacing: .08em; text-transform: uppercase; color: var(--fw-muted); }
 .fw-card-title { font: 800 1.2rem/1.2 var(--fw-display); letter-spacing: -.015em; }
-.fw-card-big .fw-card-title { font-size: 1.6rem; font-weight: 900; }
 .fw-card-text { font-size: .92rem; line-height: 1.55; color: var(--fw-muted); }
 /* A match: a ticket stub, torn along the perforation, with the result stamped on. */
 .fw-ticket { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 84px; min-height: 150px; color: var(--fw-ink) !important; text-decoration: none !important; filter: drop-shadow(0 1px 0 var(--fw-rule)) drop-shadow(0 0 0 var(--fw-rule)); transition: transform .15s; }
@@ -171,7 +169,6 @@ body { margin: 0; background: var(--fw-paper); color: var(--fw-ink); font: 400 1
 .fw-k-chapter { --fw-k: var(--fw-green); } .fw-k-club { --fw-k: var(--fw-blue); } .fw-k-person { --fw-k: var(--fw-red); }
 .fw-k-honour { --fw-k: var(--fw-gold); } .fw-k-work { --fw-k: var(--fw-blue); } .fw-k-place { --fw-k: var(--fw-muted); } .fw-k-question { --fw-k: var(--fw-green); }
 
-.fw-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 0 clamp(24px, 4vw, 56px); }
 .fw-rows { list-style: none; margin: 0; padding: 0; }
 .fw-rows-wide { columns: 2 320px; column-gap: clamp(24px, 4vw, 56px); }
 .fw-rows-3 { columns: 3 260px; }
@@ -195,7 +192,6 @@ body { margin: 0; background: var(--fw-paper); color: var(--fw-ink); font: 400 1
 .fw-shelf-world-cup .fw-plaque a { background: var(--fw-green-deep); border-color: var(--fw-green-deep); color: #fff !important; }
 .fw-shelf-world-cup .fw-plaque-year { color: var(--fw-gold); font-size: 1.8rem; }
 .fw-shelf-world-cup .fw-plaque-by { color: #c7d8cd; }
-.fw-row::before { content: none; }
 
 .fw-faq { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 28px 40px; }
 .fw-qa h2, .fw-qa h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }

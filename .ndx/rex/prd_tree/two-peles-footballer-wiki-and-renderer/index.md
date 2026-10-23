@@ -15,5 +15,5 @@ lastModifiedBy: "Nick Daniel <nick@endash.us>"
 | Title | Status |
 |-------|--------|
 | [Build the Pelé footballer wiki as a Graview app at /footballer/ with full SEO/AEO/GEO](./build-the-pele-footballer-wiki-as-a.md) | completed |
-| [Double demo: Pele-drawn diagrams in the wiki and an 'Under the hood' view](./double-demo-pele-drawn-diagrams-in-the.md) | pending |
+| [Double demo: Pele-drawn diagrams in the wiki and an 'Under the hood' view](./double-demo-pele-drawn-diagrams-in-the.md) | deferred |
 | [Keep renderer URLs; add the 'Which Pelé?' disambiguation across the site](./keep-renderer-urls-add-the-which-pele.md) | completed |

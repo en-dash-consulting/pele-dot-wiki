@@ -3,7 +3,7 @@
 // and in the browser as Graview's routed face (main.tsx), where links move without reloading.
 import { createContext, useContext, type CSSProperties, type MouseEvent, type ReactNode } from 'react'
 import { markdownHtml } from '@graview/core/markdown'
-import { BASE, INFOBOX, KINDS, ORDER, kindHref, labelOf, recordHref, sayDate, sayField, sceneHref, yearOf, type Kind, type Rec, type Wiki } from './model'
+import { BASE, INFOBOX, KINDS, kindHref, labelOf, recordHref, sayDate, sayField, sceneHref, yearOf, type Kind, type Rec, type Wiki } from './model'
 
 /** Set inside Graview's router: moves to a basename-relative path. Absent at build time, where links are plain. */
 export const Navigate = createContext<((to: string) => void) | null>(null)
@@ -13,7 +13,7 @@ export function Go({ to, children, className, ...rest }: { to: string; children:
   const inside = to.startsWith(BASE + '/') && !to.startsWith(BASE + '/places/')
   const click = nav && inside ? (e: MouseEvent<HTMLAnchorElement>) => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
-    e.preventDefault(); nav(to.slice(BASE.length)); window.scrollTo(0, 0)
+    e.preventDefault(); nav(to.slice(BASE.length).replace(/(.)\/$/, '$1')); window.scrollTo(0, 0)
   } : undefined
   return <a href={to} className={className} onClick={click} {...rest}>{children}</a>
 }
@@ -58,7 +58,7 @@ function Card({ r, wiki, big }: { r: Rec; wiki: Wiki; big?: boolean }) {
   if (r.kind === 'goal') return <Scoreboard r={r} wiki={wiki} />
   if (r.kind === 'club' && big) return <Pennant r={r} />
   return (
-    <Go to={recordHref(r)} className={`fw-card fw-k-${r.kind}${big ? ' fw-card-big' : ''}`}>
+    <Go to={recordHref(r)} className={`fw-card fw-k-${r.kind}`}>
       <span className="fw-card-kicker">{kicker(r, wiki)}</span>
       <span className="fw-card-title">{r.name}</span>
       {r.headline ? <span className="fw-card-text">{r.headline}</span> : null}
@@ -361,4 +361,3 @@ export function RecordPage({ wiki, id }: { wiki: Wiki; id: string }) {
 const byKind = (rs: readonly Rec[]) => [...rs.reduce((m, r) => m.set(r.kind, [...(m.get(r.kind) ?? []), r]), new Map<Kind, Rec[]>())]
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
 
-export { ORDER }

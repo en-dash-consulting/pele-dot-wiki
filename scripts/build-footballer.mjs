@@ -5,6 +5,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { execSync } from 'node:child_process'
 import { build } from 'vite'
 import { GA } from './ga.mjs'
 import { dock } from './dock.mjs'
@@ -24,8 +25,11 @@ const built = readFileSync(join(DIST, 'footballer/index.html'), 'utf8')
 if (built.includes('<div id="app"></div>')) writeFileSync(KEPT, built)
 if (!existsSync(KEPT)) throw new Error('build-footballer: no template; run vite build first')
 const template = readFileSync(KEPT, 'utf8')
-const lastmod = new Date().toISOString().slice(0, 10)
-const all = routes()
+// The wiki's pages change when its data or its pages do: the last commit touching them, else today.
+let lastmod = ''
+try { lastmod = execSync('git log -1 --format=%cs -- src/footballer', { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim() } catch {}
+lastmod ||= new Date().toISOString().slice(0, 10)
+const all = routes({ updated: lastmod })
 
 function page(r) {
   const url = SITE + r.path

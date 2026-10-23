@@ -330,6 +330,12 @@ ${inSection('compare').filter(p => p.slug !== 'compare').map(line).join('\n')}
 ## FAQ
 ${line(bySlug.faq)}
 
+## Pelé the footballer (a separate wiki on this site)
+- [Pelé, the wiki](${SITE}${FOOTBALLER.path}): Edson Arantes do Nascimento (1940–2022), the Brazilian footballer: his life in chapters, his four World Cups, his clubs, matches, goals and honours, every record sourced
+- [His life, in chapters](${SITE}${FOOTBALLER.path}chapters/)
+- [Pelé FAQ](${SITE}${FOOTBALLER.path}questions/): his real name, how many goals and World Cups, his clubs, his number, how he died
+- [llms.txt for the footballer wiki](${SITE}${FOOTBALLER.path}llms.txt) · [its full text](${SITE}${FOOTBALLER.path}llms-full.txt)
+
 ## Optional
 - [llms-full.txt](${SITE}/llms-full.txt): every page's full text in one file
 - [About pele.wiki](${url('about')})

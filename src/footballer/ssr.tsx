@@ -91,10 +91,16 @@ function recordMd(r: Rec): string {
 }
 
 const render = (node: React.ReactNode, here?: Kind | 'home') => renderToString(<Shell here={here}>{node}</Shell>)
-const listFiles = (k: Kind) => [`footballer/${kindHref(k).slice(BASE.length + 1)}.html`, `footballer/${kindHref(k).slice(BASE.length + 1)}/index.html`]
+const listFiles = (k: Kind) => [`footballer/${kindHref(k).slice(BASE.length + 1, -1)}.html`, `footballer/${kindHref(k).slice(BASE.length + 1)}index.html`]
 
-export function routes(): Route[] {
+// Two records may share a name (Sweden the team, Sweden the country): their titles say which.
+const shared = new Set(wiki.all.map(r => r.name).filter((n, i, all) => all.indexOf(n) !== i))
+const titleOf = (r: Rec) => shared.has(r.name) ? `${r.name} (${KINDS[r.kind].noun})` : r.name
+
+/** `updated`: when the wiki's data last changed (YYYY-MM-DD), said as each page's dateModified. */
+export function routes({ updated }: { updated?: string } = {}): Route[] {
   const out: Route[] = []
+  const modified = updated ? { dateModified: updated } : {}
   const peleDesc = summaryOf(pele ?? { id: 'pele', kind: 'person', name: 'Pelé' })
   // Home
   out.push({
@@ -102,7 +108,7 @@ export function routes(): Route[] {
     title: 'Pelé: the wiki on the Brazilian footballer, 1940–2022 | pele.wiki',
     description: 'Pelé (Edson Arantes do Nascimento), the Brazilian footballer: his life in chapters, his four World Cups, Santos and the Cosmos, his famous goals and honours, with sources.'.slice(0, 160),
     html: render(<Home wiki={wiki} />, 'home'),
-    jsonLd: graph({ '@type': 'WebPage', '@id': `${SITE}${BASE}/#page`, url: `${SITE}${BASE}/`, name: 'Pelé, the wiki', description: peleDesc, about: { '@id': PERSON_ID }, mainEntity: { '@id': PERSON_ID } },
+    jsonLd: graph({ '@type': 'WebPage', '@id': `${SITE}${BASE}/#page`, url: `${SITE}${BASE}/`, name: 'Pelé, the wiki', description: peleDesc, ...modified, about: { '@id': PERSON_ID }, mainEntity: { '@id': PERSON_ID } },
       [{ name: 'pele.wiki', path: '/' }, { name: 'Pelé the footballer', path: `${BASE}/` }], pele ? [personLd(pele, true)] : []),
     md: `# Pelé, the wiki\n\n> ${peleDesc}\n\n${wiki.of('chapter').map(c => `- [${c.name}](${abs(recordHref(c))}): ${c.headline ?? ''}`).join('\n')}\n`,
   })
@@ -111,14 +117,14 @@ export function routes(): Route[] {
     const records = wiki.of(k)
     const isFaq = k === 'question'
     out.push({
-      path: `${kindHref(k)}/`, files: listFiles(k), index: true,
+      path: kindHref(k), files: listFiles(k), index: true,
       title: isFaq ? 'Pelé FAQ: his goals, World Cups, name and more | pele.wiki' : `${Plural(k)} · Pelé, the wiki | pele.wiki`,
       description: isFaq ? 'Straight answers to what people ask about Pelé: his real name, how many goals and World Cups, his clubs, his number and how he died.' : `${KINDS[k].description} ${records.length} ${records.length === 1 ? KINDS[k].noun : KINDS[k].plural}, each with its source.`.slice(0, 160),
       html: render(<KindList wiki={wiki} kind={k} />, k),
       jsonLd: graph(isFaq
-        ? { '@type': 'FAQPage', '@id': `${abs(kindHref(k))}/#page`, url: `${abs(kindHref(k))}/`, name: 'Pelé FAQ', mainEntity: records.map(q => ({ '@type': 'Question', name: q.name, acceptedAnswer: { '@type': 'Answer', text: plain(String(q.answer ?? '')) } })) }
-        : { '@type': 'CollectionPage', '@id': `${abs(kindHref(k))}/#page`, url: `${abs(kindHref(k))}/`, name: `${Plural(k)}: Pelé`, about: { '@id': PERSON_ID }, mainEntity: { '@type': 'ItemList', numberOfItems: records.length, itemListElement: records.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: abs(recordHref(r)) })) } },
-      [{ name: 'pele.wiki', path: '/' }, { name: 'Pelé the footballer', path: `${BASE}/` }, { name: Plural(k), path: `${kindHref(k)}/` }]),
+        ? { '@type': 'FAQPage', '@id': `${abs(kindHref(k))}#page`, url: abs(kindHref(k)), name: 'Pelé FAQ', mainEntity: records.map(q => ({ '@type': 'Question', name: q.name, acceptedAnswer: { '@type': 'Answer', text: plain(String(q.answer ?? '')) } })) }
+        : { '@type': 'CollectionPage', ...modified, '@id': `${abs(kindHref(k))}#page`, url: abs(kindHref(k)), name: `${Plural(k)}: Pelé`, about: { '@id': PERSON_ID }, mainEntity: { '@type': 'ItemList', numberOfItems: records.length, itemListElement: records.map((r, i) => ({ '@type': 'ListItem', position: i + 1, name: r.name, url: abs(recordHref(r)) })) } },
+      [{ name: 'pele.wiki', path: '/' }, { name: 'Pelé the footballer', path: `${BASE}/` }, { name: Plural(k), path: kindHref(k) }]),
       md: `# ${Plural(k)}: Pelé, the wiki\n\n> ${KINDS[k].description}\n\n${records.map(r => isFaq ? `## ${r.name}\n\n${r.answer}\n` : `- [${r.name}](${abs(recordHref(r))})${r.headline ? `: ${r.headline}` : ''}`).join('\n')}\n`,
     })
   }
@@ -128,14 +134,14 @@ export function routes(): Route[] {
     const isPele = r.id === 'pele'
     const entity = entityLd(r)
     const page = r.kind === 'question'
-      ? { '@type': 'QAPage', '@id': `${url}#page`, url, name: r.name, mainEntity: { '@id': `${url}#question` } }
-      : { '@type': isPele ? 'ProfilePage' : 'WebPage', '@id': `${url}#page`, url, name: r.name, description: summaryOf(r), mainEntity: { '@id': entity['@id'] }, about: { '@id': PERSON_ID }, ...(img(r) ? { primaryImageOfPage: img(r) } : {}) }
+      ? { '@type': 'QAPage', ...modified, '@id': `${url}#page`, url, name: r.name, mainEntity: { '@id': `${url}#question` } }
+      : { '@type': isPele ? 'ProfilePage' : 'WebPage', ...modified, '@id': `${url}#page`, url, name: r.name, description: summaryOf(r), mainEntity: { '@id': entity['@id'] }, about: { '@id': PERSON_ID }, ...(img(r) ? { primaryImageOfPage: img(r) } : {}) }
     out.push({
       path: recordHref(r), files: [`footballer/${recordHref(r).slice(BASE.length + 1)}.html`], index: true, image: img(r),
-      title: `${isPele ? 'Pelé: life, goals, World Cups and legacy' : r.name}${r.kind === 'match' && r.date ? ` (${sayDate(r.date)})` : ''} · Pelé, the wiki`.slice(0, 70) + ' | pele.wiki',
+      title: `${isPele ? 'Pelé: life, goals, World Cups and legacy' : titleOf(r)}${r.kind === 'match' && r.date ? ` (${sayDate(r.date)})` : ''} · Pelé, the wiki`.slice(0, 70) + ' | pele.wiki',
       description: summaryOf(r) || `${r.name}: ${KINDS[r.kind].noun} in the story of Pelé.`,
       html: render(<RecordPage wiki={wiki} id={r.id} />, r.kind),
-      jsonLd: graph(page, [{ name: 'pele.wiki', path: '/' }, { name: 'Pelé the footballer', path: `${BASE}/` }, { name: Plural(r.kind), path: `${kindHref(r.kind)}/` }, { name: r.name, path: recordHref(r) }], [entity]),
+      jsonLd: graph(page, [{ name: 'pele.wiki', path: '/' }, { name: 'Pelé the footballer', path: `${BASE}/` }, { name: Plural(r.kind), path: kindHref(r.kind) }, { name: r.name, path: recordHref(r) }], [entity]),
       md: recordMd(r),
     })
   }

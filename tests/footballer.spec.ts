@@ -95,3 +95,26 @@ for (const width of [320, 390, 768, 1280]) {
     expect(bad).toEqual([])
   })
 }
+
+test('every page in the footballer sitemap is complete for search and answer engines', async ({ request }) => {
+  const sitemap = await (await request.get('/sitemap-footballer.xml')).text()
+  const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]!)
+  const titles = new Map<string, string>(), bad: string[] = []
+  for (const url of urls) {
+    const path = new URL(url).pathname
+    const res = await request.get(path)
+    const html = await res.text()
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? ''
+    const description = (html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '').replace(/&(quot|amp|lt|gt|#39);/g, '_')
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1]
+    if (res.status() !== 200) bad.push(`${path}: ${res.status()}`)
+    if (canonical !== url) bad.push(`${path}: canonical ${canonical}`)
+    if ((html.match(/<h1[\s>]/g) ?? []).length !== 1) bad.push(`${path}: not one h1`)
+    if (title.length < 15 || title.length > 90) bad.push(`${path}: title "${title}"`)
+    if (description.length < 30 || description.length > 170) bad.push(`${path}: description is ${description.length} chars`)
+    if (titles.has(title)) bad.push(`${path}: same title as ${titles.get(title)}`)
+    titles.set(title, path)
+    try { if (!JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)![1]!)['@graph']?.length) bad.push(`${path}: empty JSON-LD`) } catch { bad.push(`${path}: JSON-LD does not parse`) }
+  }
+  expect(bad).toEqual([])
+})

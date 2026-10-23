@@ -31,8 +31,10 @@ export interface LinkGroup { readonly edge: string; readonly words: string; read
 
 // The routed face's slugs (`pluralSlug` in @graview/pages): the plural, lowercased, spaces as hyphens.
 export const slugOf = (kind: Kind) => KINDS[kind].plural.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
-export const kindHref = (kind: Kind) => `${BASE}/${slugOf(kind)}`
-export const recordHref = (r: Pick<Rec, 'kind' | 'id'>) => `${kindHref(r.kind)}/${encodeURIComponent(r.id)}`
+// A kind's list is a directory on the static host (/footballer/people/ beside /footballer/people/pele), so its
+// address ends in a slash: the one GitHub Pages serves without a redirect and the one its canonical names.
+export const kindHref = (kind: Kind) => `${BASE}/${slugOf(kind)}/`
+export const recordHref = (r: Pick<Rec, 'kind' | 'id'>) => `${kindHref(r.kind)}${encodeURIComponent(r.id)}`
 export const sceneHref = (id?: string) => `${BASE}/places/overview${id ? `#focus=${encodeURIComponent(id)}` : ''}`
 
 export interface Wiki {

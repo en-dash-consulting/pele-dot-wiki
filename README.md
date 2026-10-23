@@ -14,5 +14,6 @@ Independent learning site and live demo gallery for [Pele](https://pele.run), ke
 - `npm run og` regenerates `public/og-image.png`.
 - Analytics: GA4 `G-F3D7B604E2`, set once in `site.config.json` (empty means no tag). gtag.js loads on the first interaction or once the page is idle; the page view is queued at once. Tests stub Google requests so they never send hits.
 - `npm run build`, `npm test` (Playwright + axe), `npm run shots` (review screenshots), `npm run preview` (port 4174).
-- Deploys to GitHub Pages from `main` via `.github/workflows/deploy.yml`; custom domain in `public/CNAME`.
+- Every pull request runs `.github/workflows/ci.yml`: build, `npm run check:footballer`, and the Playwright + axe suite (it also crawls every URL in `sitemap-footballer.xml` for status, canonical, title, description, one h1 and JSON-LD).
+- Deploys to GitHub Pages from `main` via `.github/workflows/deploy.yml`; custom domain in `public/CNAME`. Both workflows check out full history: page dates come from git.
 - Planning lives in n-dx (`.ndx/`); `ndx status` / `ndx next`.
