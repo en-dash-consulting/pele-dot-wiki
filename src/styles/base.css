@@ -164,3 +164,23 @@ td { font-size: .95em; }
 h1 em, h2 em { letter-spacing: inherit; }
 
 code.nw { white-space: nowrap; }
+
+/* Two Pelés: the front door strip on the home page and the hatnote on pages a footballer fan may land on. */
+.which-pele { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: var(--s-3); margin: var(--s-4) 0 0; }
+.which-q { margin: 0; align-self: center; font: 800 1.05rem/1.1 var(--font-display); letter-spacing: -.02em; }
+.door { display: flex; align-items: center; gap: var(--s-3); min-height: 56px; padding: var(--s-2) var(--s-3); border: var(--border-w) solid var(--rule-strong); border-radius: var(--radius-sm); color: var(--ink); text-decoration: none; font-family: var(--font-ui); line-height: 1.2; }
+.door-text { display: flex; flex-direction: column; min-width: 0; }
+.door-text strong { font-weight: 800; font-size: .98rem; }
+.door-text span { color: var(--muted); font-size: .82rem; font-weight: 500; }
+.door-mark { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; font: 900 1.05rem/1 var(--font-display); }
+.door-ball { background: var(--ball-bg); border-color: var(--ball-bg); color: var(--ball-fg); }
+.door-ball .door-text span { color: inherit; }
+.door-ball .door-mark { background: var(--ball-mark); color: #003d1f; }
+.door-go { margin-left: auto; font: 800 1.3rem/1 var(--font-display); transition: transform .15s; }
+.door-ball:hover .door-go, .door-ball:focus-visible .door-go { transform: translateX(4px); }
+.door-tool { background: var(--surface); border-color: var(--rule); }
+.door-tool .door-mark { background: var(--header-bg); }
+.door:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .which-pele { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); } .door-tool { display: none; } }
+.hatnote { margin: calc(-1 * var(--s-2)) 0 var(--s-4); padding-left: var(--s-4); border-left: var(--border-w) solid var(--rule); color: var(--muted); font-style: italic; font-size: .95rem; }
+.site-header .nav-other a { color: var(--brand-tld); }

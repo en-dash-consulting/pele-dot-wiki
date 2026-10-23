@@ -12,6 +12,7 @@
   --btn-bg: #d52b1e; --btn-fg: #ffffff; --btn-border: #d52b1e;
   --code-bg: #111111; --code-fg: #f4f4f4; --pane-bg: #ffffff; --footer-bg: #111111; --footer-fg: #ffffff;
   --stop-fill: #ffffff;
+  --ball-bg: #00843d; --ball-fg: #ffffff; --ball-mark: #ffdf00;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -24,5 +25,6 @@
     --btn-bg: #f04a3c; --btn-fg: #111111; --btn-border: #f04a3c;
     --code-bg: #0a0b0d; --code-fg: #f2f2ef; --pane-bg: #16181c; --footer-bg: #000000; --footer-fg: #f2f2ef;
     --stop-fill: #121417;
+    --ball-bg: #1fae5f; --ball-fg: #0b0b0b; --ball-mark: #ffdf00;
   }
 }

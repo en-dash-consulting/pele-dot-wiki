@@ -85,6 +85,7 @@ function jsonLd(p) {
   const website = { '@type': 'WebSite', '@id': `${SITE}/#website`, name: 'pele.wiki', url: SITE + '/', publisher: { '@id': `${SITE}/#org` }, inLanguage: 'en', description: bySlug.index.description }
   const kepano = { '@type': 'Person', '@id': `${SITE}/#kepano`, name: 'Steph Ango', alternateName: 'kepano', url: 'https://stephango.com', jobTitle: 'CEO', worksFor: { '@type': 'Organization', name: 'Obsidian', url: 'https://obsidian.md' }, sameAs: ['https://github.com/kepano', 'https://x.com/kepano'] }
   const software = { '@type': 'SoftwareSourceCode', '@id': `${SITE}/#pele`, name: 'Pele', alternateName: ['pele.run', 'obsidianmd/pele', 'Pele Mermaid renderer', 'pele npm'],
+    disambiguatingDescription: 'The JavaScript Mermaid diagram renderer by kepano, not the Brazilian footballer Pelé.',
     description: 'A fast, lightweight Mermaid renderer that outputs themeable SVG. Zero dependencies, synchronous, themed with CSS variables.',
     codeRepository: PELE_REPO, url: PELE_SITE, sameAs: ['https://www.npmjs.com/package/pele'], author: { '@id': `${SITE}/#kepano` }, license: 'https://opensource.org/licenses/MIT',
     programmingLanguage: ['TypeScript', 'JavaScript'], runtimePlatform: 'Web browsers, Node.js', version: PELE_VERSION, keywords: 'mermaid, diagrams, svg, flowchart, renderer, obsidian' }
@@ -95,22 +96,34 @@ function jsonLd(p) {
     image: `${SITE}/og-image.png`, ...(p.slug !== 'index' ? { breadcrumb: { '@id': `${url(p.slug)}#breadcrumb` } } : {}) }
   const list = items => ({ '@type': 'ItemList', itemListElement: items.map((d, i) => ({ '@type': 'ListItem', position: i + 1, url: url(d.slug), name: strip(d.h1) })) })
   let page
-  if (p.type === 'home') page = { '@type': 'WebPage', ...base, mainEntity: { '@id': `${SITE}/#pele` } }
+  if (p.type === 'home') page = { '@type': 'WebPage', ...base, mainEntity: { '@id': `${SITE}/#pele` }, mentions: { '@id': FOOTBALLER.id } }
   else if (p.type === 'faq') page = { '@type': 'FAQPage', ...base, mainEntity: p.qa.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
   else if (p.type === 'howto') page = { '@type': 'HowTo', ...base, name: strip(p.h1), totalTime: 'PT5M', tool: [{ '@type': 'HowToTool', name: 'npm' }], step: p.steps.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.split(':')[0], text: s })) }
   else if (p.type === 'hub') page = { '@type': 'CollectionPage', ...base, mainEntity: list(hubItems(p)) }
   else if (p.slug === 'gallery') page = { '@type': 'CollectionPage', ...base, mainEntity: { '@type': 'ItemList', numberOfItems: GALLERY_TYPES.length, itemListElement: GALLERY_TYPES.map((g, i) => ({ '@type': 'ListItem', position: i + 1, name: `${g.name} (${g.key})`, url: `${url('gallery')}#type-${g.type}` })) } }
   else page = { '@type': 'TechArticle', ...base, author: { '@id': `${SITE}/#org` }, proficiencyLevel: p.type === 'compare' ? 'Intermediate' : 'Beginner', ...(p.demo ? { learningResourceType: 'Interactive demo', isAccessibleForFree: true } : {}) }
   const graph = [website, org, kepano, software, page]
+  if (p.type === 'home') graph.push(footballerEntity)
   if (p.slug !== 'index') graph.push(breadcrumb)
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1).replace(/</g, '\\u003c')
 }
+
+// pele.wiki also answers people looking for Pelé the footballer: his wiki lives at /footballer/.
+const FOOTBALLER = { path: '/footballer/', id: `${SITE}/footballer/#pele` }
+const footballerEntity = { '@type': 'Person', '@id': FOOTBALLER.id, name: 'Pelé', alternateName: ['Edson Arantes do Nascimento', 'O Rei', 'Pele'], description: 'Brazilian footballer (1940–2022), three-time FIFA World Cup winner.', url: SITE + FOOTBALLER.path, sameAs: ['https://en.wikipedia.org/wiki/Pel%C3%A9', 'https://www.wikidata.org/wiki/Q12897'] }
+const whichPele = `<nav class="which-pele" aria-labelledby="which-pele-title">
+        <p id="which-pele-title" class="which-q">Which Pelé?</p>
+        <a class="door door-ball" href="${FOOTBALLER.path}"><span class="door-mark" aria-hidden="true">10</span><span class="door-text"><strong>Pelé, the footballer</strong><span>O Rei: three World Cups, the wiki</span></span><span class="door-go" aria-hidden="true">→</span></a>
+        <a class="door door-tool" href="#hero-title" aria-current="page"><span class="door-mark" aria-hidden="true"><img src="/brand/pele.svg" alt="" width="28" height="21" /></span><span class="door-text"><strong>Pele, the Mermaid renderer</strong><span>You're here: kepano's diagram library</span></span></a>
+      </nav>`
+const hatnote = `<p class="hatnote">This page is about Pele, the Mermaid diagram renderer. For the Brazilian footballer, see <a href="${FOOTBALLER.path}">Pelé (footballer)</a>.</p>`
+const HATNOTE_ON = ['what-is-pele', 'faq', 'about']
 
 const brandMark = `<img class="brand-mark" src="/brand/pele.svg" alt="Pele" width="32" height="24" />`
 
 function header(p) {
   const active = sectionOf(p)?.[0] ?? p.slug
-  const links = NAV.map(s => `<li><a href="${path(s)}"${s === active ? ' aria-current="page"' : ''}>${bySlug[s].nav}</a></li>`).join('')
+  const links = NAV.map(s => `<li><a href="${path(s)}"${s === active ? ' aria-current="page"' : ''}>${bySlug[s].nav}</a></li>`).join('') + `<li class="nav-other"><a href="${FOOTBALLER.path}">Pelé the footballer</a></li>`
   return `<a class="skip-link" href="#main">Skip to content</a>
   <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
@@ -123,6 +136,7 @@ const footer = `<footer class="site-footer"><div class="foot-inner">
     <nav aria-label="Footer"><ul class="foot-links">${['demos', 'gallery', 'getting-started', 'api', 'theming', 'migrating', 'compare', 'faq', 'about'].map(s => `<li><a href="${path(s)}">${esc(bySlug[s].nav)}</a></li>`).join('')}</ul></nav>
     <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
     <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="${PELE_REPO}">github.com/obsidianmd/pele</a> · official docs at <a href="${PELE_SITE}">pele.run</a>. Demos run pele ${PELE_VERSION} and Mermaid.js ${MERMAID_VERSION}.</p>
+    <p>Looking for the footballer? <a href="${FOOTBALLER.path}">Pelé (1940–2022), the wiki</a>: his clubs, his four World Cups and his goals.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
   </div></footer>`
 
@@ -193,7 +207,7 @@ function render(p) {
   if (p.type === 'faq') p.qa = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>\s*<p>([\s\S]*?)<\/p>/g)].map(m => [strip(m[1]), strip(m[2])])
   const crumbs = p.slug === 'index' || p.slug === '404' ? '' : `<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>${crumbsOf(p).map((c, i, a) => i === a.length - 1 ? `<li aria-current="page">${esc(c.name)}</li>` : `<li><a href="${c.path}">${esc(c.name)}</a></li>`).join('')}</ol></nav>`
   const script = p.type === 'home' ? '/src/pages/home.ts' : p.demo ? '/src/pages/demo.ts' : '/src/pages/content.ts'
-  const head = p.type === 'home' ? hero(p) : p.type === 'demo' ? demoHead(p) : `<h1>${p.h1}</h1>${p.intro ? `<p class="lede">${p.intro}</p>` : ''}`
+  const head = p.type === 'home' ? whichPele + hero(p) : p.type === 'demo' ? demoHead(p) : `<h1>${p.h1}</h1>${HATNOTE_ON.includes(p.slug) ? hatnote : ''}${p.intro ? `<p class="lede">${p.intro}</p>` : ''}`
   const robots = p.slug === '404' ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
   return `<!DOCTYPE html>
 <html lang="en">
@@ -285,6 +299,8 @@ ${indexable.map(p => `  <url><loc>${url(p.slug)}</loc><lastmod>${p.lastmod}</las
 `)
 const line = p => `- [${strip(p.h1)}](${url(p.slug)}): ${p.description} (markdown: ${SITE}/md/${p.slug}.md)`
 writeFileSync(join(ROOT, 'public/llms.txt'), `# pele.wiki
+
+> Two Pelés live here. This file is about Pele the Mermaid renderer (everything at / and /pages/). For Pelé the Brazilian footballer (Edson Arantes do Nascimento, 1940–2022), see ${SITE}${FOOTBALLER.path} and its own ${SITE}/footballer/llms.txt.
 
 > Independent learning site and live demo gallery for Pele, the open-source Mermaid renderer by kepano (Steph Ango, CEO of Obsidian), built for Obsidian. Pele turns Mermaid diagram text into themeable SVG, synchronously, with zero dependencies. Official docs: ${PELE_SITE} · source: ${PELE_REPO} (MIT) · npm: https://www.npmjs.com/package/pele
 

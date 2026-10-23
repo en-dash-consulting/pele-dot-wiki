@@ -1,5 +1,7 @@
 # pele.wiki
 
+> Two Pelés live here. This file is about Pele the Mermaid renderer (everything at / and /pages/). For Pelé the Brazilian footballer (Edson Arantes do Nascimento, 1940–2022), see https://pele.wiki/footballer/ and its own https://pele.wiki/footballer/llms.txt.
+
 > Independent learning site and live demo gallery for Pele, the open-source Mermaid renderer by kepano (Steph Ango, CEO of Obsidian), built for Obsidian. Pele turns Mermaid diagram text into themeable SVG, synchronously, with zero dependencies. Official docs: https://pele.run · source: https://github.com/obsidianmd/pele (MIT) · npm: https://www.npmjs.com/package/pele
 
 Key facts:

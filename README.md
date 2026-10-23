@@ -2,6 +2,7 @@
 
 Independent learning site and live demo gallery for [Pele](https://pele.run), kepano's fast Mermaid renderer ([github.com/obsidianmd/pele](https://github.com/obsidianmd/pele)). Made by [En Dash Consulting](https://endash.us). Not affiliated with Obsidian or kepano.
 
+- Two Pelés: every URL at `/` and `/pages/*.html` is the renderer site and stays put (it is indexed). Pelé the footballer has his own wiki at `/footballer/`; a "Which Pelé?" strip on `/`, a header link, a hatnote (`HATNOTE_ON` in `scripts/build-pages.mjs`) and the footer join the two.
 - Stack: Vite multi-page app, strict TypeScript, `content/*.md` → `scripts/build-pages.mjs` (pages, `/md` copies, `llms.txt`, `llms-full.txt`, sitemap).
 - Pinned: `pele@1.6.0`, `mermaid@12.1.0` (comparison only, lazy-loaded).
 - Design: transit-map style, light and dark via `prefers-color-scheme`. Colour tokens in `src/styles/theme.css`, the one spacing scale (`--s-1` … `--s-9`) in `src/styles/base.css`.

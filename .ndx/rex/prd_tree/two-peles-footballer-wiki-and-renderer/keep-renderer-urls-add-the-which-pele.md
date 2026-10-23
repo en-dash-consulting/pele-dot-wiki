@@ -1,0 +1,20 @@
+---
+id: "ce51e592-c4ae-467c-8200-75bb74977e13"
+level: "task"
+title: "Keep renderer URLs; add the 'Which Pelé?' disambiguation across the site"
+status: "completed"
+priority: "high"
+source: "ndx-capture"
+startedAt: "2026-10-23T02:04:11.406Z"
+completedAt: "2026-10-23T02:12:36.925Z"
+endedAt: "2026-10-23T02:12:36.925Z"
+acceptanceCriteria:
+  - "Every existing URL (/ and /pages/*.html) serves the same content at the same address; sitemap entries for them are unchanged"
+  - "/ opens with a 'Which Pelé?' two-door strip (footballer → /footballer/, renderer → this site) that keeps the renderer hero and race above the fold at 1280x800"
+  - "Every renderer page links to the footballer wiki from the header and footer, and the renderer home JSON-LD and llms.txt disambiguate the two Pelés"
+  - "Light and dark, accessible at phone width, no horizontal scroll"
+  - "npm run build and npm test (Playwright + axe) pass; a test covers the disambiguation strip and its links"
+description: "Changed by the user mid-task: keep every indexed URL as it is (/ and /pages/*.html stay the Pele renderer site, the sitemap is already indexed), so nothing moves and no redirects are needed. The renderer site is the existing section; the footballer wiki is added at /footballer/. Join them with a striking 'Which Pelé?' two-door strip at the top of /, a Wikipedia-style hatnote on renderer pages, a header link to the footballer wiki and footer links, plus disambiguation in JSON-LD and llms.txt."
+lastModified: "2026-10-23T02:12:36.946Z"
+lastModifiedBy: "Nick Daniel <nick@endash.us>"
+---
