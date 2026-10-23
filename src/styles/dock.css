@@ -1,0 +1,25 @@
+/* The dock (scripts/dock.mjs): fixed to the foot of every page, on both halves of the site. Always dark. */
+.dock { position: fixed; z-index: 40; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 2px 0 clamp(16px, 4vw, 48px); background: #0d100e; color: #e8efe9; font: 600 .86rem/1.3 'Montserrat', 'Montserrat Fallback', system-ui, sans-serif; box-shadow: 0 -1px 0 rgba(255,255,255,.08); }
+html:not(.dock-min) body { padding-bottom: 48px; }
+.dock p { margin: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 2px 8px; flex: 1; min-width: 0; padding: 4px 0; }
+.dock a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; color: #fff; text-decoration: none; }
+.dock a:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.dock b { font-weight: 800; color: #ffd21f; }
+.dock-and { color: #a9b8ae; }
+.dock-sep { width: 1px; height: 20px; margin: 0 8px; background: rgba(255,255,255,.25); }
+.dock-gv { flex: none; width: 22px; height: 22px; color: #fff; }
+.dock-ten { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #ffd21f; color: #053d22; font: 900 .72rem/1 'Montserrat', system-ui, sans-serif; }
+.dock-mini { display: none !important; }
+.dock-toggle { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; }
+.dock-toggle:hover { background: rgba(255,255,255,.1); }
+.dock-toggle span::before { content: ''; display: block; width: 9px; height: 9px; border-right: 2.5px solid currentColor; border-bottom: 2.5px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+.dock a:focus-visible, .dock-toggle:focus-visible { outline: 3px solid #ffd21f; outline-offset: 2px; }
+.dock-min .dock { left: 12px; right: auto; bottom: 12px; min-height: 0; padding: 2px; gap: 0; border-radius: 999px; }
+.dock-min .dock-full { display: none; }
+.dock-min .dock-mini { display: flex !important; gap: 0; padding: 0; }
+.dock-min .dock-mini a { justify-content: center; width: 44px; height: 44px; border-radius: 50%; }
+.dock-min .dock-mini a:hover { background: rgba(255,255,255,.1); }
+.dock-min .dock-toggle span::before { transform: translateX(-2px) rotate(-45deg); }
+.dock-short { display: none; }
+@media (max-width: 640px) { .dock p { flex-wrap: nowrap; } .dock-long, .dock-and, .dock-full > a:nth-child(3) { display: none; } .dock-short { display: inline; } .dock-sep { margin: 0 4px; } }
+@media print { .dock { display: none; } }

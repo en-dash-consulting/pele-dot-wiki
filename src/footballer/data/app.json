@@ -1,0 +1,840 @@
+{
+  "format": "graview-document",
+  "formatVersion": 1,
+  "name": "Pelé",
+  "description": "A wiki on Pelé (Edson Arantes do Nascimento, 1940–2022), the Brazilian footballer: his story in chapters, his four World Cups, his clubs, the matches and goals that made him, the people around him, his honours and the films and books about him. Every record carries its source.",
+  "kinds": {
+    "chapter": {
+      "noun": "chapter",
+      "plural": "chapters",
+      "label": "{name}",
+      "describe": "{began|date} to {ended|date}",
+      "description": "A part of his life, told in order: where he was, what happened and why it mattered.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "order": {
+          "type": "integer",
+          "min": 1,
+          "max": 99,
+          "description": "Its place in the story."
+        },
+        "began": {
+          "type": "date"
+        },
+        "ended": {
+          "type": "date"
+        },
+        "headline": {
+          "type": "string",
+          "description": "One sentence that sums the chapter up."
+        },
+        "story": {
+          "type": "text",
+          "format": "markdown",
+          "description": "The chapter, told."
+        },
+        "photo": {
+          "type": "string",
+          "description": "Path of a public-domain or Creative Commons photo on this site."
+        },
+        "photoCredit": {
+          "type": "string",
+          "label": "Photo credit"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "covers": {
+          "to": [
+            "tournament",
+            "match",
+            "club",
+            "person",
+            "goal",
+            "honour",
+            "work",
+            "place"
+          ],
+          "description": "what the chapter is about",
+          "inverse": "the chapters it appears in"
+        }
+      },
+      "glance": [
+        "name",
+        "began",
+        "ended"
+      ]
+    },
+    "tournament": {
+      "noun": "tournament",
+      "plural": "tournaments",
+      "label": "{name}",
+      "describe": "{result} · {peleGoals} goals",
+      "description": "A competition he played in: the four World Cups above all.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "year": {
+          "type": "integer",
+          "min": 1900,
+          "max": 2100
+        },
+        "result": {
+          "type": "enum",
+          "options": [
+            "champions",
+            "runners-up",
+            "third place",
+            "fourth place",
+            "quarter-finals",
+            "group stage",
+            "other"
+          ],
+          "description": "How far his team went."
+        },
+        "peleApps": {
+          "type": "integer",
+          "min": 0,
+          "label": "His matches"
+        },
+        "peleGoals": {
+          "type": "integer",
+          "min": 0,
+          "label": "His goals"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "story": {
+          "type": "text",
+          "format": "markdown"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "hostedIn": {
+          "to": [
+            "place"
+          ],
+          "description": "the country it was held in",
+          "inverse": "the tournaments held here"
+        },
+        "team": {
+          "to": [
+            "club"
+          ],
+          "cardinality": "one",
+          "description": "the team he played for in it",
+          "inverse": "the tournaments it played with him"
+        }
+      },
+      "glance": [
+        "name",
+        "result",
+        "peleGoals"
+      ]
+    },
+    "match": {
+      "noun": "match",
+      "plural": "matches",
+      "label": "{name}",
+      "describe": "{date|date} · {stage}",
+      "description": "A match that mattered in his story.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true,
+          "description": "As a scoreline, his side first: Brazil 5–2 Sweden."
+        },
+        "date": {
+          "type": "date",
+          "required": true
+        },
+        "stage": {
+          "type": "string",
+          "description": "The round or the occasion: Final, Semi-final, Friendly."
+        },
+        "result": {
+          "type": "enum",
+          "options": [
+            "won",
+            "drew",
+            "lost"
+          ]
+        },
+        "peleGoals": {
+          "type": "integer",
+          "min": 0,
+          "label": "His goals"
+        },
+        "attendance": {
+          "type": "integer",
+          "min": 0
+        },
+        "headline": {
+          "type": "string"
+        },
+        "story": {
+          "type": "text",
+          "format": "markdown"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "partOf": {
+          "to": [
+            "tournament"
+          ],
+          "cardinality": "one",
+          "description": "the tournament it was played in",
+          "inverse": "its matches"
+        },
+        "playedAt": {
+          "to": [
+            "place"
+          ],
+          "cardinality": "one",
+          "description": "the stadium",
+          "inverse": "the matches played here"
+        },
+        "forTeam": {
+          "to": [
+            "club"
+          ],
+          "cardinality": "one",
+          "description": "his side",
+          "inverse": "its matches with him"
+        },
+        "against": {
+          "to": [
+            "club"
+          ],
+          "cardinality": "one",
+          "description": "the opponents",
+          "inverse": "the matches it played against him"
+        },
+        "featuring": {
+          "to": [
+            "person"
+          ],
+          "description": "people who played a part in it",
+          "inverse": "the matches they played a part in"
+        }
+      },
+      "glance": [
+        "name",
+        "date",
+        "stage",
+        "peleGoals"
+      ]
+    },
+    "goal": {
+      "noun": "goal",
+      "plural": "goals",
+      "label": "{name}",
+      "describe": "{date|date} · minute {minute}",
+      "description": "One of his famous goals, or a famous near-miss.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "date": {
+          "type": "date"
+        },
+        "minute": {
+          "type": "integer",
+          "min": 1,
+          "max": 130
+        },
+        "how": {
+          "type": "string",
+          "description": "Header, volley, penalty, solo run…"
+        },
+        "scored": {
+          "type": "boolean",
+          "description": "False for the famous ones that did not go in."
+        },
+        "headline": {
+          "type": "string"
+        },
+        "story": {
+          "type": "text",
+          "format": "markdown"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "scoredIn": {
+          "to": [
+            "match"
+          ],
+          "cardinality": "one",
+          "description": "the match it came in",
+          "inverse": "his famous goals in it"
+        }
+      },
+      "glance": [
+        "name",
+        "date",
+        "minute"
+      ]
+    },
+    "club": {
+      "noun": "team",
+      "plural": "teams",
+      "label": "{name}",
+      "describe": "{type} · {country}",
+      "description": "A club or national team: one he played for, or one he played against in a match that mattered.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "type": {
+          "type": "enum",
+          "options": [
+            "club",
+            "national team"
+          ],
+          "default": "club",
+          "required": true
+        },
+        "country": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "years": {
+          "type": "string",
+          "label": "His years",
+          "description": "When he played for it, e.g. 1956–1974. Empty for opponents."
+        },
+        "apps": {
+          "type": "integer",
+          "min": 0,
+          "label": "His matches",
+          "description": "Official matches, as the source counts them."
+        },
+        "goals": {
+          "type": "integer",
+          "min": 0,
+          "label": "His goals",
+          "description": "Official goals, as the source counts them."
+        },
+        "headline": {
+          "type": "string"
+        },
+        "story": {
+          "type": "text",
+          "format": "markdown"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "basedIn": {
+          "to": [
+            "place"
+          ],
+          "cardinality": "one",
+          "description": "its home city or country",
+          "inverse": "the teams based here"
+        }
+      },
+      "glance": [
+        "name",
+        "years",
+        "goals"
+      ]
+    },
+    "person": {
+      "noun": "person",
+      "plural": "people",
+      "label": "{name}",
+      "describe": "{role}",
+      "description": "Pelé himself and the people in his story: family, teammates, coaches, rivals.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "fullName": {
+          "type": "string",
+          "label": "Full name"
+        },
+        "role": {
+          "type": "string",
+          "description": "Who they were to him: father, teammate, coach, rival…"
+        },
+        "circle": {
+          "type": "enum",
+          "label": "In his story",
+          "options": [
+            "himself",
+            "family",
+            "teammate",
+            "coach",
+            "opponent"
+          ],
+          "description": "Who they were to him, for grouping: family, a teammate, a coach or an opponent."
+        },
+        "born": {
+          "type": "date"
+        },
+        "died": {
+          "type": "date"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "story": {
+          "type": "text",
+          "format": "markdown"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "photoCredit": {
+          "type": "string",
+          "label": "Photo credit"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "bornIn": {
+          "to": [
+            "place"
+          ],
+          "cardinality": "one",
+          "description": "where they were born",
+          "inverse": "the people born here"
+        },
+        "playedFor": {
+          "to": [
+            "club"
+          ],
+          "description": "the teams they played for or coached",
+          "inverse": "its people"
+        }
+      },
+      "glance": [
+        "name",
+        "circle",
+        "role"
+      ]
+    },
+    "honour": {
+      "noun": "honour",
+      "plural": "honours",
+      "label": "{name}",
+      "describe": "{year} · {category}",
+      "description": "A trophy or an award he won.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "year": {
+          "type": "integer",
+          "min": 1900,
+          "max": 2100
+        },
+        "category": {
+          "type": "enum",
+          "options": [
+            "world cup",
+            "club trophy",
+            "individual award",
+            "recognition"
+          ],
+          "required": true,
+          "default": "club trophy"
+        },
+        "awardedBy": {
+          "type": "string",
+          "label": "Awarded by"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "withTeam": {
+          "to": [
+            "club"
+          ],
+          "cardinality": "one",
+          "description": "the team he won it with",
+          "inverse": "the honours he won with it"
+        },
+        "forTournament": {
+          "to": [
+            "tournament"
+          ],
+          "cardinality": "one",
+          "description": "the tournament it was for",
+          "inverse": "the honours it brought"
+        }
+      },
+      "glance": [
+        "name",
+        "year",
+        "category"
+      ]
+    },
+    "work": {
+      "noun": "film or book",
+      "plural": "films and books",
+      "label": "{name}",
+      "describe": "{type} · {year}",
+      "description": "A film, documentary, book or song by him or about him.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "type": {
+          "type": "enum",
+          "options": [
+            "film",
+            "documentary",
+            "book",
+            "song",
+            "other"
+          ],
+          "required": true,
+          "default": "film"
+        },
+        "year": {
+          "type": "integer",
+          "min": 1900,
+          "max": 2100
+        },
+        "role": {
+          "type": "string",
+          "description": "His part in it: himself, author, subject…"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "glance": [
+        "name",
+        "type",
+        "year"
+      ]
+    },
+    "place": {
+      "noun": "place",
+      "plural": "locations",
+      "label": "{name}",
+      "describe": "{type} · {country}",
+      "description": "Where his story happened: towns, cities, countries and stadiums.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "type": {
+          "type": "enum",
+          "options": [
+            "town",
+            "city",
+            "country",
+            "stadium"
+          ],
+          "required": true,
+          "default": "city"
+        },
+        "country": {
+          "type": "string"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "within": {
+          "to": [
+            "place"
+          ],
+          "cardinality": "one",
+          "description": "the place it is in",
+          "inverse": "the places in it"
+        }
+      },
+      "glance": [
+        "name",
+        "type",
+        "country"
+      ]
+    },
+    "question": {
+      "noun": "question",
+      "plural": "questions",
+      "label": "{name}",
+      "description": "A question people ask about Pelé, answered in its first sentence.",
+      "fields": {
+        "name": {
+          "type": "string",
+          "required": true,
+          "label": "Question"
+        },
+        "answer": {
+          "type": "text",
+          "required": true,
+          "description": "The answer, first sentence first."
+        },
+        "order": {
+          "type": "integer",
+          "min": 1,
+          "max": 99
+        },
+        "source": {
+          "type": "url"
+        }
+      },
+      "edges": {
+        "about": {
+          "to": [
+            "chapter",
+            "tournament",
+            "match",
+            "goal",
+            "club",
+            "person",
+            "honour",
+            "work",
+            "place"
+          ],
+          "description": "the records that answer it in full",
+          "inverse": "the questions it answers"
+        }
+      },
+      "glance": [
+        "name"
+      ]
+    }
+  },
+  "lenses": [
+    {
+      "name": "calendar",
+      "title": "The matches, year by year",
+      "bindings": {
+        "match": {
+          "start": "date"
+        }
+      },
+      "options": {
+        "range": "years",
+        "today": "1970-06-21",
+        "horizon": {
+          "title": "The career",
+          "from": 1956,
+          "to": 1977,
+          "years": 22
+        }
+      }
+    },
+    {
+      "name": "coverage",
+      "title": "Which teams appear in which chapter",
+      "bindings": {
+        "rows": {
+          "kind": "club"
+        },
+        "columns": {
+          "kind": "chapter"
+        },
+        "link": {
+          "edge": "covers"
+        }
+      },
+      "options": {
+        "columnSort": {
+          "by": "order",
+          "direction": "asc"
+        }
+      }
+    }
+  ],
+  "pages": {
+    "first": "home",
+    "order": [
+      "chapter",
+      "tournament",
+      "match",
+      "goal",
+      "club",
+      "person",
+      "honour",
+      "work",
+      "place",
+      "question"
+    ],
+    "lists": {
+      "match": {
+        "sort": {
+          "by": "date",
+          "direction": "asc"
+        }
+      },
+      "chapter": {
+        "sort": {
+          "by": "order",
+          "direction": "asc"
+        }
+      },
+      "honour": {
+        "sort": {
+          "by": "year",
+          "direction": "asc"
+        }
+      },
+      "person": {
+        "group": {
+          "by": "circle",
+          "order": [
+            "himself",
+            "family",
+            "teammate",
+            "coach",
+            "opponent"
+          ]
+        }
+      }
+    },
+    "pages": "The wiki",
+    "scene": "The scene"
+  },
+  "views": {
+    "home": [
+      {
+        "headline": "Pelé: {count(all('chapter'))} chapters, {count(all('tournament'))} tournaments, {count(all('match'))} matches that mattered and {count(all('goal'))} famous goals."
+      },
+      {
+        "title": "The story"
+      },
+      {
+        "as": "row",
+        "list": "all('chapter')",
+        "sort": {
+          "by": "order",
+          "direction": "asc"
+        }
+      },
+      {
+        "title": "The World Cups"
+      },
+      {
+        "as": "card",
+        "list": "all('tournament') where name >= 'FIFA'",
+        "sort": {
+          "by": "year",
+          "direction": "asc"
+        }
+      }
+    ],
+    "match": {
+      "card": [
+        {
+          "title": "{name}"
+        },
+        {
+          "badge": "{result}",
+          "tone": {
+            "expr": "if(result == 'won', 'good', if(result == 'lost', 'bad', 'neutral'))"
+          }
+        },
+        {
+          "as": "date",
+          "field": "date"
+        },
+        {
+          "text": "{stage}"
+        }
+      ],
+      "row": [
+        {
+          "title": "{name}"
+        },
+        {
+          "text": "{stage}"
+        }
+      ]
+    },
+    "tournament": {
+      "card": [
+        {
+          "title": "{name}"
+        },
+        {
+          "badge": "{result}",
+          "tone": {
+            "expr": "if(result == 'champions', 'good', 'neutral')"
+          }
+        },
+        {
+          "text": "{peleGoals} {peleGoals|plural: 'goal'} in {peleApps} {peleApps|plural: 'match'}"
+        }
+      ]
+    }
+  },
+  "brand": {
+    "accent": "#00813c",
+    "accents": {
+      "goal": 20,
+      "tournament": 50,
+      "honour": 75,
+      "match": 110,
+      "chapter": 145,
+      "place": 180,
+      "club": 210,
+      "work": 270,
+      "question": 300,
+      "person": 330
+    },
+    "scheme": "auto",
+    "subtitle": false,
+    "favicon": {
+      "emoji": "⚽"
+    },
+    "typography": {
+      "display": "system-sans",
+      "body": "Merriweather"
+    },
+    "shape": {
+      "radius": 10
+    }
+  }
+}

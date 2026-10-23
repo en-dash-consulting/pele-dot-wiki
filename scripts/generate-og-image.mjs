@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Renders public/og-image.png (1200×630) in the site's transit-map style, with Playwright and the site's own fonts.
+// Renders public/og-image.png (1200×630) in the site's transit-map style, and public/footballer/og-image.png for the
+// footballer wiki, with Playwright and the site's own fonts.
 import { chromium } from '@playwright/test'
 import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -37,11 +38,31 @@ text { font: 700 22px Montserrat; fill: #111; }
 <p><strong>Live demos and guides for Pele</strong>, kepano's Mermaid renderer</p>
 <div class="bar" style="position:absolute;left:0;right:0;bottom:0"><i style="background:#d52b1e"></i><i style="background:#00843d"></i><i style="background:#f5a800"></i></div>
 </body></html>`
-const tmp = join(ROOT, 'node_modules', '.og.html')
-writeFileSync(tmp, html)
+const footballer = `<!doctype html><html><head><style>
+@font-face { font-family: Montserrat; font-weight: 100 900; src: url(${font('', 'montserrat-latin-wght-normal.woff2')}); }
+body { margin: 0; width: 1200px; height: 630px; overflow: hidden; position: relative; color: #fff; font-family: Montserrat;
+  background: repeating-linear-gradient(90deg, transparent 0 100px, rgba(255,255,255,.04) 100px 200px), #053d22; }
+.k { position: absolute; left: 80px; top: 76px; font: 800 26px Montserrat; letter-spacing: 5px; color: #ffd21f; }
+h1 { position: absolute; left: 70px; top: 120px; margin: 0; font: 900 250px/1 Montserrat; letter-spacing: -14px; }
+.full { position: absolute; left: 80px; top: 400px; font: 700 36px Montserrat; color: #ffd21f; }
+.sub { position: absolute; left: 80px; top: 460px; font: 600 30px Montserrat; color: #dfeee5; }
+.ten { position: absolute; right: 50px; top: 90px; font: 900 400px/1 Montserrat; letter-spacing: -30px; color: #ffd21f; opacity: .92; }
+.url { position: absolute; right: 72px; bottom: 50px; font: 800 28px Montserrat; }
+.bar { position: absolute; left: 0; right: 0; bottom: 0; height: 20px; display: flex; } .bar i { flex: 1; }
+</style></head><body>
+<div class="k">THE WIKI · 1940–2022</div><h1>Pelé</h1><div class="ten">10</div>
+<div class="full">Edson Arantes do Nascimento · O Rei</div>
+<div class="sub">His life, four World Cups, Santos, the Cosmos, the goals</div>
+<div class="url">pele.wiki/footballer</div>
+<div class="bar"><i style="background:#ffd21f"></i><i style="background:#009c3b"></i><i style="background:#2a5bd7"></i></div>
+</body></html>`
 const browser = await chromium.launch()
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } })
-await page.goto(pathToFileURL(tmp).href); await page.evaluate(() => document.fonts.ready)
-await page.screenshot({ path: join(ROOT, 'public', 'og-image.png') })
+for (const [doc, out] of [[html, 'og-image.png'], [footballer, 'footballer/og-image.png']]) {
+  const tmp = join(ROOT, 'node_modules', '.og.html')
+  writeFileSync(tmp, doc)
+  await page.goto(pathToFileURL(tmp).href); await page.evaluate(() => document.fonts.ready)
+  await page.screenshot({ path: join(ROOT, 'public', out) })
+}
 await browser.close()
-console.log('og image written')
+console.log('og images written')

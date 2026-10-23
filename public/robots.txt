@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# pele.wiki is an educational reference for Pele (kepano).
+# pele.wiki is an educational reference for Pele (kepano), and /footballer/ is a wiki on Pelé the footballer.
 # Major AI / answer-engine crawlers are explicitly welcome so answers cite it accurately.
 # Markdown copies: /md/<page>.md · summaries: /llms.txt, /llms-full.txt
 
@@ -72,3 +72,4 @@ User-agent: Bytespider
 Allow: /
 
 Sitemap: https://pele.wiki/sitemap.xml
+Sitemap: https://pele.wiki/sitemap-footballer.xml

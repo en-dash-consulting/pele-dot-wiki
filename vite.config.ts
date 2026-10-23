@@ -33,6 +33,6 @@ export default defineConfig({
   build: {
     sourcemap: true, // public source maps: readable stack traces, and Lighthouse's best-practices check
     chunkSizeWarningLimit: 1600, // Mermaid.js (comparison only, lazy-loaded) is big on purpose
-    rollupOptions: { input: { main: resolve(__dirname, 'index.html'), notfound: resolve(__dirname, '404.html'), ...pages } },
+    rollupOptions: { input: { main: resolve(__dirname, 'index.html'), notfound: resolve(__dirname, '404.html'), footballer: resolve(__dirname, 'footballer/index.html'), ...pages } },
   },
 })

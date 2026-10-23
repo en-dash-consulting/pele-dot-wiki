@@ -134,3 +134,11 @@ test('reduced motion: no phone nudge, no smooth scroll', async ({ page }) => {
   await expect(page.locator('#ph-phones')).not.toHaveClass(/nudge/)
   expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior)).not.toBe('smooth')
 })
+
+test('two Pelés: the header link, hatnote and JSON-LD point footballer fans to /footballer/', async ({ page }) => {
+  await page.goto('/pages/what-is-pele.html')
+  await expect(page.getByRole('navigation', { name: 'Main' }).getByRole('link', { name: 'Pelé the footballer' })).toHaveAttribute('href', '/footballer/')
+  await expect(page.locator('.hatnote a')).toHaveAttribute('href', '/footballer/')
+  const ld = JSON.parse(await page.request.get('/').then(r => r.text()).then(h => h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)![1]!))
+  expect(ld['@graph'].some((n: { '@type': string, name: string }) => n['@type'] === 'Person' && n.name === 'Pelé')).toBe(true)
+})

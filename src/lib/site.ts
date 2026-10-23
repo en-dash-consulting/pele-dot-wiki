@@ -13,13 +13,6 @@ if (toggle && nav) {
   })
 }
 
-// Site-wide announcement banner: dismissal remembered in localStorage (the head script hides it before paint).
-document.querySelector<HTMLButtonElement>('.banner-close')?.addEventListener('click', () => {
-  try { localStorage.setItem('pw-banner-graview', 'dismissed') } catch { /* private mode: dismiss for this page only */ }
-  document.documentElement.classList.add('banner-dismissed')
-  document.getElementById('main')?.focus({ preventScroll: true })
-})
-
 // "npm install pele" chip: copy on click.
 document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach(b => b.addEventListener('click', async () => {
   const label = b.querySelector<HTMLElement>('.copy-label')

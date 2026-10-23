@@ -1,0 +1,41 @@
+name: CI
+
+# Every pull request builds the site the way the deploy does, checks the footballer wiki's data,
+# and runs the Playwright + axe suite against the build.
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # page dates come from git history
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check:footballer
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - run: npx playwright test --reporter=github,line
+
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-results
+          path: test-results/
+          retention-days: 7
