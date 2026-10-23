@@ -33,13 +33,6 @@ article > pre { max-width: 860px; }
 .skip-link { position: absolute; left: var(--s-3); top: -60px; background: var(--ink); color: var(--paper); padding: var(--s-2) var(--s-4); z-index: 10; }
 .skip-link:focus { top: var(--s-3); }
 
-/* banner */
-.site-banner { font-family: var(--font-ui); font-weight: 500; display: flex; align-items: center; justify-content: center; gap: var(--s-3); min-height: 44px; padding: var(--s-1) var(--gutter); background: var(--banner-bg); color: var(--banner-fg); font-size: .9rem; }
-.site-banner p { margin: 0; text-align: center; }
-.site-banner a { color: inherit; font-weight: 700; }
-.banner-close { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 2px solid currentColor; background: transparent; color: inherit; font-size: 1.2rem; line-height: 1; cursor: pointer; }
-.banner-dismissed .site-banner { display: none; }
-@media (max-width: 480px) { .site-banner { font-size: .8rem; justify-content: space-between; } .site-banner p { text-align: left; } }
 
 /* header */
 .site-header { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); padding: var(--s-3) var(--gutter); background: var(--header-bg); color: var(--header-fg); }
@@ -87,12 +80,12 @@ input[type="range"] { accent-color: var(--l1); min-height: 44px; }
 textarea { font: 400 .9rem/1.6 var(--font-mono); color: var(--code-fg); background: var(--code-bg); border: 0; border-radius: var(--radius-sm); padding: var(--s-4); width: 100%; tab-size: 2; resize: vertical; }
 
 /* home hero */
-.hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--s-6); align-items: center; padding: var(--s-5) 0 var(--s-5); }
-.hero-copy h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: var(--s-3); }
-.hero h1 em { font-style: normal; background: linear-gradient(transparent 60%, var(--l3) 60%, var(--l3) 92%, transparent 92%); }
+.hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--s-7); align-items: center; padding: var(--s-6) 0 var(--s-7); scroll-margin-top: var(--s-5); }
+.hero-copy h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); line-height: 1.1; margin-bottom: var(--s-5); }
+.hero h1 em { font-style: normal; text-decoration: underline; text-decoration-color: var(--l3); text-decoration-thickness: .1em; text-underline-offset: .14em; text-decoration-skip-ink: none; }
 .kicker { display: inline-flex; gap: var(--s-2); align-items: center; font: 400 .78rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .1em; margin: 0 0 var(--s-4); }
 .kicker::before { content: ''; flex: none; width: 28px; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--l1) 33%, var(--l2) 33% 66%, var(--l3) 66%); }
-.sub { font-size: clamp(1.02rem, 1.3vw, 1.12rem); line-height: 1.65; max-width: 58ch; margin-bottom: var(--s-4); }
+.sub { font-size: clamp(1.05rem, 1.35vw, 1.15rem); line-height: 1.75; max-width: 54ch; margin-bottom: var(--s-6); color: var(--muted); }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); margin: 0; }
 .install { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 44px; padding: 0 var(--s-4) 0 var(--s-5); font: 400 .92rem var(--font-mono); border: var(--border-w) dashed var(--ink); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
 .install .copy-label { font: 700 .74rem var(--font-ui); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
@@ -165,22 +158,26 @@ h1 em, h2 em { letter-spacing: inherit; }
 
 code.nw { white-space: nowrap; }
 
-/* Two Pelés: the front door strip on the home page and the hatnote on pages a footballer fan may land on. */
-.which-pele { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; gap: var(--s-3); margin: var(--s-4) 0 0; }
-.which-q { margin: 0; align-self: center; font: 800 1.05rem/1.1 var(--font-display); letter-spacing: -.02em; }
-.door { display: flex; align-items: center; gap: var(--s-3); min-height: 56px; padding: var(--s-2) var(--s-3); border: var(--border-w) solid var(--rule-strong); border-radius: var(--radius-sm); color: var(--ink); text-decoration: none; font-family: var(--font-ui); line-height: 1.2; }
-.door-text { display: flex; flex-direction: column; min-width: 0; }
-.door-text strong { font-weight: 800; font-size: .98rem; }
-.door-text span { color: var(--muted); font-size: .82rem; font-weight: 500; }
-.door-mark { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; font: 900 1.05rem/1 var(--font-display); }
-.door-ball { background: var(--ball-bg); border-color: var(--ball-bg); color: var(--ball-fg); }
-.door-ball .door-text span { color: inherit; }
-.door-ball .door-mark { background: var(--ball-mark); color: #003d1f; }
-.door-go { margin-left: auto; font: 800 1.3rem/1 var(--font-display); transition: transform .15s; }
-.door-ball:hover .door-go, .door-ball:focus-visible .door-go { transform: translateX(4px); }
-.door-tool { background: var(--surface); border-color: var(--rule); }
-.door-tool .door-mark { background: var(--header-bg); }
-.door:hover strong { text-decoration: underline; text-underline-offset: 3px; }
-@media (max-width: 760px) { .which-pele { grid-template-columns: minmax(0, 1fr); gap: var(--s-2); } .door-tool { display: none; } }
-.hatnote { margin: calc(-1 * var(--s-2)) 0 var(--s-4); padding-left: var(--s-4); border-left: var(--border-w) solid var(--rule); color: var(--muted); font-style: italic; font-size: .95rem; }
+/* The hatnote on pages a footballer fan may land on, as Wikipedia writes one. */
+.hatnote { margin: calc(-1 * var(--s-2)) 0 var(--s-4); padding-left: 1.6em; color: var(--muted); font-style: italic; font-size: .95rem; }
 .site-header .nav-other a { color: var(--brand-tld); }
+
+/* Two Pelés: the band that opens the home page. Footballer fans go to their wiki; everyone else reads on. */
+.two { margin: var(--s-6) 0 0; }
+.two-ball { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 300px); align-items: stretch; overflow: hidden; border-radius: var(--radius); background: #053d22; color: #fff; }
+.two-copy { padding: var(--s-7) var(--s-7) var(--s-7); align-self: center; }
+.two-kicker { margin: 0 0 var(--s-3); font: 700 .78rem/1.3 var(--font-display); letter-spacing: .16em; text-transform: uppercase; color: #ffd21f; }
+.two-title { margin: 0 0 var(--s-4); font: 900 clamp(1.8rem, 3.6vw, 2.6rem)/1.1 var(--font-display); letter-spacing: -.03em; text-wrap: balance; }
+.two-title em { font-style: normal; color: #ffd21f; }
+.two-text { margin: 0 0 var(--s-6); max-width: 46ch; font-size: 1.02rem; line-height: 1.75; color: #dbe8e0; }
+.two-text a { color: #fff; }
+.two-cta { margin: 0; }
+.two-go { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 48px; padding: 0 var(--s-5); border-radius: 999px; background: #ffd21f; color: #0e1f17; font: 800 1rem/1 var(--font-display); text-decoration: none; }
+.two-go:hover { background: #fff; text-decoration: none; }
+.two-go span { transition: transform .15s; } .two-go:hover span { transform: translateX(4px); }
+.two-photo { display: block; width: 100%; height: 100%; max-height: 360px; object-fit: cover; object-position: 50% 20%; filter: grayscale(1) contrast(1.05); }
+.two-credit { position: absolute; right: var(--s-3); bottom: var(--s-2); margin: 0; font: 500 .68rem/1.3 var(--font-display); color: rgba(255,255,255,.8); }
+.two-read { display: flex; justify-content: center; align-items: center; gap: var(--s-2); min-height: 48px; margin-top: var(--s-5); color: var(--muted); font: 700 .95rem/1 var(--font-display); text-decoration: none; }
+.two-read:hover { color: var(--ink); }
+@media (max-width: 760px) { .two-ball { grid-template-columns: minmax(0, 1fr); } .two-photo, .two-credit { display: none; } .two-copy { padding: var(--s-6) var(--s-5); } }
+@media (prefers-reduced-motion: reduce) { .two-go span { transition: none; } }

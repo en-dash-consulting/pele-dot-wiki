@@ -15,14 +15,9 @@ const SITE = 'https://pele.wiki'
 const PKG = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'))
 const PELE_VERSION = PKG.dependencies.pele
 const MERMAID_VERSION = PKG.dependencies.mermaid
-// Google Analytics: set "gaId" in site.config.json (e.g. "G-XXXXXXX"). Empty means no tag is emitted.
-const GA_ID = (process.env.GA_ID ?? JSON.parse(readFileSync(join(ROOT, 'site.config.json'), 'utf8')).gaId ?? '').trim()
-if (GA_ID && !/^G-[A-Z0-9]+$/.test(GA_ID)) throw new Error(`site.config.json gaId looks wrong: ${GA_ID}`)
-// GA: calls are queued at once (so the page view keeps its real start time), but gtag.js itself is only
-// fetched on the first interaction or once the page is loaded and idle, so it never delays first paint.
-export const GA = GA_ID ? `<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', '${GA_ID}');
-  (function(){var done=0,evs=['pointerdown','keydown','scroll','touchstart'];function go(){if(done)return;done=1;evs.forEach(function(e){removeEventListener(e,go,true)});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${GA_ID}';document.head.appendChild(s)}
-  evs.forEach(function(e){addEventListener(e,go,{capture:true,passive:true})});addEventListener('load',function(){if(window.requestIdleCallback)requestIdleCallback(go,{timeout:3500});else setTimeout(go,2000)})})();</script>` : ''
+import { GA } from './ga.mjs'
+import { dock } from './dock.mjs'
+export { GA }
 const PELE_REPO = 'https://github.com/obsidianmd/pele'
 const PELE_SITE = 'https://pele.run'
 const NAV = ['demos', 'gallery', 'guides', 'compare', 'faq']
@@ -111,11 +106,20 @@ function jsonLd(p) {
 // pele.wiki also answers people looking for Pelé the footballer: his wiki lives at /footballer/.
 const FOOTBALLER = { path: '/footballer/', id: `${SITE}/footballer/#pele` }
 const footballerEntity = { '@type': 'Person', '@id': FOOTBALLER.id, name: 'Pelé', alternateName: ['Edson Arantes do Nascimento', 'O Rei', 'Pele'], description: 'Brazilian footballer (1940–2022), three-time FIFA World Cup winner.', url: SITE + FOOTBALLER.path, sameAs: ['https://en.wikipedia.org/wiki/Pel%C3%A9', 'https://www.wikidata.org/wiki/Q12897'] }
-const whichPele = `<nav class="which-pele" aria-labelledby="which-pele-title">
-        <p id="which-pele-title" class="which-q">Which Pelé?</p>
-        <a class="door door-ball" href="${FOOTBALLER.path}"><span class="door-mark" aria-hidden="true">10</span><span class="door-text"><strong>Pelé, the footballer</strong><span>O Rei: three World Cups, the wiki</span></span><span class="door-go" aria-hidden="true">→</span></a>
-        <a class="door door-tool" href="#hero-title" aria-current="page"><span class="door-mark" aria-hidden="true"><img src="/brand/pele.svg" alt="" width="28" height="21" /></span><span class="door-text"><strong>Pele, the Mermaid renderer</strong><span>You're here: kepano's diagram library</span></span></a>
-      </nav>`
+// The home page opens by sorting its two audiences: footballer fans to their wiki, everyone else reads on.
+const twoPeles = `<section class="two" aria-label="Two Pelés">
+        <div class="two-ball">
+          <div class="two-copy">
+            <p class="two-kicker">Two Pelés live at pele.wiki</p>
+            <p class="two-title">Here for <em>Pelé</em>, the footballer?</p>
+            <p class="two-text">We built O Rei a wiki: his life in twelve chapters, four World Cups, the 1,000th goal, every record sourced. It runs on <a href="https://graview.dev">Graview</a>, so you can walk the same data as a city.</p>
+            <p class="two-cta"><a class="two-go" href="${FOOTBALLER.path}">Open the Pelé wiki <span aria-hidden="true">→</span></a></p>
+          </div>
+          <img class="two-photo" src="/footballer/img/pele-schiphol-1962-640.jpg" alt="Pelé arriving at Schiphol airport in 1962" width="509" height="640" fetchpriority="low" />
+          <p class="two-credit">Photo: Joop van Bilsen, Anefo / Nationaal Archief, CC0</p>
+        </div>
+        <a class="two-read" href="#hero-title">Here for the diagram library? Read on <span aria-hidden="true">↓</span></a>
+      </section>`
 const hatnote = `<p class="hatnote">This page is about Pele, the Mermaid diagram renderer. For the Brazilian footballer, see <a href="${FOOTBALLER.path}">Pelé (footballer)</a>.</p>`
 const HATNOTE_ON = ['what-is-pele', 'faq', 'about']
 
@@ -125,7 +129,6 @@ function header(p) {
   const active = sectionOf(p)?.[0] ?? p.slug
   const links = NAV.map(s => `<li><a href="${path(s)}"${s === active ? ' aria-current="page"' : ''}>${bySlug[s].nav}</a></li>`).join('') + `<li class="nav-other"><a href="${FOOTBALLER.path}">Pelé the footballer</a></li>`
   return `<a class="skip-link" href="#main">Skip to content</a>
-  <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
     <a class="brand" href="/">${brandMark}<span>pele<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -134,7 +137,7 @@ function header(p) {
 }
 const footer = `<footer class="site-footer"><div class="foot-inner">
     <nav aria-label="Footer"><ul class="foot-links">${['demos', 'gallery', 'getting-started', 'api', 'theming', 'migrating', 'compare', 'faq', 'about'].map(s => `<li><a href="${path(s)}">${esc(bySlug[s].nav)}</a></li>`).join('')}</ul></nav>
-    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
+    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>, built with <a href="https://github.com/en-dash-consulting/n-dx">n-dx</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
     <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="${PELE_REPO}">github.com/obsidianmd/pele</a> · official docs at <a href="${PELE_SITE}">pele.run</a>. Demos run pele ${PELE_VERSION} and Mermaid.js ${MERMAID_VERSION}.</p>
     <p>Looking for the footballer? <a href="${FOOTBALLER.path}">Pelé (1940–2022), the wiki</a>: his clubs, his four World Cups and his goals.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
@@ -207,14 +210,13 @@ function render(p) {
   if (p.type === 'faq') p.qa = [...html.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>\s*<p>([\s\S]*?)<\/p>/g)].map(m => [strip(m[1]), strip(m[2])])
   const crumbs = p.slug === 'index' || p.slug === '404' ? '' : `<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>${crumbsOf(p).map((c, i, a) => i === a.length - 1 ? `<li aria-current="page">${esc(c.name)}</li>` : `<li><a href="${c.path}">${esc(c.name)}</a></li>`).join('')}</ol></nav>`
   const script = p.type === 'home' ? '/src/pages/home.ts' : p.demo ? '/src/pages/demo.ts' : '/src/pages/content.ts'
-  const head = p.type === 'home' ? whichPele + hero(p) : p.type === 'demo' ? demoHead(p) : `<h1>${p.h1}</h1>${HATNOTE_ON.includes(p.slug) ? hatnote : ''}${p.intro ? `<p class="lede">${p.intro}</p>` : ''}`
+  const head = p.type === 'home' ? twoPeles + hero(p) : p.type === 'demo' ? demoHead(p) : `<h1>${p.h1}</h1>${HATNOTE_ON.includes(p.slug) ? hatnote : ''}${p.intro ? `<p class="lede">${p.intro}</p>` : ''}`
   const robots = p.slug === '404' ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   ${GA}
-  <script>try{if(localStorage.getItem('pw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${esc(p.title)}</title>
   <meta name="description" content="${esc(p.description)}" />
@@ -261,6 +263,7 @@ ${jsonLd(p)}
     ${nextStop(p)}${related(p)}
   </main>
   ${footer}
+  ${dock('renderer')}
   <script type="module" src="${script}"></script>
 </body>
 </html>

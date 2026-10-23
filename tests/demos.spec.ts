@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => { await page.route(/googletagmanager\.com|go
 
 
 test('home race: Pele draws on every keystroke, Mermaid catches up', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/'); await page.locator('#tr-pele').scrollIntoViewIfNeeded()
   await expect(page.locator('#tr-pele svg')).toBeVisible()
   await expect(page.locator('#tr-mm svg')).toBeVisible({ timeout: 20000 })
   const src = page.locator('#tr-src')
@@ -16,20 +16,20 @@ test('home race: Pele draws on every keystroke, Mermaid catches up', async ({ pa
 })
 
 test('home race: example switch and auto-type', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/'); await page.locator('#tr-pele').scrollIntoViewIfNeeded()
   await page.locator('#tr-example').selectOption({ index: 1 })
   await expect(page.locator('#tr-pele svg')).toHaveClass(/pele-sequence/)
   await page.locator('#tr-auto').click()
   await expect(page.locator('#tr-auto')).toHaveAttribute('aria-pressed', 'true')
 })
 
-test('above the fold: race visible at 1280x800, CTA at 375x667', async ({ page }) => {
+test('above the fold: both Pelés at 1280x800, the footballer CTA at 375x667', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 }); await page.goto('/')
-  const box = await page.locator('#tr-pele').boundingBox()
-  expect(box!.y).toBeLessThan(800 - 120)
+  expect((await page.getByRole('link', { name: /Open the Pelé wiki/ }).boundingBox())!.y).toBeLessThan(800)
+  expect((await page.locator('#hero-title').boundingBox())!.y).toBeLessThan(800 - 100)
   await page.setViewportSize({ width: 375, height: 667 }); await page.goto('/')
-  const cta = await page.getByRole('link', { name: /try it live/i }).boundingBox()
-  expect(cta!.y + cta!.height).toBeLessThan(667)
+  const cta = await page.getByRole('link', { name: /Open the Pelé wiki/ }).boundingBox()
+  expect(cta!.y + cta!.height).toBeLessThan(667 - 48)
 })
 
 test('stream: both chats finish and Pele redraws many times', async ({ page }) => {

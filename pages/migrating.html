@@ -5,7 +5,6 @@
   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments)} gtag('js', new Date()); gtag('config', 'G-F3D7B604E2');
   (function(){var done=0,evs=['pointerdown','keydown','scroll','touchstart'];function go(){if(done)return;done=1;evs.forEach(function(e){removeEventListener(e,go,true)});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-F3D7B604E2';document.head.appendChild(s)}
   evs.forEach(function(e){addEventListener(e,go,{capture:true,passive:true})});addEventListener('load',function(){if(window.requestIdleCallback)requestIdleCallback(go,{timeout:3500});else setTimeout(go,2000)})})();</script>
-  <script>try{if(localStorage.getItem('pw-banner-graview')==='dismissed')document.documentElement.classList.add('banner-dismissed')}catch(e){}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Migrating From Mermaid.js to Pele: A Practical Guide | pele.wiki</title>
   <meta name="description" content="Switch from Mermaid.js to Pele: the code swap, moving themeVariables to CSS, what looks different, what is not supported, and a safe fallback plan." />
@@ -160,7 +159,6 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <aside class="site-banner" aria-label="Announcement"><p>New from En Dash: <a href="https://graview.dev" rel="noopener">Graview</a>, an agent-first context-graph–based app development kit</p><button type="button" class="banner-close" aria-label="Dismiss announcement"><span aria-hidden="true">×</span></button></aside>
   <header class="site-header">
     <a class="brand" href="/"><img class="brand-mark" src="/brand/pele.svg" alt="Pele" width="32" height="24" /><span>pele<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -225,11 +223,17 @@ const { svg } = render(text)
   </main>
   <footer class="site-footer"><div class="foot-inner">
     <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
-    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
+    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>, built with <a href="https://github.com/en-dash-consulting/n-dx">n-dx</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
     <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="https://github.com/obsidianmd/pele">github.com/obsidianmd/pele</a> · official docs at <a href="https://pele.run">pele.run</a>. Demos run pele 1.6.0 and Mermaid.js 12.1.0.</p>
     <p>Looking for the footballer? <a href="/footballer/">Pelé (1940–2022), the wiki</a>: his clubs, his four World Cups and his goals.</p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
   </div></footer>
+  <aside class="dock" aria-label="About this site">
+    <p class="dock-full"><a href="https://graview.dev"><svg class="dock-gv" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M13 11 L3 8 L14 3 H29 L21 9"/><path d="M10 18 L3 23 L16.5 28 L29 21 L22 19"/><path d="M16.5 18.5 V23.5" stroke-linecap="round"/></g><circle cx="16.5" cy="13.5" r="2.2" fill="#00e5b9"/></svg><span><span class="dock-long">Built with </span><b>Graview</b></span></a><span class="dock-and">and</span><a href="https://github.com/en-dash-consulting/n-dx"><b>n-dx</b></a><span class="dock-sep" aria-hidden="true"></span><a href="/footballer/"><span class="dock-ten" aria-hidden="true">10</span><span><span class="dock-long">Looking for </span><b>Pelé the footballer</b><span class="dock-long">? The wiki</span>&nbsp;→</span></a></p>
+    <p class="dock-mini"><a href="https://graview.dev" aria-label="Built with Graview"><svg class="dock-gv" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M13 11 L3 8 L14 3 H29 L21 9"/><path d="M10 18 L3 23 L16.5 28 L29 21 L22 19"/><path d="M16.5 18.5 V23.5" stroke-linecap="round"/></g><circle cx="16.5" cy="13.5" r="2.2" fill="#00e5b9"/></svg></a><a href="/footballer/" aria-label="Pelé the footballer: the wiki"><span class="dock-ten" aria-hidden="true">10</span></a></p>
+    <button type="button" class="dock-toggle" aria-expanded="true" aria-label="Shrink this bar"><span aria-hidden="true"></span></button>
+  </aside>
+  <script>(function(){var h=document.documentElement,b=document.querySelector('.dock-toggle');function set(min,keep){h.classList.toggle('dock-min',min);b.setAttribute('aria-expanded',String(!min));b.setAttribute('aria-label',min?'Show the full bar':'Shrink this bar');if(keep)try{localStorage.setItem('pw-dock',min?'min':'full')}catch(e){}}var m=false;try{m=localStorage.getItem('pw-dock')==='min'}catch(e){}set(m);b.addEventListener('click',function(){set(!h.classList.contains('dock-min'),true)})})();</script>
   <script type="module" src="/src/pages/content.ts"></script>
 </body>
 </html>
