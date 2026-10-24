@@ -1,16 +1,247 @@
 {
-  "components": [],
-  "usageEdges": [],
+  "components": [
+    {
+      "file": "src/footballer/main.tsx",
+      "name": "HomePage",
+      "kind": "arrow",
+      "line": 30,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/main.tsx",
+      "name": "Record",
+      "kind": "arrow",
+      "line": 32,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/main.tsx",
+      "name": "Steer",
+      "kind": "function",
+      "line": 25,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/main.tsx",
+      "name": "WikiShell",
+      "kind": "arrow",
+      "line": 29,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Answer",
+      "kind": "function",
+      "line": 237,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Cabinet",
+      "kind": "function",
+      "line": 263,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Card",
+      "kind": "function",
+      "line": 56,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Circles",
+      "kind": "function",
+      "line": 246,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Go",
+      "kind": "function",
+      "line": 11,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Home",
+      "kind": "function",
+      "line": 154,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "KindList",
+      "kind": "function",
+      "line": 281,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Md",
+      "kind": "arrow",
+      "line": 21,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Pennant",
+      "kind": "function",
+      "line": 102,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Photo",
+      "kind": "arrow",
+      "line": 141,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "RecordPage",
+      "kind": "function",
+      "line": 303,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Row",
+      "kind": "arrow",
+      "line": 128,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Scoreboard",
+      "kind": "function",
+      "line": 83,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Section",
+      "kind": "function",
+      "line": 132,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Shell",
+      "kind": "function",
+      "line": 33,
+      "isDefaultExport": false,
+      "conventionExports": []
+    },
+    {
+      "file": "src/footballer/ui.tsx",
+      "name": "Ticket",
+      "kind": "function",
+      "line": 68,
+      "isDefaultExport": false,
+      "conventionExports": []
+    }
+  ],
+  "usageEdges": [
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "Home",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "KindList",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "RecordPage",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "Shell",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "Home",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "KindList",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "RecordPage",
+      "usageCount": 1
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/ui.tsx",
+      "componentName": "Shell",
+      "usageCount": 1
+    }
+  ],
   "routeModules": [],
   "routeTree": [],
   "serverRoutes": [],
   "summary": {
-    "totalComponents": 0,
+    "totalComponents": 20,
     "totalRouteModules": 0,
-    "totalUsageEdges": 0,
+    "totalUsageEdges": 8,
     "totalServerRoutes": 0,
     "routeConventions": {},
-    "mostUsedComponents": [],
+    "mostUsedComponents": [
+      {
+        "name": "Shell",
+        "file": "src/footballer/ui.tsx",
+        "usageCount": 2
+      },
+      {
+        "name": "Home",
+        "file": "src/footballer/ui.tsx",
+        "usageCount": 2
+      },
+      {
+        "name": "KindList",
+        "file": "src/footballer/ui.tsx",
+        "usageCount": 2
+      },
+      {
+        "name": "RecordPage",
+        "file": "src/footballer/ui.tsx",
+        "usageCount": 2
+      }
+    ],
     "layoutDepth": 0
   }
 }

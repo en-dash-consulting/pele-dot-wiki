@@ -5,15 +5,214 @@
 
 ## Project Overview
 
-- **Files**: 0
-- **Lines of code**: 0
-- **Languages**: 
-- **Zones**: 0 (0 with descriptions)
-- **Analyzed**: 2026-10-17T16:54:20.334Z
+- **Files**: 37
+- **Lines of code**: 2,999
+- **Languages**: TypeScript (28), JavaScript (9)
+- **Zones**: 8 (8 with descriptions)
+- **Avg cohesion**: 0.93, **avg coupling**: 0.07 (weighted by file count, 3 zones with ≥5 files)
+- **Small zones**: 5 excluded from averages (<5 files)
+- **Git**: main @ 3d32488
+- **Analyzed**: 2026-10-24T17:37:27.093Z
+
+## Architecture Zones
+
+### Check Footballer Generate Og (`check-footballer-generate-og`)
+
+Build, packaging, and CI scripts: check-footballer.mjs, generate-og-image.mjs
+
+- Files: 2
+- Cohesion: 0.00, Coupling: 0.00
+- Detail: `.sourcevision/zones/check-footballer-generate-og/context.md`
+
+### Demos (`demos`)
+
+13 files, mostly pages and utilities; entry points docs-page.ts, gallery.ts, phone.ts; imports Pages; imported by Pages.
+
+- Files: 13
+- Cohesion: 0.86, Coupling: 0.14
+- Entry points: src/demos/docs-page.ts, src/demos/gallery.ts, src/demos/phone.ts, src/demos/safety.ts, src/demos/stream.ts (+2 more)
+- Detail: `.sourcevision/zones/demos/context.md`
+
+### Footballer (`footballer`)
+
+4 files, mostly components and entry points.
+
+- Files: 4
+- Cohesion: 1.00, Coupling: 0.00
+- Detail: `.sourcevision/zones/footballer/context.md`
+
+### Pages (`pages`)
+
+3 files, mostly pages and utilities; entry points site.ts; imports Demos; imported by Demos.
+
+- Files: 3
+- Cohesion: 0.33, Coupling: 0.67
+- Entry points: src/lib/site.ts
+- Detail: `.sourcevision/zones/pages/context.md`
+
+### Project Root (`root`)
+
+Project configuration and manifest files: playwright.config.ts, vite.config.ts
+
+- Files: 2
+- Cohesion: 0.00, Coupling: 0.00
+- Detail: `.sourcevision/zones/root/context.md`
+
+### Build & CI Scripts (`scripts`)
+
+Build, packaging, and CI scripts: build-footballer.mjs, build-pages.mjs, demo-ui.mjs (+4 more)
+
+- Files: 7
+- Cohesion: 1.00, Coupling: 0.00
+- Detail: `.sourcevision/zones/scripts/context.md`
+
+### Src Generated (`src`)
+
+Machine-generated artifacts: env.d.ts
+
+- Files: 1
+- Cohesion: 1.00, Coupling: 0.00
+- Detail: `.sourcevision/zones/src/context.md`
+
+### Tests (`tests`)
+
+Non-source files in tests: demos.spec.ts, dock.spec.ts, footballer.spec.ts (+2 more)
+
+- Files: 5
+- Cohesion: 1.00, Coupling: 0.00
+- Detail: `.sourcevision/zones/tests/context.md`
 
 ## Key Dependencies
+
+### Most-Imported Files
+
+- `src/lib/dom.ts` (7 imports)
+- `src/lib/mermaid.ts` (6 imports)
+- `src/lib/when.ts` (6 imports)
+- `src/lib/pele-lite.ts` (4 imports)
+- `src/footballer/model.ts` (3 imports)
+- `src/lib/site.ts` (3 imports)
+- `scripts/dock.mjs` (2 imports)
+- `scripts/ga.mjs` (2 imports)
+- `scripts/prerender-key.mjs` (2 imports)
+- `src/demos/gallery-data.ts` (2 imports)
+
+### External Packages
+
+- `@playwright/test` (used by 8 files)
+- `@graview/core` (used by 4 files)
+- `pele` (used by 4 files)
+- `@axe-core/playwright` (used by 2 files)
+- `react` (used by 2 files)
+- `vite` (used by 2 files)
+- `@graview/embed` (used by 1 files)
+- `@graview/pages` (used by 1 files)
+- `fs` (used by 1 files)
+- `marked` (used by 1 files)
+
+## Findings
+
+### Anti-patterns
+
+- "Demos" imports "Pages" on 1 edge(s) while the 7 edge(s) between them run the other way — the minority direction looks like a layering violation [warning] (demos)
+- "src/footballer/ssr.tsx" exports 3 declaration(s) (Route, routes, llms) that no file in the project imports [warning] (footballer)
+
+### Relationships
+
+- Tightly coupled modules: src/footballer/model.ts and src/footballer/ui.tsx — 43 cross-file calls (unidirectional). Consider extracting shared interface or merging [info]
+
+### Observations
+
+- Isolated files — no import edges between 2 files, cohesion is unmeasurable (reported as 0) [info] (check-footballer-generate-og)
+- High cohesion (0.86) — files are tightly interconnected [info] (demos)
+- High cohesion (1) — files are tightly interconnected [info] (footballer)
+- Bidirectional coupling: "demos" ↔ "pages" (1+7 crossings) — consider extracting shared interface [warning]
+- Size imbalance: largest zone has 13 files vs smallest with 1 — uneven decomposition [info]
+- Fan-in hotspot: src/lib/dom.ts receives calls from 7 files (high fan-in expected for this module type) — high-impact module, changes may have wide ripple effects [info]
+- High coupling (0.67) — 7 imports target "demos" [info] (pages)
+- Zone "Pages" depends on more of the rest of the codebase than a module of its size and purpose warrants. [info] (pages)
+- Isolated files — no import edges between 2 files, cohesion is unmeasurable (reported as 0) [info] (root)
+- High cohesion (1) — files are tightly interconnected [info] (scripts)
+- ... and 2 more
+
+### Suggestions
+
+- Hub function: $ in src/lib/dom.ts is called from 7 files (high fan-in expected for this module type) — changes here have wide impact, consider if responsibilities can be narrowed [info]
+- 2 potentially unused exports in src/footballer/ssr.tsx have no incoming calls: routes, llms [info]
+- Potentially unused export: mountDocsPage in src/demos/docs-page.ts has no incoming calls — verify if still needed [info]
+- Zone "Pages" has an unreliable risk reading: only 3 files tracked (minimum 5 needed for reliable metrics) — cohesion: 0.33, coupling: 0.67 (risk score: 0.67) [info] (pages)
+- Zone "Check Footballer Generate Og" has an unreliable risk reading: only 2 files tracked (minimum 5 needed for reliable metrics) — cohesion: 0.00, coupling: 0.00 (risk score: 0.50) [info] (check-footballer-generate-og)
+- Zone "Project Root" has an unreliable risk reading: only 2 files tracked (minimum 5 needed for reliable metrics) — cohesion: 0.00, coupling: 0.00 (risk score: 0.50) [info] (root)
+
+## Next Steps
+
+Prioritized work items derived from analysis:
+
+### Medium Priority
+
+1. **"Demos" imports "Pages" on 1 edge(s) while the 7 edge(s) between them run the o…**
+   Files: `src/demos/docs-page.ts`, `src/demos/gallery-data.ts`, `src/demos/gallery.ts`
+
+1. **"src/footballer/ssr.tsx" exports 3 declaration(s) (Route, routes, llms) that no…**
+   Files: `src/footballer/main.tsx`, `src/footballer/model.ts`, `src/footballer/ssr.tsx`
+
+1. **"demos" ↔ "pages" (1+7 crossings)**
+
+### Low Priority
+
+1. **$ in src/lib/dom.ts is called from 7 files (high fan-in expected for this modul…**
+
+1. **Zone "Pages" has an unreliable risk reading: only 3 files tracked (minimum 5 ne…**
+   Files: `src/lib/site.ts`, `src/pages/content.ts`, `src/pages/demo.ts`
+
+1. **2 potentially unused exports in src/footballer/ssr.tsx have no incoming calls: …**
+
+1. **MountDocsPage in src/demos/docs-page.ts has no incoming calls**
+
+1. **Zone "Check Footballer Generate Og" has an unreliable risk reading: only 2 file…**
+   Files: `scripts/check-footballer.mjs`, `scripts/generate-og-image.mjs`
+
+1. **Zone "Project Root" has an unreliable risk reading: only 2 files tracked (minim…**
+   Files: `playwright.config.ts`, `vite.config.ts`
 
 ## File Inventory
 
 | Path | Role | Archetype | Zone |
 |------|------|-----------|------|
+| `playwright.config.ts` | config |  | root |
+| `scripts/build-footballer.mjs` | build |  | scripts |
+| `scripts/build-pages.mjs` | build |  | scripts |
+| `scripts/check-footballer.mjs` | build |  | check-footballer-generate-og |
+| `scripts/demo-ui.mjs` | build |  | scripts |
+| `scripts/dock.mjs` | build |  | scripts |
+| `scripts/ga.mjs` | build |  | scripts |
+| `scripts/generate-og-image.mjs` | build |  | check-footballer-generate-og |
+| `scripts/prerender-key.mjs` | build |  | scripts |
+| `scripts/prerender.mjs` | build |  | scripts |
+| `src/demos/docs-page.ts` | source | page | demos |
+| `src/demos/gallery-data.ts` | source |  | demos |
+| `src/demos/gallery.ts` | source | page | demos |
+| `src/demos/phone.ts` | source |  | demos |
+| `src/demos/safety.ts` | source | utility | demos |
+| `src/demos/stream.ts` | source |  | demos |
+| `src/demos/theme-lab.ts` | source | page | demos |
+| `src/demos/type-race.ts` | source | page | demos |
+| `src/env.d.ts` | generated |  | src |
+| `src/footballer/main.tsx` | source | entrypoint | footballer |
+| `src/footballer/model.ts` | source | model | footballer |
+| `src/footballer/ssr.tsx` | source | component | footballer |
+| `src/footballer/ui.tsx` | source | component | footballer |
+| `src/lib/dom.ts` | source | utility | demos |
+| `src/lib/mermaid.ts` | source | utility | demos |
+| `src/lib/pele-lite.ts` | source | utility | demos |
+| `src/lib/site.ts` | source | utility | pages |
+| `src/lib/when.ts` | source | utility | demos |
+| `src/pages/content.ts` | source | page | pages |
+| `src/pages/demo.ts` | source | page | pages |
+| `src/pages/home.ts` | source | page | demos |
+| `tests/demos.spec.ts` | test |  | tests |
+| `tests/dock.spec.ts` | test |  | tests |
+| `tests/footballer.spec.ts` | test |  | tests |
+| `tests/screenshots.spec.ts` | test |  | tests |
+| `tests/site.spec.ts` | test |  | tests |
+| `vite.config.ts` | config |  | root |

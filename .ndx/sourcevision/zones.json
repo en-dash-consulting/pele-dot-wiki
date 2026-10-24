@@ -1,23 +1,747 @@
 {
-  "zones": [],
-  "crossings": [],
+  "zones": [
+    {
+      "id": "check-footballer-generate-og",
+      "name": "Check Footballer Generate Og",
+      "description": "Build, packaging, and CI scripts: check-footballer.mjs, generate-og-image.mjs",
+      "files": [
+        "scripts/check-footballer.mjs",
+        "scripts/generate-og-image.mjs"
+      ],
+      "entryPoints": [],
+      "cohesion": 0,
+      "coupling": 0,
+      "headerHash": "82bdef768fcd988c",
+      "insights": [
+        "Isolated files — no import edges between 2 files, cohesion is unmeasurable (reported as 0)",
+        "[call graph] 4 internal calls, 0 outgoing, 0 incoming (cohesion: 1, coupling: 0)"
+      ],
+      "riskMetrics": {
+        "cohesion": 0,
+        "coupling": 0,
+        "riskScore": 0.5,
+        "riskLevel": "at-risk",
+        "failsThreshold": false
+      }
+    },
+    {
+      "id": "demos",
+      "name": "Demos",
+      "description": "13 files, mostly pages and utilities; entry points docs-page.ts, gallery.ts, phone.ts; imports Pages; imported by Pages.",
+      "files": [
+        "src/demos/docs-page.ts",
+        "src/demos/gallery-data.ts",
+        "src/demos/gallery.ts",
+        "src/demos/phone.ts",
+        "src/demos/safety.ts",
+        "src/demos/stream.ts",
+        "src/demos/theme-lab.ts",
+        "src/demos/type-race.ts",
+        "src/lib/dom.ts",
+        "src/lib/mermaid.ts",
+        "src/lib/pele-lite.ts",
+        "src/lib/when.ts",
+        "src/pages/home.ts"
+      ],
+      "entryPoints": [
+        "src/demos/docs-page.ts",
+        "src/demos/gallery.ts",
+        "src/demos/phone.ts",
+        "src/demos/safety.ts",
+        "src/demos/stream.ts",
+        "src/demos/theme-lab.ts",
+        "src/lib/when.ts"
+      ],
+      "cohesion": 0.86,
+      "coupling": 0.14,
+      "subCrossings": [
+        {
+          "from": "src/demos/docs-page.ts",
+          "to": "src/lib/dom.ts",
+          "fromZone": "demos/demos",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/docs-page.ts",
+          "to": "src/lib/mermaid.ts",
+          "fromZone": "demos/demos",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/gallery.ts",
+          "to": "src/lib/dom.ts",
+          "fromZone": "demos/demos",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/gallery.ts",
+          "to": "src/lib/mermaid.ts",
+          "fromZone": "demos/demos",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/phone.ts",
+          "to": "src/lib/pele-lite.ts",
+          "fromZone": "demos/demos-2",
+          "toZone": "demos/demos-3"
+        },
+        {
+          "from": "src/demos/phone.ts",
+          "to": "src/lib/when.ts",
+          "fromZone": "demos/demos-2",
+          "toZone": "demos/demos-3"
+        },
+        {
+          "from": "src/demos/stream.ts",
+          "to": "src/lib/pele-lite.ts",
+          "fromZone": "demos/demos-2",
+          "toZone": "demos/demos-3"
+        },
+        {
+          "from": "src/demos/stream.ts",
+          "to": "src/lib/when.ts",
+          "fromZone": "demos/demos-2",
+          "toZone": "demos/demos-3"
+        },
+        {
+          "from": "src/demos/theme-lab.ts",
+          "to": "src/lib/dom.ts",
+          "fromZone": "demos/demos-3",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/theme-lab.ts",
+          "to": "src/lib/mermaid.ts",
+          "fromZone": "demos/demos-3",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/type-race.ts",
+          "to": "src/lib/dom.ts",
+          "fromZone": "demos/demos-3",
+          "toZone": "demos/demos-2"
+        },
+        {
+          "from": "src/demos/type-race.ts",
+          "to": "src/lib/mermaid.ts",
+          "fromZone": "demos/demos-3",
+          "toZone": "demos/demos-2"
+        }
+      ],
+      "subZones": [
+        {
+          "id": "demos/demos",
+          "name": "Gallery Showcase",
+          "description": "3 files, primarily TypeScript",
+          "files": [
+            "src/demos/docs-page.ts",
+            "src/demos/gallery-data.ts",
+            "src/demos/gallery.ts"
+          ],
+          "entryPoints": [
+            "src/demos/docs-page.ts",
+            "src/demos/gallery.ts"
+          ],
+          "cohesion": 0.5,
+          "coupling": 0.5,
+          "depth": 1
+        },
+        {
+          "id": "demos/demos-3",
+          "name": "Demos 3",
+          "description": "5 files, primarily TypeScript",
+          "files": [
+            "src/demos/theme-lab.ts",
+            "src/demos/type-race.ts",
+            "src/lib/pele-lite.ts",
+            "src/lib/when.ts",
+            "src/pages/home.ts"
+          ],
+          "entryPoints": [
+            "src/demos/theme-lab.ts",
+            "src/lib/pele-lite.ts",
+            "src/lib/when.ts"
+          ],
+          "cohesion": 0.6,
+          "coupling": 0.4,
+          "depth": 1
+        },
+        {
+          "id": "demos/utilities",
+          "name": "Utilities",
+          "description": "5 files, primarily TypeScript",
+          "files": [
+            "src/demos/phone.ts",
+            "src/demos/safety.ts",
+            "src/demos/stream.ts",
+            "src/lib/dom.ts",
+            "src/lib/mermaid.ts"
+          ],
+          "entryPoints": [
+            "src/demos/phone.ts",
+            "src/demos/safety.ts",
+            "src/demos/stream.ts",
+            "src/lib/dom.ts",
+            "src/lib/mermaid.ts"
+          ],
+          "cohesion": 0.45,
+          "coupling": 0.55,
+          "depth": 1,
+          "previousIds": [
+            "demos/demos-2"
+          ]
+        }
+      ],
+      "headerHash": "6e6e67fed36a0e5f",
+      "insights": [
+        "High cohesion (0.86) — files are tightly interconnected",
+        "\"Demos\" imports \"Pages\" on 1 edge(s) while the 7 edge(s) between them run the other way — the minority direction looks like a layering violation",
+        "[call graph] 185 internal calls, 0 outgoing, 1 incoming (cohesion: 1, coupling: 0)"
+      ],
+      "riskMetrics": {
+        "cohesion": 0.86,
+        "coupling": 0.14,
+        "riskScore": 0.14,
+        "riskLevel": "healthy",
+        "failsThreshold": false
+      }
+    },
+    {
+      "id": "footballer",
+      "name": "Footballer",
+      "description": "4 files, mostly components and entry points.",
+      "files": [
+        "src/footballer/main.tsx",
+        "src/footballer/model.ts",
+        "src/footballer/ssr.tsx",
+        "src/footballer/ui.tsx"
+      ],
+      "entryPoints": [],
+      "cohesion": 1,
+      "coupling": 0,
+      "headerHash": "9038b534fb67453e",
+      "insights": [
+        "High cohesion (1) — files are tightly interconnected",
+        "\"src/footballer/ssr.tsx\" exports 3 declaration(s) (Route, routes, llms) that no file in the project imports",
+        "[call graph] 178 internal calls, 0 outgoing, 0 incoming (cohesion: 1, coupling: 0)"
+      ],
+      "riskMetrics": {
+        "cohesion": 1,
+        "coupling": 0,
+        "riskScore": 0,
+        "riskLevel": "healthy",
+        "failsThreshold": false
+      }
+    },
+    {
+      "id": "pages",
+      "name": "Pages",
+      "description": "3 files, mostly pages and utilities; entry points site.ts; imports Demos; imported by Demos.",
+      "files": [
+        "src/lib/site.ts",
+        "src/pages/content.ts",
+        "src/pages/demo.ts"
+      ],
+      "entryPoints": [
+        "src/lib/site.ts"
+      ],
+      "cohesion": 0.33,
+      "coupling": 0.67,
+      "headerHash": "0443664140b90957",
+      "insights": [
+        "High coupling (0.67) — 7 imports target \"demos\"",
+        "Zone \"Pages\" depends on more of the rest of the codebase than a module of its size and purpose warrants.",
+        "[call graph] 0 internal calls, 1 outgoing, 0 incoming (cohesion: 0, coupling: 1)"
+      ],
+      "riskMetrics": {
+        "cohesion": 0.33,
+        "coupling": 0.67,
+        "riskScore": 0.6699999999999999,
+        "riskLevel": "critical",
+        "failsThreshold": true
+      }
+    },
+    {
+      "id": "root",
+      "name": "Project Root",
+      "description": "Project configuration and manifest files: playwright.config.ts, vite.config.ts",
+      "files": [
+        "playwright.config.ts",
+        "vite.config.ts"
+      ],
+      "entryPoints": [],
+      "cohesion": 0,
+      "coupling": 0,
+      "headerHash": "d7ea8080f671d798",
+      "insights": [
+        "Isolated files — no import edges between 2 files, cohesion is unmeasurable (reported as 0)",
+        "[call graph] 1 internal calls, 0 outgoing, 0 incoming (cohesion: 1, coupling: 0)"
+      ],
+      "riskMetrics": {
+        "cohesion": 0,
+        "coupling": 0,
+        "riskScore": 0.5,
+        "riskLevel": "at-risk",
+        "failsThreshold": false
+      }
+    },
+    {
+      "id": "scripts",
+      "name": "Build & CI Scripts",
+      "description": "Build, packaging, and CI scripts: build-footballer.mjs, build-pages.mjs, demo-ui.mjs (+4 more)",
+      "files": [
+        "scripts/build-footballer.mjs",
+        "scripts/build-pages.mjs",
+        "scripts/demo-ui.mjs",
+        "scripts/dock.mjs",
+        "scripts/ga.mjs",
+        "scripts/prerender-key.mjs",
+        "scripts/prerender.mjs"
+      ],
+      "entryPoints": [],
+      "cohesion": 1,
+      "coupling": 0,
+      "headerHash": "a51f2e850ad8a4de",
+      "insights": [
+        "High cohesion (1) — files are tightly interconnected",
+        "[call graph] 104 internal calls, 0 outgoing, 0 incoming (cohesion: 1, coupling: 0)"
+      ],
+      "riskMetrics": {
+        "cohesion": 1,
+        "coupling": 0,
+        "riskScore": 0,
+        "riskLevel": "healthy",
+        "failsThreshold": false
+      }
+    },
+    {
+      "id": "src",
+      "name": "Src Generated",
+      "description": "Machine-generated artifacts: env.d.ts",
+      "files": [
+        "src/env.d.ts"
+      ],
+      "entryPoints": [],
+      "cohesion": 1,
+      "coupling": 0,
+      "headerHash": "20810f22db2feed1",
+      "insights": [
+        "High cohesion (1) — files are tightly interconnected"
+      ],
+      "riskMetrics": {
+        "cohesion": 1,
+        "coupling": 0,
+        "riskScore": 0,
+        "riskLevel": "healthy",
+        "failsThreshold": false
+      }
+    },
+    {
+      "id": "tests",
+      "name": "Tests",
+      "description": "Non-source files in tests: demos.spec.ts, dock.spec.ts, footballer.spec.ts (+2 more)",
+      "files": [
+        "tests/demos.spec.ts",
+        "tests/dock.spec.ts",
+        "tests/footballer.spec.ts",
+        "tests/screenshots.spec.ts",
+        "tests/site.spec.ts"
+      ],
+      "entryPoints": [],
+      "cohesion": 1,
+      "coupling": 0,
+      "headerHash": "598745b653c696b6",
+      "insights": [
+        "High cohesion (1) — files are tightly interconnected",
+        "[call graph] 8 internal calls, 0 outgoing, 0 incoming (cohesion: 1, coupling: 0)"
+      ],
+      "riskMetrics": {
+        "cohesion": 1,
+        "coupling": 0,
+        "riskScore": 0,
+        "riskLevel": "healthy",
+        "failsThreshold": false
+      }
+    }
+  ],
+  "crossings": [
+    {
+      "from": "src/pages/home.ts",
+      "to": "src/lib/site.ts",
+      "fromZone": "demos",
+      "toZone": "pages"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/docs-page.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/gallery.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/phone.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/safety.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/stream.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/theme-lab.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/lib/when.ts",
+      "fromZone": "pages",
+      "toZone": "demos"
+    }
+  ],
   "unzoned": [],
-  "structureHash": "e3b0c44298fc1c14",
-  "inputFingerprint": "61da42e8ad3bed7e",
-  "zoneContentHashes": {},
+  "insights": [
+    "Bidirectional coupling: \"demos\" ↔ \"pages\" (1+7 crossings) — consider extracting shared interface",
+    "Size imbalance: largest zone has 13 files vs smallest with 1 — uneven decomposition",
+    "File \"src/lib/dom.ts\" has 100% of import neighbors in src/demos/ but lives in src/lib/ — consider relocating"
+  ],
+  "findings": [
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "check-footballer-generate-og",
+      "text": "Isolated files — no import edges between 2 files, cohesion is unmeasurable (reported as 0)",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "demos",
+      "text": "High cohesion (0.86) — files are tightly interconnected",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "footballer",
+      "text": "High cohesion (1) — files are tightly interconnected",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "global",
+      "text": "Bidirectional coupling: \"demos\" ↔ \"pages\" (1+7 crossings) — consider extracting shared interface",
+      "severity": "warning"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "global",
+      "text": "Size imbalance: largest zone has 13 files vs smallest with 1 — uneven decomposition",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "global",
+      "text": "Fan-in hotspot: src/lib/dom.ts receives calls from 7 files (high fan-in expected for this module type) — high-impact module, changes may have wide ripple effects",
+      "severity": "info",
+      "related": [
+        "src/lib/dom.ts",
+        "src/demos/docs-page.ts",
+        "src/demos/gallery.ts",
+        "src/demos/phone.ts"
+      ]
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "pages",
+      "text": "High coupling (0.67) — 7 imports target \"demos\"",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 1,
+      "scope": "pages",
+      "text": "Zone \"Pages\" depends on more of the rest of the codebase than a module of its size and purpose warrants.",
+      "severity": "info",
+      "category": "structural",
+      "confidence": 0.7
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "root",
+      "text": "Isolated files — no import edges between 2 files, cohesion is unmeasurable (reported as 0)",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "scripts",
+      "text": "High cohesion (1) — files are tightly interconnected",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "src",
+      "text": "High cohesion (1) — files are tightly interconnected",
+      "severity": "info"
+    },
+    {
+      "type": "observation",
+      "pass": 0,
+      "scope": "tests",
+      "text": "High cohesion (1) — files are tightly interconnected",
+      "severity": "info"
+    },
+    {
+      "type": "move-file",
+      "pass": 0,
+      "scope": "global",
+      "text": "File \"src/lib/dom.ts\" has 100% of import neighbors in src/demos/ but lives in src/lib/ — consider relocating",
+      "severity": "info",
+      "related": [
+        "src/lib/dom.ts"
+      ],
+      "from": "src/lib/dom.ts",
+      "to": "src/demos/",
+      "moveReason": "import-neighbor-majority",
+      "predictedImpact": 7
+    },
+    {
+      "type": "anti-pattern",
+      "pass": 1,
+      "scope": "demos",
+      "text": "\"Demos\" imports \"Pages\" on 1 edge(s) while the 7 edge(s) between them run the other way — the minority direction looks like a layering violation",
+      "severity": "warning",
+      "category": "structural",
+      "related": [
+        "pages"
+      ],
+      "anchors": [
+        {
+          "file": "src/pages/home.ts"
+        },
+        {
+          "file": "src/lib/site.ts"
+        }
+      ],
+      "confidence": 0.42
+    },
+    {
+      "type": "anti-pattern",
+      "pass": 1,
+      "scope": "footballer",
+      "text": "\"src/footballer/ssr.tsx\" exports 3 declaration(s) (Route, routes, llms) that no file in the project imports",
+      "severity": "warning",
+      "category": "code",
+      "anchors": [
+        {
+          "file": "src/footballer/ssr.tsx",
+          "lineRange": [
+            11,
+            11
+          ],
+          "symbol": "Route"
+        },
+        {
+          "file": "src/footballer/ssr.tsx",
+          "lineRange": [
+            101,
+            101
+          ],
+          "symbol": "routes"
+        },
+        {
+          "file": "src/footballer/ssr.tsx",
+          "lineRange": [
+            166,
+            166
+          ],
+          "symbol": "llms"
+        }
+      ],
+      "confidence": 0.46
+    },
+    {
+      "type": "relationship",
+      "pass": 0,
+      "scope": "global",
+      "text": "Tightly coupled modules: src/footballer/model.ts and src/footballer/ui.tsx — 43 cross-file calls (unidirectional). Consider extracting shared interface or merging",
+      "severity": "info",
+      "related": [
+        "src/footballer/model.ts",
+        "src/footballer/ui.tsx"
+      ]
+    },
+    {
+      "type": "suggestion",
+      "pass": 0,
+      "scope": "global",
+      "text": "Hub function: $ in src/lib/dom.ts is called from 7 files (high fan-in expected for this module type) — changes here have wide impact, consider if responsibilities can be narrowed",
+      "severity": "info",
+      "related": [
+        "src/lib/dom.ts",
+        "src/demos/docs-page.ts",
+        "src/demos/gallery.ts",
+        "src/demos/phone.ts"
+      ]
+    },
+    {
+      "type": "suggestion",
+      "pass": 0,
+      "scope": "global",
+      "text": "2 potentially unused exports in src/footballer/ssr.tsx have no incoming calls: routes, llms",
+      "severity": "info",
+      "related": [
+        "src/footballer/ssr.tsx"
+      ]
+    },
+    {
+      "type": "suggestion",
+      "pass": 0,
+      "scope": "global",
+      "text": "Potentially unused export: mountDocsPage in src/demos/docs-page.ts has no incoming calls — verify if still needed",
+      "severity": "info",
+      "related": [
+        "src/demos/docs-page.ts"
+      ]
+    },
+    {
+      "type": "suggestion",
+      "pass": 0,
+      "scope": "pages",
+      "text": "Zone \"Pages\" has an unreliable risk reading: only 3 files tracked (minimum 5 needed for reliable metrics) — cohesion: 0.33, coupling: 0.67 (risk score: 0.67)",
+      "severity": "info"
+    },
+    {
+      "type": "suggestion",
+      "pass": 0,
+      "scope": "check-footballer-generate-og",
+      "text": "Zone \"Check Footballer Generate Og\" has an unreliable risk reading: only 2 files tracked (minimum 5 needed for reliable metrics) — cohesion: 0.00, coupling: 0.00 (risk score: 0.50)",
+      "severity": "info"
+    },
+    {
+      "type": "suggestion",
+      "pass": 0,
+      "scope": "root",
+      "text": "Zone \"Project Root\" has an unreliable risk reading: only 2 files tracked (minimum 5 needed for reliable metrics) — cohesion: 0.00, coupling: 0.00 (risk score: 0.50)",
+      "severity": "info"
+    }
+  ],
+  "enrichmentPass": 1,
+  "enrichmentMode": "cascade",
+  "structureHash": "5e7ca3c7b443e116",
+  "inputFingerprint": "f8e5a3bfd512b05a",
+  "zoneContentHashes": {
+    "demos": "7358f2df1800c329",
+    "footballer": "bf4046729c1ce552",
+    "pages": "6848eafefc3a7a05",
+    "root": "dd02f86e866aae22",
+    "scripts": "551ffe5b5417932a",
+    "check-footballer-generate-og": "b5cbd918aac4f8f8",
+    "src": "8e1450ffcba019b0",
+    "tests": "a39cc8a08eb9a4b4"
+  },
+  "stability": {
+    "fileRetention": 1,
+    "persistedZones": 0,
+    "newZones": 8,
+    "removedZones": 0,
+    "reassignedFiles": []
+  },
   "partitionReview": {
-    "fingerprint": "61da42e8ad3bed7e",
+    "fingerprint": "f8e5a3bfd512b05a",
     "health": {
-      "zones": 0,
-      "smallZones": 0,
-      "smallShare": 0,
+      "zones": 8,
+      "smallZones": 3,
+      "smallShare": 0.38,
       "numericIds": 0,
-      "largestShare": 0,
-      "verdict": "healthy"
+      "largestShare": 0.35,
+      "verdict": "borderline",
+      "reasons": [
+        "3/8 zones hold 2 files or fewer"
+      ]
     },
     "initial": true,
     "rejected": false
   },
   "algorithmVersion": 6,
-  "insights": []
+  "areas": [
+    {
+      "id": "demos",
+      "name": "Demos",
+      "zones": [
+        "demos"
+      ],
+      "files": 13,
+      "nameSource": "member"
+    },
+    {
+      "id": "build-and-ci",
+      "name": "Build & CI Scripts",
+      "zones": [
+        "scripts"
+      ],
+      "files": 7,
+      "nameSource": "member"
+    },
+    {
+      "id": "project-support",
+      "name": "Project Support",
+      "zones": [
+        "check-footballer-generate-og",
+        "root",
+        "src"
+      ],
+      "files": 5,
+      "nameSource": "support"
+    },
+    {
+      "id": "tests",
+      "name": "Tests",
+      "zones": [
+        "tests"
+      ],
+      "files": 5,
+      "nameSource": "tests"
+    },
+    {
+      "id": "footballer",
+      "name": "Footballer",
+      "zones": [
+        "footballer"
+      ],
+      "files": 4,
+      "nameSource": "member"
+    },
+    {
+      "id": "pages",
+      "name": "Pages",
+      "zones": [
+        "pages"
+      ],
+      "files": 3,
+      "nameSource": "member"
+    }
+  ]
 }

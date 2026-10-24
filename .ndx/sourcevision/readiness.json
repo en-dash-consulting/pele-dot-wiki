@@ -1,49 +1,91 @@
 {
-  "overall": 0,
+  "overall": 60,
   "dimensions": {
     "testing": {
-      "score": 0,
+      "score": 70,
       "weight": 0.2,
-      "evidence": [],
+      "evidence": [
+        {
+          "kind": "manifest-script",
+          "path": "package.json",
+          "confidence": "certain",
+          "excerpt": "\"test\": \"playwright test\""
+        },
+        {
+          "kind": "dependency",
+          "path": "package.json",
+          "confidence": "certain",
+          "excerpt": "@playwright/test"
+        },
+        {
+          "kind": "file-present",
+          "path": "tests/demos.spec.ts",
+          "confidence": "likely"
+        }
+      ],
       "gaps": [
         {
-          "summary": "No test command, framework or test file was detected.",
-          "wouldRaiseScore": "A `test` script in a manifest, a test framework dependency, or any file matching the project's test naming convention."
+          "summary": "Unit tests are the only kind found; nothing exercises the system end to end.",
+          "wouldRaiseScore": "Tests under an `integration/`, `e2e/`, `contract/` or `smoke/` directory, which prove the pieces work together."
+        },
+        {
+          "summary": "Coverage is not measured.",
+          "wouldRaiseScore": "A coverage tool configured in a manifest or a CI step, ideally with a threshold that fails the build."
         }
       ]
     },
     "ci": {
-      "score": 0,
+      "score": 90,
       "weight": 0.15,
-      "evidence": [],
+      "evidence": [
+        {
+          "kind": "workflow-file",
+          "path": ".github/workflows/ci.yml",
+          "confidence": "certain"
+        },
+        {
+          "kind": "workflow-file",
+          "path": ".github/workflows/deploy.yml",
+          "confidence": "certain"
+        }
+      ],
       "gaps": [
         {
-          "summary": "No CI pipeline was detected.",
-          "wouldRaiseScore": "A workflow file for a supported provider — GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines or a Jenkinsfile."
+          "summary": "CI does not lint or type-check.",
+          "wouldRaiseScore": "A lint or type-check step in a pipeline."
         }
       ]
     },
     "cd": {
-      "score": 0,
+      "score": 80,
       "weight": 0.15,
-      "evidence": [],
+      "evidence": [
+        {
+          "kind": "workflow-job",
+          "path": ".github/workflows/deploy.yml",
+          "confidence": "likely",
+          "excerpt": "deploy"
+        }
+      ],
       "gaps": [
         {
-          "summary": "No deployment path was detected.",
-          "wouldRaiseScore": "A CI job with a deploy step — `kubectl apply`, `helm upgrade`, `terraform apply`, or a deploy script."
+          "summary": "Only one environment is deployed to, so changes reach production unrehearsed.",
+          "wouldRaiseScore": "A second deploy job that names a staging or preview environment ahead of production."
         }
       ]
     },
     "rollback": {
-      "score": 0,
+      "score": 100,
       "weight": 0.1,
-      "evidence": [],
-      "gaps": [
+      "evidence": [
         {
-          "summary": "No way to undo a deployment was detected.",
-          "wouldRaiseScore": "A rollback job that redeploys the previous version, a blue-green or canary deployment, or a documented down-migration path."
+          "kind": "manifest-version",
+          "path": "package.json",
+          "confidence": "likely",
+          "excerpt": "\"version\": \"0.1.0\""
         }
-      ]
+      ],
+      "gaps": []
     },
     "migrations": {
       "score": 0,
@@ -90,20 +132,31 @@
       ]
     },
     "agentSafety": {
-      "score": 0,
+      "score": 100,
       "weight": 0.1,
-      "evidence": [],
-      "gaps": [
+      "evidence": [
         {
-          "summary": "No agent execution config was found, so nothing records that the checkout was reviewed.",
-          "wouldRaiseScore": "An explicit guard in the project's hench config — `n-dx config` writes one — which both narrows what an agent may run and gives `n-dx trust` something to review."
+          "kind": "agent-config",
+          "path": ".ndx/hench/config.json",
+          "confidence": "certain"
+        },
+        {
+          "kind": "agent-config",
+          "path": ".ndx/rex/config.json",
+          "confidence": "certain"
+        },
+        {
+          "kind": "agent-config",
+          "path": ".mcp.json",
+          "confidence": "certain"
         }
-      ]
+      ],
+      "gaps": []
     }
   },
   "suggestions": [
-    "Testing: No test command, framework or test file was detected. A `test` script in a manifest, a test framework dependency, or any file matching the project's test naming convention.",
-    "CI: No CI pipeline was detected. A workflow file for a supported provider — GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines or a Jenkinsfile.",
-    "CD: No deployment path was detected. A CI job with a deploy step — `kubectl apply`, `helm upgrade`, `terraform apply`, or a deploy script."
+    "Migrations: No data migrations were detected. A migrations directory for a recognised tool — Prisma, Alembic, Rails, Flyway. A repository with no database legitimately scores zero here.",
+    "Quality gates: No merge-blocking gate was detected. A CODEOWNERS file, a pre-commit hook config, or branch protection requiring review and status checks. Branch protection is only visible through the host's API, which this analysis does not call.",
+    "Feature flags: No feature-flag system was detected. A dependency on a flag provider — LaunchDarkly, Unleash, Split, Flagsmith — or an in-house toggle module, so a change can ship dark."
   ]
 }

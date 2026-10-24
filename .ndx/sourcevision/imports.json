@@ -1,12 +1,779 @@
 {
-  "edges": [],
-  "external": [],
+  "edges": [
+    {
+      "from": "scripts/build-footballer.mjs",
+      "to": "scripts/dock.mjs",
+      "type": "static",
+      "symbols": [
+        "dock"
+      ],
+      "weight": 3
+    },
+    {
+      "from": "scripts/build-footballer.mjs",
+      "to": "scripts/ga.mjs",
+      "type": "static",
+      "symbols": [
+        "GA"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "scripts/build-pages.mjs",
+      "to": "scripts/demo-ui.mjs",
+      "type": "static",
+      "symbols": [
+        "HERO_ART",
+        "TYPE_RACE",
+        "STREAM",
+        "THEME_LAB",
+        "PHONE",
+        "DOCS_PAGE",
+        "GALLERY",
+        "SAFETY"
+      ],
+      "weight": 9
+    },
+    {
+      "from": "scripts/build-pages.mjs",
+      "to": "scripts/dock.mjs",
+      "type": "static",
+      "symbols": [
+        "dock"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "scripts/build-pages.mjs",
+      "to": "scripts/ga.mjs",
+      "type": "static",
+      "symbols": [
+        "GA"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "scripts/build-pages.mjs",
+      "to": "scripts/prerender-key.mjs",
+      "type": "static",
+      "symbols": [
+        "SNAPSHOT",
+        "prerenderKey"
+      ],
+      "weight": 3
+    },
+    {
+      "from": "scripts/prerender.mjs",
+      "to": "scripts/prerender-key.mjs",
+      "type": "static",
+      "symbols": [
+        "ROOT",
+        "SNAPSHOT",
+        "TARGETS",
+        "prerenderKey"
+      ],
+      "weight": 9
+    },
+    {
+      "from": "src/demos/docs-page.ts",
+      "to": "src/demos/gallery-data.ts",
+      "type": "static",
+      "symbols": [
+        "GALLERY"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/docs-page.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$",
+        "fmt"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/docs-page.ts",
+      "to": "src/lib/mermaid.ts",
+      "type": "static",
+      "symbols": [
+        "loadMermaid",
+        "mermaidSvg"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "src/demos/gallery.ts",
+      "to": "src/demos/gallery-data.ts",
+      "type": "static",
+      "symbols": [
+        "GALLERY"
+      ],
+      "weight": 4
+    },
+    {
+      "from": "src/demos/gallery.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$",
+        "esc",
+        "fmt"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/gallery.ts",
+      "to": "src/lib/mermaid.ts",
+      "type": "static",
+      "symbols": [
+        "mermaidSvg"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/phone.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$",
+        "reduceMotion"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/phone.ts",
+      "to": "src/lib/mermaid.ts",
+      "type": "static",
+      "symbols": [
+        "mermaidSvg"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/phone.ts",
+      "to": "src/lib/pele-lite.ts",
+      "type": "static",
+      "symbols": [
+        "mount"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/phone.ts",
+      "to": "src/lib/when.ts",
+      "type": "static",
+      "symbols": [
+        "visible"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/safety.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$",
+        "esc"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/stream.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/stream.ts",
+      "to": "src/lib/mermaid.ts",
+      "type": "static",
+      "symbols": [
+        "loadMermaid",
+        "mermaidSvg"
+      ],
+      "weight": 3
+    },
+    {
+      "from": "src/demos/stream.ts",
+      "to": "src/lib/pele-lite.ts",
+      "type": "static",
+      "symbols": [
+        "render"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/stream.ts",
+      "to": "src/lib/when.ts",
+      "type": "static",
+      "symbols": [
+        "visible"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/theme-lab.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/theme-lab.ts",
+      "to": "src/lib/mermaid.ts",
+      "type": "static",
+      "symbols": [
+        "mermaidSvg"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/theme-lab.ts",
+      "to": "src/lib/pele-lite.ts",
+      "type": "static",
+      "symbols": [
+        "mount",
+        "ensure"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "src/demos/theme-lab.ts",
+      "to": "src/lib/pele-lite.ts",
+      "type": "type",
+      "symbols": [
+        "Mounted"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/theme-lab.ts",
+      "to": "src/lib/when.ts",
+      "type": "static",
+      "symbols": [
+        "visible"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/demos/type-race.ts",
+      "to": "src/lib/dom.ts",
+      "type": "static",
+      "symbols": [
+        "$",
+        "fmt",
+        "Median"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/demos/type-race.ts",
+      "to": "src/lib/mermaid.ts",
+      "type": "static",
+      "symbols": [
+        "loadMermaid",
+        "mermaidSvg"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "src/demos/type-race.ts",
+      "to": "src/lib/pele-lite.ts",
+      "type": "static",
+      "symbols": [
+        "render",
+        "ensure",
+        "needs",
+        "isLoaded"
+      ],
+      "weight": 5
+    },
+    {
+      "from": "src/demos/type-race.ts",
+      "to": "src/lib/when.ts",
+      "type": "static",
+      "symbols": [
+        "whenIdle"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/model.ts",
+      "type": "static",
+      "symbols": [
+        "BASE",
+        "ORDER",
+        "readWiki"
+      ],
+      "weight": 3
+    },
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/model.ts",
+      "type": "type",
+      "symbols": [
+        "Kind",
+        "Snapshot"
+      ],
+      "weight": 2
+    },
+    {
+      "from": "src/footballer/main.tsx",
+      "to": "src/footballer/ui.tsx",
+      "type": "static",
+      "symbols": [
+        "Home",
+        "KindList",
+        "Navigate",
+        "RecordPage",
+        "Shell"
+      ],
+      "weight": 7
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/model.ts",
+      "type": "static",
+      "symbols": [
+        "BASE",
+        "KINDS",
+        "ORDER",
+        "SITE",
+        "INFOBOX",
+        "kindHref",
+        "labelOf",
+        "plain",
+        "readWiki",
+        "recordHref",
+        "sayDate",
+        "sayField",
+        "summaryOf"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/model.ts",
+      "type": "type",
+      "symbols": [
+        "Kind",
+        "Rec",
+        "Snapshot"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/footballer/ssr.tsx",
+      "to": "src/footballer/ui.tsx",
+      "type": "static",
+      "symbols": [
+        "Home",
+        "KindList",
+        "RecordPage",
+        "Shell"
+      ],
+      "weight": 6
+    },
+    {
+      "from": "src/footballer/ui.tsx",
+      "to": "src/footballer/model.ts",
+      "type": "static",
+      "symbols": [
+        "BASE",
+        "INFOBOX",
+        "KINDS",
+        "kindHref",
+        "labelOf",
+        "recordHref",
+        "sayDate",
+        "sayField",
+        "sceneHref",
+        "yearOf"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/footballer/ui.tsx",
+      "to": "src/footballer/model.ts",
+      "type": "type",
+      "symbols": [
+        "Kind",
+        "Rec",
+        "Wiki"
+      ],
+      "weight": 10
+    },
+    {
+      "from": "src/pages/content.ts",
+      "to": "src/lib/site.ts",
+      "type": "static",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/docs-page.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/gallery.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/phone.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/safety.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/stream.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/demos/theme-lab.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/lib/site.ts",
+      "type": "static",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/demo.ts",
+      "to": "src/lib/when.ts",
+      "type": "static",
+      "symbols": [
+        "whenNeeded"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/home.ts",
+      "to": "src/demos/type-race.ts",
+      "type": "dynamic",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/home.ts",
+      "to": "src/lib/site.ts",
+      "type": "static",
+      "symbols": [
+        "*"
+      ],
+      "weight": 1
+    },
+    {
+      "from": "src/pages/home.ts",
+      "to": "src/lib/when.ts",
+      "type": "static",
+      "symbols": [
+        "whenNeeded"
+      ],
+      "weight": 1
+    }
+  ],
+  "external": [
+    {
+      "package": "@axe-core/playwright",
+      "importedBy": [
+        "tests/footballer.spec.ts",
+        "tests/site.spec.ts"
+      ],
+      "symbols": [
+        "default"
+      ]
+    },
+    {
+      "package": "@graview/core",
+      "importedBy": [
+        "scripts/check-footballer.mjs",
+        "src/footballer/main.tsx",
+        "src/footballer/ssr.tsx",
+        "src/footballer/ui.tsx"
+      ],
+      "symbols": [
+        "AnySchema",
+        "Store",
+        "compileDocument",
+        "markdownHtml",
+        "placesOf"
+      ]
+    },
+    {
+      "package": "@graview/embed",
+      "importedBy": [
+        "src/footballer/main.tsx"
+      ],
+      "symbols": [
+        "mount"
+      ]
+    },
+    {
+      "package": "@graview/pages",
+      "importedBy": [
+        "src/footballer/main.tsx"
+      ],
+      "symbols": [
+        "PageComponent",
+        "PageContext",
+        "createPageRegistry",
+        "useStoreTick"
+      ]
+    },
+    {
+      "package": "@playwright/test",
+      "importedBy": [
+        "playwright.config.ts",
+        "scripts/generate-og-image.mjs",
+        "scripts/prerender.mjs",
+        "tests/demos.spec.ts",
+        "tests/dock.spec.ts",
+        "tests/footballer.spec.ts",
+        "tests/screenshots.spec.ts",
+        "tests/site.spec.ts"
+      ],
+      "symbols": [
+        "Page",
+        "chromium",
+        "defineConfig",
+        "expect",
+        "test"
+      ]
+    },
+    {
+      "package": "fs",
+      "importedBy": [
+        "vite.config.ts"
+      ],
+      "symbols": [
+        "existsSync",
+        "readdirSync"
+      ]
+    },
+    {
+      "package": "marked",
+      "importedBy": [
+        "scripts/build-pages.mjs"
+      ],
+      "symbols": [
+        "marked"
+      ]
+    },
+    {
+      "package": "mermaid",
+      "importedBy": [
+        "src/lib/mermaid.ts"
+      ],
+      "symbols": [
+        "*"
+      ]
+    },
+    {
+      "package": "path",
+      "importedBy": [
+        "vite.config.ts"
+      ],
+      "symbols": [
+        "resolve"
+      ]
+    },
+    {
+      "package": "pele",
+      "importedBy": [
+        "src/demos/docs-page.ts",
+        "src/demos/gallery.ts",
+        "src/demos/safety.ts",
+        "src/lib/pele-lite.ts"
+      ],
+      "symbols": [
+        "*",
+        "Mounted",
+        "PeleError",
+        "default",
+        "mount",
+        "register",
+        "render",
+        "supports"
+      ]
+    },
+    {
+      "package": "react",
+      "importedBy": [
+        "src/footballer/main.tsx",
+        "src/footballer/ui.tsx"
+      ],
+      "symbols": [
+        "CSSProperties",
+        "MouseEvent",
+        "ReactNode",
+        "createContext",
+        "useContext",
+        "useMemo"
+      ]
+    },
+    {
+      "package": "react-dom",
+      "importedBy": [
+        "src/footballer/ssr.tsx"
+      ],
+      "symbols": [
+        "renderToString"
+      ]
+    },
+    {
+      "package": "react-router-dom",
+      "importedBy": [
+        "src/footballer/main.tsx"
+      ],
+      "symbols": [
+        "useNavigate",
+        "useParams"
+      ]
+    },
+    {
+      "package": "vite",
+      "importedBy": [
+        "scripts/build-footballer.mjs",
+        "vite.config.ts"
+      ],
+      "symbols": [
+        "Plugin",
+        "build",
+        "defineConfig"
+      ]
+    }
+  ],
   "summary": {
-    "totalEdges": 0,
-    "totalExternal": 0,
+    "totalEdges": 51,
+    "totalExternal": 14,
     "circularCount": 0,
     "circulars": [],
-    "mostImported": [],
-    "avgImportsPerFile": 0
+    "mostImported": [
+      {
+        "path": "src/lib/dom.ts",
+        "count": 7
+      },
+      {
+        "path": "src/lib/mermaid.ts",
+        "count": 6
+      },
+      {
+        "path": "src/lib/when.ts",
+        "count": 6
+      },
+      {
+        "path": "src/lib/pele-lite.ts",
+        "count": 4
+      },
+      {
+        "path": "src/footballer/model.ts",
+        "count": 3
+      },
+      {
+        "path": "src/lib/site.ts",
+        "count": 3
+      },
+      {
+        "path": "scripts/dock.mjs",
+        "count": 2
+      },
+      {
+        "path": "scripts/ga.mjs",
+        "count": 2
+      },
+      {
+        "path": "scripts/prerender-key.mjs",
+        "count": 2
+      },
+      {
+        "path": "src/demos/gallery-data.ts",
+        "count": 2
+      },
+      {
+        "path": "src/footballer/ui.tsx",
+        "count": 2
+      },
+      {
+        "path": "scripts/demo-ui.mjs",
+        "count": 1
+      },
+      {
+        "path": "src/demos/docs-page.ts",
+        "count": 1
+      },
+      {
+        "path": "src/demos/gallery.ts",
+        "count": 1
+      },
+      {
+        "path": "src/demos/phone.ts",
+        "count": 1
+      },
+      {
+        "path": "src/demos/safety.ts",
+        "count": 1
+      },
+      {
+        "path": "src/demos/stream.ts",
+        "count": 1
+      },
+      {
+        "path": "src/demos/theme-lab.ts",
+        "count": 1
+      },
+      {
+        "path": "src/demos/type-race.ts",
+        "count": 1
+      }
+    ],
+    "avgImportsPerFile": 3.19
   }
 }
