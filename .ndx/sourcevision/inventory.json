@@ -1,15 +1,418 @@
 {
-  "files": [],
-  "summary": {
-    "totalFiles": 0,
-    "totalLines": 0,
-    "byLanguage": {},
-    "byRole": {},
-    "byCategory": {},
-    "skippedExtensions": {
-      ".json": 1,
-      ".md": 1
+  "files": [
+    {
+      "path": "playwright.config.ts",
+      "size": 293,
+      "language": "TypeScript",
+      "lineCount": 7,
+      "hash": "c19ce82ec22559eb584829adb4403c5848da1672f9c96f22e484b4f14e7fb6ef",
+      "role": "config",
+      "category": "root",
+      "lastModified": 1792257237000
     },
-    "analysedLanguages": []
+    {
+      "path": "scripts/build-footballer.mjs",
+      "size": 4848,
+      "language": "JavaScript",
+      "lineCount": 76,
+      "hash": "19921122e2b2ce1d1a14651d5b8fab5c832392cb53f06fa25af9e27e43767c5c",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792863405133
+    },
+    {
+      "path": "scripts/build-pages.mjs",
+      "size": 27439,
+      "language": "JavaScript",
+      "lineCount": 346,
+      "hash": "9f02202e5a2fd0a6e20f7914bf46845595cf98e1753e6b9addc1703299ff04cf",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792863405134
+    },
+    {
+      "path": "scripts/check-footballer.mjs",
+      "size": 3289,
+      "language": "JavaScript",
+      "lineCount": 53,
+      "hash": "86f4ec62f2b5b6cd6e2607c383af9ece51da16e92639c0a53e215a95a29d6058",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792863405134
+    },
+    {
+      "path": "scripts/demo-ui.mjs",
+      "size": 12264,
+      "language": "JavaScript",
+      "lineCount": 143,
+      "hash": "a44840664389a34f6c9f14cdb58b7f2a0f19583feb3d1df5f30277e9ca73a208",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792266446257
+    },
+    {
+      "path": "scripts/dock.mjs",
+      "size": 2582,
+      "language": "JavaScript",
+      "lineCount": 17,
+      "hash": "c0d56b4752c383de2a6f0a8a410bff417ff9554a663a05f8bf919c4867e99db8",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792863405134
+    },
+    {
+      "path": "scripts/ga.mjs",
+      "size": 1494,
+      "language": "JavaScript",
+      "lineCount": 14,
+      "hash": "14fa50ac04971f8af0c4c79d4d86338a07df660727c9b25e01daa59c3de1c1f8",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792863405135
+    },
+    {
+      "path": "scripts/generate-og-image.mjs",
+      "size": 5274,
+      "language": "JavaScript",
+      "lineCount": 68,
+      "hash": "0ca9d71062f9183eb78908506ea69e711ec87e38e6fc175bee3e5cf401536c01",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792863405135
+    },
+    {
+      "path": "scripts/prerender-key.mjs",
+      "size": 1378,
+      "language": "JavaScript",
+      "lineCount": 23,
+      "hash": "915a1e3d96ccc3ea372d40c868531bc48a2d680d17de1517c43b7ffc52346e2d",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792266446257
+    },
+    {
+      "path": "scripts/prerender.mjs",
+      "size": 2172,
+      "language": "JavaScript",
+      "lineCount": 33,
+      "hash": "321357dbb45177a19c1df4a412cda92578b92dc0810b219c414de9dcf8b3087f",
+      "role": "build",
+      "category": "scripts",
+      "lastModified": 1792266446257
+    },
+    {
+      "path": "src/demos/docs-page.ts",
+      "size": 3147,
+      "language": "TypeScript",
+      "lineCount": 54,
+      "hash": "89b49ffaefc8631c17164721b95031f7983c64499c95e16dcbf522ed9e438b42",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792261582836
+    },
+    {
+      "path": "src/demos/gallery-data.ts",
+      "size": 12753,
+      "language": "TypeScript",
+      "lineCount": 227,
+      "hash": "522d96760a4fd802fe888695abe6728372e29695c3318faa8180bb7227b649cc",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792261582836
+    },
+    {
+      "path": "src/demos/gallery.ts",
+      "size": 3384,
+      "language": "TypeScript",
+      "lineCount": 55,
+      "hash": "3d54674cabcabdae67059130be56b4cfc8b67fa029d32cb834b5967ebd900131",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792261582836
+    },
+    {
+      "path": "src/demos/phone.ts",
+      "size": 4567,
+      "language": "TypeScript",
+      "lineCount": 92,
+      "hash": "cd5f030a5d72bad3b78377d60909490c15cec97a882fec7f4ddb4bb1c4f3c3d2",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792266446258
+    },
+    {
+      "path": "src/demos/safety.ts",
+      "size": 4289,
+      "language": "TypeScript",
+      "lineCount": 67,
+      "hash": "f3099285d26d338be2237aec153f8d247d2eeca61fac381f213acb23e2421f2b",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792261582837
+    },
+    {
+      "path": "src/demos/stream.ts",
+      "size": 5226,
+      "language": "TypeScript",
+      "lineCount": 95,
+      "hash": "1e3bf199f9f08ec711851dff5fc2baf4db349241e8eb6920b4b1951d7506b751",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792266446258
+    },
+    {
+      "path": "src/demos/theme-lab.ts",
+      "size": 5908,
+      "language": "TypeScript",
+      "lineCount": 121,
+      "hash": "9202a8e08068ba35b29fa5b4fc68c8808490007dd29af697b126910f362f5e8e",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792266446258
+    },
+    {
+      "path": "src/demos/type-race.ts",
+      "size": 5057,
+      "language": "TypeScript",
+      "lineCount": 111,
+      "hash": "ecd5f0b9a1e70c72cf971f4a83d6f93acd8f7f4932ddb04d311cfac940c25259",
+      "role": "source",
+      "category": "demos",
+      "lastModified": 1792266446258
+    },
+    {
+      "path": "src/env.d.ts",
+      "size": 38,
+      "language": "TypeScript",
+      "lineCount": 1,
+      "hash": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+      "role": "generated",
+      "category": "src",
+      "lastModified": 1792257237000
+    },
+    {
+      "path": "src/footballer/main.tsx",
+      "size": 2254,
+      "language": "TypeScript",
+      "lineCount": 42,
+      "hash": "4f40625892a68a919bdee681cbc4477adb55555daf44d8997f9fdf1f5fdbf11c",
+      "role": "source",
+      "category": "footballer",
+      "lastModified": 1792863405139
+    },
+    {
+      "path": "src/footballer/model.ts",
+      "size": 7326,
+      "language": "TypeScript",
+      "lineCount": 140,
+      "hash": "38a151c7fdc67cd872ab54b41cf956c1c151e30d2f14f65d6b6285442c196078",
+      "role": "source",
+      "category": "footballer",
+      "lastModified": 1792863405139
+    },
+    {
+      "path": "src/footballer/ssr.tsx",
+      "size": 15290,
+      "language": "TypeScript",
+      "lineCount": 189,
+      "hash": "083f51274ff962eaf28783660715a9f295cf4ec38fcef33803fedb561fff5426",
+      "role": "source",
+      "category": "footballer",
+      "lastModified": 1792863405139
+    },
+    {
+      "path": "src/footballer/ui.tsx",
+      "size": 22981,
+      "language": "TypeScript",
+      "lineCount": 363,
+      "hash": "ecae68be15bed06e102ba2678e0b6039a5b397ab12d4d18c89189ec622649f5f",
+      "role": "source",
+      "category": "footballer",
+      "lastModified": 1792863405140
+    },
+    {
+      "path": "src/lib/dom.ts",
+      "size": 906,
+      "language": "TypeScript",
+      "lineCount": 15,
+      "hash": "09f81081d451bb77fe24778866bd34c75caf020d257414f46d8f84a24fef4373",
+      "role": "source",
+      "category": "src-lib",
+      "lastModified": 1792266446258
+    },
+    {
+      "path": "src/lib/mermaid.ts",
+      "size": 1544,
+      "language": "TypeScript",
+      "lineCount": 30,
+      "hash": "7a7612a9c62199207f6b935ce0905dbe1a628e8f906c6766171929f497d02e34",
+      "role": "source",
+      "category": "src-lib",
+      "lastModified": 1792261582838
+    },
+    {
+      "path": "src/lib/pele-lite.ts",
+      "size": 1451,
+      "language": "TypeScript",
+      "lineCount": 34,
+      "hash": "d914e3a51ab7c867995b94df39dd58c12a2c605f3d115d771797df5cd50ef325",
+      "role": "source",
+      "category": "src-lib",
+      "lastModified": 1792266446258
+    },
+    {
+      "path": "src/lib/site.ts",
+      "size": 1004,
+      "language": "TypeScript",
+      "lineCount": 21,
+      "hash": "e90afcf0d9879d1c11fc8176194413aa32a32e616fc4cb074069fee32ef721c7",
+      "role": "source",
+      "category": "src-lib",
+      "lastModified": 1792863405140
+    },
+    {
+      "path": "src/lib/when.ts",
+      "size": 2729,
+      "language": "TypeScript",
+      "lineCount": 53,
+      "hash": "8d83e328ad0f5dcf2638bc929a5fbddb9d1af8d45b79d10af574e7baf039693f",
+      "role": "source",
+      "category": "src-lib",
+      "lastModified": 1792266446259
+    },
+    {
+      "path": "src/pages/content.ts",
+      "size": 21,
+      "language": "TypeScript",
+      "lineCount": 1,
+      "hash": "f2e31090c7249fbe6a70f10b596f37ba05f9f9f4a826a6c3aa564d4ea4bf334c",
+      "role": "source",
+      "category": "pages",
+      "lastModified": 1792257237000
+    },
+    {
+      "path": "src/pages/demo.ts",
+      "size": 1260,
+      "language": "TypeScript",
+      "lineCount": 21,
+      "hash": "f142aa8f271d4f48a4d13c774d1b2a4aaa76ff690b92e9e7b64dce842deb4a29",
+      "role": "source",
+      "category": "pages",
+      "lastModified": 1792266446259
+    },
+    {
+      "path": "src/pages/home.ts",
+      "size": 383,
+      "language": "TypeScript",
+      "lineCount": 8,
+      "hash": "dac825a0bf3e5cd739c7e0862dbba3584dcfeef739f052ad820576da8c80e0f9",
+      "role": "source",
+      "category": "pages",
+      "lastModified": 1792266446259
+    },
+    {
+      "path": "tests/demos.spec.ts",
+      "size": 7543,
+      "language": "TypeScript",
+      "lineCount": 133,
+      "hash": "a7088cd8fc35e9c56272bcc5b205bec97faf677dceb2dee23cbcf7eba37112e1",
+      "role": "test",
+      "category": "tests",
+      "lastModified": 1792863405142
+    },
+    {
+      "path": "tests/dock.spec.ts",
+      "size": 1613,
+      "language": "TypeScript",
+      "lineCount": 23,
+      "hash": "85f10e13829421f058641aa9f8808139c21573f06f4cad1c86ffce3d9d897258",
+      "role": "test",
+      "category": "tests",
+      "lastModified": 1792863405142
+    },
+    {
+      "path": "tests/footballer.spec.ts",
+      "size": 7113,
+      "language": "TypeScript",
+      "lineCount": 120,
+      "hash": "14de1ea909cda83033b9409b363bff456fab32efe87ca3b84f3234b340745279",
+      "role": "test",
+      "category": "tests",
+      "lastModified": 1792863405142
+    },
+    {
+      "path": "tests/screenshots.spec.ts",
+      "size": 1576,
+      "language": "TypeScript",
+      "lineCount": 21,
+      "hash": "b5e55183630c11ac532cf3b30796fc5038a11e1b294eb8613fc1353d8ccecf31",
+      "role": "test",
+      "category": "tests",
+      "lastModified": 1792261582842
+    },
+    {
+      "path": "tests/site.spec.ts",
+      "size": 8046,
+      "language": "TypeScript",
+      "lineCount": 144,
+      "hash": "cd3708f491125627658a54aecfbf96e8165d4b0d0f35f2382b3129772741e5d4",
+      "role": "test",
+      "category": "tests",
+      "lastModified": 1792863405142
+    },
+    {
+      "path": "vite.config.ts",
+      "size": 1482,
+      "language": "TypeScript",
+      "lineCount": 38,
+      "hash": "a16ad00353ea4005cac40fb05cc489896e524e2cc4bdecbc17a92c7c806b3d63",
+      "role": "config",
+      "category": "root",
+      "lastModified": 1792863405143
+    }
+  ],
+  "summary": {
+    "totalFiles": 37,
+    "totalLines": 2999,
+    "byLanguage": {
+      "TypeScript": 28,
+      "JavaScript": 9
+    },
+    "byRole": {
+      "config": 2,
+      "build": 9,
+      "source": 20,
+      "generated": 1,
+      "test": 5
+    },
+    "byCategory": {
+      "root": 2,
+      "scripts": 9,
+      "demos": 8,
+      "src": 1,
+      "footballer": 4,
+      "src-lib": 5,
+      "pages": 3,
+      "tests": 5
+    },
+    "skippedExtensions": {
+      ".css": 7,
+      ".html": 25,
+      ".ico": 1,
+      ".jpg": 11,
+      ".json": 27,
+      ".md": 149,
+      ".png": 4,
+      ".svg": 2,
+      ".txt": 5,
+      ".webmanifest": 1,
+      ".woff2": 7,
+      ".xml": 1,
+      ".yml": 2
+    },
+    "analysedLanguages": [
+      "JavaScript",
+      "TypeScript"
+    ]
   }
 }

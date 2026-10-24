@@ -1,10 +1,30 @@
 {
   "schemaVersion": "1.0.0",
-  "primaryLanguage": "unknown",
-  "languages": [],
-  "frameworks": [],
-  "releaseInfrastructure": [],
+  "primaryLanguage": "typescript",
+  "languages": [
+    "typescript",
+    "javascript"
+  ],
+  "frameworks": [
+    "react",
+    "vite"
+  ],
+  "releaseInfrastructure": [
+    {
+      "kind": "package.json",
+      "evidence": "package.json"
+    }
+  ],
   "buildSurfaces": [],
-  "ciSurfaces": [],
-  "importGraphQuality": "absent"
+  "ciSurfaces": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "kind": "GitHub Actions"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "kind": "GitHub Actions"
+    }
+  ],
+  "importGraphQuality": "rich"
 }

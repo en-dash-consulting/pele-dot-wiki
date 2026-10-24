@@ -632,11 +632,286 @@
       }
     }
   ],
-  "files": [],
+  "files": [
+    {
+      "path": "src/demos/docs-page.ts",
+      "archetype": "page",
+      "confidence": 0.81,
+      "source": "llm",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "path",
+          "detail": "Jev jev-1.14.0 chose with probability 0.81",
+          "weight": 0.81
+        }
+      ]
+    },
+    {
+      "path": "src/demos/gallery-data.ts",
+      "archetype": null,
+      "confidence": 0,
+      "source": "algorithmic"
+    },
+    {
+      "path": "src/demos/gallery.ts",
+      "archetype": "page",
+      "confidence": 0.48,
+      "source": "llm",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "path",
+          "detail": "Jev jev-1.14.0 chose with probability 0.48",
+          "weight": 0.48
+        }
+      ]
+    },
+    {
+      "path": "src/demos/phone.ts",
+      "archetype": null,
+      "confidence": 0,
+      "source": "algorithmic"
+    },
+    {
+      "path": "src/demos/safety.ts",
+      "archetype": "utility",
+      "confidence": 0.7,
+      "source": "llm",
+      "evidence": [
+        {
+          "archetypeId": "utility",
+          "signalKind": "path",
+          "detail": "Exports a mountSafety function that sets up a reusable security demonstration with high fan-in potential. Orchestrates DOM manipulation and event handling to validate rendering safety, with no JSX or route-specific concerns.",
+          "weight": 0.7
+        }
+      ]
+    },
+    {
+      "path": "src/demos/stream.ts",
+      "archetype": null,
+      "confidence": 0,
+      "source": "algorithmic"
+    },
+    {
+      "path": "src/demos/theme-lab.ts",
+      "archetype": "page",
+      "confidence": 0.49,
+      "source": "llm",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "path",
+          "detail": "Jev jev-1.14.0 chose with probability 0.49",
+          "weight": 0.49
+        }
+      ]
+    },
+    {
+      "path": "src/demos/type-race.ts",
+      "archetype": "page",
+      "confidence": 0.53,
+      "source": "llm",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "path",
+          "detail": "Jev jev-1.14.0 chose with probability 0.53",
+          "weight": 0.53
+        }
+      ]
+    },
+    {
+      "path": "src/footballer/main.tsx",
+      "archetype": "entrypoint",
+      "secondaryArchetypes": [
+        "component"
+      ],
+      "confidence": 0.8,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "entrypoint",
+          "signalKind": "filename",
+          "detail": "filename \"main.tsx\" matches ^main\\.[tj]sx?$",
+          "weight": 0.8
+        },
+        {
+          "archetypeId": "component",
+          "signalKind": "filename",
+          "detail": "filename \"main.tsx\" matches \\.[tj]sx$",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "path": "src/footballer/model.ts",
+      "archetype": "model",
+      "confidence": 0.98,
+      "source": "llm",
+      "evidence": [
+        {
+          "archetypeId": "model",
+          "signalKind": "path",
+          "detail": "Jev jev-1.14.0 chose with probability 0.98",
+          "weight": 0.98
+        }
+      ]
+    },
+    {
+      "path": "src/footballer/ssr.tsx",
+      "archetype": "component",
+      "confidence": 0.4,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "component",
+          "signalKind": "filename",
+          "detail": "filename \"ssr.tsx\" matches \\.[tj]sx$",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "path": "src/footballer/ui.tsx",
+      "archetype": "component",
+      "confidence": 0.4,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "component",
+          "signalKind": "filename",
+          "detail": "filename \"ui.tsx\" matches \\.[tj]sx$",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "path": "src/lib/dom.ts",
+      "archetype": "utility",
+      "confidence": 0.6,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "utility",
+          "signalKind": "directory",
+          "detail": "path contains \"/lib/\"",
+          "weight": 0.6
+        }
+      ]
+    },
+    {
+      "path": "src/lib/mermaid.ts",
+      "archetype": "utility",
+      "confidence": 0.6,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "utility",
+          "signalKind": "directory",
+          "detail": "path contains \"/lib/\"",
+          "weight": 0.6
+        }
+      ]
+    },
+    {
+      "path": "src/lib/pele-lite.ts",
+      "archetype": "utility",
+      "confidence": 0.6,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "utility",
+          "signalKind": "directory",
+          "detail": "path contains \"/lib/\"",
+          "weight": 0.6
+        }
+      ]
+    },
+    {
+      "path": "src/lib/site.ts",
+      "archetype": "utility",
+      "confidence": 0.6,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "utility",
+          "signalKind": "directory",
+          "detail": "path contains \"/lib/\"",
+          "weight": 0.6
+        }
+      ]
+    },
+    {
+      "path": "src/lib/when.ts",
+      "archetype": "utility",
+      "confidence": 0.6,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "utility",
+          "signalKind": "directory",
+          "detail": "path contains \"/lib/\"",
+          "weight": 0.6
+        }
+      ]
+    },
+    {
+      "path": "src/pages/content.ts",
+      "archetype": "page",
+      "confidence": 0.8,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "directory",
+          "detail": "path contains \"/pages/\"",
+          "weight": 0.8
+        }
+      ]
+    },
+    {
+      "path": "src/pages/demo.ts",
+      "archetype": "page",
+      "confidence": 0.8,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "directory",
+          "detail": "path contains \"/pages/\"",
+          "weight": 0.8
+        }
+      ]
+    },
+    {
+      "path": "src/pages/home.ts",
+      "archetype": "page",
+      "confidence": 0.8,
+      "source": "algorithmic",
+      "evidence": [
+        {
+          "archetypeId": "page",
+          "signalKind": "directory",
+          "detail": "path contains \"/pages/\"",
+          "weight": 0.8
+        }
+      ]
+    }
+  ],
   "summary": {
-    "totalClassified": 0,
-    "totalUnclassified": 0,
-    "byArchetype": {},
-    "bySource": {}
+    "totalClassified": 17,
+    "totalUnclassified": 3,
+    "byArchetype": {
+      "page": 7,
+      "utility": 6,
+      "entrypoint": 1,
+      "model": 1,
+      "component": 2
+    },
+    "bySource": {
+      "llm": 6,
+      "algorithmic": 14
+    }
   }
 }

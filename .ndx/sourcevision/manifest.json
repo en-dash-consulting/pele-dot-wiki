@@ -1,86 +1,192 @@
 {
   "schemaVersion": "1.0.0",
   "toolVersion": "0.1.0",
-  "analyzedAt": "2026-10-17T16:54:20.334Z",
+  "analyzedAt": "2026-10-24T17:37:27.093Z",
   "targetPath": "/Users/nick/development/endash/pele.wiki",
   "modules": {
     "inventory": {
       "status": "complete",
-      "startedAt": "2026-10-17T16:54:20.040Z",
-      "completedAt": "2026-10-17T16:54:20.091Z"
+      "startedAt": "2026-10-24T17:36:51.272Z",
+      "completedAt": "2026-10-24T17:36:51.344Z"
     },
     "imports": {
       "status": "complete",
-      "startedAt": "2026-10-17T16:54:20.092Z",
-      "completedAt": "2026-10-17T16:54:20.138Z"
+      "startedAt": "2026-10-24T17:36:51.345Z",
+      "completedAt": "2026-10-24T17:36:51.457Z"
     },
     "classifications": {
       "status": "complete",
-      "startedAt": "2026-10-17T16:54:20.139Z",
-      "completedAt": "2026-10-17T16:54:20.184Z"
+      "startedAt": "2026-10-24T17:36:51.458Z",
+      "completedAt": "2026-10-24T17:37:05.753Z"
     },
     "zones": {
       "status": "complete",
-      "startedAt": "2026-10-17T16:54:20.185Z",
-      "completedAt": "2026-10-17T16:54:20.242Z"
+      "startedAt": "2026-10-24T17:37:05.754Z",
+      "completedAt": "2026-10-24T17:37:26.878Z"
     },
     "components": {
       "status": "complete",
-      "startedAt": "2026-10-17T16:54:20.243Z",
-      "completedAt": "2026-10-17T16:54:20.289Z"
+      "startedAt": "2026-10-24T17:37:26.880Z",
+      "completedAt": "2026-10-24T17:37:26.966Z"
     },
     "callgraph": {
       "status": "complete",
-      "startedAt": "2026-10-17T16:54:20.290Z",
-      "completedAt": "2026-10-17T16:54:20.334Z"
+      "startedAt": "2026-10-24T17:37:26.966Z",
+      "completedAt": "2026-10-24T17:37:27.093Z"
     }
   },
   "repo": {
-    "name": "pele.wiki",
-    "remoteUrl": null,
-    "remoteHost": null,
-    "remotePath": null,
+    "name": "pele-dot-wiki",
+    "remoteUrl": "https://github.com/en-dash-consulting/pele-dot-wiki.git",
+    "remoteHost": "github.com",
+    "remotePath": "en-dash-consulting/pele-dot-wiki",
     "defaultBranch": null
   },
   "language": "typescript",
   "languages": [
     "typescript"
   ],
-  "analysisFingerprint": "3445f8f2245e2e69",
+  "analysisFingerprint": "1deadc7aa0b4823c",
   "lastAnalysis": {
-    "at": "2026-10-17T16:54:20.038Z",
-    "mode": "fast",
-    "durationMs": 564,
+    "at": "2026-10-24T17:36:51.269Z",
+    "mode": "cascade",
+    "durationMs": 36198,
     "phases": {
-      "inventory": 52,
-      "imports": 47,
-      "classifications": 46,
-      "zones": 58,
-      "components": 47,
-      "callgraph": 45
+      "inventory": 74,
+      "imports": 112,
+      "classifications": 14297,
+      "zones": 21126,
+      "components": 86,
+      "callgraph": 134
     },
     "llm": {
-      "byTaskClass": {}
+      "byTaskClass": {
+        "code.classify": {
+          "calls": 1,
+          "inputTokens": 12084,
+          "outputTokens": 1335,
+          "durationMs": 187,
+          "vendor": "typesafe",
+          "model": "jev-1.14.0"
+        },
+        "code.classify/claude": {
+          "calls": 1,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "durationMs": 14043,
+          "vendor": "claude",
+          "model": "claude-haiku-4-5"
+        },
+        "zone.judge": {
+          "calls": 4,
+          "inputTokens": 4173,
+          "outputTokens": 379,
+          "durationMs": 240,
+          "vendor": "typesafe",
+          "model": "jev-1.14.0"
+        },
+        "finding.judge": {
+          "calls": 1,
+          "inputTokens": 1860,
+          "outputTokens": 38,
+          "durationMs": 126,
+          "vendor": "typesafe",
+          "model": "jev-1.14.0"
+        },
+        "zone.enrich-scan": {
+          "calls": 1,
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "durationMs": 20591,
+          "vendor": "claude",
+          "model": "claude-haiku-4-5"
+        }
+      },
+      "judgmentCache": {
+        "hits": 0,
+        "misses": 25
+      }
     },
     "partition": {
-      "fingerprint": "61da42e8ad3bed7e",
+      "fingerprint": "f8e5a3bfd512b05a",
       "health": {
-        "zones": 0,
-        "smallZones": 0,
-        "smallShare": 0,
+        "zones": 8,
+        "smallZones": 3,
+        "smallShare": 0.38,
         "numericIds": 0,
-        "largestShare": 0,
-        "verdict": "healthy"
+        "largestShare": 0.35,
+        "verdict": "borderline",
+        "reasons": [
+          "3/8 zones hold 2 files or fewer"
+        ]
       },
       "initial": true,
       "rejected": false,
       "reused": false
     },
     "outcome": {
-      "files": 0,
-      "importEdges": 0,
-      "zoneIds": [],
-      "findings": {}
+      "files": 37,
+      "importEdges": 51,
+      "zoneIds": [
+        "check-footballer-generate-og",
+        "demos",
+        "demos/demos",
+        "demos/demos-3",
+        "demos/utilities",
+        "footballer",
+        "pages",
+        "root",
+        "scripts",
+        "src",
+        "tests"
+      ],
+      "findings": {
+        "info": [
+          "9b8d995e3a",
+          "de1fed800c",
+          "5449d6768a",
+          "8b5a7216eb",
+          "210cd29774",
+          "2b5659e6a3",
+          "128ea5c0d5",
+          "9d1de9dcfd",
+          "e9ab529f03",
+          "e28ba81d9f",
+          "e12e7811f0",
+          "63f3fae02a",
+          "3fc35b1373",
+          "48f2e69ead",
+          "ac367382ed",
+          "df1139a3de",
+          "06df97adbb",
+          "b89b66ef0b",
+          "f2406224a5"
+        ],
+        "warning": [
+          "9d306f9965",
+          "27cd6859df",
+          "138c9fdf42"
+        ]
+      }
     }
+  },
+  "gitSha": "3d32488b69902f17fba7fdc76b947242afa1a5fe",
+  "gitBranch": "main",
+  "zoneOutputs": true,
+  "tokenUsage": {
+    "calls": 7,
+    "inputTokens": 17164,
+    "outputTokens": 1654,
+    "vendor": "claude",
+    "model": "claude-sonnet-5-5"
+  },
+  "narration": {
+    "status": "done",
+    "zones": [],
+    "names": [],
+    "startedAt": "2026-10-24T17:37:27.468Z",
+    "pid": 57594,
+    "log": ".ndx/sourcevision/.cache/narration.log",
+    "finishedAt": "2026-10-24T17:37:43.643Z"
   }
 }

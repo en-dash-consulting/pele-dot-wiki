@@ -6,9 +6,81 @@
 <architecture>
 
 Project: pele.wiki
-Files: 0, Lines: 0
-Languages: 
-Zones: 0, Described: 0
-Import edges: 0, External packages: 0
+Git: main @ 3d32488
+Files: 37, Lines: 2999
+Languages: TypeScript(28) JavaScript(9)
+Zones: 8, Described: 8
+Weighted avg cohesion: 0.93, coupling: 0.07 (3 zones with ≥5 files)
+Unweighted avg cohesion: 0.95, coupling: 0.05
+Small zones excluded from averages: 5 (<5 files, unreliable metrics)
+Import edges: 51, External packages: 14
 
 </architecture>
+
+<zones>
+
+[check-footballer-generate-og] Check Footballer Generate Og (2 files, coh=0.00 coup=0.00)
+  Build, packaging, and CI scripts: check-footballer.mjs, generate-og-image.mjs
+  files: scripts/check-footballer.mjs, scripts/generate-og-image.mjs
+[demos] Demos (13 files, coh=0.86 coup=0.14)
+  13 files, mostly pages and utilities; entry points docs-page.ts, gallery.ts, phone.ts; imports Pages; imported by Pages.
+  files: src/demos/docs-page.ts [page], src/demos/gallery-data.ts, src/demos/gallery.ts [page], src/demos/phone.ts, src/demos/safety.ts [utility], src/demos/stream.ts, src/demos/theme-lab.ts [page], src/demos/type-race.ts [page], src/lib/dom.ts [utility], src/lib/mermaid.ts [utility] +3
+[footballer] Footballer (4 files, coh=1.00 coup=0.00)
+  4 files, mostly components and entry points.
+  files: src/footballer/main.tsx [entrypoint], src/footballer/model.ts [model], src/footballer/ssr.tsx [component], src/footballer/ui.tsx [component]
+[pages] Pages (3 files, coh=0.33 coup=0.67)
+  3 files, mostly pages and utilities; entry points site.ts; imports Demos; imported by Demos.
+  files: src/lib/site.ts [utility], src/pages/content.ts [page], src/pages/demo.ts [page]
+[root] Project Root (2 files, coh=0.00 coup=0.00)
+  Project configuration and manifest files: playwright.config.ts, vite.config.ts
+  files: playwright.config.ts, vite.config.ts
+[scripts] Build & CI Scripts (7 files, coh=1.00 coup=0.00)
+  Build, packaging, and CI scripts: build-footballer.mjs, build-pages.mjs, demo-ui.mjs (+4 more)
+  files: scripts/build-footballer.mjs, scripts/build-pages.mjs, scripts/demo-ui.mjs, scripts/dock.mjs, scripts/ga.mjs, scripts/prerender-key.mjs, scripts/prerender.mjs
+[src] Src Generated (1 files, coh=1.00 coup=0.00)
+  Machine-generated artifacts: env.d.ts
+  files: src/env.d.ts
+[tests] Tests (5 files, coh=1.00 coup=0.00)
+  Non-source files in tests: demos.spec.ts, dock.spec.ts, footballer.spec.ts (+2 more)
+  files: tests/demos.spec.ts, tests/dock.spec.ts, tests/footballer.spec.ts, tests/screenshots.spec.ts, tests/site.spec.ts
+
+Detailed zone context: .sourcevision/zones/{id}/context.md
+
+</zones>
+
+<imports>
+
+Most imported:
+  src/lib/dom.ts ← src/demos/docs-page.ts, src/demos/gallery.ts, src/demos/phone.ts, src/demos/safety.ts, src/demos/stream.ts +2
+  src/lib/mermaid.ts ← src/demos/docs-page.ts, src/demos/gallery.ts, src/demos/phone.ts, src/demos/stream.ts, src/demos/theme-lab.ts +1
+  src/lib/when.ts ← src/demos/phone.ts, src/demos/stream.ts, src/demos/theme-lab.ts, src/demos/type-race.ts, src/pages/demo.ts +1
+  src/lib/pele-lite.ts ← src/demos/phone.ts, src/demos/stream.ts, src/demos/theme-lab.ts, src/demos/theme-lab.ts, src/demos/type-race.ts
+  src/footballer/model.ts ← src/footballer/main.tsx, src/footballer/main.tsx, src/footballer/ssr.tsx, src/footballer/ssr.tsx, src/footballer/ui.tsx +1
+  src/lib/site.ts ← src/pages/content.ts, src/pages/demo.ts, src/pages/home.ts
+  scripts/dock.mjs ← scripts/build-footballer.mjs, scripts/build-pages.mjs
+  scripts/ga.mjs ← scripts/build-footballer.mjs, scripts/build-pages.mjs
+  scripts/prerender-key.mjs ← scripts/build-pages.mjs, scripts/prerender.mjs
+  src/demos/gallery-data.ts ← src/demos/docs-page.ts, src/demos/gallery.ts
+
+</imports>
+
+<findings>
+
+[warning] Bidirectional coupling: "demos" ↔ "pages" (1+7 crossings) — consider extracting shared interface
+[warning] "Demos" imports "Pages" on 1 edge(s) while the 7 edge(s) between them run the other way — the minority direction looks like a layering violation [demos]
+[warning] "src/footballer/ssr.tsx" exports 3 declaration(s) (Route, routes, llms) that no file in the project imports [footballer]
+
+</findings>
+
+<next-steps>
+
+[medium] "Demos" imports "Pages" on 1 edge(s) while the 7 edge(s) between them run the o…
+  files: src/demos/docs-page.ts, src/demos/gallery-data.ts, src/demos/gallery.ts
+  category: refactor
+[medium] "src/footballer/ssr.tsx" exports 3 declaration(s) (Route, routes, llms) that no…
+  files: src/footballer/main.tsx, src/footballer/model.ts, src/footballer/ssr.tsx
+  category: refactor
+[medium] "demos" ↔ "pages" (1+7 crossings)
+  category: refactor
+
+</next-steps>

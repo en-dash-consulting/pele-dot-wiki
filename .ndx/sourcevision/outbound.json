@@ -1,4 +1,14 @@
 {
-  "dependencies": [],
+  "dependencies": [
+    {
+      "file": "scripts/prerender.mjs",
+      "line": 14,
+      "kind": "http",
+      "target": "http://localhost:",
+      "targetSource": "literal",
+      "client": "fetch",
+      "confidence": "certain"
+    }
+  ],
   "contracts": []
 }
