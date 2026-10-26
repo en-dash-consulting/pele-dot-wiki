@@ -20,4 +20,4 @@ Mermaid.js bakes colours into the drawing through `themeVariables`, so a new col
 
 Changing the **font** is the one case where Pele works again: new letters have new widths, so `mount()` measures the text and lays each diagram out once more.
 
-The CSS under the demo is real; paste it into your stylesheet. Every variable is listed in the [theming guide](/pages/theming.html).
+The CSS under the demo is real; paste it into your stylesheet. Every variable is listed in the [official theming docs](https://pele.run/theming).

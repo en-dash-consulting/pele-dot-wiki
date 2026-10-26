@@ -121,7 +121,7 @@ Mermaid.js bakes colours into the drawing through `themeVariables`, so a new col
 
 Changing the **font** is the one case where Pele works again: new letters have new widths, so `mount()` measures the text and lays each diagram out once more.
 
-The CSS under the demo is real; paste it into your stylesheet. Every variable is listed in the [theming guide](/pages/theming.html).
+The CSS under the demo is real; paste it into your stylesheet. Every variable is listed in the [official theming docs](https://pele.run/theming).
 
 
 ---
@@ -150,7 +150,7 @@ render(text, { maxWidth: el.clientWidth, directionBreakpoint: 360 }) // turn onl
 render(text, { autoDirection: false })           // never turn
 ```
 
-By default Pele turns the flow below 640 pixels. This demo sets `directionBreakpoint: 360` so you can see both layouts with two phones side by side. Details in the [responsive layouts guide](/pages/responsive.html).
+By default Pele turns the flow below 640 pixels. This demo sets `directionBreakpoint: 360` so you can see both layouts with two phones side by side. The options are in the [official API docs](https://pele.run/api); [responsive layouts](/pages/responsive.html) on this site walks through them.
 
 
 ---
@@ -181,7 +181,7 @@ import sequence from 'pele/diagrams/sequence'
 register(flowchart, sequence)
 ```
 
-Or load each type the first time a page needs it with `renderAsync` from `pele/lazy`. See the [API cheatsheet](/pages/api.html).
+Or load each type the first time a page needs it with `renderAsync` from `pele/lazy`. Both are in the [official API docs](https://pele.run/api).
 
 
 ---
@@ -215,7 +215,7 @@ try {
 }
 ```
 
-Also: only supply icons from a set you trust, treat internal links as note names, and don't let diagram authors set render options. The [security guide](/pages/security.html) covers each.
+Also: only supply icons from a set you trust, treat internal links as note names, and don't let diagram authors set render options. The [official security docs](https://pele.run/security) cover each.
 
 
 ---
@@ -234,7 +234,7 @@ All 32 diagram types built into Mermaid 12.1.0, drawn by Pele as this page loade
 
 The everyday types (flowchart, sequence, class, state, ER, Gantt, pie, git graph, mindmap, timeline, journey, kanban, XY and quadrant charts) are written for this site. The rest are taken from Mermaid's documentation (MIT license), through Pele's own test suite. Pele also supports `info`, which prints its version, and is left out here.
 
-Pele uses its own layout, so the Mermaid.js version of each diagram looks different. See [compatibility](/pages/migrating.html#what-looks-different).
+Pele uses its own layout, so the Mermaid.js version of each diagram looks different. See the [official compatibility notes](https://pele.run/compatibility).
 
 
 ---
@@ -282,7 +282,7 @@ Figures are from the official site, [pele.run](https://pele.run). The [demos on 
 
 - **Not a new diagram language.** It reads Mermaid, so your existing diagrams, and the Mermaid that AI models already write, keep working.
 - **Not a drawing tool.** There is no canvas to drag boxes around.
-- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look different. See [migrating from Mermaid.js](/pages/migrating.html).
+- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look different. See the [official compatibility notes](https://pele.run/compatibility) and [migrating from Mermaid.js](/pages/migrating.html).
 
 ## How it works
 
@@ -334,7 +334,7 @@ diagram.update(newText) // redraw in place
 diagram.destroy()       // stop watching the element
 ```
 
-`mount()` reads your fonts from CSS, redraws when the element's width changes (see the [phone demo](/pages/phone.html)), and adds zoom buttons to diagrams that had to be shrunk.
+`mount()` reads your fonts from CSS, redraws when the element's width changes (see the [narrow screens demo](/pages/phone.html)), and adds zoom buttons to diagrams that had to be shrunk.
 
 ## 4. Theme
 
@@ -347,7 +347,7 @@ diagram.destroy()       // stop watching the element
 }
 ```
 
-Colour changes apply without a redraw. Try it in the [theme lab](/pages/theme-lab.html); every variable is in the [theming guide](/pages/theming.html).
+Colour changes apply without a redraw. Try it in the [theming demo](/pages/theme-lab.html); every variable is in the [official theming docs](https://pele.run/theming).
 
 ## 5. Handle errors
 
@@ -359,7 +359,7 @@ try { el.innerHTML = render(text).svg }
 catch (e) { if (e instanceof PeleError) el.textContent = e.message; else throw e }
 ```
 
-Always show the message as text: it can quote the diagram. More in the [security guide](/pages/security.html).
+Always show the message as text: it can quote the diagram. More in the [official security docs](https://pele.run/security).
 
 
 ---
@@ -412,7 +412,7 @@ Pele measures label text to lay a diagram out, so a new font means new widths. W
 
 ## Coming from Mermaid themes
 
-Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Play with it in the [theme lab](/pages/theme-lab.html).
+Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Try it in the [theming demo](/pages/theme-lab.html).
 
 
 ---
@@ -453,7 +453,7 @@ import { mount } from 'pele'
 mount(el, text) // watches el's width and redraws when it changes
 ```
 
-See it in the [phone demo](/pages/phone.html): drag the phone narrower and watch the flowchart turn.
+See it in the [narrow screens demo](/pages/phone.html). The options are listed in the [official API docs](https://pele.run/api).
 
 
 ---
@@ -489,7 +489,7 @@ You can, and many apps do. But a 20-line diagram can take several seconds to str
 
 ## Model output is untrusted text
 
-Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML labels, and it blocks `javascript:` links, but show its error messages with `textContent`, keep render options under your control, and consider `links: false, images: false` if diagrams shouldn't reach the network. See the [security guide](/pages/security.html).
+Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML labels, and it blocks `javascript:` links, but show its error messages with `textContent`, keep render options under your control, and consider `links: false, images: false` if diagrams shouldn't reach the network. See the [official security docs](https://pele.run/security).
 
 
 ---
@@ -526,7 +526,7 @@ There's no time limit; if you need one, render in a Web Worker you can stop.
 
 Want your own sanitizer too? Pass `sanitize` to `mount()`; it runs before each SVG goes in.
 
-Try to break it in the [paste-anything demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).
+The [official security docs](https://pele.run/security) are the reference; this page adds what your app has to do. Try it in the [untrusted input demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).
 
 
 ---
@@ -558,11 +558,11 @@ const { svg } = render(text)
 
 ## 2. Move your theme into CSS
 
-Mermaid's `theme` and `themeVariables` don't apply. Map them to [Pele's CSS variables](/pages/theming.html) once; dark mode then comes free with a media query.
+Mermaid's `theme` and `themeVariables` don't apply. Map them to [Pele's CSS variables](https://pele.run/theming) once; dark mode then comes free with a media query.
 
 ## What looks different
 
-Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. Most diagrams look cleaner; a few may need a nudge. Specifics:
+Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. The [official compatibility notes](https://pele.run/compatibility) are the reference; in short:
 
 - A subgraph keeps its own `direction` even when it links to nodes outside it.
 - Labels support line breaks, bold and italic, but not arbitrary HTML.
@@ -636,6 +636,8 @@ Everything in Pele's public API on one page: what each function is for, in plain
 | `limit` | Over a size limit |
 
 It also has `line`, `column` and `snippet` for pointing at the problem.
+
+This page is a summary. The [official API docs](https://pele.run/api) are the reference and have every option.
 
 
 ---

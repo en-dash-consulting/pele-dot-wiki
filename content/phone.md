@@ -26,4 +26,4 @@ render(text, { maxWidth: el.clientWidth, directionBreakpoint: 360 }) // turn onl
 render(text, { autoDirection: false })           // never turn
 ```
 
-By default Pele turns the flow below 640 pixels. This demo sets `directionBreakpoint: 360` so you can see both layouts with two phones side by side. Details in the [responsive layouts guide](/pages/responsive.html).
+By default Pele turns the flow below 640 pixels. This demo sets `directionBreakpoint: 360` so you can see both layouts with two phones side by side. The options are in the [official API docs](https://pele.run/api); [responsive layouts](/pages/responsive.html) on this site walks through them.

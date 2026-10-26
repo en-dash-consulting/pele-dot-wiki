@@ -15,4 +15,4 @@ type: demo
 
 The everyday types (flowchart, sequence, class, state, ER, Gantt, pie, git graph, mindmap, timeline, journey, kanban, XY and quadrant charts) are written for this site. The rest are taken from Mermaid's documentation (MIT license), through Pele's own test suite. Pele also supports `info`, which prints its version, and is left out here.
 
-Pele uses its own layout, so the Mermaid.js version of each diagram looks different. See [compatibility](/pages/migrating.html#what-looks-different).
+Pele uses its own layout, so the Mermaid.js version of each diagram looks different. See the [official compatibility notes](https://pele.run/compatibility).

@@ -29,4 +29,4 @@ You can, and many apps do. But a 20-line diagram can take several seconds to str
 
 ## Model output is untrusted text
 
-Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML labels, and it blocks `javascript:` links, but show its error messages with `textContent`, keep render options under your control, and consider `links: false, images: false` if diagrams shouldn't reach the network. See the [security guide](/pages/security.html).
+Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML labels, and it blocks `javascript:` links, but show its error messages with `textContent`, keep render options under your control, and consider `links: false, images: false` if diagrams shouldn't reach the network. See the [official security docs](https://pele.run/security).

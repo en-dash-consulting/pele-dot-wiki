@@ -28,4 +28,4 @@ import sequence from 'pele/diagrams/sequence'
 register(flowchart, sequence)
 ```
 
-Or load each type the first time a page needs it with `renderAsync` from `pele/lazy`. See the [API cheatsheet](/pages/api.html).
+Or load each type the first time a page needs it with `renderAsync` from `pele/lazy`. Both are in the [official API docs](https://pele.run/api).

@@ -221,7 +221,7 @@ const diagram = mount(document.querySelector(&#39;#diagram&#39;), text)
 diagram.update(newText) // redraw in place
 diagram.destroy()       // stop watching the element
 </code></pre>
-<p><code class="nw">mount()</code> reads your fonts from CSS, redraws when the element&#39;s width changes (see the <a href="/pages/phone.html">phone demo</a>), and adds zoom buttons to diagrams that had to be shrunk.</p>
+<p><code class="nw">mount()</code> reads your fonts from CSS, redraws when the element&#39;s width changes (see the <a href="/pages/phone.html">narrow screens demo</a>), and adds zoom buttons to diagrams that had to be shrunk.</p>
 <h2 id="4-theme">4. Theme</h2>
 <pre tabindex="0"><code class="language-css">.pele {
   --pele-bg: #ffffff;
@@ -230,7 +230,7 @@ diagram.destroy()       // stop watching the element
   --pele-font: system-ui, sans-serif;
 }
 </code></pre>
-<p>Colour changes apply without a redraw. Try it in the <a href="/pages/theme-lab.html">theme lab</a>; every variable is in the <a href="/pages/theming.html">theming guide</a>.</p>
+<p>Colour changes apply without a redraw. Try it in the <a href="/pages/theme-lab.html">theming demo</a>; every variable is in the <a href="https://pele.run/theming" rel="noopener">official theming docs</a>.</p>
 <h2 id="5-handle-errors">5. Handle errors</h2>
 <pre tabindex="0"><code class="language-js">import { render, supports, PeleError } from &#39;pele&#39;
 
@@ -238,7 +238,7 @@ if (!supports(text)) showFallback()
 try { el.innerHTML = render(text).svg }
 catch (e) { if (e instanceof PeleError) el.textContent = e.message; else throw e }
 </code></pre>
-<p>Always show the message as text: it can quote the diagram. More in the <a href="/pages/security.html">security guide</a>.</p>
+<p>Always show the message as text: it can quote the diagram. More in the <a href="https://pele.run/security" rel="noopener">official security docs</a>.</p>
 
     </article>
     

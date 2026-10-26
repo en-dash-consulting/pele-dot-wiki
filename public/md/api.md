@@ -53,3 +53,5 @@ Everything in Pele's public API on one page: what each function is for, in plain
 | `limit` | Over a size limit |
 
 It also has `line`, `column` and `snippet` for pointing at the problem.
+
+This page is a summary. The [official API docs](https://pele.run/api) are the reference and have every option.

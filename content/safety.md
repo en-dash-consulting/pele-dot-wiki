@@ -31,4 +31,4 @@ try {
 }
 ```
 
-Also: only supply icons from a set you trust, treat internal links as note names, and don't let diagram authors set render options. The [security guide](/pages/security.html) covers each.
+Also: only supply icons from a set you trust, treat internal links as note names, and don't let diagram authors set render options. The [official security docs](https://pele.run/security) cover each.

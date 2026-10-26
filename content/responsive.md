@@ -37,4 +37,4 @@ import { mount } from 'pele'
 mount(el, text) // watches el's width and redraws when it changes
 ```
 
-See it in the [phone demo](/pages/phone.html): drag the phone narrower and watch the flowchart turn.
+See it in the [narrow screens demo](/pages/phone.html). The options are listed in the [official API docs](https://pele.run/api).

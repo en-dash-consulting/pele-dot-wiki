@@ -184,7 +184,7 @@ for await (const chunk of stream) {
 <h2 id="why-not-just-wait-for-the-end">Why not just wait for the end?</h2>
 <p>You can, and many apps do. But a 20-line diagram can take several seconds to stream, and an empty box for that long looks broken. With Pele the reader sees the diagram build up line by line. Compare the two in the <a href="/pages/stream.html">streaming demo</a>.</p>
 <h2 id="model-output-is-untrusted-text">Model output is untrusted text</h2>
-<p>Treat it like any user input. Pele&#39;s SVG has no scripts, event handlers or HTML labels, and it blocks <code class="nw">javascript:</code> links, but show its error messages with <code class="nw">textContent</code>, keep render options under your control, and consider <code class="nw">links: false, images: false</code> if diagrams shouldn&#39;t reach the network. See the <a href="/pages/security.html">security guide</a>.</p>
+<p>Treat it like any user input. Pele&#39;s SVG has no scripts, event handlers or HTML labels, and it blocks <code class="nw">javascript:</code> links, but show its error messages with <code class="nw">textContent</code>, keep render options under your control, and consider <code class="nw">links: false, images: false</code> if diagrams shouldn&#39;t reach the network. See the <a href="https://pele.run/security" rel="noopener">official security docs</a>.</p>
 
     </article>
     

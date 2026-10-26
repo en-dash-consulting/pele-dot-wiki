@@ -37,7 +37,7 @@ diagram.update(newText) // redraw in place
 diagram.destroy()       // stop watching the element
 ```
 
-`mount()` reads your fonts from CSS, redraws when the element's width changes (see the [phone demo](/pages/phone.html)), and adds zoom buttons to diagrams that had to be shrunk.
+`mount()` reads your fonts from CSS, redraws when the element's width changes (see the [narrow screens demo](/pages/phone.html)), and adds zoom buttons to diagrams that had to be shrunk.
 
 ## 4. Theme
 
@@ -50,7 +50,7 @@ diagram.destroy()       // stop watching the element
 }
 ```
 
-Colour changes apply without a redraw. Try it in the [theme lab](/pages/theme-lab.html); every variable is in the [theming guide](/pages/theming.html).
+Colour changes apply without a redraw. Try it in the [theming demo](/pages/theme-lab.html); every variable is in the [official theming docs](https://pele.run/theming).
 
 ## 5. Handle errors
 
@@ -62,4 +62,4 @@ try { el.innerHTML = render(text).svg }
 catch (e) { if (e instanceof PeleError) el.textContent = e.message; else throw e }
 ```
 
-Always show the message as text: it can quote the diagram. More in the [security guide](/pages/security.html).
+Always show the message as text: it can quote the diagram. More in the [official security docs](https://pele.run/security).

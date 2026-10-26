@@ -218,7 +218,7 @@
 <ul>
 <li><strong>Not a new diagram language.</strong> It reads Mermaid, so your existing diagrams, and the Mermaid that AI models already write, keep working.</li>
 <li><strong>Not a drawing tool.</strong> There is no canvas to drag boxes around.</li>
-<li><strong>Not a pixel-perfect Mermaid clone.</strong> It lays diagrams out its own way, so they look different. See <a href="/pages/migrating.html">migrating from Mermaid.js</a>.</li>
+<li><strong>Not a pixel-perfect Mermaid clone.</strong> It lays diagrams out its own way, so they look different. See the <a href="https://pele.run/compatibility" rel="noopener">official compatibility notes</a> and <a href="/pages/migrating.html">migrating from Mermaid.js</a>.</li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
 <p>Pele has its own parser for each diagram type, tested against Mermaid&#39;s own parser tests and fuzzed against Mermaid&#39;s parser. It measures label text, lays the diagram out, and writes an SVG string whose colours point at CSS variables. Because each step is plain synchronous JavaScript, a diagram is ready by the time <code class="nw">render()</code> returns.</p>

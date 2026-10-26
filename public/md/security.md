@@ -30,4 +30,4 @@ There's no time limit; if you need one, render in a Web Worker you can stop.
 
 Want your own sanitizer too? Pass `sanitize` to `mount()`; it runs before each SVG goes in.
 
-Try to break it in the [paste-anything demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).
+The [official security docs](https://pele.run/security) are the reference; this page adds what your app has to do. Try it in the [untrusted input demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).

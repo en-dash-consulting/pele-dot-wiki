@@ -28,7 +28,7 @@ Figures are from the official site, [pele.run](https://pele.run). The [demos on 
 
 - **Not a new diagram language.** It reads Mermaid, so your existing diagrams, and the Mermaid that AI models already write, keep working.
 - **Not a drawing tool.** There is no canvas to drag boxes around.
-- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look different. See [migrating from Mermaid.js](/pages/migrating.html).
+- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look different. See the [official compatibility notes](https://pele.run/compatibility) and [migrating from Mermaid.js](/pages/migrating.html).
 
 ## How it works
 
