@@ -1,10 +1,10 @@
 ---
 slug: faq
 order: 50
-title: "Pele FAQ: Mermaid Compatibility, Speed, Theming | pele.wiki"
+title: "FAQ | pele.wiki"
 nav: FAQ
-h1: "Pele FAQ"
-intro: "Short answers to the questions people ask about Pele, kepano's Mermaid renderer."
+h1: "FAQ"
+intro: "Short answers about Pele. Each links to the page with the detail."
 description: "Answers about Pele: what it is, who made it, Mermaid compatibility, speed, size, theming, phones, safety, Node, licence, and when to keep Mermaid.js."
 type: faq
 ---
@@ -18,11 +18,11 @@ Pele was made by kepano (Steph Ango), the CEO of Obsidian. Its source is at gith
 
 ## Is Pele a replacement for Mermaid.js?
 
-For drawing, mostly yes: it reads the same Mermaid text and supports every diagram type built into Mermaid 12.1.0. Diagrams look different because Pele uses its own layout, and it doesn't support JavaScript click callbacks or plugins such as ZenUML.
+Mostly. It reads the same Mermaid text and supports every diagram type built into Mermaid 12.1.0. Diagrams look different because Pele uses its own layout, and it doesn't support JavaScript click callbacks or plugins such as ZenUML.
 
 ## How much faster than Mermaid.js is Pele?
 
-The official site reports 0.05–0.3 ms per diagram for Pele against 6–82 ms for Mermaid.js, roughly 100 to 500 times faster. The typing race on the pele.wiki home page measures both in your own browser.
+The official site reports 0.05–0.3 ms per diagram for Pele against 6–82 ms for Mermaid.js, roughly 100 to 500 times faster. The typing demo on the home page measures both in your own browser.
 
 ## How big is Pele?
 

@@ -3,24 +3,22 @@ slug: safety
 order: 16
 section: demo
 demo: safety
-title: "Paste Anything: Rendering Untrusted Mermaid Safely | pele.wiki"
-nav: Paste anything
-h1: "Paste anything"
-intro: "Pele's output is plain SVG with no scripts, so pasted diagram text can't run code. Tap a nasty example or paste your own; the checklist shows what reached the page."
-description: "Live demo: feed Pele hostile Mermaid text: script tags, javascript: links, huge inputs. See that the SVG has no scripts and nothing ever runs."
+title: "Untrusted input | pele.wiki"
+nav: Untrusted input
+h1: "Untrusted input"
+intro: "Pele's output is SVG with no scripts, so diagram text from anyone can be rendered. Pick an example or paste your own; the checklist shows what reached the page."
+description: "Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page."
 type: demo
 ---
 <!-- demo -->
 
-## What you just saw
+## What happens
 
 Pele never turns diagram text into HTML. Labels become SVG text: HTML tags such as `<script>` are dropped and only the words between them are kept, so nothing can run. JavaScript click callbacks are ignored, `javascript:`, `data:` and `vbscript:` links are always removed, and styles are filtered. Diagrams that are too big (over 50,000 characters, or more than 5,000 arrows in a flowchart) are refused before any work starts, so a one-line diagram can't freeze the tab.
 
 To be fair to Mermaid.js: in its default `strict` mode it also cleans its output and has its own size and edge limits. The difference is that Pele's output contains no HTML in the first place, so there is less to clean.
 
-<div class="takeaway"><p>You can show diagrams written by anyone, as long as you show Pele's error messages as text.</p></div>
-
-## Your part
+## What your app still does
 
 ```js
 import { PeleError, render } from 'pele'

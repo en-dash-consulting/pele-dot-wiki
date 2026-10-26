@@ -2,11 +2,11 @@
 slug: getting-started
 order: 32
 section: guide
-title: "Getting Started With Pele: Install and Render | pele.wiki"
+title: "Getting started | pele.wiki"
 nav: Getting started
 h1: "Getting started with Pele"
-intro: "Install Pele from npm, pass Mermaid text to <code>render()</code>, and put the SVG on the page. That's the whole thing; the rest of this page is the useful extras."
-description: "Install Pele from npm, render Mermaid text to SVG with render(), mount a responsive diagram with mount(), and style it with CSS variables. Five minutes."
+intro: "Install Pele from npm, pass Mermaid text to <code>render()</code>, and put the SVG on the page. The rest of this page covers <code>mount()</code>, theming and errors."
+description: "Install Pele from npm, render Mermaid text to SVG with render(), mount a responsive diagram with mount(), and style it with CSS variables."
 type: howto
 steps:
   - "Install: run npm install pele (or pnpm add pele, yarn add pele, bun add pele)."

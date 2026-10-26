@@ -2,7 +2,7 @@
 slug: security
 order: 36
 section: guide
-title: "Is Pele Safe for Untrusted Mermaid Diagrams? | pele.wiki"
+title: "Untrusted diagrams | pele.wiki"
 nav: Security
 h1: "Rendering untrusted diagrams safely"
 intro: "<strong>Yes, Pele is designed to draw diagrams written by anyone.</strong> Its SVG contains no scripts, event handlers or HTML labels, dangerous links are removed, and oversized diagrams are refused. Your app still has a few jobs, listed below."

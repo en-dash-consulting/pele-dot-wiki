@@ -2,7 +2,7 @@
 slug: migrating
 order: 37
 section: guide
-title: "Migrating From Mermaid.js to Pele: A Practical Guide | pele.wiki"
+title: "Moving from Mermaid.js | pele.wiki"
 nav: Migrating from Mermaid.js
 h1: "Moving from Mermaid.js to Pele"
 intro: "<strong>Your Mermaid text stays exactly the same; only the code that draws it changes.</strong> Swap <code>mermaid.render()</code> for Pele's <code>render()</code> or <code>mount()</code>, move your theme into CSS, and check the few features that differ."

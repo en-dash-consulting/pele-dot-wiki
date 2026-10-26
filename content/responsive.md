@@ -2,7 +2,7 @@
 slug: responsive
 order: 34
 section: guide
-title: "Responsive Mermaid Diagrams on Phones With Pele | pele.wiki"
+title: "Narrow screens | pele.wiki"
 nav: Responsive layouts
 h1: "Diagrams that fit phones"
 intro: "<strong>Pele changes a diagram's layout to fit the space instead of shrinking it.</strong> Give it the available width and, below 640 pixels, a left-to-right flowchart turns to run top to bottom, so its text stays readable."

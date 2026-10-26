@@ -2,7 +2,7 @@
 slug: theming
 order: 33
 section: guide
-title: "Theming Pele Diagrams With CSS Variables | pele.wiki"
+title: "Theming | pele.wiki"
 nav: Theming
 h1: "Theming Pele diagrams"
 intro: "<strong>Pele diagrams are coloured by CSS variables.</strong> Set <code>--pele-bg</code>, <code>--pele-fg</code>, <code>--pele-accent</code> and friends on the diagram or any parent, and every diagram inside follows, without being redrawn."

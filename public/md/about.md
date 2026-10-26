@@ -1,10 +1,10 @@
 # About pele.wiki
 
-> pele.wiki is an independent learning site for Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and how to get in touch.
+> pele.wiki is an independent site about Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and corrections.
 
 Source: https://pele.wiki/pages/about.html · Last updated 2026-10-17
 
-pele.wiki is an independent learning site and live demo gallery for Pele, the Mermaid renderer by kepano.
+pele.wiki is an independent site with live demos and notes on Pele, the Mermaid renderer by kepano. The official documentation is at pele.run; this site adds side-by-side comparisons with Mermaid.js that you can run yourself.
 
 ## Credits
 
@@ -16,7 +16,7 @@ pele.wiki is an independent learning site and live demo gallery for Pele, the Me
 
 ## Who we are
 
-pele.wiki is made by [En Dash Consulting](https://endash.us), who also make [handwired.wiki](https://handwired.wiki). It is not affiliated with or endorsed by Obsidian or kepano.
+pele.wiki is made by [En Dash Consulting](https://endash.us). It is not affiliated with or endorsed by Obsidian or kepano. The site also holds a separate wiki on [Pelé the footballer](/footballer/), because the domain name fits both.
 
 ## How the demos work
 

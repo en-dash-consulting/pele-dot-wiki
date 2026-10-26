@@ -3,22 +3,20 @@ slug: docs-page
 order: 15
 section: demo
 demo: docs-page
-title: "200 Mermaid Diagrams on One Page: Pele vs Mermaid.js | pele.wiki"
-nav: A page with 200 diagrams
-h1: "A page with 200 diagrams"
-intro: "Pele draws a page full of diagrams almost at once. Press the button and both libraries draw the same 200, like a long docs page or a big Obsidian note."
-description: "Live demo: render 200 Mermaid diagrams on one docs page. See how long Pele and Mermaid.js each take to reach the last one, in your browser."
+title: "200 diagrams on one page | pele.wiki"
+nav: 200 diagrams on one page
+h1: "200 diagrams on one page"
+intro: "Press the button and both libraries draw the same 200 diagrams, as on a long documentation page or a large note."
+description: "Demo: 200 Mermaid diagrams on one page. How long Pele and Mermaid.js each take to draw the last one, in your browser."
 type: demo
 ---
 <!-- demo -->
 
-## What you just saw
+## What happens
 
 The 200 diagrams are a realistic mix: flowcharts, sequence, class, state and ER diagrams, pies, Gantt charts, git graphs, mindmaps and user journeys. Pele draws them one after another, synchronously, and is done in a fraction of a second. Mermaid.js draws them one at a time too, each taking tens of milliseconds, so the page fills in over many seconds.
 
-<div class="takeaway"><p>With Pele, a page full of diagrams is ready about as soon as its text is.</p></div>
-
-## Even smaller pages
+## Smaller bundles
 
 A docs site that only uses a few diagram types can register just those and leave the rest out of its bundle:
 

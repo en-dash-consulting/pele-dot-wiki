@@ -6,8 +6,8 @@
   (function(){var done=0,evs=['pointerdown','keydown','scroll','touchstart'];function go(){if(done)return;done=1;evs.forEach(function(e){removeEventListener(e,go,true)});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-F3D7B604E2';document.head.appendChild(s)}
   evs.forEach(function(e){addEventListener(e,go,{capture:true,passive:true})});addEventListener('load',function(){if(window.requestIdleCallback)requestIdleCallback(go,{timeout:3500});else setTimeout(go,2000)})})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paste Anything: Rendering Untrusted Mermaid Safely | pele.wiki</title>
-  <meta name="description" content="Live demo: feed Pele hostile Mermaid text: script tags, javascript: links, huge inputs. See that the SVG has no scripts and nothing ever runs." />
+  <title>Untrusted input | pele.wiki</title>
+  <meta name="description" content="Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page." />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#111111" />
@@ -20,19 +20,19 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Paste Anything: Rendering Untrusted Mermaid Safely | pele.wiki" />
-  <meta property="og:description" content="Live demo: feed Pele hostile Mermaid text: script tags, javascript: links, huge inputs. See that the SVG has no scripts and nothing ever runs." />
+  <meta property="og:title" content="Untrusted input | pele.wiki" />
+  <meta property="og:description" content="Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page." />
   <meta property="og:url" content="https://pele.wiki/pages/safety.html" />
   <meta property="og:site_name" content="pele.wiki" />
   <meta property="og:image" content="https://pele.wiki/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer, drawn as a transit map" />
+  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer, " />
   <meta property="og:locale" content="en_US" />
   <meta property="article:modified_time" content="2026-10-17" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Paste Anything: Rendering Untrusted Mermaid Safely | pele.wiki" />
-  <meta name="twitter:description" content="Live demo: feed Pele hostile Mermaid text: script tags, javascript: links, huge inputs. See that the SVG has no scripts and nothing ever runs." />
+  <meta name="twitter:title" content="Untrusted input | pele.wiki" />
+  <meta name="twitter:description" content="Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page." />
   <meta name="twitter:image" content="https://pele.wiki/og-image.png" />
   <meta name="twitter:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer" />
   <script type="application/ld+json">
@@ -48,7 +48,7 @@
     "@id": "https://pele.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Pele by kepano renders Mermaid diagrams to themeable SVG with zero dependencies: about 6× smaller and up to 500× faster than Mermaid.js. Live demos and guides."
+   "description": "Live demos of Pele, kepano's Mermaid renderer, running next to Mermaid.js in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input."
   },
   {
    "@type": "Organization",
@@ -106,9 +106,9 @@
    "@type": "TechArticle",
    "@id": "https://pele.wiki/pages/safety.html#page",
    "url": "https://pele.wiki/pages/safety.html",
-   "name": "Paste Anything: Rendering Untrusted Mermaid Safely | pele.wiki",
-   "headline": "Paste anything",
-   "description": "Live demo: feed Pele hostile Mermaid text: script tags, javascript: links, huge inputs. See that the SVG has no scripts and nothing ever runs.",
+   "name": "Untrusted input | pele.wiki",
+   "headline": "Untrusted input",
+   "description": "Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page.",
    "inLanguage": "en",
    "isPartOf": {
     "@id": "https://pele.wiki/#website"
@@ -150,7 +150,7 @@
     {
      "@type": "ListItem",
      "position": 3,
-     "name": "Paste anything",
+     "name": "Untrusted input",
      "item": "https://pele.wiki/pages/safety.html"
     }
    ]
@@ -164,15 +164,15 @@
   <header class="site-header">
     <a class="brand" href="/"><img class="brand-mark" src="/brand/pele.svg" alt="Pele" width="32" height="24" /><span>pele<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/demos.html" aria-current="page">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/guides.html">Guides</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li class="nav-other"><a href="/footballer/">Pelé the footballer</a></li></ul></nav>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/demos.html" aria-current="page">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/guides.html">Guides</a></li><li><a href="/pages/pele-vs-mermaid.html">Pele vs Mermaid.js</a></li><li><a href="/pages/faq.html">FAQ</a></li></ul></nav>
   </header>
   <main id="main" class="page demo-page" tabindex="-1">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/demos.html">Demos</a></li><li aria-current="page">Paste anything</li></ol></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/demos.html">Demos</a></li><li aria-current="page">Untrusted input</li></ol></nav>
     <article>
-      <div class="demo-head"><span class="roundel" style="--line:var(--l6);--on-line:var(--on-l6)" aria-hidden="true">6</span><div><p class="kicker">Stop 6 on the Pele line</p><h1>Paste anything</h1></div></div><p class="demo-intro">Pele's output is plain SVG with no scripts, so pasted diagram text can't run code. Tap a nasty example or paste your own; the checklist shows what reached the page.</p>
+      <div class="demo-head"><span class="roundel" style="--line:var(--l6);--on-line:var(--on-l6)" aria-hidden="true">6</span><div><h1>Untrusted input</h1></div></div><p class="demo-intro">Pele's output is SVG with no scripts, so diagram text from anyone can be rendered. Pick an example or paste your own; the checklist shows what reached the page.</p>
       <section class="demo safety" aria-labelledby="sf-title" data-demo="safety">
   <h2 id="sf-title" class="visually-hidden">Live demo: paste a hostile diagram</h2>
-  <fieldset class="sf-presets"><legend>Try something nasty</legend><div id="sf-presets" class="chip-row"></div></fieldset>
+  <fieldset class="sf-presets"><legend>Examples</legend><div id="sf-presets" class="chip-row"></div></fieldset>
   <div class="sf-grid">
     <div class="tr-editor"><label for="sf-src" class="tr-label">Diagram text <span class="hint">· paste anything</span></label><textarea id="sf-src" wrap="off" spellcheck="false" rows="12"></textarea></div>
     <div class="sf-out">
@@ -181,12 +181,10 @@
     </div>
   </div>
 </section>
-<h2 id="what-you-just-saw">What you just saw</h2>
+<h2 id="what-happens">What happens</h2>
 <p>Pele never turns diagram text into HTML. Labels become SVG text: HTML tags such as <code class="nw">&lt;script&gt;</code> are dropped and only the words between them are kept, so nothing can run. JavaScript click callbacks are ignored, <code class="nw">javascript:</code>, <code class="nw">data:</code> and <code class="nw">vbscript:</code> links are always removed, and styles are filtered. Diagrams that are too big (over 50,000 characters, or more than 5,000 arrows in a flowchart) are refused before any work starts, so a one-line diagram can&#39;t freeze the tab.</p>
 <p>To be fair to Mermaid.js: in its default <code class="nw">strict</code> mode it also cleans its output and has its own size and edge limits. The difference is that Pele&#39;s output contains no HTML in the first place, so there is less to clean.</p>
-<div class="takeaway"><p>You can show diagrams written by anyone, as long as you show Pele's error messages as text.</p></div>
-
-<h2 id="your-part">Your part</h2>
+<h2 id="what-your-app-still-does">What your app still does</h2>
 <pre tabindex="0"><code class="language-js">import { PeleError, render } from &#39;pele&#39;
 
 try {
@@ -200,21 +198,15 @@ try {
 
     </article>
     <p id="demo-status" class="hint demo-status" role="status">Loading the live demo…</p>
-    <nav class="next-stop" aria-label="Demo line"><a href="/pages/docs-page.html"><span class="roundel" style="--line:var(--l5);--on-line:var(--on-l5)" aria-hidden="true">5</span><span>Previous stop: A page with 200 diagrams</span></a><a href="/pages/gallery.html"><span class="roundel" style="--line:var(--l5);--on-line:var(--on-l5)" aria-hidden="true">G</span><span>End of the line: the gallery</span></a></nav>
+    <nav class="next-stop" aria-label="Demos"><a href="/pages/docs-page.html"><span class="roundel" style="--line:var(--l5);--on-line:var(--on-l5)" aria-hidden="true">5</span><span>Previous: 200 diagrams on one page</span></a><a href="/pages/gallery.html"><span class="roundel" style="--line:var(--l5);--on-line:var(--on-l5)" aria-hidden="true">G</span><span>Next: the gallery</span></a></nav>
   </main>
   <footer class="site-footer"><div class="foot-inner">
-    <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
-    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>, built with <a href="https://github.com/en-dash-consulting/n-dx">n-dx</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
+    <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/pele-vs-mermaid.html">Pele vs Mermaid.js</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <p><strong>pele.wiki</strong> is an independent site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
     <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="https://github.com/obsidianmd/pele">github.com/obsidianmd/pele</a> · official docs at <a href="https://pele.run">pele.run</a>. Demos run pele 1.6.0 and Mermaid.js 12.1.0.</p>
-    <p>Looking for the footballer? <a href="/footballer/">Pelé (1940–2022), the wiki</a>: his clubs, his four World Cups and his goals.</p>
+    <p>Looking for Pelé the footballer? <a href="/footballer/">There is a separate wiki on him here.</a></p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
   </div></footer>
-  <aside class="dock" aria-label="About this site">
-    <p class="dock-full"><a href="https://graview.dev"><svg class="dock-gv" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M13 11 L3 8 L14 3 H29 L21 9"/><path d="M10 18 L3 23 L16.5 28 L29 21 L22 19"/><path d="M16.5 18.5 V23.5" stroke-linecap="round"/></g><circle cx="16.5" cy="13.5" r="2.2" fill="#00e5b9"/></svg><span><span class="dock-long">Built with </span><b>Graview</b></span></a><span class="dock-and">and</span><a href="https://github.com/en-dash-consulting/n-dx"><b>n-dx</b></a><span class="dock-sep" aria-hidden="true"></span><a href="/footballer/"><span class="dock-ten" aria-hidden="true">10</span><span><span class="dock-long">Looking for </span><b>Pelé the footballer</b><span class="dock-long">? The wiki</span>&nbsp;→</span></a></p>
-    <p class="dock-mini"><a href="https://graview.dev" aria-label="Built with Graview"><svg class="dock-gv" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M13 11 L3 8 L14 3 H29 L21 9"/><path d="M10 18 L3 23 L16.5 28 L29 21 L22 19"/><path d="M16.5 18.5 V23.5" stroke-linecap="round"/></g><circle cx="16.5" cy="13.5" r="2.2" fill="#00e5b9"/></svg></a><a href="/footballer/" aria-label="Pelé the footballer: the wiki"><span class="dock-ten" aria-hidden="true">10</span></a></p>
-    <button type="button" class="dock-toggle" aria-expanded="true" aria-label="Shrink this bar"><span aria-hidden="true"></span></button>
-  </aside>
-  <script>(function(){var h=document.documentElement,b=document.querySelector('.dock-toggle');function set(min,keep){h.classList.toggle('dock-min',min);b.setAttribute('aria-expanded',String(!min));b.setAttribute('aria-label',min?'Show the full bar':'Shrink this bar');if(keep)try{localStorage.setItem('pw-dock',min?'min':'full')}catch(e){}}var m=false;try{m=localStorage.getItem('pw-dock')==='min'}catch(e){}set(m);b.addEventListener('click',function(){set(!h.classList.contains('dock-min'),true)})})();</script>
   <script type="module" src="/src/pages/demo.ts"></script>
 </body>
 </html>

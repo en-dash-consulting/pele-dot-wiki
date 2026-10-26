@@ -1,10 +1,10 @@
 # Getting started with Pele
 
-> Install Pele from npm, render Mermaid text to SVG with render(), mount a responsive diagram with mount(), and style it with CSS variables. Five minutes.
+> Install Pele from npm, render Mermaid text to SVG with render(), mount a responsive diagram with mount(), and style it with CSS variables.
 
 Source: https://pele.wiki/pages/getting-started.html · Last updated 2026-10-17
 
-Install Pele from npm, pass Mermaid text to render(), and put the SVG on the page. That's the whole thing; the rest of this page is the useful extras.
+Install Pele from npm, pass Mermaid text to render(), and put the SVG on the page. The rest of this page covers mount(), theming and errors.
 
 ## 1. Install
 

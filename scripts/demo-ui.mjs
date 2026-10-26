@@ -8,18 +8,9 @@ const BOARD_STYLE = [`--pele-bg: ${D.bg};`, `--pele-fg: ${D.fg};`, `--pele-line:
   ...D.series.map((c, i) => `--pele-series-${i + 1}: ${c};`), `--pele-font: 'Montserrat', system-ui, sans-serif;`, `--pele-radius: 4px;`].join(' ')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
-export const HERO_ART = `<svg class="hero-art" viewBox="0 0 620 420" role="img" aria-label="Transit map of how Pele works: Mermaid text runs through parse and layout to SVG, with branch lines to theme and phone">
-  <path class="line l1" d="M30 70 H250 L320 140 V300 L380 360 H590"/>
-  <path class="line l2" d="M30 210 H590"/>
-  <path class="line l3" d="M120 390 V340 L200 260 H440 L520 180 V30"/>
-  ${[[30, 70], [250, 70], [590, 360], [30, 210], [590, 210], [120, 390], [440, 260], [520, 30]].map(([x, y]) => `<circle class="stop" cx="${x}" cy="${y}" r="11"/>`).join('')}
-  <circle class="stop interchange" cx="320" cy="210" r="20"/>
-  <text x="30" y="44">text</text><text x="250" y="44" text-anchor="middle">parse</text><text x="350" y="188">layout</text><text x="440" y="300" text-anchor="middle">theme</text><text x="500" y="40" text-anchor="end">svg</text><text x="590" y="400" text-anchor="end">phone</text>
-</svg>`
-
 export const TYPE_RACE = () => `<section class="demo type-race" aria-labelledby="tr-title" data-type-race>
   <div class="tr-bar">
-    <h2 id="tr-title" class="tr-title"><span class="roundel" style="--line:var(--l1);--on-line:var(--on-l1)" aria-hidden="true">1</span> Type a diagram. Watch who keeps up.</h2>
+    <h2 id="tr-title" class="tr-title"><span class="roundel" style="--line:var(--l1);--on-line:var(--on-l1)" aria-hidden="true">1</span> Type a diagram</h2>
     <div class="tr-controls">
       <button id="tr-auto" type="button" class="button" aria-pressed="false"><span aria-hidden="true">▶</span> Auto-type</button>
       <label for="tr-example" class="visually-hidden">Example diagram</label>
@@ -47,7 +38,7 @@ export const TYPE_RACE = () => `<section class="demo type-race" aria-labelledby=
 export const STREAM = () => `<section class="demo stream" aria-labelledby="st-title" data-demo="stream">
   <h2 id="st-title" class="visually-hidden">Live demo: a diagram streaming in a chat answer</h2>
   <div class="demo-bar">
-    <button id="st-ask" type="button" class="button"><span aria-hidden="true">▶</span> Ask the assistant</button>
+    <button id="st-ask" type="button" class="button"><span aria-hidden="true">▶</span> Ask</button>
     <span class="bar-field"><label for="st-speed" class="bar-label">Model speed</label>
     <select id="st-speed"><option value="90">Fast (about 90 tokens a second)</option><option value="45" selected>Typical (about 45 a second)</option><option value="15">Slow (about 15 a second)</option></select></span>
   </div>
@@ -114,7 +105,7 @@ export const DOCS_PAGE = () => `<section class="demo docs" aria-labelledby="dp-t
   <h2 id="dp-title" class="visually-hidden">Live demo: a page with 200 diagrams</h2>
   <div class="demo-bar"><button id="dp-go" type="button" class="button"><span aria-hidden="true">▶</span> Open a page with 200 diagrams</button> <button id="dp-stop" type="button" class="button secondary" hidden>Stop</button></div>
   <div class="tracks">
-    ${['pele', 'mm'].map(k => `<div class="track track-${k}"><p class="track-name"><span class="tr-name">${k === 'pele' ? 'Pele' : 'Mermaid.js'}</span> <output id="dp-${k}-msg" class="track-msg">waiting at the platform</output></p>
+    ${['pele', 'mm'].map(k => `<div class="track track-${k}"><p class="track-name"><span class="tr-name">${k === 'pele' ? 'Pele' : 'Mermaid.js'}</span> <output id="dp-${k}-msg" class="track-msg">waiting</output></p>
       <div class="track-line" aria-hidden="true"><span class="train" id="dp-${k}-train"></span></div></div>`).join('')}
   </div>
   <div class="dp-pages">
@@ -132,7 +123,7 @@ export const GALLERY = (types = []) => `<section class="demo gallery" aria-label
 
 export const SAFETY = () => `<section class="demo safety" aria-labelledby="sf-title" data-demo="safety">
   <h2 id="sf-title" class="visually-hidden">Live demo: paste a hostile diagram</h2>
-  <fieldset class="sf-presets"><legend>Try something nasty</legend><div id="sf-presets" class="chip-row"></div></fieldset>
+  <fieldset class="sf-presets"><legend>Examples</legend><div id="sf-presets" class="chip-row"></div></fieldset>
   <div class="sf-grid">
     <div class="tr-editor"><label for="sf-src" class="tr-label">Diagram text <span class="hint">· paste anything</span></label><textarea id="sf-src" wrap="off" spellcheck="false" rows="12"></textarea></div>
     <div class="sf-out">

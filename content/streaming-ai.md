@@ -2,7 +2,7 @@
 slug: streaming-ai
 order: 35
 section: guide
-title: "Streaming Mermaid Diagrams in AI Chat Apps With Pele | pele.wiki"
+title: "Diagrams in AI chat apps | pele.wiki"
 nav: Streaming & AI apps
 h1: "Diagrams in AI chat apps"
 intro: "<strong>AI models write Mermaid fluently, a few characters at a time.</strong> Because Pele draws in well under a millisecond and synchronously, a chat app can redraw the diagram on every chunk, so it grows with the answer instead of appearing at the end."

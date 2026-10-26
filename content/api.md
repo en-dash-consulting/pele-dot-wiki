@@ -2,7 +2,7 @@
 slug: api
 order: 38
 section: guide
-title: "Pele API Cheatsheet: render, mount, supports, lazy | pele.wiki"
+title: "API cheatsheet | pele.wiki"
 nav: API cheatsheet
 h1: "Pele API cheatsheet"
 intro: "Everything in Pele's public API on one page: what each function is for, in plain words. The <a href=\"https://pele.run/api\">official API docs</a> have every detail."
