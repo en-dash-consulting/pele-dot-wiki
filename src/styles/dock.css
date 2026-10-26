@@ -5,7 +5,6 @@ html:not(.dock-min) body { padding-bottom: 48px; }
 .dock a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; color: #fff; text-decoration: none; }
 .dock a:hover b { text-decoration: underline; text-underline-offset: 3px; }
 .dock b { font-weight: 800; color: #ffd21f; }
-.dock-and { color: #a9b8ae; }
 .dock-sep { width: 1px; height: 20px; margin: 0 8px; background: rgba(255,255,255,.25); }
 .dock-gv { flex: none; width: 22px; height: 22px; color: #fff; }
 .dock-ten { flex: none; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #ffd21f; color: #053d22; font: 900 .72rem/1 'Montserrat', system-ui, sans-serif; }
@@ -21,5 +20,5 @@ html:not(.dock-min) body { padding-bottom: 48px; }
 .dock-min .dock-mini a:hover { background: rgba(255,255,255,.1); }
 .dock-min .dock-toggle span::before { transform: translateX(-2px) rotate(-45deg); }
 .dock-short { display: none; }
-@media (max-width: 640px) { .dock p { flex-wrap: nowrap; } .dock-long, .dock-and, .dock-full > a:nth-child(3) { display: none; } .dock-short { display: inline; } .dock-sep { margin: 0 4px; } }
+@media (max-width: 640px) { .dock p { flex-wrap: nowrap; } .dock-long { display: none; } .dock-short { display: inline; } .dock-sep { margin: 0 4px; } }
 @media print { .dock { display: none; } }

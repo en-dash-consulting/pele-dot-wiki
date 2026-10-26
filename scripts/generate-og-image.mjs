@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Renders public/og-image.png (1200×630) in the site's transit-map style, and public/footballer/og-image.png for the
-// footballer wiki, with Playwright and the site's own fonts.
+// Renders public/og-image.png (1200×630) in the site's plain style, and public/footballer/og-image.png for the
+// footballer wiki, with Playwright.
 import { chromium } from '@playwright/test'
 import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -8,35 +8,18 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const font = (_pkg, file) => pathToFileURL(join(ROOT, 'public/fonts', file)).href
 const html = `<!doctype html><html><head><style>
-@font-face { font-family: Montserrat; font-weight: 100 900; src: url(${font('', 'montserrat-latin-wght-normal.woff2')}); }
-@font-face { font-family: Merriweather; font-weight: 400; src: url(${font('', 'merriweather-latin-400-normal.woff2')}); }
-@font-face { font-family: Merriweather; font-weight: 700; src: url(${font('', 'merriweather-latin-700-normal.woff2')}); }
-body { margin: 0; width: 1200px; height: 630px; background: #fff; color: #111; font-family: Merriweather; overflow: hidden; position: relative; }
-.bar { height: 22px; display: flex; } .bar i { flex: 1; } 
-.top { background: #111; color: #fff; height: 96px; display: flex; align-items: center; padding: 0 72px; font: 800 42px Montserrat; letter-spacing: -1.2px; gap: 18px; }
-.top img { width: 56px; height: 42px; }
-.top b { color: #f5a800; }
-h1 { font: 800 60px/1.08 Montserrat; letter-spacing: -2px; margin: 52px 72px 0; width: 600px; }
-h1 span { background: linear-gradient(transparent 62%, #f5a800 62%); }
-p { position: absolute; left: 72px; bottom: 64px; margin: 0; font-size: 28px; color: #333; }
-p strong { color: #111; }
-svg { position: absolute; right: 40px; top: 150px; }
-.line { fill: none; stroke-width: 14; stroke-linecap: round; stroke-linejoin: round; }
-.stop { fill: #fff; stroke: #111; stroke-width: 6; }
-text { font: 700 22px Montserrat; fill: #111; }
+body { margin: 0; width: 1200px; height: 630px; background: #fff; color: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; overflow: hidden; position: relative; }
+.top { display: flex; align-items: center; gap: 16px; padding: 64px 80px 0; font-size: 34px; font-weight: 600; }
+.top img { width: 48px; height: 36px; }
+.top span b { color: #5a5a5a; font-weight: 600; }
+h1 { font-size: 64px; line-height: 1.15; font-weight: 600; letter-spacing: -1px; margin: 72px 80px 0; width: 900px; }
+p { position: absolute; left: 80px; bottom: 72px; margin: 0; font-size: 30px; color: #5a5a5a; width: 1000px; line-height: 1.4; }
+.rule { position: absolute; left: 80px; right: 80px; bottom: 150px; height: 1px; background: #e3e3e0; }
 </style></head><body>
-<div class="top"><img src="${pathToFileURL(join(ROOT, 'public/brand/pele.svg')).href}" alt="" /><span>pele<b>.</b>wiki</span></div>
-<h1>Mermaid diagrams, drawn <span>before your next keystroke</span></h1>
-<svg width="460" height="400" viewBox="0 0 460 400" aria-hidden="true">
-  <path class="line" stroke="#d52b1e" d="M20 50 H180 L240 110 V250 L290 300 H440"/>
-  <path class="line" stroke="#00843d" d="M20 180 H440"/>
-  <path class="line" stroke="#f5a800" d="M90 370 V320 L150 260 H330 L390 200 V20"/>
-  ${[[20, 50], [180, 50], [440, 300], [20, 180], [440, 180], [90, 370], [330, 260], [390, 20]].map(([x, y]) => `<circle class="stop" cx="${x}" cy="${y}" r="13"/>`).join('')}
-  <circle class="stop" cx="240" cy="180" r="24"/>
-  <text x="20" y="28">text</text><text x="180" y="28" text-anchor="middle">parse</text><text x="270" y="160">layout</text><text x="330" y="240" text-anchor="middle">theme</text><text x="440" y="345" text-anchor="end">phone</text>
-</svg>
-<p><strong>Live demos and guides for Pele</strong>, kepano's Mermaid renderer</p>
-<div class="bar" style="position:absolute;left:0;right:0;bottom:0"><i style="background:#d52b1e"></i><i style="background:#00843d"></i><i style="background:#f5a800"></i></div>
+<div class="top"><img src="${pathToFileURL(join(ROOT, 'public/brand/pele.svg')).href}" alt="" /><span>pele<b>.wiki</b></span></div>
+<h1>Live demos of Pele, kepano's Mermaid renderer</h1>
+<div class="rule"></div>
+<p>Pele and Mermaid.js, side by side in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input.</p>
 </body></html>`
 const footballer = `<!doctype html><html><head><style>
 @font-face { font-family: Montserrat; font-weight: 100 900; src: url(${font('', 'montserrat-latin-wght-normal.woff2')}); }

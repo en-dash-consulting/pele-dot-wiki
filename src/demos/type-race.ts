@@ -16,10 +16,27 @@ export function mountTypeRace(root: HTMLElement) {
   const verdict = $<HTMLParagraphElement>(root, '#tr-verdict')
   const auto = $<HTMLButtonElement>(root, '#tr-auto')
   const example = $<HTMLSelectElement>(root, '#tr-example')
+  const scale = $<HTMLDivElement>(root, '#tr-scale')
+  const scalePele = $<HTMLSpanElement>(root, '#tr-scale-pele'), scaleMm = $<HTMLSpanElement>(root, '#tr-scale-mm')
+  const scalePeleMs = $<HTMLOutputElement>(root, '#tr-scale-pele-ms'), scaleMmMs = $<HTMLOutputElement>(root, '#tr-scale-mm-ms')
 
   const stats = { edits: 0, pele: 0, mermaid: 0 }
   const pm = new Median(), mm = new Median()
   let ready = false, busy = false, behind = 0, timer = 0, idle = 0
+  let peleMed = 0, mmMed = 0
+  const FRAME = 1000 / 60
+
+  // Both bars on one scale, with the frame mark fixed: the reader sees the gap instead of comparing two numbers.
+  function showScale() {
+    if (!peleMed || !mmMed) return
+    const full = Math.max(mmMed, peleMed, FRAME) * 1.08
+    scale.style.setProperty('--frame', `${(FRAME / full) * 100}%`)
+    scalePele.style.width = `${Math.max(0.4, (peleMed / full) * 100)}%`
+    scaleMm.style.width = `${(mmMed / full) * 100}%`
+    scalePeleMs.textContent = fmt(peleMed); scaleMmMs.textContent = fmt(mmMed)
+    scale.hidden = false
+  }
+  const ratio = () => peleMed && mmMed ? Math.round(mmMed / peleMed) : 0
 
   function drawPele(text: string) {
     const t0 = performance.now()
@@ -29,7 +46,7 @@ export function mountTypeRace(root: HTMLElement) {
       peleOut.innerHTML = svg
       peleOut.classList.remove('stale')
       stats.pele++
-      peleMs.textContent = fmt(pm.add(ms))
+      peleMed = pm.add(ms); peleMs.textContent = fmt(peleMed); showScale()
     } catch { peleOut.classList.add('stale') } // a half-typed line: keep the last good drawing
   }
 
@@ -38,7 +55,7 @@ export function mountTypeRace(root: HTMLElement) {
     busy = true; behind = 0
     const t0 = performance.now()
     const svg = await mermaidSvg(src.value)
-    if (svg) { mmOut.innerHTML = svg; mmOut.classList.remove('stale'); stats.mermaid++; mmMs.textContent = fmt(mm.add(performance.now() - t0)) }
+    if (svg) { mmOut.innerHTML = svg; mmOut.classList.remove('stale'); stats.mermaid++; mmMed = mm.add(performance.now() - t0); mmMs.textContent = fmt(mmMed); showScale() }
     else mmOut.classList.add('stale')
     busy = false
     if (behind > 0) void drawMermaid()
@@ -57,9 +74,10 @@ export function mountTypeRace(root: HTMLElement) {
 
   function summary() {
     if (stats.edits < 2) return
+    const r = ratio()
     verdict.textContent = ready
-      ? `You made ${stats.edits} edits. Pele drew every one. Mermaid.js drew ${stats.mermaid} and skipped the rest while it was busy.`
-      : `You made ${stats.edits} edits and Pele drew every one. Mermaid.js is still downloading.`
+      ? `${stats.edits} edits. Pele drew every one. Mermaid.js drew ${stats.mermaid} and skipped the rest while it was busy${r > 1 ? `: on this diagram each of its redraws takes about ${r}× as long` : ''}.`
+      : `${stats.edits} edits, and Pele drew every one. Mermaid.js is still downloading.`
   }
   function stop() {
     window.clearTimeout(timer); timer = 0
@@ -70,10 +88,13 @@ export function mountTypeRace(root: HTMLElement) {
     if (timer) return stop()
     void start()
     const target = EXAMPLES[example.value] ?? ''
-    src.value = ''; Object.assign(stats, { edits: 0, pele: 0, mermaid: 0 })
+    // Start from most of the diagram, so the redraws cost what they cost on a real one, and type the rest.
+    const from = target.length > 400 ? target.lastIndexOf('\n', Math.floor(target.length * 0.6)) + 1 : 0
+    src.value = target.slice(0, from); Object.assign(stats, { edits: 0, pele: 0, mermaid: 0 })
+    if (from) onEdit()
     auto.innerHTML = '<span aria-hidden="true">■</span> Stop'; auto.setAttribute('aria-pressed', 'true')
     verdict.textContent = 'Typing at about 35 characters a second…'
-    let i = 0
+    let i = from
     const tick = () => {
       src.value = target.slice(0, ++i); onEdit()
       if (i < target.length) timer = window.setTimeout(tick, target[i - 1] === '\n' ? 80 : 28)
@@ -86,7 +107,7 @@ export function mountTypeRace(root: HTMLElement) {
   auto.addEventListener('click', autoType)
   example.addEventListener('change', () => { stop(); src.value = EXAMPLES[example.value] ?? ''; Object.assign(stats, { edits: 0, pele: 0, mermaid: 0 }); onEdit() })
 
-  if (!src.value.trim()) src.value = EXAMPLES.flow ?? ''
+  if (!src.value.trim()) src.value = EXAMPLES.big ?? ''
   drawPele(src.value) // replaces the build-time drawing with a live one
   // Warm up while idle, as any editor would be after a few keystrokes, so the timings aren't a cold start.
   whenIdle(() => { for (let i = 0; i < 6; i++) { try { render(src.value, { maxWidth: peleOut.clientWidth || 600 }) } catch { /* ignore */ } } pm.reset() })

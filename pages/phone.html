@@ -6,33 +6,31 @@
   (function(){var done=0,evs=['pointerdown','keydown','scroll','touchstart'];function go(){if(done)return;done=1;evs.forEach(function(e){removeEventListener(e,go,true)});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-F3D7B604E2';document.head.appendChild(s)}
   evs.forEach(function(e){addEventListener(e,go,{capture:true,passive:true})});addEventListener('load',function(){if(window.requestIdleCallback)requestIdleCallback(go,{timeout:3500});else setTimeout(go,2000)})})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pele on Phones: Diagrams That Re-flow, Not Shrink | pele.wiki</title>
-  <meta name="description" content="Live demo: drag a phone frame narrower. Pele re-flows a wide flowchart top-to-bottom to keep text readable; Mermaid.js scales it down to tiny text." />
+  <title>Narrow screens | pele.wiki</title>
+  <meta name="description" content="Demo: narrow the viewport. Pele changes a wide flowchart to top-to-bottom so the text stays readable; Mermaid.js scales the drawing down." />
   <meta name="author" content="En Dash Consulting" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#111111" />
   <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://pele.wiki/pages/phone.html" />
   <link rel="alternate" type="text/markdown" href="/md/phone.md" title="Markdown version" />
-  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Pele on Phones: Diagrams That Re-flow, Not Shrink | pele.wiki" />
-  <meta property="og:description" content="Live demo: drag a phone frame narrower. Pele re-flows a wide flowchart top-to-bottom to keep text readable; Mermaid.js scales it down to tiny text." />
+  <meta property="og:title" content="Narrow screens | pele.wiki" />
+  <meta property="og:description" content="Demo: narrow the viewport. Pele changes a wide flowchart to top-to-bottom so the text stays readable; Mermaid.js scales the drawing down." />
   <meta property="og:url" content="https://pele.wiki/pages/phone.html" />
   <meta property="og:site_name" content="pele.wiki" />
   <meta property="og:image" content="https://pele.wiki/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer, drawn as a transit map" />
+  <meta property="og:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer, " />
   <meta property="og:locale" content="en_US" />
-  <meta property="article:modified_time" content="2026-10-17" />
+  <meta property="article:modified_time" content="2026-10-26" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pele on Phones: Diagrams That Re-flow, Not Shrink | pele.wiki" />
-  <meta name="twitter:description" content="Live demo: drag a phone frame narrower. Pele re-flows a wide flowchart top-to-bottom to keep text readable; Mermaid.js scales it down to tiny text." />
+  <meta name="twitter:title" content="Narrow screens | pele.wiki" />
+  <meta name="twitter:description" content="Demo: narrow the viewport. Pele changes a wide flowchart to top-to-bottom so the text stays readable; Mermaid.js scales the drawing down." />
   <meta name="twitter:image" content="https://pele.wiki/og-image.png" />
   <meta name="twitter:image:alt" content="pele.wiki: live demos and guides for Pele, kepano's fast Mermaid renderer" />
   <script type="application/ld+json">
@@ -48,7 +46,7 @@
     "@id": "https://pele.wiki/#org"
    },
    "inLanguage": "en",
-   "description": "Pele by kepano renders Mermaid diagrams to themeable SVG with zero dependencies: about 6× smaller and up to 500× faster than Mermaid.js. Live demos and guides."
+   "description": "Live demos of Pele, kepano's Mermaid renderer, running next to Mermaid.js in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input."
   },
   {
    "@type": "Organization",
@@ -106,9 +104,9 @@
    "@type": "TechArticle",
    "@id": "https://pele.wiki/pages/phone.html#page",
    "url": "https://pele.wiki/pages/phone.html",
-   "name": "Pele on Phones: Diagrams That Re-flow, Not Shrink | pele.wiki",
-   "headline": "Phone in your pocket",
-   "description": "Live demo: drag a phone frame narrower. Pele re-flows a wide flowchart top-to-bottom to keep text readable; Mermaid.js scales it down to tiny text.",
+   "name": "Narrow screens | pele.wiki",
+   "headline": "Narrow screens",
+   "description": "Demo: narrow the viewport. Pele changes a wide flowchart to top-to-bottom so the text stays readable; Mermaid.js scales the drawing down.",
    "inLanguage": "en",
    "isPartOf": {
     "@id": "https://pele.wiki/#website"
@@ -119,7 +117,7 @@
    "publisher": {
     "@id": "https://pele.wiki/#org"
    },
-   "dateModified": "2026-10-17",
+   "dateModified": "2026-10-26",
    "image": "https://pele.wiki/og-image.png",
    "breadcrumb": {
     "@id": "https://pele.wiki/pages/phone.html#breadcrumb"
@@ -150,7 +148,7 @@
     {
      "@type": "ListItem",
      "position": 3,
-     "name": "Phone in your pocket",
+     "name": "Narrow screens",
      "item": "https://pele.wiki/pages/phone.html"
     }
    ]
@@ -164,12 +162,12 @@
   <header class="site-header">
     <a class="brand" href="/"><img class="brand-mark" src="/brand/pele.svg" alt="Pele" width="32" height="24" /><span>pele<span class="brand-tld">.wiki</span></span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/demos.html" aria-current="page">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/guides.html">Guides</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li class="nav-other"><a href="/footballer/">Pelé the footballer</a></li></ul></nav>
+    <nav id="site-nav" aria-label="Main"><ul><li><a href="/pages/demos.html" aria-current="page">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/guides.html">Guides</a></li><li><a href="/pages/pele-vs-mermaid.html">Pele vs Mermaid.js</a></li><li><a href="/pages/faq.html">FAQ</a></li></ul></nav>
   </header>
   <main id="main" class="page demo-page" tabindex="-1">
-    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/demos.html">Demos</a></li><li aria-current="page">Phone in your pocket</li></ol></nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/pages/demos.html">Demos</a></li><li aria-current="page">Narrow screens</li></ol></nav>
     <article>
-      <div class="demo-head"><span class="roundel" style="--line:var(--l4);--on-line:var(--on-l4)" aria-hidden="true">4</span><div><p class="kicker">Stop 4 on the Pele line</p><h1>Phone in your pocket</h1></div></div><p class="demo-intro">Pele turns a wide flowchart to run top to bottom on narrow screens instead of shrinking it. Drag the yellow handle and watch the “smallest text” size above each phone.</p>
+      <div class="demo-head"><span class="roundel" style="--line:var(--l4);--on-line:var(--on-l4)" aria-hidden="true">4</span><div><h1>Narrow screens</h1></div></div><p class="demo-intro">On a narrow screen Pele turns a left-to-right flowchart to run top to bottom instead of shrinking it. Drag the handle and watch the “smallest text” size above each frame.</p>
       <section class="demo phone" aria-labelledby="ph-title" data-demo="phone">
   <h2 id="ph-title" class="visually-hidden">Live demo: the same diagram on a narrowing screen</h2>
   <p class="drag-hint" id="ph-hint"><span class="drag-icon" aria-hidden="true">⟷</span> Drag the yellow handle to resize both phones, or focus it and use the arrow keys.</p>
@@ -177,7 +175,7 @@
     <figure class="phone-col">
       <figcaption><span class="tr-name">Pele</span> <span class="ph-read">smallest text <output id="ph-pele-px" class="tr-ms">–</output></span></figcaption>
       <div class="phone-frame">
-        <div class="phone-screen" tabindex="0" role="region" aria-label="Pele phone screen, scrollable"><div data-prerendered id="ph-pele" role="img" aria-label="Order flowchart drawn by Pele: order placed, payment, pick, pack, label, courier, delivered or chase"><svg xmlns="http://www.w3.org/2000/svg" class="pele pele-flowchart" viewBox="0 0 329 725" width="329" height="725" style="max-width:100%;height:auto;--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);--_m:var(--pele-muted,#6e6e6e);--_l:var(--pele-line,#1f1f1f);--_s:var(--pele-surface,#f3f3f3);--_a:var(--pele-surface-alt,#e6e6e6);--_b:var(--pele-border,#8a8a8a);--_c:var(--pele-accent,#5b7bd5);color:var(--_fg);--_r:var(--pele-radius,4px);--_fm:var(--pele-font-mono,&quot;Commit Mono&quot;, ui-monospace, monospace);font:16px sans-serif;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;font-family:var(--pele-font,&quot;Montserrat&quot;, &quot;Montserrat Fallback&quot;, system-ui, sans-serif)" fill="var(--_fg)" role="graphics-document document" aria-roledescription="flowchart"><g class="pele-edges" fill="none" stroke="var(--_l)" stroke-linecap="round"><g class="pele-edge" data-id="L_Order_Pay_0"><path d="M164.79,56L164.79,85"></path><path class="pele-marker" d="M164.79,92L161.43,84L168.15,84Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Pay_Pick_0"><path d="M164.79,140L164.79,169"></path><path class="pele-marker" d="M164.79,176L161.43,168L168.15,168Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Pick_Pack_0"><path d="M164.79,224L164.79,253"></path><path class="pele-marker" d="M164.79,260L161.43,252L168.15,252Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Pack_Label_0"><path d="M164.79,308L164.79,337"></path><path class="pele-marker" d="M164.79,344L161.43,336L168.15,336Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Label_Ship_0"><path d="M164.79,392L164.79,421"></path><path class="pele-marker" d="M164.79,428L161.43,420L168.15,420Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Ship_Track_0"><path d="M164.79,476L164.79,505"></path><path class="pele-marker" d="M164.79,512L161.43,504L168.15,504Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Track_Review_0"><path d="M156.79,602.37C156.79,612.12 81.59,612.12 81.59,621.87L81.59,661.37"></path><path class="pele-marker" d="M81.59,668.37L78.23,660.37L84.95,660.37Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Track_Chase_0"><path d="M172.79,602.37C172.79,612.12 247.99,612.12 247.99,621.87L247.99,661.37"></path><path class="pele-marker" d="M247.99,668.37L244.63,660.37L251.35,660.37Z" fill="var(--_l)" stroke="none"></path></g></g><g class="pele-edge-labels" font-size="14"><g class="pele-edge-label" data-id="L_Track_Review_0"><rect x="66.25" y="623.87" width="30.67" height="21" rx="3" fill="var(--_bg)"></rect><text x="81.59" y="639.27" text-anchor="middle">yes</text></g><g class="pele-edge-label" data-id="L_Track_Chase_0"><rect x="234.86" y="623.87" width="26.25" height="21" rx="3" fill="var(--_bg)"></rect><text x="247.99" y="639.27" text-anchor="middle">no</text></g></g><g class="pele-nodes"><g class="pele-node pele-shape-stadium" data-id="Order" transform="translate(164.79,32)"><rect x="-78.37" y="-24" width="156.75" height="48" rx="24" fill="var(--_s)" stroke="var(--_b)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Order placed</text></g><g class="pele-node pele-shape-rect" data-id="Pay" transform="translate(164.79,116)"><rect x="-74.9" y="-24" width="149.8" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Take payment</text></g><g class="pele-node pele-shape-rect" data-id="Pick" transform="translate(164.79,200)"><rect x="-59.62" y="-24" width="119.24" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Pick items</text></g><g class="pele-node pele-shape-rect" data-id="Pack" transform="translate(164.79,284)"><rect x="-54.24" y="-24" width="108.48" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Pack box</text></g><g class="pele-node pele-shape-rect" data-id="Label" transform="translate(164.79,368)"><rect x="-58.91" y="-24" width="117.81" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Print label</text></g><g class="pele-node pele-shape-rect" data-id="Ship" transform="translate(164.79,452)"><rect x="-80.54" y="-24" width="161.08" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Hand to courier</text></g><g class="pele-node pele-shape-diam" data-id="Track" transform="translate(164.79,559.69)"><polygon points="0,-47.69 76.3,0 0,47.69 -76.3,0" fill="var(--_s)" stroke="var(--_b)"></polygon><text class="pele-label" x="0" y="5.6" text-anchor="middle">Delivered?</text></g><g class="pele-node pele-shape-rect" data-id="Review" transform="translate(81.59,692.37)"><rect x="-73.59" y="-24" width="147.18" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Ask for review</text></g><g class="pele-node pele-shape-rect" data-id="Chase" transform="translate(247.99,692.37)"><rect x="-72.81" y="-24" width="145.62" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Chase courier</text></g></g></svg></div></div>
+        <div class="phone-screen" tabindex="0" role="region" aria-label="Pele phone screen, scrollable"><div data-prerendered id="ph-pele" role="img" aria-label="Order flowchart drawn by Pele: order placed, payment, pick, pack, label, courier, delivered or chase"><svg xmlns="http://www.w3.org/2000/svg" class="pele pele-flowchart" viewBox="0 0 331 803" width="331" height="803" style="max-width:100%;height:auto;--_bg:var(--pele-bg,#fff);--_fg:var(--pele-fg,#1f1f1f);--_m:var(--pele-muted,#6e6e6e);--_l:var(--pele-line,#1f1f1f);--_s:var(--pele-surface,#f3f3f3);--_a:var(--pele-surface-alt,#e6e6e6);--_b:var(--pele-border,#8a8a8a);--_c:var(--pele-accent,#5b7bd5);color:var(--_fg);--_r:var(--pele-radius,4px);--_fm:var(--pele-font-mono,&quot;Commit Mono&quot;, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);font:16px sans-serif;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;font-family:var(--pele-font,-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif)" fill="var(--_fg)" role="graphics-document document" aria-roledescription="flowchart"><g class="pele-edges" fill="none" stroke="var(--_l)" stroke-linecap="round"><g class="pele-edge" data-id="L_Order_Pay_0"><path d="M165.89,56L165.89,97"></path><path class="pele-marker" d="M165.89,104L162.53,96L169.25,96Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Pay_Pick_0"><path d="M165.89,152L165.89,193"></path><path class="pele-marker" d="M165.89,200L162.53,192L169.25,192Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Pick_Pack_0"><path d="M165.89,248L165.89,289"></path><path class="pele-marker" d="M165.89,296L162.53,288L169.25,288Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Pack_Label_0"><path d="M165.89,344L165.89,385"></path><path class="pele-marker" d="M165.89,392L162.53,384L169.25,384Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Label_Ship_0"><path d="M165.89,440L165.89,481"></path><path class="pele-marker" d="M165.89,488L162.53,480L169.25,480Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Ship_Track_0"><path d="M165.89,536L165.89,577"></path><path class="pele-marker" d="M165.89,584L162.53,576L169.25,576Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Track_Review_0"><path d="M157.89,668.61C157.89,681.36 77.15,681.36 77.15,694.11L77.15,739.61"></path><path class="pele-marker" d="M77.15,746.61L73.79,738.61L80.51,738.61Z" fill="var(--_l)" stroke="none"></path></g><g class="pele-edge" data-id="L_Track_Chase_0"><path d="M173.89,668.61C173.89,681.36 254.63,681.36 254.63,694.11L254.63,739.61"></path><path class="pele-marker" d="M254.63,746.61L251.27,738.61L257.99,738.61Z" fill="var(--_l)" stroke="none"></path></g></g><g class="pele-edge-labels" font-size="14"><g class="pele-edge-label" data-id="L_Track_Review_0"><rect x="62.05" y="696.11" width="30.2" height="21" rx="3" fill="var(--_bg)"></rect><text x="77.15" y="711.51" text-anchor="middle">yes</text></g><g class="pele-edge-label" data-id="L_Track_Chase_0"><rect x="242.56" y="696.11" width="24.14" height="21" rx="3" fill="var(--_bg)"></rect><text x="254.63" y="711.51" text-anchor="middle">no</text></g></g><g class="pele-nodes"><g class="pele-node pele-shape-stadium" data-id="Order" transform="translate(165.89,32)"><rect x="-73.29" y="-24" width="146.58" height="48" rx="24" fill="var(--_s)" stroke="var(--_b)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Order placed</text></g><g class="pele-node pele-shape-rect" data-id="Pay" transform="translate(165.89,128)"><rect x="-68.35" y="-24" width="136.7" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Take payment</text></g><g class="pele-node pele-shape-rect" data-id="Pick" transform="translate(165.89,224)"><rect x="-55.11" y="-24" width="110.22" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Pick items</text></g><g class="pele-node pele-shape-rect" data-id="Pack" transform="translate(165.89,320)"><rect x="-50.8" y="-24" width="101.6" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Pack box</text></g><g class="pele-node pele-shape-rect" data-id="Label" transform="translate(165.89,416)"><rect x="-54.16" y="-24" width="108.31" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Print label</text></g><g class="pele-node pele-shape-rect" data-id="Ship" transform="translate(165.89,512)"><rect x="-74.18" y="-24" width="148.35" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Hand to courier</text></g><g class="pele-node pele-shape-diam" data-id="Track" transform="translate(165.89,628.8)"><polygon points="0,-44.8 71.69,0 0,44.8 -71.69,0" fill="var(--_s)" stroke="var(--_b)"></polygon><text class="pele-label" x="0" y="5.6" text-anchor="middle">Delivered?</text></g><g class="pele-node pele-shape-rect" data-id="Review" transform="translate(77.15,770.61)"><rect x="-69.15" y="-24" width="138.3" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Ask for review</text></g><g class="pele-node pele-shape-rect" data-id="Chase" transform="translate(254.63,770.61)"><rect x="-68.34" y="-24" width="136.67" height="48" fill="var(--_s)" stroke="var(--_b)" style="rx:var(--_r)"></rect><text class="pele-label" x="0" y="5.6" text-anchor="middle">Chase courier</text></g></g></svg></div></div>
         <div class="phone-handle" role="slider" tabindex="0" aria-label="Phone width" aria-valuemin="220" aria-valuemax="900" aria-valuenow="390" aria-valuetext="390 pixels wide" data-handle><span class="grip" aria-hidden="true"></span><span class="handle-label" aria-hidden="true">drag</span></div>
       </div>
     </figure><figure class="phone-col">
@@ -190,35 +188,27 @@
   </div>
   <p class="ph-width" aria-live="polite">Screen width <output id="ph-w" class="tr-ms">390 px</output> <span class="hint" id="ph-mode"></span></p>
 </section>
-<h2 id="what-you-just-saw">What you just saw</h2>
-<p>The flowchart runs left to right, which is great on a laptop and terrible on a phone. Mermaid.js keeps the same drawing and scales it down to fit, so the text shrinks with it. Pele gets the width of the screen and, when the flowchart doesn&#39;t fit a narrow screen, turns the flow to run top to bottom instead, so the text stays at full size and you scroll down, the way you read a phone.</p>
-<div class="takeaway"><p>On a narrow screen, Pele turns a sideways flowchart into a top-to-bottom one so its text stays full size.</p></div>
-
+<h2 id="what-happens">What happens</h2>
+<p>The flowchart runs left to right, which suits a laptop and not a phone. Mermaid.js keeps the same drawing and scales it down to fit, so the text shrinks with it. Pele gets the width of the screen and, when the flowchart doesn&#39;t fit a narrow screen, turns the flow to run top to bottom instead, so the text stays at full size and you scroll down, the way you read a phone.</p>
 <h2 id="how-to-get-this-in-your-app">How to get this in your app</h2>
 <p><code class="nw">mount()</code> does it for you: it watches the element&#39;s width and redraws when it changes. With <code class="nw">render()</code>, pass the width yourself:</p>
 <pre tabindex="0"><code class="language-js">render(text, { maxWidth: el.clientWidth })       // turn below 640 px (the default)
 render(text, { maxWidth: el.clientWidth, directionBreakpoint: 360 }) // turn only below 360 px
 render(text, { autoDirection: false })           // never turn
 </code></pre>
-<p>By default Pele turns the flow below 640 pixels. This demo sets <code class="nw">directionBreakpoint: 360</code> so you can see both layouts with two phones side by side. Details in the <a href="/pages/responsive.html">responsive layouts guide</a>.</p>
+<p>By default Pele turns the flow below 640 pixels. This demo sets <code class="nw">directionBreakpoint: 360</code> so you can see both layouts with two phones side by side. The options are in the <a href="https://pele.run/api" rel="noopener">official API docs</a>; <a href="/pages/responsive.html">responsive layouts</a> on this site walks through them.</p>
 
     </article>
     <p id="demo-status" class="hint demo-status" role="status">Loading the live demo…</p>
-    <nav class="next-stop" aria-label="Demo line"><a href="/pages/theme-lab.html"><span class="roundel" style="--line:var(--l3);--on-line:var(--on-l3)" aria-hidden="true">3</span><span>Previous stop: Theme lab</span></a><a href="/pages/docs-page.html"><span class="roundel" style="--line:var(--l5);--on-line:var(--on-l5)" aria-hidden="true">5</span><span>Next stop: A page with 200 diagrams</span></a></nav>
+    <nav class="next-stop" aria-label="Demos"><a href="/pages/theme-lab.html"><span class="roundel" style="--line:var(--l3);--on-line:var(--on-l3)" aria-hidden="true">3</span><span>Previous: Theming</span></a><a href="/pages/docs-page.html"><span class="roundel" style="--line:var(--l5);--on-line:var(--on-l5)" aria-hidden="true">5</span><span>Next: 200 diagrams on one page</span></a></nav>
   </main>
   <footer class="site-footer"><div class="foot-inner">
-    <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/compare.html">Compare</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
-    <p><strong>pele.wiki</strong> is an independent learning site by <a href="https://endash.us">En Dash Consulting</a>, built with <a href="https://github.com/en-dash-consulting/n-dx">n-dx</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
+    <nav aria-label="Footer"><ul class="foot-links"><li><a href="/pages/demos.html">Demos</a></li><li><a href="/pages/gallery.html">Gallery</a></li><li><a href="/pages/getting-started.html">Getting started</a></li><li><a href="/pages/api.html">API cheatsheet</a></li><li><a href="/pages/theming.html">Theming</a></li><li><a href="/pages/migrating.html">Migrating from Mermaid.js</a></li><li><a href="/pages/pele-vs-mermaid.html">Pele vs Mermaid.js</a></li><li><a href="/pages/faq.html">FAQ</a></li><li><a href="/pages/about.html">About</a></li></ul></nav>
+    <p><strong>pele.wiki</strong> is an independent site by <a href="https://endash.us">En Dash Consulting</a>. It is not affiliated with or endorsed by Obsidian or kepano.</p>
     <p>Pele © 2026 <a href="https://github.com/kepano">kepano</a>, MIT license · source at <a href="https://github.com/obsidianmd/pele">github.com/obsidianmd/pele</a> · official docs at <a href="https://pele.run">pele.run</a>. Demos run pele 1.6.0 and Mermaid.js 12.1.0.</p>
-    <p>Looking for the footballer? <a href="/footballer/">Pelé (1940–2022), the wiki</a>: his clubs, his four World Cups and his goals.</p>
+    <p>Looking for Pelé the footballer? <a href="/footballer/">There is a separate wiki on him here.</a></p>
     <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap</a> · <a href="https://github.com/en-dash-consulting/pele-dot-wiki">site source</a></p>
   </div></footer>
-  <aside class="dock" aria-label="About this site">
-    <p class="dock-full"><a href="https://graview.dev"><svg class="dock-gv" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M13 11 L3 8 L14 3 H29 L21 9"/><path d="M10 18 L3 23 L16.5 28 L29 21 L22 19"/><path d="M16.5 18.5 V23.5" stroke-linecap="round"/></g><circle cx="16.5" cy="13.5" r="2.2" fill="#00e5b9"/></svg><span><span class="dock-long">Built with </span><b>Graview</b></span></a><span class="dock-and">and</span><a href="https://github.com/en-dash-consulting/n-dx"><b>n-dx</b></a><span class="dock-sep" aria-hidden="true"></span><a href="/footballer/"><span class="dock-ten" aria-hidden="true">10</span><span><span class="dock-long">Looking for </span><b>Pelé the footballer</b><span class="dock-long">? The wiki</span>&nbsp;→</span></a></p>
-    <p class="dock-mini"><a href="https://graview.dev" aria-label="Built with Graview"><svg class="dock-gv" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M13 11 L3 8 L14 3 H29 L21 9"/><path d="M10 18 L3 23 L16.5 28 L29 21 L22 19"/><path d="M16.5 18.5 V23.5" stroke-linecap="round"/></g><circle cx="16.5" cy="13.5" r="2.2" fill="#00e5b9"/></svg></a><a href="/footballer/" aria-label="Pelé the footballer: the wiki"><span class="dock-ten" aria-hidden="true">10</span></a></p>
-    <button type="button" class="dock-toggle" aria-expanded="true" aria-label="Shrink this bar"><span aria-hidden="true"></span></button>
-  </aside>
-  <script>(function(){var h=document.documentElement,b=document.querySelector('.dock-toggle');function set(min,keep){h.classList.toggle('dock-min',min);b.setAttribute('aria-expanded',String(!min));b.setAttribute('aria-label',min?'Show the full bar':'Shrink this bar');if(keep)try{localStorage.setItem('pw-dock',min?'min':'full')}catch(e){}}var m=false;try{m=localStorage.getItem('pw-dock')==='min'}catch(e){}set(m);b.addEventListener('click',function(){set(!h.classList.contains('dock-min'),true)})})();</script>
   <script type="module" src="/src/pages/demo.ts"></script>
 </body>
 </html>

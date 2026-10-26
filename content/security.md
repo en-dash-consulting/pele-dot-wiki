@@ -2,7 +2,7 @@
 slug: security
 order: 36
 section: guide
-title: "Is Pele Safe for Untrusted Mermaid Diagrams? | pele.wiki"
+title: "Untrusted diagrams | pele.wiki"
 nav: Security
 h1: "Rendering untrusted diagrams safely"
 intro: "<strong>Yes, Pele is designed to draw diagrams written by anyone.</strong> Its SVG contains no scripts, event handlers or HTML labels, dangerous links are removed, and oversized diagrams are refused. Your app still has a few jobs, listed below."
@@ -33,4 +33,4 @@ There's no time limit; if you need one, render in a Web Worker you can stop.
 
 Want your own sanitizer too? Pass `sanitize` to `mount()`; it runs before each SVG goes in.
 
-Try to break it in the [paste-anything demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).
+The [official security docs](https://pele.run/security) are the reference; this page adds what your app has to do. Try it in the [untrusted input demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).

@@ -2,7 +2,7 @@
 
 > How Pele fits Mermaid diagrams to small screens: maxWidth, autoDirection and directionBreakpoint, mount() resizing, zoom, and when a diagram still needs room.
 
-Source: https://pele.wiki/pages/responsive.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/responsive.html · Last updated 2026-10-26
 
 Pele changes a diagram's layout to fit the space instead of shrinking it. Give it the available width and, below 640 pixels, a left-to-right flowchart turns to run top to bottom, so its text stays readable.
 
@@ -34,4 +34,4 @@ import { mount } from 'pele'
 mount(el, text) // watches el's width and redraws when it changes
 ```
 
-See it in the [phone demo](/pages/phone.html): drag the phone narrower and watch the flowchart turn.
+See it in the [narrow screens demo](/pages/phone.html). The options are listed in the [official API docs](https://pele.run/api).

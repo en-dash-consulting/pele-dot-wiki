@@ -2,7 +2,7 @@
 slug: theming
 order: 33
 section: guide
-title: "Theming Pele Diagrams With CSS Variables | pele.wiki"
+title: "Theming | pele.wiki"
 nav: Theming
 h1: "Theming Pele diagrams"
 intro: "<strong>Pele diagrams are coloured by CSS variables.</strong> Set <code>--pele-bg</code>, <code>--pele-fg</code>, <code>--pele-accent</code> and friends on the diagram or any parent, and every diagram inside follows, without being redrawn."
@@ -49,4 +49,4 @@ Pele measures label text to lay a diagram out, so a new font means new widths. W
 
 ## Coming from Mermaid themes
 
-Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Play with it in the [theme lab](/pages/theme-lab.html).
+Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Try it in the [theming demo](/pages/theme-lab.html).

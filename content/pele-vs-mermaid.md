@@ -2,11 +2,11 @@
 slug: pele-vs-mermaid
 order: 41
 section: compare
-title: "Pele vs Mermaid.js: Speed, Size, Theming and Gaps | pele.wiki"
+title: "Pele vs Mermaid.js | pele.wiki"
 nav: Pele vs Mermaid.js
 h1: "Pele vs Mermaid.js"
-intro: "<strong>Both read the same Mermaid text. Pele draws it about 100–500× faster from a bundle about 6× smaller, colours it with CSS and adapts it to phones. Mermaid.js has the reference look, click callbacks and plugins.</strong> If you render diagrams often, live or in bulk, Pele is the better fit."
-description: "Pele vs Mermaid.js compared honestly: same syntax, render speed, bundle size, theming, phone layouts, safety, and the features only Mermaid.js has."
+intro: "Both read the same Mermaid text. Pele draws it faster from a smaller bundle, colours it with CSS and adapts it to narrow screens. Mermaid.js has the reference look, click callbacks and plugins."
+description: "Pele and Mermaid.js side by side: syntax, render speed, bundle size, theming, narrow screens, safety, and what only Mermaid.js does."
 type: compare
 ---
 ## Side by side
@@ -23,7 +23,7 @@ type: compare
 | Click callbacks | Ignored (links work) | Supported |
 | Look | Pele's own | The reference look |
 
-Speed and size figures are from [pele.run](https://pele.run); you can check them in your own browser in the [typing race](/#tr-title) and the [200-diagram page](/pages/docs-page.html).
+Speed and size figures are from [pele.run](https://pele.run); you can check them in your own browser in the [typing demo](/#tr-title) and the [200-diagram page](/pages/docs-page.html).
 
 ## Choose Pele when
 

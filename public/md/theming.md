@@ -2,7 +2,7 @@
 
 > Every Pele CSS variable for colours, fonts, corner radius and chart series, with light and dark mode examples and why colour changes need no redraw.
 
-Source: https://pele.wiki/pages/theming.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/theming.html · Last updated 2026-10-26
 
 Pele diagrams are coloured by CSS variables. Set --pele-bg, --pele-fg, --pele-accent and friends on the diagram or any parent, and every diagram inside follows, without being redrawn.
 
@@ -46,4 +46,4 @@ Pele measures label text to lay a diagram out, so a new font means new widths. W
 
 ## Coming from Mermaid themes
 
-Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Play with it in the [theme lab](/pages/theme-lab.html).
+Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Try it in the [theming demo](/pages/theme-lab.html).

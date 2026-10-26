@@ -2,7 +2,7 @@
 
 > Switch from Mermaid.js to Pele: the code swap, moving themeVariables to CSS, what looks different, what is not supported, and a safe fallback plan.
 
-Source: https://pele.wiki/pages/migrating.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/migrating.html · Last updated 2026-10-26
 
 Your Mermaid text stays exactly the same; only the code that draws it changes. Swap mermaid.render() for Pele's render() or mount(), move your theme into CSS, and check the few features that differ.
 
@@ -25,11 +25,11 @@ const { svg } = render(text)
 
 ## 2. Move your theme into CSS
 
-Mermaid's `theme` and `themeVariables` don't apply. Map them to [Pele's CSS variables](/pages/theming.html) once; dark mode then comes free with a media query.
+Mermaid's `theme` and `themeVariables` don't apply. Map them to [Pele's CSS variables](https://pele.run/theming) once; dark mode then comes free with a media query.
 
 ## What looks different
 
-Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. Most diagrams look cleaner; a few may need a nudge. Specifics:
+Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. The [official compatibility notes](https://pele.run/compatibility) are the reference; in short:
 
 - A subgraph keeps its own `direction` even when it links to nodes outside it.
 - Labels support line breaks, bold and italic, but not arbitrary HTML.

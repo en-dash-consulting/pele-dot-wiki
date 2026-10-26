@@ -1,30 +1,30 @@
 {
  "day": {
-  "label": "Day service",
+  "label": "Light",
   "bg": "#ffffff",
   "fg": "#111111",
   "line": "#111111",
   "surface": "#f2f2f2",
   "border": "#111111",
-  "accent": "#d52b1e",
+  "accent": "#b4420f",
   "series": [
-   "#d52b1e",
-   "#00843d",
-   "#f5a800"
+   "#b4420f",
+   "#2f7d4f",
+   "#c48a00"
   ]
  },
  "night": {
-  "label": "Night service",
+  "label": "Dark",
   "bg": "#121417",
   "fg": "#f2f2ef",
   "line": "#f2f2ef",
   "surface": "#272b31",
   "border": "#a7acb3",
-  "accent": "#ffbd2e",
+  "accent": "#f0a37c",
   "series": [
-   "#f04a3c",
-   "#1fae5f",
-   "#ffbd2e"
+   "#f0a37c",
+   "#5cc08a",
+   "#e6b54a"
   ]
  },
  "vault": {

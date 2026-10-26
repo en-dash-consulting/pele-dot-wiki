@@ -9,7 +9,8 @@ test('home race: Pele draws on every keystroke, Mermaid catches up', async ({ pa
   await expect(page.locator('#tr-pele svg')).toBeVisible()
   await expect(page.locator('#tr-mm svg')).toBeVisible({ timeout: 20000 })
   const src = page.locator('#tr-src')
-  await src.click(); await page.keyboard.press('End'); await page.keyboard.type('\n  Notify --> Done[All set]', { delay: 15 })
+  await src.evaluate(el => { const ta = el as HTMLTextAreaElement; ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length) })
+  await page.keyboard.type('\n  Refund --> Survey[All set]', { delay: 15 })
   await expect(page.locator('#tr-pele svg')).toContainText('All set')
   await expect(page.locator('#tr-mm svg')).toContainText('All set', { timeout: 20000 })
   await expect(page.locator('#tr-pele-ms')).toHaveText(/ms/)
@@ -17,19 +18,19 @@ test('home race: Pele draws on every keystroke, Mermaid catches up', async ({ pa
 
 test('home race: example switch and auto-type', async ({ page }) => {
   await page.goto('/'); await page.locator('#tr-pele').scrollIntoViewIfNeeded()
-  await page.locator('#tr-example').selectOption({ index: 1 })
+  await page.locator('#tr-example').selectOption('seq')
   await expect(page.locator('#tr-pele svg')).toHaveClass(/pele-sequence/)
   await page.locator('#tr-auto').click()
   await expect(page.locator('#tr-auto')).toHaveAttribute('aria-pressed', 'true')
 })
 
-test('above the fold: both Pelés at 1280x800, the footballer CTA at 375x667', async ({ page }) => {
+test('above the fold: the title and the tribute at 1280x800, the title and its text at 375x667', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 }); await page.goto('/')
-  expect((await page.getByRole('link', { name: /Open the Pelé wiki/ }).boundingBox())!.y).toBeLessThan(800)
-  expect((await page.locator('#hero-title').boundingBox())!.y).toBeLessThan(800 - 100)
+  expect((await page.locator('#hero-title').boundingBox())!.y).toBeLessThan(200)
+  expect((await page.locator('#kepano-title').boundingBox())!.y).toBeLessThan(800 - 100)
   await page.setViewportSize({ width: 375, height: 667 }); await page.goto('/')
-  const cta = await page.getByRole('link', { name: /Open the Pelé wiki/ }).boundingBox()
-  expect(cta!.y + cta!.height).toBeLessThan(667 - 48)
+  const sub = await page.locator('.hero .sub').boundingBox()
+  expect(sub!.y + sub!.height).toBeLessThan(667)
 })
 
 test('stream: both chats finish and Pele redraws many times', async ({ page }) => {

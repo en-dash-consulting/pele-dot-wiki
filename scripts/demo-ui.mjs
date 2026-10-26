@@ -5,49 +5,45 @@ const EXAMPLES = JSON.parse(readFileSync(new URL('../src/demos/examples.json', i
 const PRESETS = JSON.parse(readFileSync(new URL('../src/demos/theme-presets.json', import.meta.url), 'utf8'))
 const D = PRESETS.day
 const BOARD_STYLE = [`--pele-bg: ${D.bg};`, `--pele-fg: ${D.fg};`, `--pele-line: ${D.line};`, `--pele-surface: ${D.surface};`, `--pele-surface-alt: ${D.surface};`, `--pele-border: ${D.border};`, `--pele-accent: ${D.accent};`, `--pele-muted: ${D.fg};`,
-  ...D.series.map((c, i) => `--pele-series-${i + 1}: ${c};`), `--pele-font: 'Montserrat', system-ui, sans-serif;`, `--pele-radius: 4px;`].join(' ')
+  ...D.series.map((c, i) => `--pele-series-${i + 1}: ${c};`), `--pele-font: system-ui, sans-serif;`, `--pele-radius: 4px;`].join(' ')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-
-export const HERO_ART = `<svg class="hero-art" viewBox="0 0 620 420" role="img" aria-label="Transit map of how Pele works: Mermaid text runs through parse and layout to SVG, with branch lines to theme and phone">
-  <path class="line l1" d="M30 70 H250 L320 140 V300 L380 360 H590"/>
-  <path class="line l2" d="M30 210 H590"/>
-  <path class="line l3" d="M120 390 V340 L200 260 H440 L520 180 V30"/>
-  ${[[30, 70], [250, 70], [590, 360], [30, 210], [590, 210], [120, 390], [440, 260], [520, 30]].map(([x, y]) => `<circle class="stop" cx="${x}" cy="${y}" r="11"/>`).join('')}
-  <circle class="stop interchange" cx="320" cy="210" r="20"/>
-  <text x="30" y="44">text</text><text x="250" y="44" text-anchor="middle">parse</text><text x="350" y="188">layout</text><text x="440" y="300" text-anchor="middle">theme</text><text x="500" y="40" text-anchor="end">svg</text><text x="590" y="400" text-anchor="end">phone</text>
-</svg>`
 
 export const TYPE_RACE = () => `<section class="demo type-race" aria-labelledby="tr-title" data-type-race>
   <div class="tr-bar">
-    <h2 id="tr-title" class="tr-title"><span class="roundel" style="--line:var(--l1);--on-line:var(--on-l1)" aria-hidden="true">1</span> Type a diagram. Watch who keeps up.</h2>
+    <h2 id="tr-title" class="tr-title"><span class="roundel" aria-hidden="true">1</span> Type a diagram</h2>
     <div class="tr-controls">
       <button id="tr-auto" type="button" class="button" aria-pressed="false"><span aria-hidden="true">▶</span> Auto-type</button>
       <label for="tr-example" class="visually-hidden">Example diagram</label>
-      <select id="tr-example"><option value="flow">Checkout flowchart</option><option value="seq">Login sequence</option><option value="state">Traffic-light states</option></select>
+      <select id="tr-example"><option value="big">Order lifecycle, 36 nodes</option><option value="flow">Checkout, 8 nodes</option><option value="seq">Login sequence</option><option value="state">Traffic-light states</option></select>
     </div>
   </div>
+  <div id="tr-scale" class="tr-scale" hidden>
+    <p class="tr-scale-row"><span class="tr-scale-name">Pele</span><span class="tr-scale-track"><span id="tr-scale-pele" class="tr-scale-bar"></span></span><output id="tr-scale-pele-ms" class="tr-ms"></output></p>
+    <p class="tr-scale-row"><span class="tr-scale-name">Mermaid.js</span><span class="tr-scale-track"><span id="tr-scale-mm" class="tr-scale-bar"></span></span><output id="tr-scale-mm-ms" class="tr-ms"></output></p>
+    <p class="tr-scale-key">Time per redraw, to scale. The mark is one frame at 60 fps (16.7 ms). A redraw that takes longer than a frame is felt on every keystroke; one that takes a fraction of a frame is not.</p>
+  </div>
+  <p id="tr-verdict" class="tr-verdict" role="status" aria-live="polite">Press <strong>Auto-type</strong>, or type in the box. Both redraw on every keystroke.</p>
   <div class="tr-grid">
     <div class="tr-editor">
       <label for="tr-src" class="tr-label">Mermaid text <span class="hint">· edit me</span></label>
-      <textarea id="tr-src" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" rows="11">${esc(EXAMPLES.flow)}</textarea>
+      <textarea id="tr-src" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" rows="11">${esc(EXAMPLES.big)}</textarea>
     </div>
     <figure class="tr-pane tr-pele">
       <figcaption><span class="tr-name">Pele</span><span class="tr-ms-wrap">each redraw <output id="tr-pele-ms" class="tr-ms">–</output></span></figcaption>
-      <div id="tr-pele" class="tr-canvas" role="img" aria-label="The diagram as drawn by Pele, updated on every keystroke"></div>
+      <div id="tr-pele" class="tr-canvas" role="img" tabindex="0" aria-label="The diagram as drawn by Pele, updated on every keystroke"></div>
     </figure>
     <figure class="tr-pane tr-mermaid">
       <figcaption><span class="tr-name">Mermaid.js</span><span class="tr-ms-wrap">each redraw <output id="tr-mm-ms" class="tr-ms">waiting…</output></span></figcaption>
-      <div id="tr-mm" class="tr-canvas" role="img" aria-label="The same diagram as drawn by Mermaid.js"></div>
+      <div id="tr-mm" class="tr-canvas" role="img" tabindex="0" aria-label="The same diagram as drawn by Mermaid.js"></div>
       <p id="tr-mm-lag" class="tr-lag" hidden></p>
     </figure>
   </div>
-  <p id="tr-verdict" class="tr-verdict" role="status" aria-live="polite">Press <strong>Auto-type</strong>, or type in the box. Both redraw on every keystroke.</p>
 </section>`
 
 export const STREAM = () => `<section class="demo stream" aria-labelledby="st-title" data-demo="stream">
   <h2 id="st-title" class="visually-hidden">Live demo: a diagram streaming in a chat answer</h2>
   <div class="demo-bar">
-    <button id="st-ask" type="button" class="button"><span aria-hidden="true">▶</span> Ask the assistant</button>
+    <button id="st-ask" type="button" class="button"><span aria-hidden="true">▶</span> Ask</button>
     <span class="bar-field"><label for="st-speed" class="bar-label">Model speed</label>
     <select id="st-speed"><option value="90">Fast (about 90 tokens a second)</option><option value="45" selected>Typical (about 45 a second)</option><option value="15">Slow (about 15 a second)</option></select></span>
   </div>
@@ -74,7 +70,7 @@ export const THEME_LAB = () => `<section class="demo lab" aria-labelledby="lab-t
           ${[['bg', 'Background'], ['fg', 'Text'], ['line', 'Lines'], ['surface', 'Box fill'], ['border', 'Box border'], ['accent', 'Accent']].map(([k, l]) => `<label class="swatch"><input type="color" id="lab-${k}" data-var="--pele-${k}" value="${PRESETS.day[k]}" /><span>${l}</span></label>`).join('')}
         </div>
         <label class="lab-field" for="lab-font">Font</label>
-        <select id="lab-font"><option value="'Montserrat', system-ui, sans-serif">Montserrat</option><option value="'Merriweather', Georgia, serif">Merriweather</option><option value="'Commit Mono', monospace">Commit Mono</option><option value="Georgia, serif">Georgia</option></select>
+        <select id="lab-font"><option value="system-ui, sans-serif">System</option><option value="'Montserrat', system-ui, sans-serif">Montserrat</option><option value="'Merriweather', Georgia, serif">Merriweather</option><option value="'Commit Mono', monospace">Commit Mono</option></select>
         <label class="lab-field" for="lab-radius">Corner radius <output id="lab-radius-out">4px</output></label>
         <input id="lab-radius" type="range" min="0" max="24" step="1" value="4" />
       </fieldset>
@@ -114,7 +110,7 @@ export const DOCS_PAGE = () => `<section class="demo docs" aria-labelledby="dp-t
   <h2 id="dp-title" class="visually-hidden">Live demo: a page with 200 diagrams</h2>
   <div class="demo-bar"><button id="dp-go" type="button" class="button"><span aria-hidden="true">▶</span> Open a page with 200 diagrams</button> <button id="dp-stop" type="button" class="button secondary" hidden>Stop</button></div>
   <div class="tracks">
-    ${['pele', 'mm'].map(k => `<div class="track track-${k}"><p class="track-name"><span class="tr-name">${k === 'pele' ? 'Pele' : 'Mermaid.js'}</span> <output id="dp-${k}-msg" class="track-msg">waiting at the platform</output></p>
+    ${['pele', 'mm'].map(k => `<div class="track track-${k}"><p class="track-name"><span class="tr-name">${k === 'pele' ? 'Pele' : 'Mermaid.js'}</span> <output id="dp-${k}-msg" class="track-msg">waiting</output></p>
       <div class="track-line" aria-hidden="true"><span class="train" id="dp-${k}-train"></span></div></div>`).join('')}
   </div>
   <div class="dp-pages">
@@ -132,7 +128,7 @@ export const GALLERY = (types = []) => `<section class="demo gallery" aria-label
 
 export const SAFETY = () => `<section class="demo safety" aria-labelledby="sf-title" data-demo="safety">
   <h2 id="sf-title" class="visually-hidden">Live demo: paste a hostile diagram</h2>
-  <fieldset class="sf-presets"><legend>Try something nasty</legend><div id="sf-presets" class="chip-row"></div></fieldset>
+  <fieldset class="sf-presets"><legend>Examples</legend><div id="sf-presets" class="chip-row"></div></fieldset>
   <div class="sf-grid">
     <div class="tr-editor"><label for="sf-src" class="tr-label">Diagram text <span class="hint">· paste anything</span></label><textarea id="sf-src" wrap="off" spellcheck="false" rows="12"></textarea></div>
     <div class="sf-out">

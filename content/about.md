@@ -1,11 +1,11 @@
 ---
 slug: about
 order: 60
-title: "About pele.wiki: An Independent Guide to Pele | pele.wiki"
+title: "About | pele.wiki"
 nav: About
 h1: "About pele.wiki"
-intro: "pele.wiki is an independent learning site and live demo gallery for <a href=\"https://pele.run\">Pele</a>, the Mermaid renderer by <a href=\"https://github.com/kepano\">kepano</a>."
-description: "pele.wiki is an independent learning site for Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and how to get in touch."
+intro: "pele.wiki is an independent site with live demos and notes on <a href=\"https://pele.run\">Pele</a>, the Mermaid renderer by <a href=\"https://github.com/kepano\">kepano</a>. The official documentation is at pele.run; this site adds side-by-side comparisons with Mermaid.js that you can run yourself."
+description: "pele.wiki is an independent site about Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and corrections."
 type: article
 ---
 ## Credits
@@ -18,7 +18,7 @@ type: article
 
 ## Who we are
 
-pele.wiki is made by [En Dash Consulting](https://endash.us), who also make [handwired.wiki](https://handwired.wiki). It is not affiliated with or endorsed by Obsidian or kepano.
+pele.wiki is made by [En Dash Consulting](https://endash.us). It is not affiliated with or endorsed by Obsidian or kepano. The site also holds a separate wiki on [Pelé the footballer](/footballer/), because the domain name fits both.
 
 ## How the demos work
 

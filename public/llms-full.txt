@@ -4,28 +4,30 @@
 
 ---
 
-# Mermaid diagrams, drawn before your next keystroke
+# Live demos of Pele
 
-> Pele by kepano renders Mermaid diagrams to themeable SVG with zero dependencies: about 6× smaller and up to 500× faster than Mermaid.js. Live demos and guides.
+> Live demos of Pele, kepano's Mermaid renderer, running next to Mermaid.js in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input.
 
-Source: https://pele.wiki/ · Last updated 2026-10-17
+Source: https://pele.wiki/ · Last updated 2026-10-26
 
-## Ride the Pele line
+Made by kepano Pele is the work of Steph Ango, known as kepano, the CEO of Obsidian. He wrote his own Mermaid renderer, with its own parsers and its own layout, that reads every diagram type in Mermaid 12.1.0, has zero dependencies, draws synchronously, weighs about 230 kB and is up to 500 times faster than Mermaid.js. He built it so that diagrams in Obsidian draw instantly and follow your theme, then released it under MIT so everyone else can have that too. Everything fast on this page is his work. This site only measures it. Read his docs, try his playground, star the repo, and if you use Pele, tell him.
 
-Six live demos, one idea each. Every one runs the real `pele` package in your browser, most of them next to the real Mermaid.js.
+## Six demos
 
-- Stop 1: [Type a diagram](https://pele.wiki/): Pele redraws on every keystroke. Mermaid.js falls behind.
-- Stop 2: [Stream an AI answer](https://pele.wiki/pages/stream.html): Watch the diagram grow while the chatbot is still typing.
-- Stop 3: [Theme lab](https://pele.wiki/pages/theme-lab.html): Recolour every diagram with CSS. Zero redraws.
-- Stop 4: [Phone in your pocket](https://pele.wiki/pages/phone.html): Drag a phone narrower. Pele re-flows; Mermaid shrinks.
-- Stop 5: [A page with 200 diagrams](https://pele.wiki/pages/docs-page.html): Race to the last diagram on a long docs page.
-- Stop 6: [Paste anything](https://pele.wiki/pages/safety.html): Throw hostile diagrams at it. Nothing runs.
+Each runs pele 1.6.0 in your browser. Most run Mermaid.js 12.1.0 beside it, with the same text, and time both.
+
+1. [Typing](https://pele.wiki/): Both libraries redraw on every keystroke. Compare the times.
+2. [Streaming](https://pele.wiki/pages/stream.html): A diagram redrawn on each chunk of an AI answer.
+3. [Theming](https://pele.wiki/pages/theme-lab.html): Change CSS variables. Pele recolours without a redraw.
+4. [Narrow screens](https://pele.wiki/pages/phone.html): Resize the viewport. Pele changes the layout; Mermaid.js scales the drawing.
+5. [200 diagrams on one page](https://pele.wiki/pages/docs-page.html): How long each library takes to draw a long documentation page.
+6. [Untrusted input](https://pele.wiki/pages/safety.html): Scripts, bad links and oversized diagrams, and what reaches the page.
 
 ## What is Pele?
 
-Pele is a JavaScript library that turns Mermaid diagram text into SVG. It was written by kepano (Steph Ango, CEO of Obsidian) so that diagrams in Obsidian draw instantly and match the user's theme. It is open source under the MIT license.
+Pele is a JavaScript library that turns Mermaid diagram text into SVG. kepano wrote it for Obsidian, so that diagrams draw instantly and match the user's theme. MIT licensed.
 
-You hand it the same text you would give Mermaid.js and get an SVG string back, synchronously:
+It takes the same text you would give Mermaid.js and returns an SVG string, synchronously:
 
 ```js
 import { render } from 'pele'
@@ -35,58 +37,56 @@ const { svg } = render(`flowchart LR
 document.querySelector('#diagram').innerHTML = svg
 ```
 
-It supports every diagram type built into Mermaid 12.1.0, uses its own layout and look, and takes colours and fonts from CSS variables. [What is Pele?](/pages/what-is-pele.html) has the details; [Getting started](/pages/getting-started.html) gets it into your app in five minutes.
+It supports every diagram type built into Mermaid 12.1.0, uses its own layout, and takes colours and fonts from CSS variables. More in [What is Pele?](/pages/what-is-pele.html) and [Getting started](/pages/getting-started.html).
 
-## When is Pele the better choice?
+## Where it helps
 
-When diagrams are drawn **often**, **live** or **in bulk**:
+Pele's speed matters when diagrams are drawn often, live, or in bulk:
 
-- a preview that redraws on every keystroke, like the race above;
-- a chat app streaming a diagram from an AI model ([stop 2](/pages/stream.html));
-- an app whose diagrams must follow the user's theme ([stop 3](/pages/theme-lab.html));
-- diagrams read on phones ([stop 4](/pages/phone.html));
-- docs pages with dozens or hundreds of diagrams ([stop 5](/pages/docs-page.html));
-- diagrams written by people you don't trust ([stop 6](/pages/safety.html)).
+- an editor preview that redraws on every keystroke;
+- a chat app [streaming a diagram](/pages/stream.html) from a model;
+- an app whose diagrams must [follow the user's theme](/pages/theme-lab.html);
+- diagrams read [on phones](/pages/phone.html);
+- documentation with [hundreds of diagrams](/pages/docs-page.html) on a page;
+- diagrams [written by people you don't trust](/pages/safety.html).
 
-Stay with Mermaid.js if you need its exact look, JavaScript click callbacks or plugins such as ZenUML. The [Pele vs Mermaid.js](/pages/pele-vs-mermaid.html) page goes through it honestly.
-
-
----
-
-# The Pele line: six live demos
-
-> Six playable Pele demos: live typing, streaming AI answers, CSS theming, phone layouts, a 200-diagram page and hostile input, each next to Mermaid.js.
-
-Source: https://pele.wiki/pages/demos.html · Last updated 2026-10-17
-
-Each stop is one idea you can play with in under a minute. They all run the real pele package in your browser, and most race it against the real Mermaid.js so you can judge for yourself.
-
-
-
-## How the comparisons are kept fair
-
-Both libraries are fully downloaded before any race starts, both render the same Mermaid text, and times are measured with `performance.now()` in your own browser. Pele's numbers are the median of recent renders, after a few warm-up renders, which is what an editor sees once you've been typing for a second. Mermaid.js uses its default settings with `securityLevel: 'strict'`.
+Keep Mermaid.js if you need its exact look, JavaScript click callbacks, or plugins such as ZenUML. See [Pele vs Mermaid.js](/pages/pele-vs-mermaid.html).
 
 
 ---
 
-# Stream an AI answer
+# Demos
 
-> Live demo: an AI answer streams a Mermaid diagram. Pele draws it line by line as it arrives; Mermaid.js catches up in jumps. Same text, same speed.
+> Six Pele demos: typing, streaming, CSS theming, narrow screens, a 200-diagram page and untrusted input, each next to Mermaid.js.
 
-Source: https://pele.wiki/pages/stream.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/demos.html · Last updated 2026-10-26
 
-Pele can redraw a diagram on every chunk of a streaming AI answer. Press Ask and watch both chat apps receive the same answer at the same speed.
+Six demos, one idea each. All run the real pele package in your browser; most run Mermaid.js beside it on the same text.
+
+
+
+## How the timings are taken
+
+Both libraries are fully downloaded before a timing starts, both render the same Mermaid text, and times are measured with `performance.now()` in your own browser. Pele's numbers are the median of recent renders, after a few warm-up renders, which is what an editor sees once you've been typing for a second. Mermaid.js uses its default settings with `securityLevel: 'strict'`.
+
+
+---
+
+# Streaming
+
+> Demo: a Mermaid diagram arrives in chunks, as from an AI model. Pele redraws on each chunk; Mermaid.js catches up in jumps.
+
+Source: https://pele.wiki/pages/stream.html · Last updated 2026-10-26
+
+A diagram redrawn on every chunk of a streaming answer. Press Ask: both chat windows receive the same answer at the same speed.
 
 *(Interactive demo: open https://pele.wiki/pages/stream.html)*
 
-## What you just saw
+## What happens
 
 Both chat apps try to redraw the diagram every time a new chunk of the answer arrives. Pele finishes each redraw in a fraction of a millisecond, so the diagram grows in step with the text. Mermaid.js takes tens of milliseconds per redraw and works asynchronously, so by the time it finishes one, several chunks have already arrived; it skips ahead and the diagram appears in jumps.
 
 Half-written lines are normal while streaming. Pele throws a quick error on text it can't parse yet, and the demo simply keeps the last good drawing until the next chunk arrives.
-
-If your app shows diagrams from an AI model, Pele lets the diagram appear while the answer is still arriving, instead of after.
 
 ## How to build this
 
@@ -105,17 +105,17 @@ More in the [streaming and AI apps guide](/pages/streaming-ai.html).
 
 ---
 
-# Theme lab
+# Theming
 
-> Live demo: recolour Pele diagrams with CSS variables and watch them change with zero redraws, while Mermaid.js has to redraw for every change.
+> Demo: recolour Pele diagrams with CSS variables, with no redraw. Mermaid.js redraws for every change.
 
-Source: https://pele.wiki/pages/theme-lab.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/theme-lab.html · Last updated 2026-10-26
 
-Pele diagrams take their colours from CSS variables, so restyling needs no redraw. Pick a look or drag the colour pickers; the counters show how often each library redrew.
+Pele diagrams take their colours from CSS variables, so a colour change needs no redraw. Pick a preset or change a colour; the counters show how often each library redrew.
 
 *(Interactive demo: open https://pele.wiki/pages/theme-lab.html)*
 
-## What you just saw
+## What happens
 
 Pele draws each diagram once. Its colours point at CSS variables such as `--pele-bg` and `--pele-accent`, so changing a colour is a style change: the browser repaints and Pele does nothing at all. That is why light and dark mode can switch without a flicker.
 
@@ -123,28 +123,24 @@ Mermaid.js bakes colours into the drawing through `themeVariables`, so a new col
 
 Changing the **font** is the one case where Pele works again: new letters have new widths, so `mount()` measures the text and lays each diagram out once more.
 
-With Pele, diagrams follow your site's theme the way the rest of your CSS does.
-
-The CSS under the demo is real; paste it into your stylesheet. Every variable is listed in the [theming guide](/pages/theming.html).
+The CSS under the demo is real; paste it into your stylesheet. Every variable is listed in the [official theming docs](https://pele.run/theming).
 
 
 ---
 
-# Phone in your pocket
+# Narrow screens
 
-> Live demo: drag a phone frame narrower. Pele re-flows a wide flowchart top-to-bottom to keep text readable; Mermaid.js scales it down to tiny text.
+> Demo: narrow the viewport. Pele changes a wide flowchart to top-to-bottom so the text stays readable; Mermaid.js scales the drawing down.
 
-Source: https://pele.wiki/pages/phone.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/phone.html · Last updated 2026-10-26
 
-Pele turns a wide flowchart to run top to bottom on narrow screens instead of shrinking it. Drag the yellow handle and watch the “smallest text” size above each phone.
+On a narrow screen Pele turns a left-to-right flowchart to run top to bottom instead of shrinking it. Drag the handle and watch the “smallest text” size above each frame.
 
 *(Interactive demo: open https://pele.wiki/pages/phone.html)*
 
-## What you just saw
+## What happens
 
-The flowchart runs left to right, which is great on a laptop and terrible on a phone. Mermaid.js keeps the same drawing and scales it down to fit, so the text shrinks with it. Pele gets the width of the screen and, when the flowchart doesn't fit a narrow screen, turns the flow to run top to bottom instead, so the text stays at full size and you scroll down, the way you read a phone.
-
-On a narrow screen, Pele turns a sideways flowchart into a top-to-bottom one so its text stays full size.
+The flowchart runs left to right, which suits a laptop and not a phone. Mermaid.js keeps the same drawing and scales it down to fit, so the text shrinks with it. Pele gets the width of the screen and, when the flowchart doesn't fit a narrow screen, turns the flow to run top to bottom instead, so the text stays at full size and you scroll down, the way you read a phone.
 
 ## How to get this in your app
 
@@ -156,28 +152,26 @@ render(text, { maxWidth: el.clientWidth, directionBreakpoint: 360 }) // turn onl
 render(text, { autoDirection: false })           // never turn
 ```
 
-By default Pele turns the flow below 640 pixels. This demo sets `directionBreakpoint: 360` so you can see both layouts with two phones side by side. Details in the [responsive layouts guide](/pages/responsive.html).
+By default Pele turns the flow below 640 pixels. This demo sets `directionBreakpoint: 360` so you can see both layouts with two phones side by side. The options are in the [official API docs](https://pele.run/api); [responsive layouts](/pages/responsive.html) on this site walks through them.
 
 
 ---
 
-# A page with 200 diagrams
+# 200 diagrams on one page
 
-> Live demo: render 200 Mermaid diagrams on one docs page. See how long Pele and Mermaid.js each take to reach the last one, in your browser.
+> Demo: 200 Mermaid diagrams on one page. How long Pele and Mermaid.js each take to draw the last one, in your browser.
 
-Source: https://pele.wiki/pages/docs-page.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/docs-page.html · Last updated 2026-10-26
 
-Pele draws a page full of diagrams almost at once. Press the button and both libraries draw the same 200, like a long docs page or a big Obsidian note.
+Press the button and both libraries draw the same 200 diagrams, as on a long documentation page or a large note.
 
 *(Interactive demo: open https://pele.wiki/pages/docs-page.html)*
 
-## What you just saw
+## What happens
 
 The 200 diagrams are a realistic mix: flowcharts, sequence, class, state and ER diagrams, pies, Gantt charts, git graphs, mindmaps and user journeys. Pele draws them one after another, synchronously, and is done in a fraction of a second. Mermaid.js draws them one at a time too, each taking tens of milliseconds, so the page fills in over many seconds.
 
-With Pele, a page full of diagrams is ready about as soon as its text is.
-
-## Even smaller pages
+## Smaller bundles
 
 A docs site that only uses a few diagram types can register just those and leave the rest out of its bundle:
 
@@ -189,30 +183,28 @@ import sequence from 'pele/diagrams/sequence'
 register(flowchart, sequence)
 ```
 
-Or load each type the first time a page needs it with `renderAsync` from `pele/lazy`. See the [API cheatsheet](/pages/api.html).
+Or load each type the first time a page needs it with `renderAsync` from `pele/lazy`. Both are in the [official API docs](https://pele.run/api).
 
 
 ---
 
-# Paste anything
+# Untrusted input
 
-> Live demo: feed Pele hostile Mermaid text: script tags, javascript: links, huge inputs. See that the SVG has no scripts and nothing ever runs.
+> Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page.
 
-Source: https://pele.wiki/pages/safety.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/safety.html · Last updated 2026-10-26
 
-Pele's output is plain SVG with no scripts, so pasted diagram text can't run code. Tap a nasty example or paste your own; the checklist shows what reached the page.
+Pele's output is SVG with no scripts, so diagram text from anyone can be rendered. Pick an example or paste your own; the checklist shows what reached the page.
 
 *(Interactive demo: open https://pele.wiki/pages/safety.html)*
 
-## What you just saw
+## What happens
 
 Pele never turns diagram text into HTML. Labels become SVG text: HTML tags such as `` are dropped and only the words between them are kept, so nothing can run. JavaScript click callbacks are ignored, `javascript:`, `data:` and `vbscript:` links are always removed, and styles are filtered. Diagrams that are too big (over 50,000 characters, or more than 5,000 arrows in a flowchart) are refused before any work starts, so a one-line diagram can't freeze the tab.
 
 To be fair to Mermaid.js: in its default `strict` mode it also cleans its output and has its own size and edge limits. The difference is that Pele's output contains no HTML in the first place, so there is less to clean.
 
-You can show diagrams written by anyone, as long as you show Pele's error messages as text.
-
-## Your part
+## What your app still does
 
 ```js
 import { PeleError, render } from 'pele'
@@ -225,18 +217,18 @@ try {
 }
 ```
 
-Also: only supply icons from a set you trust, treat internal links as note names, and don't let diagram authors set render options. The [security guide](/pages/security.html) covers each.
+Also: only supply icons from a set you trust, treat internal links as note names, and don't let diagram authors set render options. The [official security docs](https://pele.run/security) cover each.
 
 
 ---
 
-# Every diagram type, drawn live
+# Gallery
 
-> Gallery of all 32 Mermaid diagram types drawn live by Pele: flowchart, sequence, class, Gantt, sankey, C4, Wardley and more. Edit each, compare with Mermaid.js.
+> All 32 Mermaid diagram types drawn by Pele: flowchart, sequence, class, Gantt, sankey, C4, Wardley and more. Editable, with Mermaid.js for comparison.
 
-Source: https://pele.wiki/pages/gallery.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/gallery.html · Last updated 2026-10-26
 
-All 32 diagram types built into Mermaid 12.1.0, drawn by Pele as this page loaded. Edit any of them, or compare it with Mermaid.js.
+All 32 diagram types built into Mermaid 12.1.0, drawn by Pele as this page loaded. Edit any of them, or show the Mermaid.js version.
 
 *(Interactive demo: open https://pele.wiki/pages/gallery.html)*
 
@@ -244,18 +236,18 @@ All 32 diagram types built into Mermaid 12.1.0, drawn by Pele as this page loade
 
 The everyday types (flowchart, sequence, class, state, ER, Gantt, pie, git graph, mindmap, timeline, journey, kanban, XY and quadrant charts) are written for this site. The rest are taken from Mermaid's documentation (MIT license), through Pele's own test suite. Pele also supports `info`, which prints its version, and is left out here.
 
-Pele draws everything with its own layout and look, so the Mermaid.js version of each diagram will look different. That's expected; see [compatibility](/pages/migrating.html#what-looks-different).
+Pele uses its own layout, so the Mermaid.js version of each diagram looks different. See the [official compatibility notes](https://pele.run/compatibility).
 
 
 ---
 
-# Pele guides
+# Guides
 
 > Practical Pele guides: what it is, getting started, theming with CSS variables, phone layouts, streaming AI answers, security, migrating and the API.
 
-Source: https://pele.wiki/pages/guides.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/guides.html · Last updated 2026-10-26
 
-Short, practical guides for using Pele in a real app. Each one links to a live demo of the same idea.
+Notes on using Pele in an app. Each links to the demo of the same idea.
 
 
 
@@ -266,9 +258,9 @@ Short, practical guides for using Pele in a real app. Each one links to a live d
 
 > Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip.
 
-Source: https://pele.wiki/pages/what-is-pele.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/what-is-pele.html · Last updated 2026-10-26
 
-Pele is an open-source JavaScript library that draws Mermaid diagrams as SVG. kepano (Steph Ango, CEO of Obsidian) wrote it so diagrams in Obsidian draw instantly and match your theme. You give it Mermaid text; it gives back an SVG, synchronously, with no dependencies.
+Pele is an open-source JavaScript library that draws Mermaid diagrams as SVG. kepano (Steph Ango, CEO of Obsidian) wrote it for Obsidian, so that diagrams draw instantly and match the user's theme. Mermaid text in, SVG out, synchronously, with no dependencies.
 
 ## The short version
 
@@ -284,34 +276,34 @@ Pele is an open-source JavaScript library that draws Mermaid diagrams as SVG. ke
 
 Figures are from the official site, [pele.run](https://pele.run). The [demos on this site](/pages/demos.html) measure them live in your own browser.
 
-## Who made it, and why
+## Who made it
 
-Pele is by [kepano](https://github.com/kepano), and lives in Obsidian's GitHub organisation at [obsidianmd/pele](https://github.com/obsidianmd/pele). It was announced on 17 October 2026 as part of “making Obsidian insanely fast”. It is named after Pele, the Hawaiian goddess of volcanoes and fire.
+[kepano](https://github.com/kepano). The source is at [obsidianmd/pele](https://github.com/obsidianmd/pele), and it was announced on 17 October 2026 as part of work on making Obsidian faster. It is named after Pele, the Hawaiian goddess of volcanoes and fire.
 
 ## What it is not
 
 - **Not a new diagram language.** It reads Mermaid, so your existing diagrams, and the Mermaid that AI models already write, keep working.
-- **Not a drawing tool.** There's no canvas to drag boxes around; for that, see [Pele vs Excalidraw](/pages/pele-vs-excalidraw.html).
-- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look cleaner but different. See [migrating from Mermaid.js](/pages/migrating.html).
+- **Not a drawing tool.** There is no canvas to drag boxes around.
+- **Not a pixel-perfect Mermaid clone.** It lays diagrams out its own way, so they look different. See the [official compatibility notes](https://pele.run/compatibility) and [migrating from Mermaid.js](/pages/migrating.html).
 
-## How it works, in one paragraph
+## How it works
 
 Pele has its own parser for each diagram type, tested against Mermaid's own parser tests and fuzzed against Mermaid's parser. It measures label text, lays the diagram out, and writes an SVG string whose colours point at CSS variables. Because each step is plain synchronous JavaScript, a diagram is ready by the time `render()` returns.
 
 ## Is it ready to use?
 
-It's young: version 1.0.1 shipped on 6 October 2026 and new versions arrive every few days. It was built for Obsidian. Pin an exact version in production and read the [changelog on GitHub](https://github.com/obsidianmd/pele) before upgrading. This site uses pele 1.6.0.
+It is young: version 1.0.1 shipped on 6 October 2026 and new versions arrive every few days. Pin an exact version in production and read the [changelog on GitHub](https://github.com/obsidianmd/pele) before upgrading. This site uses pele 1.6.0.
 
 
 ---
 
 # Getting started with Pele
 
-> Install Pele from npm, render Mermaid text to SVG with render(), mount a responsive diagram with mount(), and style it with CSS variables. Five minutes.
+> Install Pele from npm, render Mermaid text to SVG with render(), mount a responsive diagram with mount(), and style it with CSS variables.
 
-Source: https://pele.wiki/pages/getting-started.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/getting-started.html · Last updated 2026-10-26
 
-Install Pele from npm, pass Mermaid text to render(), and put the SVG on the page. That's the whole thing; the rest of this page is the useful extras.
+Install Pele from npm, pass Mermaid text to render(), and put the SVG on the page. The rest of this page covers mount(), theming and errors.
 
 ## 1. Install
 
@@ -344,7 +336,7 @@ diagram.update(newText) // redraw in place
 diagram.destroy()       // stop watching the element
 ```
 
-`mount()` reads your fonts from CSS, redraws when the element's width changes (see the [phone demo](/pages/phone.html)), and adds zoom buttons to diagrams that had to be shrunk.
+`mount()` reads your fonts from CSS, redraws when the element's width changes (see the [narrow screens demo](/pages/phone.html)), and adds zoom buttons to diagrams that had to be shrunk.
 
 ## 4. Theme
 
@@ -357,7 +349,7 @@ diagram.destroy()       // stop watching the element
 }
 ```
 
-Colour changes apply without a redraw. Try it in the [theme lab](/pages/theme-lab.html); every variable is in the [theming guide](/pages/theming.html).
+Colour changes apply without a redraw. Try it in the [theming demo](/pages/theme-lab.html); every variable is in the [official theming docs](https://pele.run/theming).
 
 ## 5. Handle errors
 
@@ -369,7 +361,7 @@ try { el.innerHTML = render(text).svg }
 catch (e) { if (e instanceof PeleError) el.textContent = e.message; else throw e }
 ```
 
-Always show the message as text: it can quote the diagram. More in the [security guide](/pages/security.html).
+Always show the message as text: it can quote the diagram. More in the [official security docs](https://pele.run/security).
 
 
 ---
@@ -378,7 +370,7 @@ Always show the message as text: it can quote the diagram. More in the [security
 
 > Every Pele CSS variable for colours, fonts, corner radius and chart series, with light and dark mode examples and why colour changes need no redraw.
 
-Source: https://pele.wiki/pages/theming.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/theming.html · Last updated 2026-10-26
 
 Pele diagrams are coloured by CSS variables. Set --pele-bg, --pele-fg, --pele-accent and friends on the diagram or any parent, and every diagram inside follows, without being redrawn.
 
@@ -422,7 +414,7 @@ Pele measures label text to lay a diagram out, so a new font means new widths. W
 
 ## Coming from Mermaid themes
 
-Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Play with it in the [theme lab](/pages/theme-lab.html).
+Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the colours you used onto the variables above once, in CSS, and you're done. Try it in the [theming demo](/pages/theme-lab.html).
 
 
 ---
@@ -431,7 +423,7 @@ Mermaid's `theme` and `themeVariables` settings don't apply in Pele. Map the col
 
 > How Pele fits Mermaid diagrams to small screens: maxWidth, autoDirection and directionBreakpoint, mount() resizing, zoom, and when a diagram still needs room.
 
-Source: https://pele.wiki/pages/responsive.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/responsive.html · Last updated 2026-10-26
 
 Pele changes a diagram's layout to fit the space instead of shrinking it. Give it the available width and, below 640 pixels, a left-to-right flowchart turns to run top to bottom, so its text stays readable.
 
@@ -463,7 +455,7 @@ import { mount } from 'pele'
 mount(el, text) // watches el's width and redraws when it changes
 ```
 
-See it in the [phone demo](/pages/phone.html): drag the phone narrower and watch the flowchart turn.
+See it in the [narrow screens demo](/pages/phone.html). The options are listed in the [official API docs](https://pele.run/api).
 
 
 ---
@@ -472,7 +464,7 @@ See it in the [phone demo](/pages/phone.html): drag the phone narrower and watch
 
 > Render Mermaid from streaming AI answers with Pele: redraw on every chunk, keep the last good drawing, handle half-written lines, stay safe.
 
-Source: https://pele.wiki/pages/streaming-ai.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/streaming-ai.html · Last updated 2026-10-26
 
 AI models write Mermaid fluently, a few characters at a time. Because Pele draws in well under a millisecond and synchronously, a chat app can redraw the diagram on every chunk, so it grows with the answer instead of appearing at the end.
 
@@ -499,7 +491,7 @@ You can, and many apps do. But a 20-line diagram can take several seconds to str
 
 ## Model output is untrusted text
 
-Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML labels, and it blocks `javascript:` links, but show its error messages with `textContent`, keep render options under your control, and consider `links: false, images: false` if diagrams shouldn't reach the network. See the [security guide](/pages/security.html).
+Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML labels, and it blocks `javascript:` links, but show its error messages with `textContent`, keep render options under your control, and consider `links: false, images: false` if diagrams shouldn't reach the network. See the [official security docs](https://pele.run/security).
 
 
 ---
@@ -508,7 +500,7 @@ Treat it like any user input. Pele's SVG has no scripts, event handlers or HTML 
 
 > How Pele handles untrusted Mermaid: no scripts or HTML in its SVG, blocked javascript: links, size and edge limits, and the four things your app must still do.
 
-Source: https://pele.wiki/pages/security.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/security.html · Last updated 2026-10-26
 
 Yes, Pele is designed to draw diagrams written by anyone. Its SVG contains no scripts, event handlers or HTML labels, dangerous links are removed, and oversized diagrams are refused. Your app still has a few jobs, listed below.
 
@@ -536,7 +528,7 @@ There's no time limit; if you need one, render in a Web Worker you can stop.
 
 Want your own sanitizer too? Pass `sanitize` to `mount()`; it runs before each SVG goes in.
 
-Try to break it in the [paste-anything demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).
+The [official security docs](https://pele.run/security) are the reference; this page adds what your app has to do. Try it in the [untrusted input demo](/pages/safety.html). Found a real problem? Report it privately through [Pele's security advisories](https://github.com/obsidianmd/pele/security/advisories/new).
 
 
 ---
@@ -545,7 +537,7 @@ Try to break it in the [paste-anything demo](/pages/safety.html). Found a real p
 
 > Switch from Mermaid.js to Pele: the code swap, moving themeVariables to CSS, what looks different, what is not supported, and a safe fallback plan.
 
-Source: https://pele.wiki/pages/migrating.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/migrating.html · Last updated 2026-10-26
 
 Your Mermaid text stays exactly the same; only the code that draws it changes. Swap mermaid.render() for Pele's render() or mount(), move your theme into CSS, and check the few features that differ.
 
@@ -568,11 +560,11 @@ const { svg } = render(text)
 
 ## 2. Move your theme into CSS
 
-Mermaid's `theme` and `themeVariables` don't apply. Map them to [Pele's CSS variables](/pages/theming.html) once; dark mode then comes free with a media query.
+Mermaid's `theme` and `themeVariables` don't apply. Map them to [Pele's CSS variables](https://pele.run/theming) once; dark mode then comes free with a media query.
 
 ## What looks different
 
-Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. Most diagrams look cleaner; a few may need a nudge. Specifics:
+Pele lays diagrams out its own way, so boxes, spacing and arrow paths will move. The [official compatibility notes](https://pele.run/compatibility) are the reference; in short:
 
 - A subgraph keeps its own `direction` even when it links to nodes outside it.
 - Labels support line breaks, bold and italic, but not arbitrary HTML.
@@ -595,7 +587,7 @@ Use `supports(text)` to check each diagram, draw with Pele when it says yes, and
 
 > One-page Pele API reference: render, mount, update, parse, supports, detectType, register, renderAsync, PeleError codes and the most useful options.
 
-Source: https://pele.wiki/pages/api.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/api.html · Last updated 2026-10-26
 
 Everything in Pele's public API on one page: what each function is for, in plain words. The official API docs have every detail.
 
@@ -647,38 +639,18 @@ Everything in Pele's public API on one page: what each function is for, in plain
 
 It also has `line`, `column` and `snippet` for pointing at the problem.
 
-
----
-
-# Pele compared
-
-> Honest comparisons of Pele with Mermaid.js, D2 and Excalidraw: speed, size, syntax, theming, phones, safety, and when each is the better pick.
-
-Source: https://pele.wiki/pages/compare.html · Last updated 2026-10-17
-
-Pick Pele when you already write Mermaid and want it drawn fast, themed by CSS and readable on phones. Pick something else when you need a different language, hand-placed shapes or Mermaid's exact look. The pages below go through each honestly.
-
-
-
-## At a glance
-
-| Question | Pele | Mermaid.js | D2 | Excalidraw |
-| --- | --- | --- | --- | --- |
-| You write | Mermaid text | Mermaid text | D2 text | Nothing: you draw |
-| Runs | In JS, sync, browser or Node | In the browser, async | Go program or WebAssembly | In the browser, as an editor |
-| Look | Clean, CSS-themed | Mermaid themes | Several themes, sketch mode | Hand-drawn |
-| Best at | Fast, live, themed diagrams | Widest Mermaid support and plugins | Big architecture diagrams, fine layout control | Whiteboarding |
+This page is a summary. The [official API docs](https://pele.run/api) are the reference and have every option.
 
 
 ---
 
 # Pele vs Mermaid.js
 
-> Pele vs Mermaid.js compared honestly: same syntax, render speed, bundle size, theming, phone layouts, safety, and the features only Mermaid.js has.
+> Pele and Mermaid.js side by side: syntax, render speed, bundle size, theming, narrow screens, safety, and what only Mermaid.js does.
 
-Source: https://pele.wiki/pages/pele-vs-mermaid.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/pele-vs-mermaid.html · Last updated 2026-10-26
 
-Both read the same Mermaid text. Pele draws it about 100–500× faster from a bundle about 6× smaller, colours it with CSS and adapts it to phones. Mermaid.js has the reference look, click callbacks and plugins. If you render diagrams often, live or in bulk, Pele is the better fit.
+Both read the same Mermaid text. Pele draws it faster from a smaller bundle, colours it with CSS and adapts it to narrow screens. Mermaid.js has the reference look, click callbacks and plugins.
 
 ## Side by side
 
@@ -694,7 +666,7 @@ Both read the same Mermaid text. Pele draws it about 100–500× faster from a b
 | Click callbacks | Ignored (links work) | Supported |
 | Look | Pele's own | The reference look |
 
-Speed and size figures are from [pele.run](https://pele.run); you can check them in your own browser in the [typing race](/#tr-title) and the [200-diagram page](/pages/docs-page.html).
+Speed and size figures are from [pele.run](https://pele.run); you can check them in your own browser in the [typing demo](/#tr-title) and the [200-diagram page](/pages/docs-page.html).
 
 ## Choose Pele when
 
@@ -715,80 +687,13 @@ Moving over? See [migrating from Mermaid.js](/pages/migrating.html).
 
 ---
 
-# Pele vs D2
-
-> Pele vs D2 (Terrastruct): Mermaid syntax vs the D2 language, JavaScript vs Go or WebAssembly, speed, theming, and which suits apps, docs and architecture.
-
-Source: https://pele.wiki/pages/pele-vs-d2.html · Last updated 2026-10-17
-
-D2 is a separate diagram language with strong layout control, run as a Go program or WebAssembly. Pele draws the Mermaid you already write, in plain JavaScript, in well under a millisecond. Choose D2 for big, carefully laid-out architecture diagrams; choose Pele for fast diagrams inside apps and docs.
-
-## Side by side
-
-| Question | Pele | D2 |
-| --- | --- | --- |
-| Language | Mermaid, widely known and written by AI models | D2, its own language |
-| Made by | kepano / Obsidian | Terrastruct |
-| Runs as | A JavaScript library | A Go command-line tool, or WebAssembly in the browser |
-| Layout | Pele's own, automatic | A choice of layout engines, plus manual positions |
-| Speed | Built for live redraws | Built for build-time rendering |
-| Theming | CSS variables | Built-in themes, sketch mode |
-
-## Choose D2 when
-
-- you're drawing large architecture or infrastructure diagrams and want fine control over layout;
-- you're happy to learn a new language and render at build time.
-
-## Choose Pele when
-
-- your text is already Mermaid, or comes from an AI model;
-- diagrams are drawn in the browser, live, many times;
-- they should pick up your site's CSS theme.
-
-D2 facts are from [d2lang.com](https://d2lang.com). This page will be updated if either tool changes.
-
-
----
-
-# Pele vs Excalidraw
-
-> Pele vs Excalidraw: a text-to-diagram renderer vs a hand-drawn whiteboard. When each fits, how they differ for docs, diffs, AI and theming.
-
-Source: https://pele.wiki/pages/pele-vs-excalidraw.html · Last updated 2026-10-17
-
-Excalidraw is a whiteboard: you draw and arrange shapes by hand, in a sketchy style. Pele turns text into a diagram automatically. They solve different problems, and many teams use both.
-
-## Side by side
-
-| Question | Pele | Excalidraw |
-| --- | --- | --- |
-| You make a diagram by | Writing Mermaid text | Drawing and dragging shapes |
-| Saved as | Text, easy to review in git | A JSON scene file |
-| Layout | Automatic | Wherever you put things |
-| Look | Clean, follows your CSS | Hand-drawn |
-| AI can write it | Yes, models write Mermaid well | Harder: positions and shapes |
-| Best for | Docs, apps, generated diagrams | Brainstorming, sketches, explaining live |
-
-## Choose Excalidraw when
-
-you're thinking out loud, in a meeting or on your own, and want to place every box yourself.
-
-## Choose Pele when
-
-the diagram should live next to code or notes, change with them, be reviewed in a pull request, or be generated. Excalidraw can import some Mermaid diagrams too, which makes a nice path: start in text with Pele, move to the whiteboard when you need to sketch around it.
-
-Learn more at [excalidraw.com](https://excalidraw.com).
-
-
----
-
-# Pele FAQ
+# FAQ
 
 > Answers about Pele: what it is, who made it, Mermaid compatibility, speed, size, theming, phones, safety, Node, licence, and when to keep Mermaid.js.
 
-Source: https://pele.wiki/pages/faq.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/faq.html · Last updated 2026-10-26
 
-Short answers to the questions people ask about Pele, kepano's Mermaid renderer.
+Short answers about Pele. Each links to the page with the detail.
 
 ## What is Pele?
 
@@ -800,11 +705,11 @@ Pele was made by kepano (Steph Ango), the CEO of Obsidian. Its source is at gith
 
 ## Is Pele a replacement for Mermaid.js?
 
-For drawing, mostly yes: it reads the same Mermaid text and supports every diagram type built into Mermaid 12.1.0. Diagrams look different because Pele uses its own layout, and it doesn't support JavaScript click callbacks or plugins such as ZenUML.
+Mostly. It reads the same Mermaid text and supports every diagram type built into Mermaid 12.1.0. Diagrams look different because Pele uses its own layout, and it doesn't support JavaScript click callbacks or plugins such as ZenUML.
 
 ## How much faster than Mermaid.js is Pele?
 
-The official site reports 0.05–0.3 ms per diagram for Pele against 6–82 ms for Mermaid.js, roughly 100 to 500 times faster. The typing race on the pele.wiki home page measures both in your own browser.
+The official site reports 0.05–0.3 ms per diagram for Pele against 6–82 ms for Mermaid.js, roughly 100 to 500 times faster. The typing demo on the home page measures both in your own browser.
 
 ## How big is Pele?
 
@@ -847,11 +752,11 @@ pele.wiki is an independent learning site by En Dash Consulting. It is not affil
 
 # About pele.wiki
 
-> pele.wiki is an independent learning site for Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and how to get in touch.
+> pele.wiki is an independent site about Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and corrections.
 
-Source: https://pele.wiki/pages/about.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/about.html · Last updated 2026-10-26
 
-pele.wiki is an independent learning site and live demo gallery for Pele, the Mermaid renderer by kepano.
+pele.wiki is an independent site with live demos and notes on Pele, the Mermaid renderer by kepano. The official documentation is at pele.run; this site adds side-by-side comparisons with Mermaid.js that you can run yourself.
 
 ## Credits
 
@@ -863,7 +768,7 @@ pele.wiki is an independent learning site and live demo gallery for Pele, the Me
 
 ## Who we are
 
-pele.wiki is made by [En Dash Consulting](https://endash.us), who also make [handwired.wiki](https://handwired.wiki). It is not affiliated with or endorsed by Obsidian or kepano.
+pele.wiki is made by [En Dash Consulting](https://endash.us). It is not affiliated with or endorsed by Obsidian or kepano. The site also holds a separate wiki on [Pelé the footballer](/footballer/), because the domain name fits both.
 
 ## How the demos work
 

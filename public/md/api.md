@@ -2,7 +2,7 @@
 
 > One-page Pele API reference: render, mount, update, parse, supports, detectType, register, renderAsync, PeleError codes and the most useful options.
 
-Source: https://pele.wiki/pages/api.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/api.html · Last updated 2026-10-26
 
 Everything in Pele's public API on one page: what each function is for, in plain words. The official API docs have every detail.
 
@@ -53,3 +53,5 @@ Everything in Pele's public API on one page: what each function is for, in plain
 | `limit` | Over a size limit |
 
 It also has `line`, `column` and `snippet` for pointing at the problem.
+
+This page is a summary. The [official API docs](https://pele.run/api) are the reference and have every option.
