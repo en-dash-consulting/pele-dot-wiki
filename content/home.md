@@ -4,7 +4,7 @@ order: 0
 title: "pele.wiki: live demos of Pele, the Mermaid renderer"
 nav: Home
 h1: "Live demos of Pele"
-sub: "Pele is kepano's open-source library that renders Mermaid diagrams to SVG, themed with CSS variables. The official docs are at <a href=\"https://pele.run\">pele.run</a>. This is an independent site that runs the real package in your browser, next to Mermaid.js, so you can see the difference for yourself."
+sub: "Pele is kepano's open-source library that renders Mermaid diagrams to SVG, themed with CSS variables. The official docs at <a href=\"https://pele.run\">pele.run</a> are excellent and the place to start: a playground, the full API, every diagram type, and the thinking behind it. This independent site is a companion to them. It runs the real package in your browser next to Mermaid.js, so you can see the difference for yourself."
 description: "Live demos of Pele, kepano's Mermaid renderer, running next to Mermaid.js in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input."
 type: home
 ---

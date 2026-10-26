@@ -130,10 +130,10 @@ const lineMap = (cls = '') => `<ol class="line-map ${cls}" aria-label="Six demos
 function hero(p) {
   return `<section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="hatnote">This site is about Pele, the diagram library. For Pelé the footballer, see <a href="${FOOTBALLER.path}">the wiki</a>.</p>
+          <p class="hatnote">Looking for Pelé the footballer? <a href="${FOOTBALLER.path}">Go to his wiki <span aria-hidden="true">→</span></a></p>
           <h1 id="hero-title">${p.h1}</h1>
           <p class="sub">${p.sub}</p>
-          <p class="hero-cta"><a class="button" href="#tr-title">Try it ↓</a> <button type="button" class="install" data-copy="npm install pele" ><span class="visually-hidden">Copy the install command: </span>npm install pele <span class="copy-label" aria-hidden="true">Copy</span></button></p>
+          <p class="hero-cta"><a class="button" href="#tr-title">Try it ↓</a> <a class="button secondary" href="${PELE_SITE}" rel="noopener">Official docs ↗</a> <button type="button" class="install" data-copy="npm install pele" ><span class="visually-hidden">Copy the install command: </span>npm install pele <span class="copy-label" aria-hidden="true">Copy</span></button></p>
         </div>
       </section>
       ${TYPE_RACE()}`
