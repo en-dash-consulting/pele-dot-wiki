@@ -231,11 +231,17 @@
     </figure>
   </div>
 </section>
-      <h2 id="six-demos">Six demos</h2>
+      <aside class="callout" aria-labelledby="kepano-title">
+<h2 id="kepano-title">Made by kepano</h2>
+<p>Pele is the work of <a href="https://stephango.com" rel="noopener">Steph Ango</a>, known as <a href="https://github.com/kepano" rel="noopener">kepano</a>, the CEO of <a href="https://obsidian.md" rel="noopener">Obsidian</a>. He wrote his own Mermaid renderer, with its own parsers and its own layout, that reads every diagram type in Mermaid 12.1.0, has zero dependencies, draws synchronously, weighs about 230 kB and is up to 500 times faster than Mermaid.js. He built it so that diagrams in Obsidian draw instantly and follow your theme, then released it under MIT so everyone else can have that too.</p>
+<p>Everything fast on this page is his work. This site only measures it. Read <a href="https://pele.run" rel="noopener">his docs</a>, try <a href="https://pele.run/playground" rel="noopener">his playground</a>, star <a href="https://github.com/obsidianmd/pele" rel="noopener">the repo</a>, and if you use Pele, tell him.</p>
+</aside>
+
+<h2 id="six-demos">Six demos</h2>
 <p>Each runs pele 1.6.0 in your browser. Most run Mermaid.js 12.1.0 beside it, with the same text, and time both.</p>
 <ol class="line-map " aria-label="Six demos"><li style="--line:var(--l1);--on-line:var(--on-l1)"><a href="/#tr-title"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo 1</span><span class="stop-name">Typing</span><span class="stop-desc">Both libraries redraw on every keystroke. Compare the times.</span></a></li><li style="--line:var(--l2);--on-line:var(--on-l2)"><a href="/pages/stream.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo 2</span><span class="stop-name">Streaming</span><span class="stop-desc">A diagram redrawn on each chunk of an AI answer.</span></a></li><li style="--line:var(--l3);--on-line:var(--on-l3)"><a href="/pages/theme-lab.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo 3</span><span class="stop-name">Theming</span><span class="stop-desc">Change CSS variables. Pele recolours without a redraw.</span></a></li><li style="--line:var(--l4);--on-line:var(--on-l4)"><a href="/pages/phone.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo 4</span><span class="stop-name">Narrow screens</span><span class="stop-desc">Resize the viewport. Pele changes the layout; Mermaid.js scales the drawing.</span></a></li><li style="--line:var(--l5);--on-line:var(--on-l5)"><a href="/pages/docs-page.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo 5</span><span class="stop-name">200 diagrams on one page</span><span class="stop-desc">How long each library takes to draw a long documentation page.</span></a></li><li style="--line:var(--l6);--on-line:var(--on-l6)"><a href="/pages/safety.html"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo 6</span><span class="stop-name">Untrusted input</span><span class="stop-desc">Scripts, bad links and oversized diagrams, and what reaches the page.</span></a></li></ol>
 <h2 id="what-is-pele">What is Pele?</h2>
-<p class="lede">Pele is a JavaScript library that turns Mermaid diagram text into SVG. <a href="https://github.com/kepano" rel="noopener">kepano</a> wrote it for Obsidian, so that diagrams draw instantly and match the user's theme. MIT licensed.</p>
+<p class="lede">Pele is a JavaScript library that turns Mermaid diagram text into SVG. kepano wrote it for Obsidian, so that diagrams draw instantly and match the user's theme. MIT licensed.</p>
 
 <p>It takes the same text you would give Mermaid.js and returns an SVG string, synchronously:</p>
 <pre tabindex="0"><code class="language-js">import { render } from &#39;pele&#39;

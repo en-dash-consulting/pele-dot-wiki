@@ -82,6 +82,9 @@ textarea { font: 400 .9rem/1.6 var(--font-mono); color: var(--code-fg); backgrou
 .hero { padding: var(--s-4) 0 var(--s-6); scroll-margin-top: var(--s-5); }
 .hatnote { display: inline-block; margin: 0 0 var(--s-5); padding: var(--s-2) var(--s-4); font-size: .92rem; color: var(--ink); background: var(--surface); border-radius: var(--radius-sm); }
 .hatnote a { color: var(--link); font-weight: 500; }
+.callout { max-width: 72ch; margin: var(--s-7) 0; padding: var(--s-5) var(--s-6); border-left: 3px solid var(--accent); background: var(--surface); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.callout h2 { margin: 0 0 var(--s-3); font-size: 1.25rem; }
+.callout p { margin: 0 0 var(--s-3); } .callout p:last-child { margin: 0; }
 .hero-copy h1 { margin-bottom: var(--s-4); }
 .sub { font-size: 1.05rem; line-height: 1.65; max-width: 60ch; margin-bottom: var(--s-5); }
 .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3); margin: 0; }
