@@ -8,12 +8,6 @@ sub: "Pele is kepano's open-source library that renders Mermaid diagrams to SVG,
 description: "Live demos of Pele, kepano's Mermaid renderer, running next to Mermaid.js in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input."
 type: home
 ---
-<aside class="callout" aria-labelledby="kepano-title">
-<h2 id="kepano-title">Made by kepano</h2>
-<p>Pele is the work of <a href="https://stephango.com">Steph Ango</a>, known as <a href="https://github.com/kepano">kepano</a>, the CEO of <a href="https://obsidian.md">Obsidian</a>. He wrote his own Mermaid renderer, with its own parsers and its own layout, that reads every diagram type in Mermaid 12.1.0, has zero dependencies, draws synchronously, weighs about 230 kB and is up to 500 times faster than Mermaid.js. He built it so that diagrams in Obsidian draw instantly and follow your theme, then released it under MIT so everyone else can have that too.</p>
-<p>Everything fast on this page is his work. This site only measures it. Read <a href="https://pele.run">his docs</a>, try <a href="https://pele.run/playground">his playground</a>, star <a href="https://github.com/obsidianmd/pele">the repo</a>, and if you use Pele, tell him.</p>
-</aside>
-
 ## Six demos
 
 Each runs pele 1.6.0 in your browser. Most run Mermaid.js 12.1.0 beside it, with the same text, and time both.

@@ -4,11 +4,7 @@
 
 Source: https://pele.wiki/ · Last updated 2026-10-26
 
-<aside class="callout" aria-labelledby="kepano-title">
-<h2 id="kepano-title">Made by kepano</h2>
-<p>Pele is the work of <a href="https://stephango.com">Steph Ango</a>, known as <a href="https://github.com/kepano">kepano</a>, the CEO of <a href="https://obsidian.md">Obsidian</a>. He wrote his own Mermaid renderer, with its own parsers and its own layout, that reads every diagram type in Mermaid 12.1.0, has zero dependencies, draws synchronously, weighs about 230 kB and is up to 500 times faster than Mermaid.js. He built it so that diagrams in Obsidian draw instantly and follow your theme, then released it under MIT so everyone else can have that too.</p>
-<p>Everything fast on this page is his work. This site only measures it. Read <a href="https://pele.run">his docs</a>, try <a href="https://pele.run/playground">his playground</a>, star <a href="https://github.com/obsidianmd/pele">the repo</a>, and if you use Pele, tell him.</p>
-</aside>
+Made by kepano Pele is the work of Steph Ango, known as kepano, the CEO of Obsidian. He wrote his own Mermaid renderer, with its own parsers and its own layout, that reads every diagram type in Mermaid 12.1.0, has zero dependencies, draws synchronously, weighs about 230 kB and is up to 500 times faster than Mermaid.js. He built it so that diagrams in Obsidian draw instantly and follow your theme, then released it under MIT so everyone else can have that too. Everything fast on this page is his work. This site only measures it. Read his docs, try his playground, star the repo, and if you use Pele, tell him.
 
 ## Six demos
 

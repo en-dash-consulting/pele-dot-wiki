@@ -127,6 +127,12 @@ const footer = `<footer class="site-footer"><div class="foot-inner">
 
 const lineMap = (cls = '') => `<ol class="line-map ${cls}" aria-label="Six demos">${LINE.map(s => `<li style="${lineVar(s.n)}"><a href="${s.slug === 'index' ? '/' + (s.anchor ?? '') : path(s.slug)}"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n">Demo ${s.n}</span><span class="stop-name">${esc(s.name)}</span><span class="stop-desc">${esc(s.desc)}</span></a></li>`).join('')}</ol>`
 
+// The tribute to Pele's author sits between the title and the first demo on the home page.
+const KEPANO = `<aside class="callout" aria-labelledby="kepano-title">
+<h2 id="kepano-title">Made by kepano</h2>
+<p>Pele is the work of <a href="https://stephango.com">Steph Ango</a>, known as <a href="https://github.com/kepano">kepano</a>, the CEO of <a href="https://obsidian.md">Obsidian</a>. He wrote his own Mermaid renderer, with its own parsers and its own layout, that reads every diagram type in Mermaid 12.1.0, has zero dependencies, draws synchronously, weighs about 230 kB and is up to 500 times faster than Mermaid.js. He built it so that diagrams in Obsidian draw instantly and follow your theme, then released it under MIT so everyone else can have that too.</p>
+<p>Everything fast on this page is his work. This site only measures it. Read <a href="https://pele.run">his docs</a>, try <a href="https://pele.run/playground">his playground</a>, star <a href="https://github.com/obsidianmd/pele">the repo</a>, and if you use Pele, tell him.</p>
+</aside>`
 function hero(p) {
   return `<section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
@@ -136,6 +142,7 @@ function hero(p) {
           <p class="hero-cta"><a class="button" href="#tr-title">Try it ↓</a> <a class="button secondary" href="${PELE_SITE}" rel="noopener">Official docs ↗</a> <button type="button" class="install" data-copy="npm install pele" ><span class="visually-hidden">Copy the install command: </span>npm install pele <span class="copy-label" aria-hidden="true">Copy</span></button></p>
         </div>
       </section>
+      ${KEPANO}
       ${TYPE_RACE()}`
 }
 
@@ -252,7 +259,7 @@ rmSync(join(ROOT, 'pages'), { recursive: true, force: true })
 mkdirSync(join(ROOT, 'pages'), { recursive: true })
 rmSync(join(ROOT, 'public/md'), { recursive: true, force: true })
 mkdirSync(join(ROOT, 'public/md'), { recursive: true })
-const md = p => `# ${strip(p.h1)}\n\n> ${p.description}\n\nSource: ${url(p.slug)} · Last updated ${p.lastmod}\n\n${p.intro ? strip(p.intro) + '\n\n' : ''}${p.body.replace('<!-- demo -->', `*(Interactive demo: open ${url(p.slug)})*`).replace('<!-- line -->', LINE.map(s => `${s.n}. [${s.name}](${s.slug === 'index' ? SITE + '/' : url(s.slug)}): ${s.desc}`).join('\n')).replace('<!-- hub -->', '')}`
+const md = p => `# ${strip(p.h1)}\n\n> ${p.description}\n\nSource: ${url(p.slug)} · Last updated ${p.lastmod}\n\n${p.intro ? strip(p.intro) + '\n\n' : ''}${p.slug === 'index' ? strip(KEPANO.replace(/<\/p>/g, '\n\n')) + '\n\n' : ''}${p.body.replace('<!-- demo -->', `*(Interactive demo: open ${url(p.slug)})*`).replace('<!-- line -->', LINE.map(s => `${s.n}. [${s.name}](${s.slug === 'index' ? SITE + '/' : url(s.slug)}): ${s.desc}`).join('\n')).replace('<!-- hub -->', '')}`
 
 // Build-time Pele drawings (scripts/prerender.mjs), so the first paint shows the finished diagram.
 const SNAP = existsSync(SNAPSHOT) ? JSON.parse(readFileSync(SNAPSHOT, 'utf8')) : null
