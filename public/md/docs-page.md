@@ -2,7 +2,7 @@
 
 > Demo: 200 Mermaid diagrams on one page. How long Pele and Mermaid.js each take to draw the last one, in your browser.
 
-Source: https://pele.wiki/pages/docs-page.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/docs-page.html · Last updated 2026-10-26
 
 Press the button and both libraries draw the same 200 diagrams, as on a long documentation page or a large note.
 

@@ -2,7 +2,7 @@
 
 > Demo: narrow the viewport. Pele changes a wide flowchart to top-to-bottom so the text stays readable; Mermaid.js scales the drawing down.
 
-Source: https://pele.wiki/pages/phone.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/phone.html · Last updated 2026-10-26
 
 On a narrow screen Pele turns a left-to-right flowchart to run top to bottom instead of shrinking it. Drag the handle and watch the “smallest text” size above each frame.
 

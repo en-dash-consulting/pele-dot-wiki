@@ -2,7 +2,7 @@
 
 > All 32 Mermaid diagram types drawn by Pele: flowchart, sequence, class, Gantt, sankey, C4, Wardley and more. Editable, with Mermaid.js for comparison.
 
-Source: https://pele.wiki/pages/gallery.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/gallery.html · Last updated 2026-10-26
 
 All 32 diagram types built into Mermaid 12.1.0, drawn by Pele as this page loaded. Edit any of them, or show the Mermaid.js version.
 

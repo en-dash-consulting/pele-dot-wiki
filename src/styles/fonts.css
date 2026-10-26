@@ -1,4 +1,5 @@
-/* Self-hosted fonts (SIL OFL). Only the two faces needed for the first screen are preloaded:
+/* Self-hosted fonts (SIL OFL). The site itself uses the system typeface; these faces load only when the theme lab
+   picks one, or for code (Commit Mono). Nothing is preloaded.
    Montserrat (one variable file, weights 500–800) and Merriweather 400. Each is split into a small "core" subset
    (ASCII, Latin-1 and common punctuation) and the rest of Latin, with non-overlapping unicode-ranges, so
    the full file is only fetched if a page uses a character outside the core. Secondary faces use font-display: optional,

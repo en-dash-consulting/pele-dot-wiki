@@ -2,7 +2,7 @@
 
 > Every Pele CSS variable for colours, fonts, corner radius and chart series, with light and dark mode examples and why colour changes need no redraw.
 
-Source: https://pele.wiki/pages/theming.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/theming.html · Last updated 2026-10-26
 
 Pele diagrams are coloured by CSS variables. Set --pele-bg, --pele-fg, --pele-accent and friends on the diagram or any parent, and every diagram inside follows, without being redrawn.
 

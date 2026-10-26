@@ -2,7 +2,7 @@
 
 > Answers about Pele: what it is, who made it, Mermaid compatibility, speed, size, theming, phones, safety, Node, licence, and when to keep Mermaid.js.
 
-Source: https://pele.wiki/pages/faq.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/faq.html · Last updated 2026-10-26
 
 Short answers about Pele. Each links to the page with the detail.
 

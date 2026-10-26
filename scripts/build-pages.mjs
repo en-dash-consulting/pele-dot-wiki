@@ -130,6 +130,7 @@ const lineMap = (cls = '') => `<ol class="line-map ${cls}" aria-label="Six demos
 function hero(p) {
   return `<section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
+          <p class="hatnote">This site is about Pele, the diagram library. For Pelé the footballer, see <a href="${FOOTBALLER.path}">the wiki</a>.</p>
           <h1 id="hero-title">${p.h1}</h1>
           <p class="sub">${p.sub}</p>
           <p class="hero-cta"><a class="button" href="#tr-title">Try it ↓</a> <button type="button" class="install" data-copy="npm install pele" ><span class="visually-hidden">Copy the install command: </span>npm install pele <span class="copy-label" aria-hidden="true">Copy</span></button></p>
@@ -206,8 +207,6 @@ function render(p) {
   <meta name="color-scheme" content="light dark" />
   ${p.slug === '404' ? '' : `<link rel="canonical" href="${url(p.slug)}" />
   <link rel="alternate" type="text/markdown" href="/md/${p.slug}.md" title="Markdown version" />`}
-  <link rel="preload" href="/fonts/montserrat-latin-wght-normal-core.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/merriweather-latin-400-normal-core.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.webmanifest" />

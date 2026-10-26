@@ -2,7 +2,7 @@
 
 > Six Pele demos: typing, streaming, CSS theming, narrow screens, a 200-diagram page and untrusted input, each next to Mermaid.js.
 
-Source: https://pele.wiki/pages/demos.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/demos.html · Last updated 2026-10-26
 
 Six demos, one idea each. All run the real pele package in your browser; most run Mermaid.js beside it on the same text.
 

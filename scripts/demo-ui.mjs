@@ -5,34 +5,39 @@ const EXAMPLES = JSON.parse(readFileSync(new URL('../src/demos/examples.json', i
 const PRESETS = JSON.parse(readFileSync(new URL('../src/demos/theme-presets.json', import.meta.url), 'utf8'))
 const D = PRESETS.day
 const BOARD_STYLE = [`--pele-bg: ${D.bg};`, `--pele-fg: ${D.fg};`, `--pele-line: ${D.line};`, `--pele-surface: ${D.surface};`, `--pele-surface-alt: ${D.surface};`, `--pele-border: ${D.border};`, `--pele-accent: ${D.accent};`, `--pele-muted: ${D.fg};`,
-  ...D.series.map((c, i) => `--pele-series-${i + 1}: ${c};`), `--pele-font: 'Montserrat', system-ui, sans-serif;`, `--pele-radius: 4px;`].join(' ')
+  ...D.series.map((c, i) => `--pele-series-${i + 1}: ${c};`), `--pele-font: system-ui, sans-serif;`, `--pele-radius: 4px;`].join(' ')
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 export const TYPE_RACE = () => `<section class="demo type-race" aria-labelledby="tr-title" data-type-race>
   <div class="tr-bar">
-    <h2 id="tr-title" class="tr-title"><span class="roundel" style="--line:var(--l1);--on-line:var(--on-l1)" aria-hidden="true">1</span> Type a diagram</h2>
+    <h2 id="tr-title" class="tr-title"><span class="roundel" aria-hidden="true">1</span> Type a diagram</h2>
     <div class="tr-controls">
       <button id="tr-auto" type="button" class="button" aria-pressed="false"><span aria-hidden="true">▶</span> Auto-type</button>
       <label for="tr-example" class="visually-hidden">Example diagram</label>
-      <select id="tr-example"><option value="flow">Checkout flowchart</option><option value="seq">Login sequence</option><option value="state">Traffic-light states</option></select>
+      <select id="tr-example"><option value="big">Order lifecycle, 36 nodes</option><option value="flow">Checkout, 8 nodes</option><option value="seq">Login sequence</option><option value="state">Traffic-light states</option></select>
     </div>
   </div>
+  <div id="tr-scale" class="tr-scale" hidden>
+    <p class="tr-scale-row"><span class="tr-scale-name">Pele</span><span class="tr-scale-track"><span id="tr-scale-pele" class="tr-scale-bar"></span></span><output id="tr-scale-pele-ms" class="tr-ms"></output></p>
+    <p class="tr-scale-row"><span class="tr-scale-name">Mermaid.js</span><span class="tr-scale-track"><span id="tr-scale-mm" class="tr-scale-bar"></span></span><output id="tr-scale-mm-ms" class="tr-ms"></output></p>
+    <p class="tr-scale-key">Time per redraw, to scale. The mark is one frame at 60 fps (16.7 ms). A redraw that takes longer than a frame is felt on every keystroke; one that takes a fraction of a frame is not.</p>
+  </div>
+  <p id="tr-verdict" class="tr-verdict" role="status" aria-live="polite">Press <strong>Auto-type</strong>, or type in the box. Both redraw on every keystroke.</p>
   <div class="tr-grid">
     <div class="tr-editor">
       <label for="tr-src" class="tr-label">Mermaid text <span class="hint">· edit me</span></label>
-      <textarea id="tr-src" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" rows="11">${esc(EXAMPLES.flow)}</textarea>
+      <textarea id="tr-src" wrap="off" spellcheck="false" autocapitalize="off" autocomplete="off" rows="11">${esc(EXAMPLES.big)}</textarea>
     </div>
     <figure class="tr-pane tr-pele">
       <figcaption><span class="tr-name">Pele</span><span class="tr-ms-wrap">each redraw <output id="tr-pele-ms" class="tr-ms">–</output></span></figcaption>
-      <div id="tr-pele" class="tr-canvas" role="img" aria-label="The diagram as drawn by Pele, updated on every keystroke"></div>
+      <div id="tr-pele" class="tr-canvas" role="img" tabindex="0" aria-label="The diagram as drawn by Pele, updated on every keystroke"></div>
     </figure>
     <figure class="tr-pane tr-mermaid">
       <figcaption><span class="tr-name">Mermaid.js</span><span class="tr-ms-wrap">each redraw <output id="tr-mm-ms" class="tr-ms">waiting…</output></span></figcaption>
-      <div id="tr-mm" class="tr-canvas" role="img" aria-label="The same diagram as drawn by Mermaid.js"></div>
+      <div id="tr-mm" class="tr-canvas" role="img" tabindex="0" aria-label="The same diagram as drawn by Mermaid.js"></div>
       <p id="tr-mm-lag" class="tr-lag" hidden></p>
     </figure>
   </div>
-  <p id="tr-verdict" class="tr-verdict" role="status" aria-live="polite">Press <strong>Auto-type</strong>, or type in the box. Both redraw on every keystroke.</p>
 </section>`
 
 export const STREAM = () => `<section class="demo stream" aria-labelledby="st-title" data-demo="stream">
@@ -65,7 +70,7 @@ export const THEME_LAB = () => `<section class="demo lab" aria-labelledby="lab-t
           ${[['bg', 'Background'], ['fg', 'Text'], ['line', 'Lines'], ['surface', 'Box fill'], ['border', 'Box border'], ['accent', 'Accent']].map(([k, l]) => `<label class="swatch"><input type="color" id="lab-${k}" data-var="--pele-${k}" value="${PRESETS.day[k]}" /><span>${l}</span></label>`).join('')}
         </div>
         <label class="lab-field" for="lab-font">Font</label>
-        <select id="lab-font"><option value="'Montserrat', system-ui, sans-serif">Montserrat</option><option value="'Merriweather', Georgia, serif">Merriweather</option><option value="'Commit Mono', monospace">Commit Mono</option><option value="Georgia, serif">Georgia</option></select>
+        <select id="lab-font"><option value="system-ui, sans-serif">System</option><option value="'Montserrat', system-ui, sans-serif">Montserrat</option><option value="'Merriweather', Georgia, serif">Merriweather</option><option value="'Commit Mono', monospace">Commit Mono</option></select>
         <label class="lab-field" for="lab-radius">Corner radius <output id="lab-radius-out">4px</output></label>
         <input id="lab-radius" type="range" min="0" max="24" step="1" value="4" />
       </fieldset>

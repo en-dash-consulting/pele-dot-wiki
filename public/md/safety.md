@@ -2,7 +2,7 @@
 
 > Demo: give Pele Mermaid text with script tags, javascript: links and oversized input, and see what reaches the page.
 
-Source: https://pele.wiki/pages/safety.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/safety.html · Last updated 2026-10-26
 
 Pele's output is SVG with no scripts, so diagram text from anyone can be rendered. Pick an example or paste your own; the checklist shows what reached the page.
 

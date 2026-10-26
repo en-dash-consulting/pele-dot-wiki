@@ -2,7 +2,7 @@
 
 > Demo: a Mermaid diagram arrives in chunks, as from an AI model. Pele redraws on each chunk; Mermaid.js catches up in jumps.
 
-Source: https://pele.wiki/pages/stream.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/stream.html · Last updated 2026-10-26
 
 A diagram redrawn on every chunk of a streaming answer. Press Ask: both chat windows receive the same answer at the same speed.
 

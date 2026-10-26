@@ -2,7 +2,7 @@
 
 > Live demos of Pele, kepano's Mermaid renderer, running next to Mermaid.js in your browser: typing, streaming, theming, narrow screens, 200 diagrams, untrusted input.
 
-Source: https://pele.wiki/ · Last updated 2026-10-17
+Source: https://pele.wiki/ · Last updated 2026-10-26
 
 ## Six demos
 

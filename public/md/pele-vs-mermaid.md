@@ -2,7 +2,7 @@
 
 > Pele and Mermaid.js side by side: syntax, render speed, bundle size, theming, narrow screens, safety, and what only Mermaid.js does.
 
-Source: https://pele.wiki/pages/pele-vs-mermaid.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/pele-vs-mermaid.html · Last updated 2026-10-26
 
 Both read the same Mermaid text. Pele draws it faster from a smaller bundle, colours it with CSS and adapts it to narrow screens. Mermaid.js has the reference look, click callbacks and plugins.
 

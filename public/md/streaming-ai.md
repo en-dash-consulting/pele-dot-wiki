@@ -2,7 +2,7 @@
 
 > Render Mermaid from streaming AI answers with Pele: redraw on every chunk, keep the last good drawing, handle half-written lines, stay safe.
 
-Source: https://pele.wiki/pages/streaming-ai.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/streaming-ai.html · Last updated 2026-10-26
 
 AI models write Mermaid fluently, a few characters at a time. Because Pele draws in well under a millisecond and synchronously, a chat app can redraw the diagram on every chunk, so it grows with the answer instead of appearing at the end.
 

@@ -2,7 +2,7 @@
 
 > Pele is an MIT-licensed Mermaid renderer by kepano for Obsidian: Mermaid text in, themeable SVG out, synchronous, zero dependencies, about 230 kB gzip.
 
-Source: https://pele.wiki/pages/what-is-pele.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/what-is-pele.html · Last updated 2026-10-26
 
 Pele is an open-source JavaScript library that draws Mermaid diagrams as SVG. kepano (Steph Ango, CEO of Obsidian) wrote it for Obsidian, so that diagrams draw instantly and match the user's theme. Mermaid text in, SVG out, synchronously, with no dependencies.
 

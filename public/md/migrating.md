@@ -2,7 +2,7 @@
 
 > Switch from Mermaid.js to Pele: the code swap, moving themeVariables to CSS, what looks different, what is not supported, and a safe fallback plan.
 
-Source: https://pele.wiki/pages/migrating.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/migrating.html · Last updated 2026-10-26
 
 Your Mermaid text stays exactly the same; only the code that draws it changes. Swap mermaid.render() for Pele's render() or mount(), move your theme into CSS, and check the few features that differ.
 

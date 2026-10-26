@@ -2,7 +2,7 @@
 
 > Demo: recolour Pele diagrams with CSS variables, with no redraw. Mermaid.js redraws for every change.
 
-Source: https://pele.wiki/pages/theme-lab.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/theme-lab.html · Last updated 2026-10-26
 
 Pele diagrams take their colours from CSS variables, so a colour change needs no redraw. Pick a preset or change a colour; the counters show how often each library redrew.
 

@@ -2,7 +2,7 @@
 
 > How Pele handles untrusted Mermaid: no scripts or HTML in its SVG, blocked javascript: links, size and edge limits, and the four things your app must still do.
 
-Source: https://pele.wiki/pages/security.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/security.html · Last updated 2026-10-26
 
 Yes, Pele is designed to draw diagrams written by anyone. Its SVG contains no scripts, event handlers or HTML labels, dangerous links are removed, and oversized diagrams are refused. Your app still has a few jobs, listed below.
 

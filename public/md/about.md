@@ -2,7 +2,7 @@
 
 > pele.wiki is an independent site about Pele, kepano's Mermaid renderer, by En Dash Consulting. Credits, versions, sources and corrections.
 
-Source: https://pele.wiki/pages/about.html · Last updated 2026-10-17
+Source: https://pele.wiki/pages/about.html · Last updated 2026-10-26
 
 pele.wiki is an independent site with live demos and notes on Pele, the Mermaid renderer by kepano. The official documentation is at pele.run; this site adds side-by-side comparisons with Mermaid.js that you can run yourself.
 
